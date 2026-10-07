@@ -1,6 +1,6 @@
 // Daily progress e-mail for the admin.
 //
-// Called every evening by pg_cron (see supabase/migrations/*_daily_report_cron.sql).
+// Called every night at 00:00 Baku by pg_cron (see supabase/migrations/*_daily_report_cron.sql).
 // Reads each student's review log, builds a short report and sends it through Resend.
 // Secrets (Resend key, shared cron secret, recipient) live in Supabase Vault and are
 // read through public.get_secret(), which only the service role may call.

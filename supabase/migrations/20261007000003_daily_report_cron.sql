@@ -1,4 +1,4 @@
--- Daily progress e-mail: every day at 22:00 Asia/Baku (18:00 UTC; Baku has no DST).
+-- Daily progress e-mail: every day at 00:00 Asia/Baku (20:00 UTC; Baku has no DST).
 -- The Edge Function checks the shared secret that is kept in Supabase Vault
 -- (secrets resend_api_key, report_cron_secret and report_recipient are created
 -- separately and are never stored in the repository).
@@ -22,7 +22,7 @@ select cron.unschedule('daily-report') where exists (select 1 from cron.job wher
 
 select cron.schedule(
   'daily-report',
-  '0 18 * * *',
+  '0 20 * * *',
   $$
   select net.http_post(
     url := 'https://lrjyfsqvqddzgcugqidb.supabase.co/functions/v1/daily-report',
