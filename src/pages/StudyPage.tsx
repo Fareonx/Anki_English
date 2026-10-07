@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useAuth } from '../auth';
+import { BackIcon, PenIcon, SpeakerIcon } from '../components/Icons';
 import { addSentence, saveAnswer, type CardRow, type Note } from '../lib/db';
 import { deckPath, subtreeIds } from '../lib/decks';
 import { StudySession, type Counts } from '../lib/scheduler/queue';
@@ -24,7 +25,7 @@ function SpeakButton({ text }: { text: string }) {
   if (!canSpeak()) return null;
   return (
     <button type="button" className="icon-btn speak" onClick={() => speak(text)} aria-label="Произнести">
-      🔊
+      <SpeakerIcon />
     </button>
   );
 }
@@ -55,10 +56,12 @@ function Details({ note }: { note: Note }) {
 }
 
 function SentenceBox({ note, studentId }: { note: Note; studentId: string }) {
+  const [open, setOpen] = useState(false);
   const [text, setText] = useState('');
   const [state, setState] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
 
   useEffect(() => {
+    setOpen(false);
     setText('');
     setState('idle');
   }, [note.id]);
@@ -74,13 +77,25 @@ function SentenceBox({ note, studentId }: { note: Note; studentId: string }) {
     }
   }
 
+  if (!open) {
+    return (
+      <button type="button" className="sentence-toggle" onClick={() => setOpen(true)}>
+        <PenIcon />
+        <span>
+          Составить предложение со словом <b>{note.word}</b>
+        </span>
+      </button>
+    );
+  }
+
   return (
     <div className="sentence-box">
       <label htmlFor="sentence">
-        ✍️ Составь своё предложение со словом <b>{note.word}</b>
+        Своё предложение со словом <b>{note.word}</b>
       </label>
       <textarea
         id="sentence"
+        autoFocus
         rows={2}
         value={text}
         placeholder="Необязательно, но так слово запомнится лучше"
@@ -212,6 +227,7 @@ export function StudyPage() {
         setNotice(`«${word}» — трудное слово (забываний: ${result.card.lapses}). Оно отмечено в статистике.`);
       }
       setAnswered((n) => n + 1);
+      navigator.vibrate?.(10);
       sessionRef.current?.apply({ ...current, ...result.card });
       advance();
     },
@@ -253,8 +269,8 @@ export function StudyPage() {
   return (
     <div className="study">
       <div className="study-head">
-        <Link to="/" className="muted">
-          ← Колоды
+        <Link to="/" className="icon-btn back" aria-label="К колодам">
+          <BackIcon />
         </Link>
         <span className="study-title">{title}</span>
         <CountsBar counts={counts} current={current} />
@@ -269,7 +285,7 @@ export function StudyPage() {
 
       {current && note ? (
         <>
-          <article className="flashcard">
+          <article className={`flashcard ${revealed ? "revealed" : ""}`} key={current.id}>
             {current.template === 0 ? (
               <div className="front">
                 <div className="prompt muted small">Вспомни перевод</div>
