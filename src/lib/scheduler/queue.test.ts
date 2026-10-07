@@ -60,6 +60,15 @@ describe('StudySession', () => {
     expect(s.next(NOW)?.template).toBe(0);
   });
 
+  it('can introduce the RU/AZ -> EN (typing) card of a new word first', () => {
+    const s = new StudySession(newWords(3), noStats(), cfg, NOW, { reverseFirst: true });
+    expect(s.counts().new).toBe(3);
+    expect(s.next(NOW)?.id).toBe('c0-1');
+    // The other direction of the same word still waits for another day.
+    s.apply({ ...s.next(NOW)!, ctype: CardType.Review, queue: Queue.Review, due: TODAY + 1, ivl: 1 });
+    expect(s.next(NOW)?.id).toBe('c1-1');
+  });
+
   it('limits new cards per day: 50 cards = 25 words in both directions', () => {
     const s = new StudySession(newWords(60), noStats(), cfg, NOW);
     expect(s.counts().new).toBe(50);

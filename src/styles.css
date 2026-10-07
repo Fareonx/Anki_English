@@ -1572,3 +1572,13 @@ tr.dim td {
     padding: 6px 8px;
   }
 }
+
+.typing-actions {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 8px;
+}
+
+.btn.dont-know {
+  color: var(--ink-2);
+}

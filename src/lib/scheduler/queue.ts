@@ -20,6 +20,15 @@ export interface TodayStats {
   touchedNotes: Set<string>;
 }
 
+export interface SessionOptions {
+  /**
+   * Introduce the RU/AZ -> EN card of a new word before the EN -> RU/AZ one, so the
+   * student writes the English word from the first day (new cards carry
+   * due = position * 2 + template, so this only changes the order within a word).
+   */
+  reverseFirst?: boolean;
+}
+
 export interface Counts {
   new: number;
   learn: number;
@@ -59,6 +68,7 @@ export class StudySession<T extends StudyCard> {
     stats: TodayStats,
     private readonly cfg: SchedConfig,
     nowMs: number,
+    options: SessionOptions = {},
   ) {
     const today = dayNumber(nowMs, cfg.timeZone, cfg.rolloverHour);
     this.cutoffSec = Math.floor(dayStartMs(today + 1, cfg.timeZone, cfg.rolloverHour) / 1000);
@@ -82,7 +92,8 @@ export class StudySession<T extends StudyCard> {
       used.add(c.note_id);
     }
 
-    const newPool = cards.filter((c) => c.queue === Queue.New).sort((a, b) => a.due - b.due);
+    const newOrder = (c: T) => (options.reverseFirst ? Math.floor(c.due / 2) * 2 + (1 - (c.due % 2)) : c.due);
+    const newPool = cards.filter((c) => c.queue === Queue.New).sort((a, b) => newOrder(a) - newOrder(b));
     const newLimit = Math.max(0, cfg.newPerDay - stats.newDone);
     const news: T[] = [];
     for (const c of newPool) {

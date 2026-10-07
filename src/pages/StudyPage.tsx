@@ -189,6 +189,7 @@ export function StudyPage() {
   const [moreNew, setMoreNew] = useState(0);
   const [typed, setTyped] = useState('');
   const [typedResult, setTypedResult] = useState<TypedResult | null>(null);
+  const [gaveUp, setGaveUp] = useState(false);
 
   const notesById = useMemo(() => new Map(notes.map((n) => [n.id, n])), [notes]);
   const cfg = useMemo(() => ({ ...config, newPerDay: config.newPerDay + extraNew }), [config, extraNew]);
@@ -207,6 +208,7 @@ export function StudyPage() {
     setRevealed(false);
     setTyped('');
     setTypedResult(null);
+    setGaveUp(false);
     setShownAt(now);
     setFinished(s.isFinished());
     setWaitUntil(!next && !s.isFinished() ? s.nextLearningDue() : null);
@@ -223,7 +225,7 @@ export function StudyPage() {
     const subset = ids ? cards.filter((c) => ids.has(c.deck_id)) : cards;
     const cardNote = new Map(cards.map((c) => [c.id, c.note_id]));
     const summary = summarizeToday(revlog, cardNote, cfg, Date.now());
-    const session = new StudySession(subset, summary, cfg, Date.now());
+    const session = new StudySession(subset, summary, cfg, Date.now(), { reverseFirst: typeAnswers });
     sessionRef.current = session;
 
     const untouchedNewNotes = new Set(
@@ -231,7 +233,7 @@ export function StudyPage() {
     );
     setMoreNew(Math.max(0, untouchedNewNotes.size - session.counts().new));
     advance();
-  }, [loading, cards, decks, revlog, deckId, cfg, advance]);
+  }, [loading, cards, decks, revlog, deckId, cfg, advance, typeAnswers]);
 
   // While waiting for learning cards, check every few seconds.
   useEffect(() => {
@@ -286,6 +288,7 @@ export function StudyPage() {
   }, [current, notesById]);
 
   const typing = !!current && current.template === 1 && typeAnswers;
+
   const mistyped = typedResult !== null && !typedResult.correct;
 
   // Compare the typed word with the answer, then show the answer.
@@ -298,6 +301,17 @@ export function StudyPage() {
     (document.activeElement as HTMLElement | null)?.blur();
     reveal();
   }, [current, revealed, notesById, typed, reveal]);
+
+  // "I don't know": show the answer; like a mistake, only "Again" is offered.
+  const giveUp = useCallback(() => {
+    if (!current || revealed) return;
+    const note = notesById.get(current.note_id);
+    if (!note) return;
+    setGaveUp(true);
+    setTypedResult(checkTypedAnswer('', note.word));
+    (document.activeElement as HTMLElement | null)?.blur();
+    reveal();
+  }, [current, revealed, notesById, reveal]);
 
   // Anki keyboard shortcuts: Space/Enter shows the answer (then means "Good"), 1-4 answer.
   useEffect(() => {
@@ -400,7 +414,7 @@ export function StudyPage() {
                   </>
                 ) : (
                   <>
-                    {typedResult && <TypedFeedback result={typedResult} />}
+                    {typedResult && !gaveUp && <TypedFeedback result={typedResult} />}
                     <div className="word">
                       {note.word} <SpeakButton text={note.word} />
                     </div>
@@ -416,9 +430,20 @@ export function StudyPage() {
 
           <div className="answer-bar">
             {!revealed ? (
-              <button className="btn primary wide show-answer" onClick={typing ? check : reveal}>
-                {typing ? t('study.check') : t('study.show_answer')}
-              </button>
+              typing ? (
+                <div className="typing-actions">
+                  <button className="btn show-answer dont-know" onClick={giveUp}>
+                    {t('study.dont_know')}
+                  </button>
+                  <button className="btn primary show-answer" onClick={check}>
+                    {t('study.check')}
+                  </button>
+                </div>
+              ) : (
+                <button className="btn primary wide show-answer" onClick={reveal}>
+                  {t('study.show_answer')}
+                </button>
+              )
             ) : mistyped ? (
               <div className="mistyped-bar">
                 <button
