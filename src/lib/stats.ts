@@ -119,8 +119,8 @@ export function forecast(cards: CardRow[], cfg: SchedConfig, nowMs: number, days
   return out;
 }
 
-export function formatDuration(ms: number): string {
+export function formatDuration(ms: number, u: { min: string; hour: string } = { min: 'мин', hour: 'ч' }): string {
   const mins = Math.round(ms / 60_000);
-  if (mins < 60) return `${mins} мин`;
-  return `${Math.floor(mins / 60)} ч ${mins % 60} мин`;
+  if (mins < 60) return `${mins} ${u.min}`;
+  return `${Math.floor(mins / 60)} ${u.hour} ${mins % 60} ${u.min}`;
 }

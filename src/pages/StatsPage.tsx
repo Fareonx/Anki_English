@@ -13,11 +13,9 @@ import {
   summarizeToday,
 } from '../lib/stats';
 import { useStudentData } from '../lib/useStudentData';
+import { useI18n } from '../lib/i18n';
 
 const DAYS = 14;
-const dayFmt = new Intl.DateTimeFormat('ru', { day: 'numeric', month: 'short', timeZone: 'UTC' });
-const weekdayFmt = new Intl.DateTimeFormat('ru', { weekday: 'short', timeZone: 'UTC' });
-const dateTimeFmt = new Intl.DateTimeFormat('ru', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
 
 function Tile({ value, label, tone }: { value: string | number; label: string; tone?: 'warn' }) {
   return (
@@ -30,6 +28,15 @@ function Tile({ value, label, tone }: { value: string | number; label: string; t
 
 export function StatsPage() {
   const { student, config } = useAuth();
+  const { t, units, locale } = useI18n();
+  const { dayFmt, weekdayFmt, dateTimeFmt } = useMemo(
+    () => ({
+      dayFmt: new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'short', timeZone: 'UTC' }),
+      weekdayFmt: new Intl.DateTimeFormat(locale, { weekday: 'short', timeZone: 'UTC' }),
+      dateTimeFmt: new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }),
+    }),
+    [locale],
+  );
   const { decks, cards, notes, revlog, loading, error } = useStudentData({ notes: true, revlogDays: 30 });
   const [sentences, setSentences] = useState<Sentence[]>([]);
   const [hoverDay, setHoverDay] = useState<number | null>(null);
@@ -79,7 +86,7 @@ export function StatsPage() {
     [cards],
   );
 
-  if (loading) return <p className="muted">Загрузка…</p>;
+  if (loading) return <p className="muted">{t('loading')}</p>;
   if (error) return <p className="error">{error}</p>;
 
   const maxBar = Math.max(1, ...s.activity.map((d) => d.newCards + d.reviews));
@@ -90,35 +97,40 @@ export function StatsPage() {
 
   return (
     <div className="stack">
-      <h2>Статистика: {student?.name}</h2>
+      <h2>{t('stats.title', { name: student?.name ?? '' })}</h2>
 
       <section className="tiles">
-        <Tile value={s.today.newDone} label="новых карточек сегодня" />
-        <Tile value={s.today.reviewsDone} label="повторений сегодня" />
-        <Tile value={formatDuration(s.today.timeMs)} label="время сегодня" />
+        <Tile value={s.today.newDone} label={t('stats.new_today')} />
+        <Tile value={s.today.reviewsDone} label={t('stats.reviews_today')} />
+        <Tile value={formatDuration(s.today.timeMs, units)} label={t('stats.time_today')} />
         <Tile
           value={remainingTotal}
-          label={remainingTotal ? 'осталось на сегодня' : 'на сегодня всё ✓'}
+          label={remainingTotal ? t('stats.left_today') : t('stats.all_done')}
           tone={remainingTotal ? 'warn' : undefined}
         />
-        <Tile value={`🔥 ${s.days}`} label="дней подряд" />
-        <Tile value={pct(s.retention7)} label="верных ответов (7 дн.)" />
+        <Tile value={`🔥 ${s.days}`} label={t('stats.streak')} />
+        <Tile value={pct(s.retention7)} label={t('stats.correct7')} />
       </section>
 
       <section className="card pad">
-        <h3>Последние {DAYS} дней</h3>
+        <h3>{t('stats.last_days', { n: DAYS })}</h3>
         <div className="legend small">
           <span>
-            <i className="swatch new" /> новые
+            <i className="swatch new" /> {t('stats.legend_new')}
           </span>
           <span>
-            <i className="swatch review" /> повторения
+            <i className="swatch review" /> {t('stats.legend_reviews')}
           </span>
         </div>
         <p className="chart-readout small" aria-live="polite">
           {shown
-            ? `${weekdayFmt.format(shown.date)}, ${dayFmt.format(shown.date)}: ${shown.newCards} новых, ${shown.reviews} повторений, ${formatDuration(shown.timeMs)}`
-            : 'Наведи или нажми на столбик'}
+            ? t('stats.readout', {
+                day: `${weekdayFmt.format(shown.date)}, ${dayFmt.format(shown.date)}`,
+                new: shown.newCards,
+                reviews: shown.reviews,
+                time: formatDuration(shown.timeMs, units),
+              })
+            : t('stats.readout_hint')}
         </p>
         <div className="bars" onMouseLeave={() => setHoverDay(null)}>
           {s.activity.map((d, i) => (
@@ -129,7 +141,12 @@ export function StatsPage() {
               onMouseEnter={() => setHoverDay(i)}
               onFocus={() => setHoverDay(i)}
               onClick={() => setHoverDay(i)}
-              aria-label={`${dayFmt.format(d.date)}: ${d.newCards} новых, ${d.reviews} повторений`}
+              aria-label={t('stats.readout', {
+                day: dayFmt.format(d.date),
+                new: d.newCards,
+                reviews: d.reviews,
+                time: formatDuration(d.timeMs, units),
+              })}
             >
               <span className="bar-stack">
                 {d.reviews > 0 && <span className="seg review" style={{ height: `${(d.reviews / maxBar) * 100}%` }} />}
@@ -139,15 +156,15 @@ export function StatsPage() {
             </button>
           ))}
         </div>
-        <p className="muted small">Пустые дни с пунктирной рамкой означают, что в этот день занятий не было.</p>
+        <p className="muted small">{t('stats.missed_hint')}</p>
       </section>
 
       <section className="card pad">
-        <h3>Прогноз повторений на 7 дней</h3>
+        <h3>{t('stats.forecast')}</h3>
         <div className="forecast">
           {s.forecast.map((n, i) => (
             <div key={i} className="fc-row">
-              <span className="fc-day small">{i === 0 ? 'сегодня' : i === 1 ? 'завтра' : `+${i} д`}</span>
+              <span className="fc-day small">{i === 0 ? t('stats.today') : i === 1 ? t('stats.tomorrow') : t('stats.in_days', { n: i })}</span>
               <span className="fc-track">
                 <span className="fc-bar" style={{ width: `${(n / maxForecast) * 100}%` }} />
               </span>
@@ -158,23 +175,21 @@ export function StatsPage() {
       </section>
 
       <section className="card pad">
-        <h3>Прогресс по категориям</h3>
+        <h3>{t('stats.progress')}</h3>
         <p className="muted small">
-          Всего слов: {notes.length} · карточек выучено (интервал ≥ 21 д): {s.maturity.mature} · верных ответов за 30
-          дней: {pct(s.retention30)}. Колонки «Новые», «Учит», «Повтор» и «Выучено» считают карточки: у каждого
-          слова их две.
+          {t('stats.progress_note', { words: notes.length, mature: s.maturity.mature, pct: pct(s.retention30) })}
         </p>
         <div className="table-wrap">
           <table>
             <thead>
               <tr>
-                <th>Категория</th>
-                <th>Слов</th>
-                <th>Новые</th>
-                <th>Учит</th>
-                <th>Повтор</th>
-                <th>Выучено</th>
-                <th>Начато</th>
+                <th>{t('category')}</th>
+                <th>{t('stats.col_words')}</th>
+                <th>{t('stats.col_new')}</th>
+                <th>{t('stats.col_learning')}</th>
+                <th>{t('stats.col_young')}</th>
+                <th>{t('stats.col_mature')}</th>
+                <th>{t('stats.col_started')}</th>
               </tr>
             </thead>
             <tbody>
@@ -187,7 +202,7 @@ export function StatsPage() {
                   <td>{m.young}</td>
                   <td>{m.mature}</td>
                   <td>
-                    <span className="progress" title={`${started} из ${total} карточек`}>
+                    <span className="progress" title={t('stats.started_of', { a: started, b: total })}>
                       <span style={{ width: `${total ? (started / total) * 100 : 0}%` }} />
                     </span>
                   </td>
@@ -199,9 +214,9 @@ export function StatsPage() {
       </section>
 
       <section className="card pad">
-        <h3>Трудные слова</h3>
+        <h3>{t('stats.hard_words')}</h3>
         {hard.length === 0 ? (
-          <p className="muted small">Пока нет слов, которые забываются три раза и чаще.</p>
+          <p className="muted small">{t('stats.hard_empty')}</p>
         ) : (
           <ul className="plain">
             {hard.map((c) => {
@@ -209,9 +224,10 @@ export function StatsPage() {
               return (
                 <li key={c.id}>
                   {c.leech && '🩸 '}
-                  <b>{n?.word}</b> — {n?.translation_ru}{' '}
+                  <b>{n?.word}</b> — {n?.translation_ru}
+                  {n?.translation_az ? ` · ${n.translation_az}` : ''}{' '}
                   <span className="muted small">
-                    ({c.template === 0 ? 'EN→RU' : 'RU→EN'}, забываний: {c.lapses})
+                    ({c.template === 0 ? 'EN→RU' : 'RU→EN'}, {t('stats.lapses', { n: c.lapses })})
                   </span>
                 </li>
               );
@@ -221,9 +237,9 @@ export function StatsPage() {
       </section>
 
       <section className="card pad">
-        <h3>Предложения ученика</h3>
+        <h3>{t('stats.sentences')}</h3>
         {sentences.length === 0 ? (
-          <p className="muted small">Пока нет предложений.</p>
+          <p className="muted small">{t('stats.sentences_empty')}</p>
         ) : (
           <ul className="plain sentences">
             {sentences.map((x) => (

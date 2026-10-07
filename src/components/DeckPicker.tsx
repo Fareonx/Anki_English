@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { useAuth } from '../auth';
 import { createDeck, type Deck } from '../lib/db';
 import { buildDeckTree, flattenTree } from '../lib/decks';
+import { useI18n } from '../lib/i18n';
 
 /** Chooses a deck, with an inline way to create a new category. */
 export function DeckPicker({
@@ -16,6 +17,7 @@ export function DeckPicker({
   onCreated: (deck: Deck) => void;
 }) {
   const { student } = useAuth();
+  const { t } = useI18n();
   const flat = useMemo(() => flattenTree(buildDeckTree(decks)), [decks]);
   const [creating, setCreating] = useState(false);
   const [name, setName] = useState('');
@@ -33,18 +35,18 @@ export function DeckPicker({
       setName('');
     } catch (e) {
       const text = e instanceof Error ? e.message : String(e);
-      setError(/duplicate key/i.test(text) ? 'Категория с таким названием уже есть.' : text);
+      setError(/duplicate key/i.test(text) ? t('decks.duplicate') : text);
     }
   }
 
   return (
     <div className="deck-picker">
       <label>
-        Категория
+        {t('category')}
         <div className="row gap">
           <select value={value} onChange={(e) => onChange(e.target.value)} required>
             <option value="" disabled>
-              — выбери категорию —
+              {t('decks.choose')}
             </option>
             {flat.map((n) => (
               <option key={n.deck.id} value={n.deck.id}>
@@ -53,7 +55,7 @@ export function DeckPicker({
             ))}
           </select>
           <button type="button" className="btn small" onClick={() => setCreating((v) => !v)}>
-            📁 Новая
+            {t('decks.new_short')}
           </button>
         </div>
       </label>
@@ -62,7 +64,7 @@ export function DeckPicker({
           <input
             autoFocus
             value={name}
-            placeholder="Название, например «День 05»"
+            placeholder={t('decks.new_placeholder')}
             onChange={(e) => setName(e.target.value)}
             onKeyDown={(e) => {
               if (e.key === 'Enter') {
@@ -71,16 +73,16 @@ export function DeckPicker({
               }
             }}
           />
-          <select value={parent} onChange={(e) => setParent(e.target.value)} aria-label="Внутри категории">
-            <option value="">— верхний уровень —</option>
+          <select value={parent} onChange={(e) => setParent(e.target.value)} aria-label={t('decks.inside')}>
+            <option value="">{t('decks.top_level')}</option>
             {flat.map((n) => (
               <option key={n.deck.id} value={n.deck.id}>
-                внутри: {n.path}
+                {t('decks.inside_option', { path: n.path })}
               </option>
             ))}
           </select>
           <button type="button" className="btn small primary" onClick={() => void create()}>
-            Создать
+            {t('create')}
           </button>
           {error && <p className="error small">{error}</p>}
         </div>

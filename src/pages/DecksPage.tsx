@@ -7,6 +7,7 @@ import { buildDeckTree, flattenTree, subtreeIds, type DeckNode } from '../lib/de
 import { StudySession, type Counts } from '../lib/scheduler/queue';
 import { formatDuration, streak, summarizeToday } from '../lib/stats';
 import { useStudentData } from '../lib/useStudentData';
+import { useI18n } from '../lib/i18n';
 
 function CountCells({ counts }: { counts: Counts }) {
   return (
@@ -20,6 +21,7 @@ function CountCells({ counts }: { counts: Counts }) {
 
 export function DecksPage() {
   const { student, config, isAdmin, profile } = useAuth();
+  const { t, units } = useI18n();
   const { decks, cards, revlog, loading, error, reload } = useStudentData({ revlogDays: 60 });
   const navigate = useNavigate();
   const [showCreate, setShowCreate] = useState(false);
@@ -59,7 +61,7 @@ export function DecksPage() {
       await reload();
     } catch (e) {
       const text = e instanceof Error ? e.message : String(e);
-      setActionError(/duplicate key/i.test(text) ? 'Категория с таким названием уже есть.' : text);
+      setActionError(/duplicate key/i.test(text) ? t('decks.duplicate') : text);
     } finally {
       setBusy(false);
     }
@@ -86,7 +88,7 @@ export function DecksPage() {
           <button
             className="icon-btn"
             onClick={() => setMenu(open ? null : node.deck.id)}
-            aria-label="Меню категории"
+            aria-label={t('decks.menu')}
             aria-expanded={open}
           >
             <MoreIcon />
@@ -94,8 +96,8 @@ export function DecksPage() {
         </div>
         {open && (
           <div className="deck-menu">
-            <Link to={`/deck/${node.deck.id}`}>📋 Слова</Link>
-            <Link to={`/add?deck=${node.deck.id}`}>➕ Добавить слова</Link>
+            <Link to={`/deck/${node.deck.id}`}>{t('decks.menu_words')}</Link>
+            <Link to={`/add?deck=${node.deck.id}`}>{t('decks.add_words')}</Link>
             <button
               onClick={() => {
                 setNewParent(node.deck.id);
@@ -103,29 +105,29 @@ export function DecksPage() {
                 setMenu(null);
               }}
             >
-              📁 Подкатегория
+              {t('decks.menu_sub')}
             </button>
             <button
               disabled={busy}
               onClick={() => {
-                const name = prompt('Новое название', node.deck.name);
+                const name = prompt(t('decks.rename_prompt'), node.deck.name);
                 if (name && name.trim()) void run(() => renameDeck(node.deck.id, name));
                 setMenu(null);
               }}
             >
-              ✏️ Переименовать
+              {t('decks.menu_rename')}
             </button>
             <button
               className="danger"
               disabled={busy}
               onClick={() => {
-                if (confirm(`Удалить «${node.path}» вместе со всеми словами и прогрессом?`)) {
+                if (confirm(t('decks.delete_confirm', { name: node.path }))) {
                   void run(() => deleteDeck(node.deck.id));
                 }
                 setMenu(null);
               }}
             >
-              🗑 Удалить
+              {t('decks.menu_delete')}
             </button>
           </div>
         )}
@@ -138,62 +140,62 @@ export function DecksPage() {
 
   return (
     <div className="stack">
-      {viewingOther && <p className="hint">Ты смотришь колоды ученика: {student?.name}</p>}
+      {viewingOther && <p className="hint">{t('decks.viewing_student', { name: student?.name ?? '' })}</p>}
 
       <section className="card hero">
         <div className="hero-head">
           <div>
-            <div className="eyebrow">Сегодня</div>
+            <div className="eyebrow">{t('decks.today')}</div>
             <div className="hero-title">
-              {loading ? '…' : dueToday > 0 ? `${dueToday} карточек` : 'Всё сделано 🎉'}
+              {loading ? '…' : dueToday > 0 ? t('decks.cards', { n: dueToday }) : t('decks.all_done')}
             </div>
           </div>
-          <div className="streak" title="Дней подряд">
+          <div className="streak" title={t('decks.streak')}>
             🔥 <b>{days}</b>
           </div>
         </div>
         <div className="pills">
           <span className="pill new">
-            <b>{total.new}</b> новых
+            <b>{total.new}</b> {t('decks.pill_new')}
           </span>
           <span className="pill learn">
-            <b>{total.learn}</b> учу
+            <b>{total.learn}</b> {t('decks.pill_learn')}
           </span>
           <span className="pill due">
-            <b>{total.review}</b> повтор
+            <b>{total.review}</b> {t('decks.pill_due')}
           </span>
         </div>
         {dueToday > 0 && (
           <button className="btn primary wide big-btn" onClick={() => navigate('/study/all')}>
-            <PlayIcon /> Учить
+            <PlayIcon /> {t('decks.study')}
           </button>
         )}
         <div className="hero-stats">
-          <span className="muted">Сделано:</span>
+          <span className="muted">{t('decks.done')}</span>
           <span>
-            <b>{summary.newDone}</b> новых
+            <b>{summary.newDone}</b> {t('decks.done_new')}
           </span>
           <span>
-            <b>{summary.reviewsDone}</b> повторений
+            <b>{summary.reviewsDone}</b> {t('decks.done_reviews')}
           </span>
           <span>
-            <b>{formatDuration(summary.timeMs)}</b>
+            <b>{formatDuration(summary.timeMs, units)}</b>
           </span>
         </div>
       </section>
 
       <section className="card decks">
         <div className="deck-head">
-          <span>Категории</span>
-          <span className="count new">Нов.</span>
-          <span className="count learn">Учу</span>
-          <span className="count due">Повт.</span>
+          <span>{t('decks.categories')}</span>
+          <span className="count new">{t('decks.col_new')}</span>
+          <span className="count learn">{t('decks.col_learn')}</span>
+          <span className="count due">{t('decks.col_due')}</span>
           <span />
         </div>
-        {loading && <p className="muted pad">Загрузка…</p>}
+        {loading && <p className="muted pad">{t('loading')}</p>}
         {error && <p className="error pad">{error}</p>}
         {!loading && tree.length === 0 && (
-          <p className="muted pad">Пока нет категорий. Создай первую, например «IELTS», а внутри «День 01».</p>
+          <p className="muted pad">{t('decks.empty')}</p>
         )}
         {tree.map(renderNode)}
       </section>
@@ -202,24 +204,24 @@ export function DecksPage() {
 
       <div className="row gap wrap">
         <button className="btn" onClick={() => setShowCreate((v) => !v)}>
-          📁 Новая категория
+          {t('decks.new_category')}
         </button>
         <Link className="btn" to="/add">
-          ➕ Добавить слова
+          {t('decks.add_words')}
         </Link>
       </div>
 
       {showCreate && (
         <form className="card form" onSubmit={submitCreate}>
-          <h3>Новая категория</h3>
+          <h3>{t('decks.new_category')}</h3>
           <label>
-            Название
-            <input autoFocus value={newName} onChange={(e) => setNewName(e.target.value)} placeholder="День 01" required />
+            {t('decks.name')}
+            <input autoFocus value={newName} onChange={(e) => setNewName(e.target.value)} placeholder={t('decks.name_placeholder')} required />
           </label>
           <label>
-            Внутри категории
+            {t('decks.inside')}
             <select value={newParent} onChange={(e) => setNewParent(e.target.value)}>
-              <option value="">— верхний уровень —</option>
+              <option value="">{t('decks.top_level')}</option>
               {flat.map((n) => (
                 <option key={n.deck.id} value={n.deck.id}>
                   {n.path}
@@ -229,10 +231,10 @@ export function DecksPage() {
           </label>
           <div className="row gap">
             <button className="btn primary" disabled={busy}>
-              Создать
+              {t('create')}
             </button>
             <button type="button" className="btn" onClick={() => setShowCreate(false)}>
-              Отмена
+              {t('cancel')}
             </button>
           </div>
         </form>

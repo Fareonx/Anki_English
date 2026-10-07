@@ -231,14 +231,26 @@ export function nextIntervals(card: SchedCard, nowMs: number, cfg: SchedConfig):
   return out;
 }
 
-/** Short Russian label for an interval, as on Anki's answer buttons. */
-export function formatInterval(secs: number): string {
-  const trim = (n: number) => (Math.round(n * 10) / 10).toString().replace('.', ',');
-  if (secs < 60) return '<1 мин';
-  if (secs < 3600) return `${Math.round(secs / 60)} мин`;
-  if (secs < DAY_SECS) return `${trim(secs / 3600)} ч`;
+export interface IntervalUnits {
+  lessMin: string;
+  min: string;
+  hour: string;
+  day: string;
+  month: string;
+  year: string;
+  decimal: string;
+}
+
+const RU_UNITS: IntervalUnits = { lessMin: '<1 мин', min: 'мин', hour: 'ч', day: 'д', month: 'мес', year: 'г', decimal: ',' };
+
+/** Short label for an interval, as on Anki's answer buttons. */
+export function formatInterval(secs: number, u: IntervalUnits = RU_UNITS): string {
+  const trim = (n: number) => (Math.round(n * 10) / 10).toString().replace('.', u.decimal);
+  if (secs < 60) return u.lessMin;
+  if (secs < 3600) return `${Math.round(secs / 60)} ${u.min}`;
+  if (secs < DAY_SECS) return `${trim(secs / 3600)} ${u.hour}`;
   const days = secs / DAY_SECS;
-  if (days < 30) return `${Math.round(days)} д`;
-  if (days < 365) return `${trim(days / 30)} мес`;
-  return `${trim(days / 365)} г`;
+  if (days < 30) return `${Math.round(days)} ${u.day}`;
+  if (days < 365) return `${trim(days / 30)} ${u.month}`;
+  return `${trim(days / 365)} ${u.year}`;
 }
