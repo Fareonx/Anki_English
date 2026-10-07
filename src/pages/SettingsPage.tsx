@@ -3,6 +3,7 @@ import { useAuth } from '../auth';
 import { updateProfile } from '../lib/db';
 import { DEFAULT_CONFIG } from '../lib/scheduler/config';
 import type { SchedConfig } from '../lib/scheduler/types';
+import { getTheme, setTheme, type Theme } from '../lib/theme';
 
 type NumberKey = {
   [K in keyof SchedConfig]: SchedConfig[K] extends number ? K : never;
@@ -30,6 +31,7 @@ export function SettingsPage() {
   const [relearnSteps, setRelearnSteps] = useState(config.relearnSteps.join(' '));
   const [name, setName] = useState(profile?.name ?? '');
   const [message, setMessage] = useState<{ kind: 'ok' | 'error'; text: string } | null>(null);
+  const [theme, setThemeState] = useState<Theme>(getTheme);
 
   useEffect(() => {
     setForm(config);
@@ -65,6 +67,28 @@ export function SettingsPage() {
   return (
     <div className="stack">
       <h2>Настройки</h2>
+
+      <section className="card form">
+        <h3>Оформление</h3>
+        <div className="segmented" role="radiogroup" aria-label="Тема">
+          {(['light', 'dark'] as const).map((t) => (
+            <button
+              key={t}
+              type="button"
+              role="radio"
+              aria-checked={theme === t}
+              className={theme === t ? 'active' : ''}
+              onClick={() => {
+                setTheme(t);
+                setThemeState(t);
+              }}
+            >
+              {t === 'light' ? '☀️ Светлая' : '🌙 Тёмная'}
+            </button>
+          ))}
+        </div>
+        <p className="muted small">Тема сохраняется на этом устройстве.</p>
+      </section>
 
       <form className="card form" onSubmit={save}>
         <h3>Учёба{isAdmin && student ? `: ${student.name}` : ''}</h3>

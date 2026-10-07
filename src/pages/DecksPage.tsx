@@ -1,6 +1,7 @@
 import { useMemo, useState, type FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth';
+import { MoreIcon, PlayIcon } from '../components/Icons';
 import { createDeck, deleteDeck, renameDeck } from '../lib/db';
 import { buildDeckTree, flattenTree, subtreeIds, type DeckNode } from '../lib/decks';
 import { StudySession, type Counts } from '../lib/scheduler/queue';
@@ -76,15 +77,19 @@ export function DecksPage() {
     const counts = countsByDeck.get(node.deck.id) ?? { new: 0, learn: 0, review: 0 };
     const open = menu === node.deck.id;
     return (
-      <div key={node.deck.id}>
-        <div className="deck-row" style={{ paddingLeft: 12 + node.depth * 20 }}>
+      <div key={node.deck.id} className={node.depth === 0 ? 'deck-group' : undefined}>
+        <div className={`deck-row depth-${Math.min(node.depth, 2)}`}>
           <Link className="deck-name" to={`/study/${node.deck.id}`}>
-            {node.depth > 0 && <span className="tree-mark">└</span>}
             {node.deck.name}
           </Link>
           <CountCells counts={counts} />
-          <button className="icon-btn" onClick={() => setMenu(open ? null : node.deck.id)} aria-label="Меню">
-            ⋯
+          <button
+            className="icon-btn"
+            onClick={() => setMenu(open ? null : node.deck.id)}
+            aria-label="Меню категории"
+            aria-expanded={open}
+          >
+            <MoreIcon />
           </button>
         </div>
         {open && (
@@ -129,35 +134,60 @@ export function DecksPage() {
     );
   }
 
+  const dueToday = total.new + total.learn + total.review;
+
   return (
     <div className="stack">
       {viewingOther && <p className="hint">Ты смотришь колоды ученика: {student?.name}</p>}
 
-      <section className="card today">
-        <div>
-          <div className="big">{summary.newDone}</div>
-          <div className="muted small">новых карточек сегодня</div>
+      <section className="card hero">
+        <div className="hero-head">
+          <div>
+            <div className="eyebrow">Сегодня</div>
+            <div className="hero-title">
+              {loading ? '…' : dueToday > 0 ? `${dueToday} карточек` : 'Всё сделано 🎉'}
+            </div>
+          </div>
+          <div className="streak" title="Дней подряд">
+            🔥 <b>{days}</b>
+          </div>
         </div>
-        <div>
-          <div className="big">{summary.reviewsDone}</div>
-          <div className="muted small">повторений</div>
+        <div className="pills">
+          <span className="pill new">
+            <b>{total.new}</b> новых
+          </span>
+          <span className="pill learn">
+            <b>{total.learn}</b> учу
+          </span>
+          <span className="pill due">
+            <b>{total.review}</b> повтор
+          </span>
         </div>
-        <div>
-          <div className="big">{formatDuration(summary.timeMs)}</div>
-          <div className="muted small">время</div>
-        </div>
-        <div>
-          <div className="big">🔥 {days}</div>
-          <div className="muted small">дней подряд</div>
+        {dueToday > 0 && (
+          <button className="btn primary wide big-btn" onClick={() => navigate('/study/all')}>
+            <PlayIcon /> Учить
+          </button>
+        )}
+        <div className="hero-stats">
+          <span className="muted">Сделано:</span>
+          <span>
+            <b>{summary.newDone}</b> новых
+          </span>
+          <span>
+            <b>{summary.reviewsDone}</b> повторений
+          </span>
+          <span>
+            <b>{formatDuration(summary.timeMs)}</b>
+          </span>
         </div>
       </section>
 
-      <section className="card">
+      <section className="card decks">
         <div className="deck-head">
-          <span>Категория</span>
-          <span className="count new">Новые</span>
+          <span>Категории</span>
+          <span className="count new">Нов.</span>
           <span className="count learn">Учу</span>
-          <span className="count due">Повтор</span>
+          <span className="count due">Повт.</span>
           <span />
         </div>
         {loading && <p className="muted pad">Загрузка…</p>}
@@ -166,25 +196,11 @@ export function DecksPage() {
           <p className="muted pad">Пока нет категорий. Создай первую, например «IELTS», а внутри «День 01».</p>
         )}
         {tree.map(renderNode)}
-        {tree.length > 0 && (
-          <div className="deck-row total">
-            <Link className="deck-name" to="/study/all">
-              ⭐ Все слова
-            </Link>
-            <CountCells counts={total} />
-            <span />
-          </div>
-        )}
       </section>
 
       {actionError && <p className="error">{actionError}</p>}
 
-      <div className="row gap">
-        {total.new + total.learn + total.review > 0 && (
-          <button className="btn primary" onClick={() => navigate('/study/all')}>
-            ▶ Учить всё
-          </button>
-        )}
+      <div className="row gap wrap">
         <button className="btn" onClick={() => setShowCreate((v) => !v)}>
           📁 Новая категория
         </button>
