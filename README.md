@@ -34,3 +34,12 @@ npm run build   # сборка в dist/
 ## Публикация
 
 GitHub Actions (`.github/workflows/deploy.yml`) прогоняет тесты, собирает приложение и публикует его на GitHub Pages при каждом пуше в `master`. Включается один раз: Settings → Pages → Source: **GitHub Actions**.
+
+## Ежедневный отчёт на почту
+
+Каждый день в 00:00 (Баку, полночь) админ получает письмо с итогами дня ученика: новые карточки, повторения, время, % верных ответов, сколько осталось, серия дней, забытые слова, его предложения. Если новых слов осталось меньше чем на 2 дня, в письме есть напоминание добавить категорию.
+
+- Edge Function: `supabase/functions/daily-report/index.ts`. Расписание (`pg_cron`) и доступ к секретам: `supabase/migrations/*_daily_report_cron.sql`.
+- Секреты лежат в Supabase Vault и не хранятся в репозитории: `resend_api_key`, `report_cron_secret`, `report_recipient`.
+- Письма уходят через Resend с адреса `onboarding@resend.dev`; без своего домена Resend доставляет только на адрес владельца аккаунта.
+- Проверка без отправки: запрос на функцию с параметром `?dry=1` и заголовком `x-cron-secret`.
