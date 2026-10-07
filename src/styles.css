@@ -1453,3 +1453,122 @@ tr.dim td {
   background: #323a4c;
   box-shadow: none;
 }
+
+/* ---------- language switch ---------- */
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.lang-select {
+  width: auto;
+  margin: 0;
+  padding: 8px 10px;
+  font-size: 14px;
+  font-weight: 650;
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.login-lang {
+  position: fixed;
+  top: calc(12px + env(safe-area-inset-top));
+  right: 16px;
+}
+
+/* ---------- typing the answer ---------- */
+
+.type-answer {
+  width: 100%;
+  max-width: 360px;
+  margin-top: 18px;
+}
+
+.type-answer input {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border-width: 2px;
+}
+
+.type-answer input:disabled {
+  opacity: 0.6;
+}
+
+.typed-result {
+  text-align: left;
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+
+.ok-result {
+  background: var(--due-soft);
+  color: var(--due-ink);
+  font-weight: 750;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.wrong-result {
+  background: var(--learn-soft);
+}
+
+.typed-title {
+  color: var(--learn-ink);
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+.typed-label {
+  font-size: 0.8rem;
+  color: var(--ink-2);
+  margin-top: 8px;
+}
+
+.letters {
+  display: block;
+  font-family: ui-monospace, 'SF Mono', 'Cascadia Mono', Consolas, 'Liberation Mono', monospace;
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+.letters .bad {
+  color: #fff;
+  border-radius: 5px;
+  padding: 0 1px;
+}
+
+.letters.typed .bad {
+  background: var(--again);
+}
+
+.letters.expected .bad {
+  background: var(--good);
+}
+
+.mistyped-bar {
+  display: grid;
+  gap: 8px;
+  text-align: center;
+}
+
+.ease.wide-ease {
+  width: 100%;
+  min-height: 60px;
+}
+
+@media (max-width: 640px) {
+  .lang-select {
+    padding: 6px 8px;
+  }
+}

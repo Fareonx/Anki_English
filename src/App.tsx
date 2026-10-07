@@ -8,11 +8,13 @@ import { LoginPage } from './pages/LoginPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { StatsPage } from './pages/StatsPage';
 import { StudyPage } from './pages/StudyPage';
+import { useI18n } from './lib/i18n';
 
 export function App() {
   const { loading, userId, profile, student, isAdmin } = useAuth();
+  const { t } = useI18n();
 
-  if (loading) return <div className="center muted">Загрузка…</div>;
+  if (loading) return <div className="center muted">{t('loading')}</div>;
   if (!userId || !profile) return <LoginPage />;
 
   return (
@@ -20,11 +22,11 @@ export function App() {
       <Layout>
         {!student ? (
           <div className="card empty">
-            <h2>Пока нет ученика</h2>
+            <h2>{t('app.no_student')}</h2>
             <p className="muted">
               {isAdmin
-                ? 'Попроси брата открыть приложение и зарегистрироваться. После этого здесь появятся его колоды и статистика.'
-                : 'Профиль не найден. Попробуй выйти и войти снова.'}
+                ? t('app.no_student_admin')
+                : t('app.no_profile')}
             </p>
           </div>
         ) : (

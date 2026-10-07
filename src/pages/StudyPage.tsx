@@ -10,21 +10,24 @@ import { Ease, Queue } from '../lib/scheduler/types';
 import { canSpeak, speak } from '../lib/speech';
 import { summarizeToday } from '../lib/stats';
 import { useStudentData } from '../lib/useStudentData';
+import { useI18n, type Key } from '../lib/i18n';
+import { checkTypedAnswer, type DiffChar, type TypedResult } from '../lib/typeAnswer';
 
 /** Anki stops counting answer time after 60 seconds. */
 const MAX_ANSWER_MS = 60_000;
 
-const BUTTONS = [
-  { ease: Ease.Again, label: 'Снова', cls: 'again' },
-  { ease: Ease.Hard, label: 'Трудно', cls: 'hard' },
-  { ease: Ease.Good, label: 'Хорошо', cls: 'good' },
-  { ease: Ease.Easy, label: 'Легко', cls: 'easy' },
-] as const;
+const BUTTONS: { ease: Ease; label: Key; cls: string }[] = [
+  { ease: Ease.Again, label: 'study.again', cls: 'again' },
+  { ease: Ease.Hard, label: 'study.hard', cls: 'hard' },
+  { ease: Ease.Good, label: 'study.good', cls: 'good' },
+  { ease: Ease.Easy, label: 'study.easy', cls: 'easy' },
+];
 
 function SpeakButton({ text }: { text: string }) {
+  const { t } = useI18n();
   if (!canSpeak()) return null;
   return (
-    <button type="button" className="icon-btn speak" onClick={() => speak(text)} aria-label="Произнести">
+    <button type="button" className="icon-btn speak" onClick={() => speak(text)} aria-label={t('study.speak')}>
       <SpeakerIcon />
     </button>
   );
@@ -56,6 +59,7 @@ function Details({ note }: { note: Note }) {
 }
 
 function SentenceBox({ note, studentId }: { note: Note; studentId: string }) {
+  const { t } = useI18n();
   const [open, setOpen] = useState(false);
   const [text, setText] = useState('');
   const [state, setState] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
@@ -82,7 +86,7 @@ function SentenceBox({ note, studentId }: { note: Note; studentId: string }) {
       <button type="button" className="sentence-toggle" onClick={() => setOpen(true)}>
         <PenIcon />
         <span>
-          Составить предложение со словом <b>{note.word}</b>
+          {t('study.sentence_toggle')} <b>{note.word}</b>
         </span>
       </button>
     );
@@ -91,14 +95,14 @@ function SentenceBox({ note, studentId }: { note: Note; studentId: string }) {
   return (
     <div className="sentence-box">
       <label htmlFor="sentence">
-        Своё предложение со словом <b>{note.word}</b>
+        {t('study.sentence_label')} <b>{note.word}</b>
       </label>
       <textarea
         id="sentence"
         autoFocus
         rows={2}
         value={text}
-        placeholder="Необязательно, но так слово запомнится лучше"
+        placeholder={t('study.sentence_placeholder')}
         onChange={(e) => {
           setText(e.target.value);
           if (state !== 'saving') setState('idle');
@@ -106,11 +110,42 @@ function SentenceBox({ note, studentId }: { note: Note; studentId: string }) {
       />
       <div className="row gap">
         <button type="button" className="btn small" disabled={!text.trim() || state === 'saving'} onClick={save}>
-          Сохранить
+          {t('save')}
         </button>
-        {state === 'saved' && <span className="ok small">✓ Сохранено</span>}
-        {state === 'error' && <span className="error small">Не удалось сохранить</span>}
+        {state === 'saved' && <span className="ok small">{t('study.saved')}</span>}
+        {state === 'error' && <span className="error small">{t('study.save_error')}</span>}
       </div>
+    </div>
+  );
+}
+
+function Letters({ chars, kind }: { chars: DiffChar[]; kind: 'typed' | 'expected' }) {
+  return (
+    <span className={`letters ${kind}`}>
+      {chars.map((c, i) => (
+        <span key={i} className={c.ok ? undefined : 'bad'}>
+          {c.ch === ' ' ? '\u00a0' : c.ch}
+        </span>
+      ))}
+    </span>
+  );
+}
+
+/** Letter-by-letter comparison of the typed word with the correct one. */
+function TypedFeedback({ result }: { result: TypedResult }) {
+  const { t } = useI18n();
+  if (result.correct) return <div className="typed-result ok-result">{t('study.correct')}</div>;
+  return (
+    <div className="typed-result wrong-result">
+      <div className="typed-title">{t('study.wrong')}</div>
+      <div className="typed-label">{t('study.you_typed')}</div>
+      {result.typed.length > 0 ? (
+        <Letters chars={result.typed} kind="typed" />
+      ) : (
+        <span className="letters typed muted">{t('study.empty_answer')}</span>
+      )}
+      <div className="typed-label">{t('study.right_answer')}</div>
+      <Letters chars={result.expected} kind="expected" />
     </div>
   );
 }
@@ -137,6 +172,7 @@ function CountsBar({ counts, current }: { counts: Counts; current: CardRow | nul
 export function StudyPage() {
   const { deckId = 'all' } = useParams();
   const { student, config, isAdmin, profile } = useAuth();
+  const { t, units } = useI18n();
   const { decks, cards, notes, revlog, loading, error, reload } = useStudentData({ notes: true, revlogDays: 1 });
 
   const sessionRef = useRef<StudySession<CardRow> | null>(null);
@@ -151,10 +187,14 @@ export function StudyPage() {
   const [answered, setAnswered] = useState(0);
   const [extraNew, setExtraNew] = useState(0);
   const [moreNew, setMoreNew] = useState(0);
+  const [typed, setTyped] = useState('');
+  const [typedResult, setTypedResult] = useState<TypedResult | null>(null);
 
   const notesById = useMemo(() => new Map(notes.map((n) => [n.id, n])), [notes]);
   const cfg = useMemo(() => ({ ...config, newPerDay: config.newPerDay + extraNew }), [config, extraNew]);
-  const title = deckId === 'all' ? 'Все слова' : deckPath(decks, deckId);
+  const title = deckId === 'all' ? t('study.all_words') : deckPath(decks, deckId);
+  // Typing the English word is on unless switched off in Settings.
+  const typeAnswers = student?.settings?.typeAnswer !== false;
   const readOnly = isAdmin && student?.id !== profile?.id;
 
   const advance = useCallback(() => {
@@ -165,6 +205,8 @@ export function StudyPage() {
     setCounts(s.counts());
     setCurrent(next);
     setRevealed(false);
+    setTyped('');
+    setTypedResult(null);
     setShownAt(now);
     setFinished(s.isFinished());
     setWaitUntil(!next && !s.isFinished() ? s.nextLearningDue() : null);
@@ -216,7 +258,7 @@ export function StudyPage() {
       try {
         await saveAnswer(current.id, result, Math.min(now - shownAt, MAX_ANSWER_MS));
       } catch (e) {
-        setNotice(`Не удалось сохранить ответ. Проверь интернет и попробуй ещё раз. (${e instanceof Error ? e.message : e})`);
+        setNotice(t('study.save_failed', { error: e instanceof Error ? e.message : String(e) }));
         setSaving(false);
         return;
       }
@@ -224,14 +266,14 @@ export function StudyPage() {
       setNotice(null);
       if (result.becameLeech) {
         const word = notesById.get(current.note_id)?.word ?? '';
-        setNotice(`«${word}» — трудное слово (забываний: ${result.card.lapses}). Оно отмечено в статистике.`);
+        setNotice(t('study.leech', { word, n: result.card.lapses }));
       }
       setAnswered((n) => n + 1);
       navigator.vibrate?.(10);
       sessionRef.current?.apply({ ...current, ...result.card });
       advance();
     },
-    [current, revealed, saving, readOnly, cfg, shownAt, notesById, advance],
+    [current, revealed, saving, readOnly, cfg, shownAt, notesById, advance, t],
   );
 
   const reveal = useCallback(() => {
@@ -243,6 +285,20 @@ export function StudyPage() {
     }
   }, [current, notesById]);
 
+  const typing = !!current && current.template === 1 && typeAnswers;
+  const mistyped = typedResult !== null && !typedResult.correct;
+
+  // Compare the typed word with the answer, then show the answer.
+  const check = useCallback(() => {
+    if (!current || revealed) return;
+    const note = notesById.get(current.note_id);
+    if (!note) return;
+    setTypedResult(checkTypedAnswer(typed, note.word));
+    // Hide the phone keyboard so the result and buttons are visible.
+    (document.activeElement as HTMLElement | null)?.blur();
+    reveal();
+  }, [current, revealed, notesById, typed, reveal]);
+
   // Anki keyboard shortcuts: Space/Enter shows the answer (then means "Good"), 1-4 answer.
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -250,8 +306,15 @@ export function StudyPage() {
       if (target.closest('input, textarea, select') || e.ctrlKey || e.metaKey || e.altKey) return;
       if (e.key === ' ' || e.key === 'Enter') {
         e.preventDefault();
-        if (!revealed) reveal();
-        else void answer(Ease.Good);
+        if (!revealed) {
+          if (typing) check();
+          else reveal();
+        } else void answer(mistyped ? Ease.Again : Ease.Good);
+      } else if (revealed && mistyped) {
+        if (e.key === '1') {
+          e.preventDefault();
+          void answer(Ease.Again);
+        }
       } else if (revealed && ['1', '2', '3', '4'].includes(e.key)) {
         e.preventDefault();
         void answer(Number(e.key) as Ease);
@@ -259,9 +322,9 @@ export function StudyPage() {
     }
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [revealed, reveal, answer]);
+  }, [revealed, reveal, answer, typing, check, mistyped]);
 
-  if (loading) return <p className="muted">Загрузка…</p>;
+  if (loading) return <p className="muted">{t('loading')}</p>;
   if (error) return <p className="error">{error}</p>;
 
   const note = current ? notesById.get(current.note_id) : undefined;
@@ -269,7 +332,7 @@ export function StudyPage() {
   return (
     <div className="study">
       <div className="study-head">
-        <Link to="/" className="icon-btn back" aria-label="К колодам">
+        <Link to="/" className="icon-btn back" aria-label={t('study.back')}>
           <BackIcon />
         </Link>
         <span className="study-title">{title}</span>
@@ -277,9 +340,7 @@ export function StudyPage() {
       </div>
 
       {readOnly && (
-        <p className="hint">
-          Ты смотришь как админ: ответы здесь не сохраняются. Учить может только {student?.name}.
-        </p>
+        <p className="hint">{t('study.admin_readonly', { name: student?.name ?? '' })}</p>
       )}
       {notice && <p className="info">{notice}</p>}
 
@@ -288,7 +349,7 @@ export function StudyPage() {
           <article className={`flashcard ${revealed ? "revealed" : ""}`} key={current.id}>
             {current.template === 0 ? (
               <div className="front">
-                <div className="prompt muted small">Вспомни перевод</div>
+                <div className="prompt muted small">{t('study.recall_translation')}</div>
                 <div className="word">
                   {note.word} <SpeakButton text={note.word} />
                 </div>
@@ -296,10 +357,35 @@ export function StudyPage() {
               </div>
             ) : (
               <div className="front">
-                <div className="prompt muted small">Вспомни слово на английском</div>
+                <div className="prompt muted small">
+                  {typing ? t('study.recall_word') : t('study.recall_word_self')}
+                </div>
                 <div className="translation">{note.translation_ru || '—'}</div>
                 {note.translation_az && <div className="translation az">{note.translation_az}</div>}
                 {note.pos && <div className="pos">{note.pos}</div>}
+                {typing && (
+                  <form
+                    className="type-answer"
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      check();
+                    }}
+                  >
+                    <input
+                      value={typed}
+                      onChange={(e) => setTyped(e.target.value)}
+                      placeholder={t('study.type_placeholder')}
+                      disabled={revealed}
+                      autoFocus
+                      autoComplete="off"
+                      autoCorrect="off"
+                      autoCapitalize="none"
+                      spellCheck={false}
+                      enterKeyHint="done"
+                      aria-label={t('study.recall_word')}
+                    />
+                  </form>
+                )}
               </div>
             )}
 
@@ -314,6 +400,7 @@ export function StudyPage() {
                   </>
                 ) : (
                   <>
+                    {typedResult && <TypedFeedback result={typedResult} />}
                     <div className="word">
                       {note.word} <SpeakButton text={note.word} />
                     </div>
@@ -329,9 +416,21 @@ export function StudyPage() {
 
           <div className="answer-bar">
             {!revealed ? (
-              <button className="btn primary wide show-answer" onClick={reveal}>
-                Показать ответ
+              <button className="btn primary wide show-answer" onClick={typing ? check : reveal}>
+                {typing ? t('study.check') : t('study.show_answer')}
               </button>
+            ) : mistyped ? (
+              <div className="mistyped-bar">
+                <button
+                  className="ease again wide-ease"
+                  disabled={saving || readOnly}
+                  onClick={() => void answer(Ease.Again)}
+                >
+                  <span className="ivl">{intervals ? formatInterval(intervals[Ease.Again], units) : ''}</span>
+                  <span>{t('study.again')}</span>
+                </button>
+                <p className="muted small">{t('study.wrong_hint')}</p>
+              </div>
             ) : (
               <div className="ease-buttons">
                 {BUTTONS.map((b) => (
@@ -341,8 +440,8 @@ export function StudyPage() {
                     disabled={saving || readOnly}
                     onClick={() => void answer(b.ease)}
                   >
-                    <span className="ivl">{intervals ? formatInterval(intervals[b.ease]) : ''}</span>
-                    <span>{b.label}</span>
+                    <span className="ivl">{intervals ? formatInterval(intervals[b.ease], units) : ''}</span>
+                    <span>{t(b.label)}</span>
                   </button>
                 ))}
               </div>
@@ -351,10 +450,10 @@ export function StudyPage() {
         </>
       ) : finished ? (
         <div className="card empty">
-          <h2>🎉 На сегодня всё!</h2>
+          <h2>{t('study.done_title')}</h2>
           <p className="muted">
-            {answered > 0 ? `Ответов за эту сессию: ${answered}. ` : ''}
-            Повторения на завтра появятся после {String(cfg.rolloverHour).padStart(2, '0')}:00.
+            {answered > 0 ? `${t('study.done_answers', { n: answered })} ` : ''}
+            {t('study.done_next', { time: `${String(cfg.rolloverHour).padStart(2, '0')}:00` })}
           </p>
           {moreNew > 0 && !readOnly && (
             <button
@@ -364,23 +463,25 @@ export function StudyPage() {
                 void reload();
               }}
             >
-              ➕ Ещё 10 новых карточек сегодня
+              {t('study.more_new')}
             </button>
           )}
           <p>
-            <Link to="/">← Вернуться к колодам</Link>
+            <Link to="/">{t('back_to_decks')}</Link>
           </p>
         </div>
       ) : (
         <div className="card empty">
-          <h2>⏳ Небольшая пауза</h2>
+          <h2>{t('study.pause_title')}</h2>
           <p className="muted">
-            Следующие карточки на изучении появятся
-            {waitUntil ? ` через ${formatInterval(Math.max(60, waitUntil - Math.floor(Date.now() / 1000)))}` : ' скоро'}.
-            Страница обновится сама.
+            {waitUntil
+              ? t('study.pause_in', {
+                  ivl: formatInterval(Math.max(60, waitUntil - Math.floor(Date.now() / 1000)), units),
+                })
+              : t('study.pause_soon')}
           </p>
           <p>
-            <Link to="/">← Вернуться к колодам</Link>
+            <Link to="/">{t('back_to_decks')}</Link>
           </p>
         </div>
       )}

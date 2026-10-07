@@ -4,18 +4,19 @@ import { updateProfile } from '../lib/db';
 import { DEFAULT_CONFIG } from '../lib/scheduler/config';
 import type { SchedConfig } from '../lib/scheduler/types';
 import { getTheme, setTheme, type Theme } from '../lib/theme';
+import { LANGS, useI18n, type Key } from '../lib/i18n';
 
 type NumberKey = {
   [K in keyof SchedConfig]: SchedConfig[K] extends number ? K : never;
 }[keyof SchedConfig];
 
-const NUMBER_FIELDS: { key: NumberKey; label: string; hint?: string; min: number; max: number }[] = [
-  { key: 'newPerDay', label: 'Новых карточек в день', hint: 'Каждое слово — 2 карточки (EN→RU и RU→EN)', min: 0, max: 500 },
-  { key: 'reviewsPerDay', label: 'Максимум повторений в день', min: 0, max: 9999 },
-  { key: 'graduatingIvl', label: 'Интервал после изучения (дней)', min: 1, max: 365 },
-  { key: 'easyIvl', label: 'Интервал для «Легко» (дней)', min: 1, max: 365 },
-  { key: 'leechThreshold', label: 'Слово «трудное» после стольких забываний', min: 1, max: 99 },
-  { key: 'rolloverHour', label: 'Новый день начинается в (час)', min: 0, max: 23 },
+const NUMBER_FIELDS: { key: NumberKey; label: Key; min: number; max: number }[] = [
+  { key: 'newPerDay', label: 'settings.new_per_day', min: 0, max: 500 },
+  { key: 'reviewsPerDay', label: 'settings.reviews_per_day', min: 0, max: 9999 },
+  { key: 'graduatingIvl', label: 'settings.graduating', min: 1, max: 365 },
+  { key: 'easyIvl', label: 'settings.easy_ivl', min: 1, max: 365 },
+  { key: 'leechThreshold', label: 'settings.leech', min: 1, max: 99 },
+  { key: 'rolloverHour', label: 'settings.rollover', min: 0, max: 23 },
 ];
 
 const parseSteps = (text: string) =>
@@ -26,32 +27,41 @@ const parseSteps = (text: string) =>
 
 export function SettingsPage() {
   const { student, config, isAdmin, profile, reload, signOut } = useAuth();
+  const { t, lang, setLang } = useI18n();
   const [form, setForm] = useState<SchedConfig>(config);
   const [learnSteps, setLearnSteps] = useState(config.learnSteps.join(' '));
   const [relearnSteps, setRelearnSteps] = useState(config.relearnSteps.join(' '));
   const [name, setName] = useState(profile?.name ?? '');
   const [message, setMessage] = useState<{ kind: 'ok' | 'error'; text: string } | null>(null);
   const [theme, setThemeState] = useState<Theme>(getTheme);
+  const [typeAnswer, setTypeAnswer] = useState(student?.settings?.typeAnswer !== false);
 
   useEffect(() => {
     setForm(config);
     setLearnSteps(config.learnSteps.join(' '));
     setRelearnSteps(config.relearnSteps.join(' '));
-  }, [config]);
+    setTypeAnswer(student?.settings?.typeAnswer !== false);
+  }, [config, student]);
 
   async function save(e: FormEvent) {
     e.preventDefault();
     if (!student) return;
     const steps = parseSteps(learnSteps);
     if (steps.length === 0) {
-      setMessage({ kind: 'error', text: 'Нужен хотя бы один шаг изучения, например «1 10».' });
+      setMessage({ kind: 'error', text: t('settings.need_step') });
       return;
     }
-    const settings: Partial<SchedConfig> = { ...form, learnSteps: steps, relearnSteps: parseSteps(relearnSteps) };
+    const settings = {
+      ...student.settings,
+      ...form,
+      learnSteps: steps,
+      relearnSteps: parseSteps(relearnSteps),
+      typeAnswer,
+    };
     try {
-      await updateProfile(student.id, { settings: settings as Record<string, unknown> });
+      await updateProfile(student.id, { settings });
       await reload();
-      setMessage({ kind: 'ok', text: 'Сохранено.' });
+      setMessage({ kind: 'ok', text: t('settings.saved') });
     } catch (err) {
       setMessage({ kind: 'error', text: err instanceof Error ? err.message : String(err) });
     }
@@ -66,39 +76,55 @@ export function SettingsPage() {
 
   return (
     <div className="stack">
-      <h2>Настройки</h2>
+      <h2>{t('settings.title')}</h2>
 
       <section className="card form">
-        <h3>Оформление</h3>
-        <div className="segmented" role="radiogroup" aria-label="Тема">
-          {(['light', 'dark'] as const).map((t) => (
+        <h3>{t('settings.appearance')}</h3>
+        <div className="segmented" role="radiogroup" aria-label={t('settings.theme')}>
+          {(['light', 'dark'] as const).map((th) => (
             <button
-              key={t}
+              key={th}
               type="button"
               role="radio"
-              aria-checked={theme === t}
-              className={theme === t ? 'active' : ''}
+              aria-checked={theme === th}
+              className={theme === th ? 'active' : ''}
               onClick={() => {
-                setTheme(t);
-                setThemeState(t);
+                setTheme(th);
+                setThemeState(th);
               }}
             >
-              {t === 'light' ? '☀️ Светлая' : '🌙 Тёмная'}
+              {th === 'light' ? t('settings.light') : t('settings.dark')}
             </button>
           ))}
         </div>
-        <p className="muted small">Тема сохраняется на этом устройстве.</p>
+        <div className="segmented" role="radiogroup" aria-label={t('language')}>
+          {LANGS.map((l) => (
+            <button
+              key={l.code}
+              type="button"
+              role="radio"
+              aria-checked={lang === l.code}
+              className={lang === l.code ? 'active' : ''}
+              onClick={() => setLang(l.code)}
+            >
+              {l.label}
+            </button>
+          ))}
+        </div>
+        <p className="muted small">{t('settings.device_note')}</p>
       </section>
 
       <form className="card form" onSubmit={save}>
-        <h3>Учёба{isAdmin && student ? `: ${student.name}` : ''}</h3>
+        <h3>
+          {t('settings.study')}
+          {isAdmin && student ? `: ${student.name}` : ''}
+        </h3>
         <p className="muted small">
-          По умолчанию стоят стандартные настройки Anki. Лимит новых карточек — {DEFAULT_CONFIG.newPerDay}, то есть{' '}
-          {DEFAULT_CONFIG.newPerDay / 2} слов в день в обе стороны.
+          {t('settings.study_note', { cards: DEFAULT_CONFIG.newPerDay, words: DEFAULT_CONFIG.newPerDay / 2 })}
         </p>
         {NUMBER_FIELDS.map((f) => (
           <label key={f.key}>
-            {f.label}
+            {t(f.label)}
             <input
               type="number"
               min={f.min}
@@ -108,22 +134,26 @@ export function SettingsPage() {
             />
             {f.key === 'newPerDay' && (
               <span className="muted small">
-                ≈ {Math.round(form.newPerDay / 2)} слов в день. {f.hint}
+                {t('settings.new_per_day_hint', { n: Math.round(form.newPerDay / 2) })}
               </span>
             )}
           </label>
         ))}
+        <label className="checkbox">
+          <input type="checkbox" checked={typeAnswer} onChange={(e) => setTypeAnswer(e.target.checked)} />
+          {t('settings.type_answer')}
+        </label>
         <label>
-          Шаги изучения (минуты)
+          {t('settings.learn_steps')}
           <input value={learnSteps} onChange={(e) => setLearnSteps(e.target.value)} placeholder="1 10" />
         </label>
         <label>
-          Шаги переучивания после «Снова» (минуты)
+          {t('settings.relearn_steps')}
           <input value={relearnSteps} onChange={(e) => setRelearnSteps(e.target.value)} placeholder="10" />
         </label>
         {message && <p className={message.kind === 'ok' ? 'ok' : 'error'}>{message.text}</p>}
         <div className="row gap">
-          <button className="btn primary">Сохранить</button>
+          <button className="btn primary">{t('save')}</button>
           <button
             type="button"
             className="btn"
@@ -133,38 +163,35 @@ export function SettingsPage() {
               setRelearnSteps(DEFAULT_CONFIG.relearnSteps.join(' '));
             }}
           >
-            Сбросить к стандартным
+            {t('settings.reset')}
           </button>
         </div>
       </form>
 
       <form className="card form" onSubmit={saveName}>
-        <h3>Профиль</h3>
+        <h3>{t('settings.profile')}</h3>
         <label>
-          Имя
+          {t('login.name')}
           <input value={name} onChange={(e) => setName(e.target.value)} />
         </label>
-        <p className="muted small">Роль: {isAdmin ? 'админ (добавляет слова и смотрит прогресс)' : 'ученик'}</p>
+        <p className="muted small">
+          {t('settings.role', { role: isAdmin ? t('settings.role_admin') : t('settings.role_student') })}
+        </p>
         <div className="row gap">
-          <button className="btn">Сохранить имя</button>
+          <button className="btn">{t('settings.save_name')}</button>
           <button type="button" className="btn danger" onClick={() => void signOut()}>
-            Выйти
+            {t('settings.sign_out')}
           </button>
         </div>
       </form>
 
       <section className="card pad">
-        <h3>Установить как приложение</h3>
+        <h3>{t('settings.install')}</h3>
         <ul className="plain small">
-          <li>
-            <b>Компьютер (Chrome / Edge):</b> значок «Установить» справа в адресной строке → «Установить».
-          </li>
-          <li>
-            <b>Android (Chrome):</b> меню ⋮ → «Добавить на главный экран» / «Установить приложение».
-          </li>
-          <li>
-            <b>iPhone (Safari):</b> кнопка «Поделиться» → «На экран „Домой“».
-          </li>
+          {(['settings.install_pc', 'settings.install_android', 'settings.install_ios'] as const).map((k) => (
+            // Static strings from our own dictionary (only <b> markup).
+            <li key={k} dangerouslySetInnerHTML={{ __html: t(k) }} />
+          ))}
         </ul>
       </section>
     </div>

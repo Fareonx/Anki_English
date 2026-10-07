@@ -5,22 +5,24 @@ import { deleteNote, setSuspended, updateNote, type CardRow, type Note, type Not
 import { buildDeckTree, deckPath, flattenTree, subtreeIds } from '../lib/decks';
 import { maturity } from '../lib/stats';
 import { useStudentData } from '../lib/useStudentData';
+import { useI18n, type Key } from '../lib/i18n';
 
 const MATURITY_LABEL = {
-  new: 'новое',
-  learning: 'учит',
-  young: 'повтор',
-  mature: 'выучено',
-  suspended: 'пауза',
-} as const;
+  new: 'status.new',
+  learning: 'status.learning',
+  young: 'status.young',
+  mature: 'status.mature',
+  suspended: 'status.suspended',
+} as const satisfies Record<string, Key>;
 
 function CardStatus({ card, label }: { card?: CardRow; label: string }) {
+  const { t, units } = useI18n();
   if (!card) return null;
   const m = maturity(card);
   return (
-    <span className={`status ${m}`} title={card.lapses ? `Забыто раз: ${card.lapses}` : undefined}>
-      {label}: {MATURITY_LABEL[m]}
-      {(m === 'young' || m === 'mature') && ` · ${card.ivl} д`}
+    <span className={`status ${m}`} title={card.lapses ? t('browse.lapses', { n: card.lapses }) : undefined}>
+      {label}: {t(MATURITY_LABEL[m])}
+      {(m === 'young' || m === 'mature') && ` · ${card.ivl} ${units.day}`}
       {card.leech && ' · 🩸'}
     </span>
   );
@@ -29,6 +31,7 @@ function CardStatus({ card, label }: { card?: CardRow; label: string }) {
 export function BrowsePage() {
   const { deckId = '' } = useParams();
   const { decks, cards, notes, loading, error, reload } = useStudentData({ notes: true, revlogDays: 0 });
+  const { t } = useI18n();
   const [query, setQuery] = useState('');
   const [editing, setEditing] = useState<string | null>(null);
   const [draft, setDraft] = useState<NoteFields & { deck_id: string }>({} as NoteFields & { deck_id: string });
@@ -78,30 +81,30 @@ export function BrowsePage() {
     });
   }
 
-  if (loading) return <p className="muted">Загрузка…</p>;
+  if (loading) return <p className="muted">{t('loading')}</p>;
   if (error) return <p className="error">{error}</p>;
 
   return (
     <div className="stack">
       <div className="row gap wrap">
         <Link to="/" className="muted">
-          ← Колоды
+          ← {t('nav.decks')}
         </Link>
-        <h2 className="grow">{deckPath(decks, deckId) || 'Категория'}</h2>
+        <h2 className="grow">{deckPath(decks, deckId) || t('category')}</h2>
         <Link className="btn small" to={`/add?deck=${deckId}`}>
-          ➕ Добавить
+          ➕ {t('add')}
         </Link>
       </div>
 
       <input
         type="search"
-        placeholder={`Поиск среди ${visible.length} слов…`}
+        placeholder={t('browse.search', { n: visible.length })}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
       {actionError && <p className="error">{actionError}</p>}
 
-      {visible.length === 0 && <p className="muted">Слов пока нет.</p>}
+      {visible.length === 0 && <p className="muted">{t('browse.empty')}</p>}
 
       <div className="word-list">
         {visible.map((n) => {
@@ -130,7 +133,8 @@ export function BrowsePage() {
                   <button
                     className="btn small"
                     disabled={busy}
-                    title={suspended ? 'Вернуть в учёбу' : 'Приостановить'}
+                    title={suspended ? t('browse.resume') : t('browse.suspend')}
+                    aria-label={suspended ? t('browse.resume') : t('browse.suspend')}
                     onClick={() => void run(() => setSuspended(noteCards, !suspended))}
                   >
                     {suspended ? '▶' : '⏸'}
@@ -139,7 +143,7 @@ export function BrowsePage() {
                     className="btn small danger"
                     disabled={busy}
                     onClick={() => {
-                      if (confirm(`Удалить «${n.word}» и его прогресс?`)) void run(() => deleteNote(n.id));
+                      if (confirm(t('browse.delete_confirm', { word: n.word }))) void run(() => deleteNote(n.id));
                     }}
                   >
                     🗑
@@ -159,7 +163,7 @@ export function BrowsePage() {
                 >
                   <NoteForm value={draft} onChange={(v) => setDraft({ ...draft, ...v })} />
                   <label>
-                    Категория
+                    {t('category')}
                     <select value={draft.deck_id} onChange={(e) => setDraft({ ...draft, deck_id: e.target.value })}>
                       {flat.map((d) => (
                         <option key={d.deck.id} value={d.deck.id}>
@@ -170,10 +174,10 @@ export function BrowsePage() {
                   </label>
                   <div className="row gap">
                     <button className="btn primary small" disabled={busy}>
-                      Сохранить
+                      {t('save')}
                     </button>
                     <button type="button" className="btn small" onClick={() => setEditing(null)}>
-                      Отмена
+                      {t('cancel')}
                     </button>
                   </div>
                 </form>

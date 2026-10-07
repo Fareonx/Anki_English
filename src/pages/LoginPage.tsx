@@ -1,7 +1,10 @@
 import { useState, type FormEvent } from 'react';
 import { supabase } from '../lib/supabase';
+import { useI18n } from '../lib/i18n';
+import { LanguageSelect } from '../components/LanguageSelect';
 
 export function LoginPage() {
+  const { t } = useI18n();
   const [mode, setMode] = useState<'signin' | 'signup'>('signin');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -25,7 +28,7 @@ export function LoginPage() {
         });
         if (error) throw error;
         if (!data.session) {
-          setMessage({ kind: 'info', text: 'Аккаунт создан. Подтверди адрес по ссылке из письма и войди.' });
+          setMessage({ kind: 'info', text: t('login.created_confirm') });
           setMode('signin');
         }
       }
@@ -34,11 +37,11 @@ export function LoginPage() {
       setMessage({
         kind: 'error',
         text: /Invalid login credentials/i.test(text)
-          ? 'Неверная почта или пароль.'
+          ? t('login.bad_credentials')
           : /Email not confirmed/i.test(text)
-            ? 'Почта ещё не подтверждена.'
+            ? t('login.not_confirmed')
             : /at least 6 characters/i.test(text)
-              ? 'Пароль должен быть не короче 6 символов.'
+              ? t('login.short_password')
               : text,
       });
     } finally {
@@ -48,32 +51,35 @@ export function LoginPage() {
 
   return (
     <div className="login">
+      <div className="login-lang">
+        <LanguageSelect />
+      </div>
       <form className="card login-card" onSubmit={submit}>
         <img src="./icon.svg" alt="" width={56} height={56} />
         <h1>IELTS Words</h1>
-        <p className="muted">Учим слова по методу Anki</p>
+        <p className="muted">{t('login.tagline')}</p>
 
         <div className="segmented">
           <button type="button" className={mode === 'signin' ? 'active' : ''} onClick={() => setMode('signin')}>
-            Вход
+            {t('login.signin')}
           </button>
           <button type="button" className={mode === 'signup' ? 'active' : ''} onClick={() => setMode('signup')}>
-            Регистрация
+            {t('login.signup')}
           </button>
         </div>
 
         {mode === 'signup' && (
           <label>
-            Имя
+            {t('login.name')}
             <input value={name} onChange={(e) => setName(e.target.value)} required autoComplete="name" />
           </label>
         )}
         <label>
-          Почта
+          {t('login.email')}
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required autoComplete="email" />
         </label>
         <label>
-          Пароль
+          {t('login.password')}
           <input
             type="password"
             value={password}
@@ -87,7 +93,7 @@ export function LoginPage() {
         {message && <p className={message.kind === 'error' ? 'error' : 'info'}>{message.text}</p>}
 
         <button className="btn primary wide" disabled={busy}>
-          {busy ? '…' : mode === 'signin' ? 'Войти' : 'Создать аккаунт'}
+          {busy ? '…' : mode === 'signin' ? t('login.do_signin') : t('login.do_signup')}
         </button>
       </form>
     </div>
