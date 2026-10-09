@@ -55,8 +55,8 @@ function reviewCard(n: number, due = TODAY): StudyCard {
 
 describe('StudySession', () => {
   it('shows only one direction of each new word per day (siblings buried)', () => {
-    const s = new StudySession(newWords(30), noStats(), cfg, NOW);
-    expect(s.counts()).toEqual({ new: 30, learn: 0, review: 0 });
+    const s = new StudySession(newWords(20), noStats(), cfg, NOW);
+    expect(s.counts()).toEqual({ new: 20, learn: 0, review: 0 });
     expect(s.next(NOW)?.template).toBe(0);
   });
 
@@ -69,14 +69,51 @@ describe('StudySession', () => {
     expect(s.next(NOW)?.id).toBe('c1-1');
   });
 
-  it('limits new cards per day: 50 cards = 25 words in both directions', () => {
-    const s = new StudySession(newWords(60), noStats(), cfg, NOW);
-    expect(s.counts().new).toBe(50);
+  it('limits new words per day (one card of each word today)', () => {
+    const s = new StudySession(newWords(60), noStats(), { ...cfg, newPerDay: 30 }, NOW, { reverseFirst: true });
+    expect(s.counts().new).toBe(30);
+    expect(s.freshWords).toBe(30);
   });
 
-  it('subtracts new cards already studied today', () => {
-    const s = new StudySession(newWords(60), { ...noStats(), newDone: 45 }, cfg, NOW);
-    expect(s.counts().new).toBe(5);
+  it('subtracts words first studied earlier today', () => {
+    const cards = newWords(60);
+    // Words 0..9 were started today: their typing card was answered once.
+    const answersTodayByCard = new Map<string, number>();
+    const touchedNotes = new Set<string>();
+    for (let n = 0; n < 10; n++) {
+      const i = cards.findIndex((c) => c.id === `c${n}-1`);
+      cards[i] = { ...cards[i], ctype: CardType.Learn, queue: Queue.Learn, due: NOW_SEC + 600, reps: 1 };
+      answersTodayByCard.set(`c${n}-1`, 1);
+      touchedNotes.add(`n${n}`);
+    }
+    const s = new StudySession(cards, { ...noStats(), touchedNotes, answersTodayByCard }, { ...cfg, newPerDay: 30 }, NOW, {
+      reverseFirst: true,
+    });
+    expect(s.freshWordsDoneToday).toBe(10);
+    expect(s.counts().new).toBe(20);
+  });
+
+  it("shows the second side of yesterday's words without using the new-word limit", () => {
+    const cards = newWords(60);
+    for (let n = 0; n < 30; n++) {
+      const i = cards.findIndex((c) => c.id === `c${n}-1`);
+      cards[i] = { ...cards[i], ctype: CardType.Review, queue: Queue.Review, due: TODAY + 1, ivl: 1, factor: 2500, reps: 3 };
+    }
+    const s = new StudySession(cards, noStats(), { ...cfg, newPerDay: 30 }, NOW, { reverseFirst: true });
+    expect(s.freshWords).toBe(30);
+    expect(s.counts().new).toBe(60);
+    // Second sides first, then today's new words (typing card first).
+    expect(s.next(NOW)?.id).toBe('c0-0');
+  });
+
+  it('does not count a word started yesterday as a new word of today', () => {
+    const cards = newWords(5);
+    // Word 0: typing card answered yesterday (2 reps) and once more today.
+    cards[1] = { ...cards[1], ctype: CardType.Review, queue: Queue.Review, due: TODAY + 3, ivl: 3, factor: 2500, reps: 3 };
+    const stats = { ...noStats(), touchedNotes: new Set(['n0']), answersTodayByCard: new Map([['c0-1', 1]]) };
+    const s = new StudySession(cards, stats, { ...cfg, newPerDay: 2 }, NOW, { reverseFirst: true });
+    expect(s.freshWordsDoneToday).toBe(0);
+    expect(s.counts().new).toBe(2);
   });
 
   it('introduces the reverse card on a later day after the forward one is learned', () => {

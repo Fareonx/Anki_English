@@ -17,7 +17,8 @@ export const DEFAULT_CONFIG: SchedConfig = {
   minIvl: 1,
   lapseNewIvl: 0,
   leechThreshold: 8,
-  newPerDay: 50,
+  /** New words per day (each word has two cards; the second side comes on a later day). */
+  newPerDay: 25,
   reviewsPerDay: 200,
   rolloverHour: 4,
   timeZone: 'Asia/Baku',

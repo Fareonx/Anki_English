@@ -1,6 +1,7 @@
 // Fills empty fields of a word from free public services:
 //  - dictionaryapi.dev: transcription, part of speech, definition, example, synonyms
-//  - MyMemory: Russian and Azerbaijani translations
+//  - Google Translate (free web endpoint): Russian and Azerbaijani translations with alternatives
+//  - MyMemory: fallback translations
 // Results are suggestions; everything stays editable.
 
 import type { NoteFields } from './db';
@@ -39,7 +40,32 @@ async function lookupDictionary(word: string): Promise<Partial<NoteFields>> {
   };
 }
 
-async function translate(word: string, lang: 'ru' | 'az'): Promise<string> {
+const MAX_MEANINGS = 3;
+
+/** Main translation plus the most common dictionary alternatives, e.g. "покидать, отказываться от, оставлять". */
+async function translateGoogle(word: string, lang: 'ru' | 'az'): Promise<string> {
+  const res = await fetch(
+    `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${lang}&dt=t&dt=bd&q=${encodeURIComponent(word)}`,
+  );
+  if (!res.ok) return '';
+  const data = (await res.json()) as [[string, string][] | null, [string, string[]][] | null];
+  const main = (data[0] ?? []).map((s) => s[0]).join('').trim();
+  const meanings: string[] = [];
+  const add = (m: string) => {
+    const v = m.trim();
+    if (v && v.toLowerCase() !== word.toLowerCase() && !meanings.some((x) => x.toLowerCase() === v.toLowerCase())) {
+      meanings.push(v);
+    }
+  };
+  add(main);
+  for (const alt of data[1]?.[0]?.[1] ?? []) {
+    if (meanings.length >= MAX_MEANINGS) break;
+    add(alt);
+  }
+  return meanings.join(', ');
+}
+
+async function translateMyMemory(word: string, lang: 'ru' | 'az'): Promise<string> {
   const res = await fetch(
     `https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=en|${lang}`,
   );
@@ -50,6 +76,11 @@ async function translate(word: string, lang: 'ru' | 'az'): Promise<string> {
   // The service reports quota problems inside the text.
   if (/MYMEMORY WARNING|QUERY LENGTH LIMIT/i.test(text)) return '';
   return text;
+}
+
+export async function translate(word: string, lang: 'ru' | 'az'): Promise<string> {
+  const google = await translateGoogle(word, lang).catch(() => '');
+  return google || translateMyMemory(word, lang).catch(() => '');
 }
 
 /** Returns a copy of `note` with empty fields filled in where a service had an answer. */

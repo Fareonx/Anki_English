@@ -3,7 +3,7 @@
 // respecting daily limits and burying siblings (the other direction of a word).
 
 import { dayNumber, dayStartMs } from './day';
-import { Queue, type SchedCard, type SchedConfig } from './types';
+import { CardType, Queue, type SchedCard, type SchedConfig } from './types';
 
 export interface StudyCard extends SchedCard {
   note_id: string;
@@ -18,6 +18,8 @@ export interface TodayStats {
   reviewsDone: number;
   /** Notes that had any card answered today (their siblings are buried). */
   touchedNotes: Set<string>;
+  /** How many answers each card got today; used to tell words first studied today. */
+  answersTodayByCard?: Map<string, number>;
 }
 
 export interface SessionOptions {
@@ -62,6 +64,10 @@ export class StudySession<T extends StudyCard> {
   private learning: T[];
   private main: T[];
   private readonly cutoffSec: number;
+  /** New words (both sides still new) taken into today's queue. */
+  readonly freshWords: number;
+  /** New words already started earlier today. */
+  readonly freshWordsDoneToday: number;
 
   constructor(
     cards: T[],
@@ -92,18 +98,41 @@ export class StudySession<T extends StudyCard> {
       used.add(c.note_id);
     }
 
+    // The daily limit counts new *words*, not cards. The second side of a word that
+    // was started on an earlier day is shown without using the limit.
+    const byNote = new Map<string, T[]>();
+    for (const c of cards) byNote.set(c.note_id, [...(byNote.get(c.note_id) ?? []), c]);
+
+    const answersToday = stats.answersTodayByCard ?? new Map<string, number>();
+    let freshDone = 0;
+    for (const noteId of stats.touchedNotes) {
+      const noteCards = byNote.get(noteId);
+      if (!noteCards) continue;
+      const reps = noteCards.reduce((s, c) => s + c.reps, 0);
+      const todayAnswers = noteCards.reduce((s, c) => s + (answersToday.get(c.id) ?? 0), 0);
+      if (todayAnswers > 0 && reps === todayAnswers) freshDone++;
+    }
+    this.freshWordsDoneToday = freshDone;
+
     const newOrder = (c: T) => (options.reverseFirst ? Math.floor(c.due / 2) * 2 + (1 - (c.due % 2)) : c.due);
     const newPool = cards.filter((c) => c.queue === Queue.New).sort((a, b) => newOrder(a) - newOrder(b));
-    const newLimit = Math.max(0, cfg.newPerDay - stats.newDone);
-    const news: T[] = [];
+    const freshLimit = Math.max(0, cfg.newPerDay - freshDone);
+    const secondSides: T[] = [];
+    const fresh: T[] = [];
     for (const c of newPool) {
-      if (news.length >= newLimit) break;
       if (used.has(c.note_id)) continue;
-      news.push(c);
+      const started = (byNote.get(c.note_id) ?? []).some((s) => s.ctype !== CardType.New);
+      if (started) {
+        secondSides.push(c);
+      } else {
+        if (fresh.length >= freshLimit) continue;
+        fresh.push(c);
+      }
       used.add(c.note_id);
     }
+    this.freshWords = fresh.length;
 
-    this.main = mixNewWithReviews(reviews, news);
+    this.main = mixNewWithReviews(reviews, [...secondSides, ...fresh]);
   }
 
   counts(): Counts {

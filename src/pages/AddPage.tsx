@@ -21,7 +21,9 @@ export function AddPage() {
   const [decks, setDecks] = useState<Deck[]>([]);
   const [existing, setExisting] = useState<Set<string>>(new Set());
   const [deckId, setDeckId] = useState('');
-  const [mode, setMode] = useState<'list' | 'single'>('list');
+  const [mode, setMode] = useState<'quick' | 'list' | 'single'>('quick');
+  const [quickText, setQuickText] = useState('');
+  const [quick, setQuick] = useState<NoteFields[]>([]);
   const [single, setSingle] = useState<NoteFields>(EMPTY_FIELDS);
   const [text, setText] = useState('');
   const [fillEmpty, setFillEmpty] = useState(true);
@@ -92,6 +94,43 @@ export function AddPage() {
     if (await save(fresh, fillEmpty)) setText('');
   }
 
+  async function translateQuick(e: FormEvent) {
+    e.preventDefault();
+    const words = [
+      ...new Set(
+        quickText
+          .split(/[,\n;]+/)
+          .map((w) => w.trim())
+          .filter(Boolean),
+      ),
+    ].filter((w) => !quick.some((q) => q.word.toLowerCase() === w.toLowerCase()));
+    if (words.length === 0) return;
+    setMessage(null);
+    const filled: NoteFields[] = [];
+    try {
+      for (const [i, word] of words.entries()) {
+        setProgress(t('add.translating', { i: i + 1, n: words.length }));
+        const base = { ...EMPTY_FIELDS, word };
+        filled.push(await autofill(base).catch(() => base));
+      }
+    } finally {
+      setProgress(null);
+    }
+    setQuick((prev) => [...prev, ...filled]);
+    setQuickText('');
+  }
+
+  function editQuick(i: number, patch: Partial<NoteFields>) {
+    setQuick((prev) => prev.map((n, j) => (j === i ? { ...n, ...patch } : n)));
+  }
+
+  const quickFresh = quick.filter((n) => !existing.has(n.word.trim().toLowerCase()));
+
+  async function submitQuick() {
+    if (quickFresh.length === 0) return;
+    if (await save(quickFresh, false)) setQuick([]);
+  }
+
   async function submitSingle(e: FormEvent) {
     e.preventDefault();
     if (!single.word.trim()) return;
@@ -108,6 +147,9 @@ export function AddPage() {
       </div>
 
       <div className="segmented">
+        <button className={mode === 'quick' ? 'active' : ''} onClick={() => setMode('quick')}>
+          {t('add.quick')}
+        </button>
         <button className={mode === 'list' ? 'active' : ''} onClick={() => setMode('list')}>
           {t('add.list')}
         </button>
@@ -116,7 +158,75 @@ export function AddPage() {
         </button>
       </div>
 
-      {mode === 'list' ? (
+      {mode === 'quick' && (
+        <div className="card form">
+          <form className="quick-input" onSubmit={translateQuick}>
+            <label>
+              {t('add.quick_help')}
+              <input
+                value={quickText}
+                autoCapitalize="none"
+                autoCorrect="off"
+                spellCheck={false}
+                placeholder="abandon, environment"
+                onChange={(e) => setQuickText(e.target.value)}
+              />
+            </label>
+            <button className="btn" disabled={!quickText.trim() || !!progress}>
+              {t('add.translate')}
+            </button>
+          </form>
+
+          {quick.map((n, i) => {
+            const dupe = existing.has(n.word.trim().toLowerCase());
+            return (
+              <div key={n.word} className={`quick-word${dupe ? ' dim' : ''}`}>
+                <div className="quick-head">
+                  <b>{n.word}</b>
+                  {n.ipa && <span className="muted small">{n.ipa}</span>}
+                  {dupe && <span className="muted small">{t('add.already')}</span>}
+                  <button
+                    type="button"
+                    className="btn small"
+                    aria-label={t('add.remove')}
+                    title={t('add.remove')}
+                    onClick={() => setQuick((prev) => prev.filter((_, j) => j !== i))}
+                  >
+                    ✕
+                  </button>
+                </div>
+                <label>
+                  🇷🇺 {t('add.col_ru')}
+                  <input value={n.translation_ru} onChange={(e) => editQuick(i, { translation_ru: e.target.value })} />
+                </label>
+                <label>
+                  🇦🇿 {t('add.col_az')}
+                  <input value={n.translation_az} onChange={(e) => editQuick(i, { translation_az: e.target.value })} />
+                </label>
+                <label>
+                  {t('add.col_example')}
+                  <input value={n.example} onChange={(e) => editQuick(i, { example: e.target.value })} />
+                </label>
+              </div>
+            );
+          })}
+
+          {quick.length > 0 && <p className="muted small">{t('add.quick_check')}</p>}
+          {progress && <p className="info">{progress}</p>}
+          {message && <p className={message.kind === 'ok' ? 'ok' : 'error'}>{message.text}</p>}
+          {quick.length > 0 && (
+            <button
+              className="btn primary"
+              disabled={quickFresh.length === 0 || !!progress}
+              onClick={() => void submitQuick()}
+            >
+              {t('add.submit_n', { n: quickFresh.length })}
+            </button>
+          )}
+        </div>
+      )}
+
+      {mode === 'quick' ? null : mode === 'list' ? (
         <form className="card form" onSubmit={submitList}>
           <label>
             {(() => {

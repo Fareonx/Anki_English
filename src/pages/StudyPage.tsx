@@ -6,7 +6,7 @@ import { addSentence, saveAnswer, type CardRow, type Note } from '../lib/db';
 import { deckPath, subtreeIds } from '../lib/decks';
 import { StudySession, type Counts } from '../lib/scheduler/queue';
 import { answerCard, formatInterval, nextIntervals } from '../lib/scheduler/sm2';
-import { Ease, Queue } from '../lib/scheduler/types';
+import { CardType, Ease, Queue } from '../lib/scheduler/types';
 import { canSpeak, speak } from '../lib/speech';
 import { summarizeToday } from '../lib/stats';
 import { useStudentData } from '../lib/useStudentData';
@@ -228,10 +228,12 @@ export function StudyPage() {
     const session = new StudySession(subset, summary, cfg, Date.now(), { reverseFirst: typeAnswers });
     sessionRef.current = session;
 
-    const untouchedNewNotes = new Set(
-      subset.filter((c) => c.queue === Queue.New && !summary.touchedNotes.has(c.note_id)).map((c) => c.note_id),
+    // Words not started at all that today's limit left out.
+    const startedNotes = new Set(subset.filter((c) => c.ctype !== CardType.New).map((c) => c.note_id));
+    const freshNotes = new Set(
+      subset.filter((c) => !startedNotes.has(c.note_id) && !summary.touchedNotes.has(c.note_id)).map((c) => c.note_id),
     );
-    setMoreNew(Math.max(0, untouchedNewNotes.size - session.counts().new));
+    setMoreNew(Math.max(0, freshNotes.size - session.freshWords));
     advance();
   }, [loading, cards, decks, revlog, deckId, cfg, advance, typeAnswers]);
 
@@ -484,7 +486,7 @@ export function StudyPage() {
             <button
               className="btn"
               onClick={() => {
-                setExtraNew((n) => n + 10);
+                setExtraNew((n) => n + 5);
                 void reload();
               }}
             >
