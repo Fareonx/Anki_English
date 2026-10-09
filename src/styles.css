@@ -1582,3 +1582,42 @@ tr.dim td {
 .btn.dont-know {
   color: var(--ink-2);
 }
+
+/* Quick add: type an English word, check the automatic translation, add. */
+.quick-input {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.quick-input label {
+  flex: 1;
+  min-width: 0;
+}
+
+.quick-word {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.quick-word.dim {
+  opacity: 0.55;
+}
+
+.quick-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.quick-head b {
+  font-size: 1.15rem;
+}
+
+.quick-head .btn {
+  margin-left: auto;
+}

@@ -120,7 +120,7 @@ export function SettingsPage() {
           {isAdmin && student ? `: ${student.name}` : ''}
         </h3>
         <p className="muted small">
-          {t('settings.study_note', { cards: DEFAULT_CONFIG.newPerDay, words: DEFAULT_CONFIG.newPerDay / 2 })}
+          {t('settings.study_note', { words: DEFAULT_CONFIG.newPerDay })}
         </p>
         {NUMBER_FIELDS.map((f) => (
           <label key={f.key}>
@@ -134,7 +134,7 @@ export function SettingsPage() {
             />
             {f.key === 'newPerDay' && (
               <span className="muted small">
-                {t('settings.new_per_day_hint', { n: Math.round(form.newPerDay / 2) })}
+                {t('settings.new_per_day_hint')}
               </span>
             )}
           </label>

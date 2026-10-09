@@ -29,7 +29,15 @@ export function summarizeToday(
   nowMs: number,
 ): TodaySummary {
   const startMs = Date.parse(todayStartIso(cfg, nowMs));
-  const s: TodaySummary = { newDone: 0, reviewsDone: 0, touchedNotes: new Set(), answers: 0, correct: 0, timeMs: 0 };
+  const s: TodaySummary = {
+    newDone: 0,
+    reviewsDone: 0,
+    touchedNotes: new Set(),
+    answersTodayByCard: new Map(),
+    answers: 0,
+    correct: 0,
+    timeMs: 0,
+  };
   for (const r of revlog) {
     if (Date.parse(r.reviewed_at) < startMs) continue;
     s.answers++;
@@ -39,6 +47,7 @@ export function summarizeToday(
     if (r.rtype === RevlogType.Review) s.reviewsDone++;
     const note = cardNote.get(r.card_id);
     if (note) s.touchedNotes.add(note);
+    s.answersTodayByCard!.set(r.card_id, (s.answersTodayByCard!.get(r.card_id) ?? 0) + 1);
   }
   return s;
 }
