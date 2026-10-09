@@ -11,7 +11,8 @@ import { canSpeak, speak } from '../lib/speech';
 import { summarizeToday } from '../lib/stats';
 import { useStudentData } from '../lib/useStudentData';
 import { useI18n, type Key } from '../lib/i18n';
-import { checkTypedAnswer, type DiffChar, type TypedResult } from '../lib/typeAnswer';
+import { checkTypedAnswer, isAcceptedAlternative, type DiffChar, type TypedResult } from '../lib/typeAnswer';
+import { lookup } from '../lib/translate';
 
 /** Anki stops counting answer time after 60 seconds. */
 const MAX_ANSWER_MS = 60_000;
@@ -132,9 +133,20 @@ function Letters({ chars, kind }: { chars: DiffChar[]; kind: 'typed' | 'expected
 }
 
 /** Letter-by-letter comparison of the typed word with the correct one. */
-function TypedFeedback({ result }: { result: TypedResult }) {
+function TypedFeedback({ result, alternative, word }: { result: TypedResult; alternative: boolean; word: string }) {
   const { t } = useI18n();
   if (result.correct) return <div className="typed-result ok-result">{t('study.correct')}</div>;
+  // Another correct word (hi for hello): not a mistake, shown in blue with the main variant.
+  if (alternative) {
+    return (
+      <div className="typed-result alt-result">
+        <div className="alt-title">{t('study.alt_correct')}</div>
+        <div className="alt-text">
+          {t('study.alt_main')} <b className="alt-word">{word}</b>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="typed-result wrong-result">
       <div className="typed-title">{t('study.wrong')}</div>
@@ -190,6 +202,8 @@ export function StudyPage() {
   const [typed, setTyped] = useState('');
   const [typedResult, setTypedResult] = useState<TypedResult | null>(null);
   const [gaveUp, setGaveUp] = useState(false);
+  const [altAccepted, setAltAccepted] = useState(false);
+  const [checking, setChecking] = useState(false);
 
   const notesById = useMemo(() => new Map(notes.map((n) => [n.id, n])), [notes]);
   const cfg = useMemo(() => ({ ...config, newPerDay: config.newPerDay + extraNew }), [config, extraNew]);
@@ -209,6 +223,8 @@ export function StudyPage() {
     setTyped('');
     setTypedResult(null);
     setGaveUp(false);
+    setAltAccepted(false);
+    setChecking(false);
     setShownAt(now);
     setFinished(s.isFinished());
     setWaitUntil(!next && !s.isFinished() ? s.nextLearningDue() : null);
@@ -291,18 +307,25 @@ export function StudyPage() {
 
   const typing = !!current && current.template === 1 && typeAnswers;
 
-  const mistyped = typedResult !== null && !typedResult.correct;
+  const mistyped = typedResult !== null && !typedResult.correct && !altAccepted;
 
   // Compare the typed word with the answer, then show the answer.
-  const check = useCallback(() => {
-    if (!current || revealed) return;
+  const check = useCallback(async () => {
+    if (!current || revealed || checking) return;
     const note = notesById.get(current.note_id);
     if (!note) return;
-    setTypedResult(checkTypedAnswer(typed, note.word));
+    const result = checkTypedAnswer(typed, note.word);
     // Hide the phone keyboard so the result and buttons are visible.
     (document.activeElement as HTMLElement | null)?.blur();
+    if (!result.correct && typed.trim()) {
+      setChecking(true);
+      const ok = await isAcceptedAlternative(typed, note, lookup).catch(() => false);
+      setChecking(false);
+      setAltAccepted(ok);
+    }
+    setTypedResult(result);
     reveal();
-  }, [current, revealed, notesById, typed, reveal]);
+  }, [current, revealed, checking, notesById, typed, reveal]);
 
   // "I don't know": show the answer; like a mistake, only "Again" is offered.
   const giveUp = useCallback(() => {
@@ -323,7 +346,7 @@ export function StudyPage() {
       if (e.key === ' ' || e.key === 'Enter') {
         e.preventDefault();
         if (!revealed) {
-          if (typing) check();
+          if (typing) void check();
           else reveal();
         } else void answer(mistyped ? Ease.Again : Ease.Good);
       } else if (revealed && mistyped) {
@@ -384,7 +407,7 @@ export function StudyPage() {
                     className="type-answer"
                     onSubmit={(e) => {
                       e.preventDefault();
-                      check();
+                      void check();
                     }}
                   >
                     <input
@@ -416,7 +439,7 @@ export function StudyPage() {
                   </>
                 ) : (
                   <>
-                    {typedResult && !gaveUp && <TypedFeedback result={typedResult} />}
+                    {typedResult && !gaveUp && <TypedFeedback result={typedResult} alternative={altAccepted} word={note.word} />}
                     <div className="word">
                       {note.word} <SpeakButton text={note.word} />
                     </div>
@@ -437,8 +460,8 @@ export function StudyPage() {
                   <button className="btn show-answer dont-know" onClick={giveUp}>
                     {t('study.dont_know')}
                   </button>
-                  <button className="btn primary show-answer" onClick={check}>
-                    {t('study.check')}
+                  <button className="btn primary show-answer" disabled={checking} onClick={() => void check()}>
+                    {checking ? t('study.checking') : t('study.check')}
                   </button>
                 </div>
               ) : (

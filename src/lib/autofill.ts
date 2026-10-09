@@ -5,6 +5,7 @@
 // Results are suggestions; everything stays editable.
 
 import type { NoteFields } from './db';
+import { fetchWithTimeout, translate } from './translate';
 
 interface DictEntry {
   phonetic?: string;
@@ -16,8 +17,9 @@ interface DictEntry {
   }[];
 }
 
-async function lookupDictionary(word: string): Promise<Partial<NoteFields>> {
-  const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`);
+/** Transcription, part of speech, definition, example and synonyms from dictionaryapi.dev. */
+export async function lookupDictionary(word: string): Promise<Partial<NoteFields>> {
+  const res = await fetchWithTimeout(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`);
   if (!res.ok) return {};
   const entries = (await res.json()) as DictEntry[];
   const entry = entries[0];
@@ -38,49 +40,6 @@ async function lookupDictionary(word: string): Promise<Partial<NoteFields>> {
     example,
     synonyms,
   };
-}
-
-const MAX_MEANINGS = 3;
-
-/** Main translation plus the most common dictionary alternatives, e.g. "покидать, отказываться от, оставлять". */
-async function translateGoogle(word: string, lang: 'ru' | 'az'): Promise<string> {
-  const res = await fetch(
-    `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${lang}&dt=t&dt=bd&q=${encodeURIComponent(word)}`,
-  );
-  if (!res.ok) return '';
-  const data = (await res.json()) as [[string, string][] | null, [string, string[]][] | null];
-  const main = (data[0] ?? []).map((s) => s[0]).join('').trim();
-  const meanings: string[] = [];
-  const add = (m: string) => {
-    const v = m.trim();
-    if (v && v.toLowerCase() !== word.toLowerCase() && !meanings.some((x) => x.toLowerCase() === v.toLowerCase())) {
-      meanings.push(v);
-    }
-  };
-  add(main);
-  for (const alt of data[1]?.[0]?.[1] ?? []) {
-    if (meanings.length >= MAX_MEANINGS) break;
-    add(alt);
-  }
-  return meanings.join(', ');
-}
-
-async function translateMyMemory(word: string, lang: 'ru' | 'az'): Promise<string> {
-  const res = await fetch(
-    `https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=en|${lang}`,
-  );
-  if (!res.ok) return '';
-  const data = (await res.json()) as { responseStatus?: number; responseData?: { translatedText?: string } };
-  const text = data.responseData?.translatedText?.trim() ?? '';
-  if (data.responseStatus !== 200 || !text || text.toLowerCase() === word.toLowerCase()) return '';
-  // The service reports quota problems inside the text.
-  if (/MYMEMORY WARNING|QUERY LENGTH LIMIT/i.test(text)) return '';
-  return text;
-}
-
-export async function translate(word: string, lang: 'ru' | 'az'): Promise<string> {
-  const google = await translateGoogle(word, lang).catch(() => '');
-  return google || translateMyMemory(word, lang).catch(() => '');
 }
 
 /** Returns a copy of `note` with empty fields filled in where a service had an answer. */
