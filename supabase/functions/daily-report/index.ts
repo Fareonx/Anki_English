@@ -91,11 +91,9 @@ async function buildSection(student: Row, day: number): Promise<Section> {
     const s = days.get(d) ?? { answers: 0, newCards: 0, reviews: 0, ok: 0, ms: 0 };
     s.answers++;
     s.ms += r.time_ms ?? 0;
+    if (r.ease > 1) s.ok++;
     if (r.rtype === 0 && r.last_ivl === 0) s.newCards++;
-    if (r.rtype === 1) {
-      s.reviews++;
-      if (r.ease > 1) s.ok++;
-    }
+    if (r.rtype === 1) s.reviews++;
     days.set(d, s);
     const note = noteOfCard.get(r.card_id);
     if (note && !firstDayOfNote.has(note)) firstDayOfNote.set(note, d);
@@ -138,7 +136,7 @@ async function buildSection(student: Row, day: number): Promise<Section> {
   const leeches = [...new Set(cards.filter((c) => c.leech).map((c) => wordOf.get(c.note_id)?.word).filter(Boolean))];
 
   const mins = Math.round(t.ms / 60_000);
-  const pct = t.reviews > 0 ? `${Math.round((t.ok / t.reviews) * 100)}%` : '—';
+  const pct = t.answers > 0 ? `${Math.round((t.ok / t.answers) * 100)}%` : '—';
 
   const alerts: string[] = [];
   if (notes.length === 0) alerts.push('Слов пока нет.');
@@ -160,7 +158,7 @@ async function buildSection(student: Row, day: number): Promise<Section> {
   <h2 style="font-size:19px;margin:0 0 10px">${esc(student.name)}${studied ? '' : ' <span style="font-size:14px;color:#687089;font-weight:400">— без занятий</span>'}</h2>
   ${alerts.length ? `<div style="background:#fff4e0;color:#7a4a00;border-radius:12px;padding:10px 12px;margin-bottom:10px;font-size:14px">${alerts.map((a) => `<div style="margin:3px 0">⚠️ ${a}</div>`).join('')}</div>` : ''}
   <table style="width:100%;border-collapse:collapse"><tr>
-    ${stat('новых слов', String(newWords))}${stat('повторений', String(t.reviews))}${stat('минут', String(mins))}${stat('верных', pct)}
+    ${stat('новых слов', String(newWords))}${stat('повторений', String(t.reviews))}${stat('минут', String(mins))}${stat('верных ответов', pct)}
   </tr><tr>
     ${stat('ответов', String(t.answers))}${stat('не доделано', leftTotal === 0 ? '✓' : String(leftTotal))}${stat('дней подряд', String(streak))}${stat('выучено карточек', String(learned))}
   </tr></table>
