@@ -26,3 +26,28 @@ export function parseWordList(text: string): NoteFields[] {
   }
   return out;
 }
+
+/**
+ * Splits the quick-add box into words: by new lines, commas and semicolons, and by spaces.
+ * A chunk with spaces stays whole when it is a known phrase ("thank you", "give up").
+ */
+export async function splitQuickWords(text: string, isPhrase: (chunk: string) => Promise<boolean>): Promise<string[]> {
+  const chunks = text
+    .split(/[\n,;]+/)
+    .map((c) => c.replace(/\s+/g, ' ').trim())
+    .filter(Boolean);
+  const parts = await Promise.all(
+    chunks.map(async (chunk) => {
+      if (!chunk.includes(' ')) return [chunk];
+      const phrase = await isPhrase(chunk).catch(() => false);
+      return phrase ? [chunk] : chunk.split(' ');
+    }),
+  );
+  const seen = new Set<string>();
+  return parts.flat().filter((w) => {
+    const key = w.toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}

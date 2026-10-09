@@ -63,3 +63,61 @@ export function checkTypedAnswer(typedRaw: string, expectedRaw: string): TypedRe
     expected: [...show(expected, b)].map((ch, k) => ({ ch, ok: okExpected[k] })),
   };
 }
+
+/** Splits "дом (родной), домой" into comparable meanings: ["дом", "домой"]. */
+export function meaningsOf(...fields: string[]): string[] {
+  return fields
+    .flatMap((f) => f.split(/[,;/]/))
+    .map(normalizeMeaning)
+    .filter(Boolean);
+}
+
+/** Lower-case, no notes in brackets, no punctuation: "Привет!" -> "привет". */
+export function normalizeMeaning(s: string): string {
+  return s
+    .replace(/\([^)]*\)/g, ' ')
+    .replace(/[!?.¡¿"«»…]/g, ' ')
+    .replace(/ё/g, 'е')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+export interface AltNote {
+  word: string;
+  translation_ru: string;
+  translation_az: string;
+  synonyms: string;
+}
+
+export interface AltLookup {
+  main: string;
+  alternatives: string[];
+  known: boolean;
+  suggestion: string | null;
+}
+
+/**
+ * Is `typed` another correct English word for this card (hi for hello, mom for mother)?
+ * First the note's own synonyms, then a reverse translation: the typed word must be a real
+ * word (not a typo Google silently fixes) whose RU or AZ translation is one of the card's meanings.
+ */
+export async function isAcceptedAlternative(
+  typedRaw: string,
+  note: AltNote,
+  lookup: (word: string, lang: 'ru' | 'az') => Promise<AltLookup>,
+): Promise<boolean> {
+  const typed = normalizeAnswer(typedRaw);
+  if (!typed || typed === normalizeAnswer(note.word)) return false;
+  if (note.synonyms.split(/[,;]/).some((s) => normalizeAnswer(s) === typed)) return true;
+
+  for (const lang of ['ru', 'az'] as const) {
+    const meanings = new Set(meaningsOf(lang === 'ru' ? note.translation_ru : note.translation_az));
+    if (meanings.size === 0) continue;
+    const l = await lookup(typed, lang).catch(() => null);
+    if (!l || !l.known || l.suggestion) continue;
+    const candidates = [l.main, ...l.alternatives.slice(0, 5)].map(normalizeMeaning);
+    if (candidates.some((c) => c && meanings.has(c))) return true;
+  }
+  return false;
+}

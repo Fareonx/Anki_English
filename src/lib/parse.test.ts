@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseWordList } from './parse';
+import { parseWordList, splitQuickWords } from './parse';
 
 describe('parseWordList', () => {
   it('reads semicolon and tab separated columns', () => {
@@ -19,5 +19,25 @@ describe('parseWordList', () => {
 
   it('drops duplicates case-insensitively', () => {
     expect(parseWordList('Issue;вопрос\nissue;проблема')).toHaveLength(1);
+  });
+});
+
+describe('splitQuickWords', () => {
+  const phrases = new Set(['thank you', 'give up']);
+  const isPhrase = async (c: string) => phrases.has(c.toLowerCase());
+
+  it('splits by lines, commas and spaces, keeping known phrases', async () => {
+    expect(await splitQuickWords('apple banana\nthank you\n\ngive up, cat;  dog  Apple', isPhrase)).toEqual([
+      'apple',
+      'banana',
+      'thank you',
+      'give up',
+      'cat',
+      'dog',
+    ]);
+  });
+
+  it('splits phrases when the check fails', async () => {
+    expect(await splitQuickWords('thank you', async () => Promise.reject(new Error('offline')))).toEqual(['thank', 'you']);
   });
 });

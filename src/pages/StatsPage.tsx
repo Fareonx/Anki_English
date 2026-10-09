@@ -4,6 +4,7 @@ import { listSentences, type Sentence } from '../lib/db';
 import { buildDeckTree, flattenTree, subtreeIds } from '../lib/decks';
 import { StudySession } from '../lib/scheduler/queue';
 import {
+  countLearnedWords,
   countMaturity,
   dailyActivity,
   forecast,
@@ -17,11 +18,12 @@ import { useI18n } from '../lib/i18n';
 
 const DAYS = 14;
 
-function Tile({ value, label, tone }: { value: string | number; label: string; tone?: 'warn' }) {
+function Tile({ value, label, tone, sub }: { value: string | number; label: string; tone?: 'warn' | 'accent'; sub?: string }) {
   return (
     <div className={`tile ${tone ?? ''}`}>
       <div className="big">{value}</div>
       <div className="muted small">{label}</div>
+      {sub && <div className="muted tiny">{sub}</div>}
     </div>
   );
 }
@@ -61,6 +63,7 @@ export function StatsPage() {
       retention7: retention(weekRevlog),
       forecast: forecast(cards, config, now, 7),
       maturity: countMaturity(cards),
+      words: countLearnedWords(cards),
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cards, revlog, config]);
@@ -100,6 +103,12 @@ export function StatsPage() {
       <h2>{t('stats.title', { name: student?.name ?? '' })}</h2>
 
       <section className="tiles">
+        <Tile
+          value={s.words.learned}
+          label={t('stats.learned_words')}
+          tone="accent"
+          sub={t('stats.learned_solid', { solid: s.words.solid, total: notes.length })}
+        />
         <Tile value={s.today.newDone} label={t('stats.new_today')} />
         <Tile value={s.today.reviewsDone} label={t('stats.reviews_today')} />
         <Tile value={formatDuration(s.today.timeMs, units)} label={t('stats.time_today')} />

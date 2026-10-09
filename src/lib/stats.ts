@@ -116,6 +116,28 @@ export function countMaturity(cards: CardRow[]): Record<Maturity, number> {
   return out;
 }
 
+/**
+ * Words the student has learned: both cards (typing the English word and recalling the
+ * translation) have left the learning steps. `solid` words also have intervals of 21+ days.
+ */
+export function countLearnedWords(cards: Pick<CardRow, 'note_id' | 'ctype' | 'ivl'>[]): { learned: number; solid: number } {
+  const byNote = new Map<string, { learned: boolean; solid: boolean }>();
+  for (const c of cards) {
+    const s = byNote.get(c.note_id) ?? { learned: true, solid: true };
+    const learned = c.ctype === CardType.Review || c.ctype === CardType.Relearn;
+    s.learned &&= learned;
+    s.solid &&= learned && c.ivl >= MATURE_IVL;
+    byNote.set(c.note_id, s);
+  }
+  let learned = 0;
+  let solid = 0;
+  for (const s of byNote.values()) {
+    if (s.learned) learned++;
+    if (s.solid) solid++;
+  }
+  return { learned, solid };
+}
+
 /** Number of review/interday cards due on each of the next `days` days (overdue counted today). */
 export function forecast(cards: CardRow[], cfg: SchedConfig, nowMs: number, days: number): number[] {
   const today = dayNumber(nowMs, cfg.timeZone, cfg.rolloverHour);

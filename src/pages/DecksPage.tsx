@@ -3,9 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth';
 import { MoreIcon, PlayIcon } from '../components/Icons';
 import { createDeck, deleteDeck, renameDeck } from '../lib/db';
-import { buildDeckTree, flattenTree, subtreeIds, type DeckNode } from '../lib/decks';
+import { buildDeckTree, flattenTree, isFinishedLeaf, subtreeIds, type DeckNode } from '../lib/decks';
 import { StudySession, type Counts } from '../lib/scheduler/queue';
-import { formatDuration, streak, summarizeToday } from '../lib/stats';
+import { formatDuration, streak, summarizeToday, todayStartIso } from '../lib/stats';
 import { useStudentData } from '../lib/useStudentData';
 import { useI18n } from '../lib/i18n';
 
@@ -19,6 +19,8 @@ function CountCells({ counts }: { counts: Counts }) {
   );
 }
 
+const SHOW_DONE_KEY = 'showFinishedDecks';
+
 export function DecksPage() {
   const { student, config, isAdmin, profile } = useAuth();
   const { t, units } = useI18n();
@@ -30,22 +32,44 @@ export function DecksPage() {
   const [menu, setMenu] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [actionError, setActionError] = useState<string | null>(null);
+  const [showDone, setShowDone] = useState(() => {
+    try {
+      return localStorage.getItem(SHOW_DONE_KEY) === '1';
+    } catch {
+      return false;
+    }
+  });
+
+  function toggleShowDone() {
+    setShowDone((v) => {
+      try {
+        localStorage.setItem(SHOW_DONE_KEY, v ? '0' : '1');
+      } catch {
+        // ignore
+      }
+      return !v;
+    });
+  }
 
   const now = Date.now();
   const tree = useMemo(() => buildDeckTree(decks), [decks]);
   const flat = useMemo(() => flattenTree(tree), [tree]);
 
-  const { summary, countsByDeck, total } = useMemo(() => {
+  const { summary, countsByDeck, total, finished } = useMemo(() => {
     const cardNote = new Map(cards.map((c) => [c.id, c.note_id]));
     const summary = summarizeToday(revlog, cardNote, config, now);
+    const todayStart = Date.parse(todayStartIso(config, now));
     const countsByDeck = new Map<string, Counts>();
+    const finished = new Set<string>();
     for (const node of flat) {
       const ids = subtreeIds(decks, node.deck.id);
       const subset = cards.filter((c) => ids.has(c.deck_id));
-      countsByDeck.set(node.deck.id, new StudySession(subset, summary, config, now).counts());
+      const counts = new StudySession(subset, summary, config, now).counts();
+      countsByDeck.set(node.deck.id, counts);
+      if (isFinishedLeaf(node, subset, counts, todayStart)) finished.add(node.deck.id);
     }
     const total = new StudySession(cards, summary, config, now).counts();
-    return { summary, countsByDeck, total };
+    return { summary, countsByDeck, total, finished };
     // `now` is intentionally sampled per render.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cards, revlog, decks, flat, config]);
@@ -76,6 +100,7 @@ export function DecksPage() {
   }
 
   function renderNode(node: DeckNode) {
+    if (!showDone && finished.has(node.deck.id)) return null;
     const counts = countsByDeck.get(node.deck.id) ?? { new: 0, learn: 0, review: 0 };
     const open = menu === node.deck.id;
     return (
@@ -198,6 +223,11 @@ export function DecksPage() {
           <p className="muted pad">{t('decks.empty')}</p>
         )}
         {tree.map(renderNode)}
+        {finished.size > 0 && (
+          <button className="link-btn show-done" onClick={toggleShowDone}>
+            {showDone ? t('decks.hide_done') : t('decks.show_done', { n: finished.size })}
+          </button>
+        )}
       </section>
 
       {actionError && <p className="error">{actionError}</p>}
