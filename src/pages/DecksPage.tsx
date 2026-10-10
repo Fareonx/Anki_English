@@ -4,7 +4,7 @@ import { useAuth } from '../auth';
 import { MoreIcon, PlayIcon } from '../components/Icons';
 import { createDeck, deleteDeck, renameDeck } from '../lib/db';
 import { buildDeckTree, flattenTree, isFinishedLeaf, subtreeIds, type DeckNode } from '../lib/decks';
-import { StudySession, type Counts } from '../lib/scheduler/queue';
+import { countFreshToday, StudySession, type Counts } from '../lib/scheduler/queue';
 import { formatDuration, streak, summarizeToday, todayStartIso } from '../lib/stats';
 import { useStudentData } from '../lib/useStudentData';
 import { useI18n } from '../lib/i18n';
@@ -57,7 +57,9 @@ export function DecksPage() {
 
   const { summary, countsByDeck, total, finished } = useMemo(() => {
     const cardNote = new Map(cards.map((c) => [c.id, c.note_id]));
-    const summary = summarizeToday(revlog, cardNote, config, now);
+    const summaryRaw = summarizeToday(revlog, cardNote, config, now);
+    // The daily limit counts words started today in all decks, not only the opened one.
+    const summary = { ...summaryRaw, freshWordsToday: countFreshToday(cards, summaryRaw) };
     const todayStart = Date.parse(todayStartIso(config, now));
     const countsByDeck = new Map<string, Counts>();
     const finished = new Set<string>();
@@ -66,7 +68,7 @@ export function DecksPage() {
       const subset = cards.filter((c) => ids.has(c.deck_id));
       const counts = new StudySession(subset, summary, config, now).counts();
       countsByDeck.set(node.deck.id, counts);
-      if (isFinishedLeaf(node, subset, counts, todayStart)) finished.add(node.deck.id);
+      if (isFinishedLeaf(node, subset, todayStart)) finished.add(node.deck.id);
     }
     const total = new StudySession(cards, summary, config, now).counts();
     return { summary, countsByDeck, total, finished };
@@ -100,7 +102,7 @@ export function DecksPage() {
   }
 
   function renderNode(node: DeckNode) {
-    if (!showDone && finished.has(node.deck.id)) return null;
+    if (!(isAdmin && showDone) && finished.has(node.deck.id)) return null;
     const counts = countsByDeck.get(node.deck.id) ?? { new: 0, learn: 0, review: 0 };
     const open = menu === node.deck.id;
     return (
@@ -223,7 +225,7 @@ export function DecksPage() {
           <p className="muted pad">{t('decks.empty')}</p>
         )}
         {tree.map(renderNode)}
-        {finished.size > 0 && (
+        {isAdmin && finished.size > 0 && (
           <button className="link-btn show-done" onClick={toggleShowDone}>
             {showDone ? t('decks.hide_done') : t('decks.show_done', { n: finished.size })}
           </button>

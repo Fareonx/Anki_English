@@ -4,7 +4,7 @@ import { useAuth } from '../auth';
 import { BackIcon, PenIcon, SpeakerIcon } from '../components/Icons';
 import { addSentence, saveAnswer, type CardRow, type Note } from '../lib/db';
 import { deckPath, subtreeIds } from '../lib/decks';
-import { StudySession, type Counts } from '../lib/scheduler/queue';
+import { countFreshToday, StudySession, type Counts } from '../lib/scheduler/queue';
 import { answerCard, formatInterval, nextIntervals } from '../lib/scheduler/sm2';
 import { CardType, Ease, Queue } from '../lib/scheduler/types';
 import { canSpeak, speak } from '../lib/speech';
@@ -240,7 +240,9 @@ export function StudyPage() {
     const ids = deckId === 'all' ? null : subtreeIds(decks, deckId);
     const subset = ids ? cards.filter((c) => ids.has(c.deck_id)) : cards;
     const cardNote = new Map(cards.map((c) => [c.id, c.note_id]));
-    const summary = summarizeToday(revlog, cardNote, cfg, Date.now());
+    const summaryRaw = summarizeToday(revlog, cardNote, cfg, Date.now());
+    // The daily limit counts words started today in all decks, not only the opened one.
+    const summary = { ...summaryRaw, freshWordsToday: countFreshToday(cards, summaryRaw) };
     const session = new StudySession(subset, summary, cfg, Date.now(), { reverseFirst: typeAnswers });
     sessionRef.current = session;
 
