@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { DEFAULT_CONFIG } from './config';
-import { mixNewWithReviews, StudySession, type StudyCard, type TodayStats } from './queue';
+import { countFreshToday, mixNewWithReviews, StudySession, type StudyCard, type TodayStats } from './queue';
 import { CardType, Queue } from './types';
 
 const NOW = Date.UTC(2026, 9, 7, 10, 0, 0); // 14:00 in Baku
@@ -91,6 +91,26 @@ describe('StudySession', () => {
     });
     expect(s.freshWordsDoneToday).toBe(10);
     expect(s.counts().new).toBe(20);
+  });
+
+  it('keeps one daily limit across decks: opening another day gives no extra words', () => {
+    const all = newWords(40).map((c) => ({ ...c, deck_id: Number(c.note_id.slice(1)) < 20 ? 'day1' : 'day2' }));
+    const answersTodayByCard = new Map<string, number>();
+    const touchedNotes = new Set<string>();
+    for (let n = 0; n < 20; n++) {
+      const i = all.findIndex((c) => c.id === `c${n}-1`);
+      all[i] = { ...all[i], ctype: CardType.Learn, queue: Queue.Learn, due: NOW_SEC + 600, reps: 1 };
+      answersTodayByCard.set(`c${n}-1`, 1);
+      touchedNotes.add(`n${n}`);
+    }
+    const stats = { ...noStats(), touchedNotes, answersTodayByCard };
+    const limit = { ...cfg, newPerDay: 20 };
+    const day2 = all.filter((c) => c.deck_id === 'day2');
+    // Counting only the opened deck would allow 20 more words.
+    expect(new StudySession(day2, stats, limit, NOW, { reverseFirst: true }).counts().new).toBe(20);
+    const global = { ...stats, freshWordsToday: countFreshToday(all, stats) };
+    expect(global.freshWordsToday).toBe(20);
+    expect(new StudySession(day2, global, limit, NOW, { reverseFirst: true }).counts().new).toBe(0);
   });
 
   it("shows the second side of yesterday's words without using the new-word limit", () => {

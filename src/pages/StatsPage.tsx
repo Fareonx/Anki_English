@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '../auth';
 import { listSentences, type Sentence } from '../lib/db';
 import { buildDeckTree, flattenTree, subtreeIds } from '../lib/decks';
-import { StudySession } from '../lib/scheduler/queue';
+import { countFreshToday, StudySession } from '../lib/scheduler/queue';
 import {
   countLearnedWords,
   countMaturity,
@@ -50,7 +50,9 @@ export function StatsPage() {
   const now = Date.now();
   const s = useMemo(() => {
     const cardNote = new Map(cards.map((c) => [c.id, c.note_id]));
-    const today = summarizeToday(revlog, cardNote, config, now);
+    const todayRaw = summarizeToday(revlog, cardNote, config, now);
+    // The daily limit counts words started today in all decks, not only the opened one.
+    const today = { ...todayRaw, freshWordsToday: countFreshToday(cards, todayRaw) };
     const remaining = new StudySession(cards, today, config, now).counts();
     const activity = dailyActivity(revlog, config, now, DAYS);
     const weekRevlog = revlog.filter((r) => Date.parse(r.reviewed_at) >= now - 7 * 86_400_000);

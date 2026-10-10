@@ -62,19 +62,14 @@ export function deckPath(decks: Deck[], id: string): string {
 }
 
 /**
- * A finished day: a deck without sub-decks whose words have all been started (no new
- * cards left) and that has nothing to study today. Its reviews still come through the
- * parent deck. Empty decks count as finished too, unless they were created today
- * (a category just made for new words must stay visible).
+ * A finished day: a deck without sub-decks whose words have all been started in both
+ * directions (no new cards left). Its reviews keep coming through the parent deck and the
+ * main "Study" button, so the day itself is no longer listed. Empty decks count as
+ * finished too, unless they were created today (a category just made for new words must
+ * stay visible).
  */
-export function isFinishedLeaf(
-  node: DeckNode,
-  cards: { queue: number }[],
-  counts: { new: number; learn: number; review: number },
-  todayStartMs: number,
-): boolean {
+export function isFinishedLeaf(node: DeckNode, cards: { queue: number }[], todayStartMs: number): boolean {
   if (node.children.length > 0) return false;
   if (cards.length === 0) return Date.parse(node.deck.created_at) < todayStartMs;
-  const anyNew = cards.some((c) => c.queue === 0);
-  return !anyNew && counts.new + counts.learn + counts.review === 0;
+  return !cards.some((c) => c.queue === 0);
 }

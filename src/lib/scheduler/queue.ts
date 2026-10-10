@@ -20,6 +20,28 @@ export interface TodayStats {
   touchedNotes: Set<string>;
   /** How many answers each card got today; used to tell words first studied today. */
   answersTodayByCard?: Map<string, number>;
+  /**
+   * Words first started today across ALL of the student's decks (see countFreshToday).
+   * Without it the count only covers the cards given to the session, so opening the
+   * days one by one would give a fresh daily limit in every deck.
+   */
+  freshWordsToday?: number;
+}
+
+/** Words first answered today: every answer they ever got was given today. */
+export function countFreshToday(cards: Pick<StudyCard, 'id' | 'note_id' | 'reps'>[], stats: TodayStats): number {
+  const answersToday = stats.answersTodayByCard ?? new Map<string, number>();
+  const byNote = new Map<string, { reps: number; today: number }>();
+  for (const c of cards) {
+    if (!stats.touchedNotes.has(c.note_id)) continue;
+    const s = byNote.get(c.note_id) ?? { reps: 0, today: 0 };
+    s.reps += c.reps;
+    s.today += answersToday.get(c.id) ?? 0;
+    byNote.set(c.note_id, s);
+  }
+  let fresh = 0;
+  for (const s of byNote.values()) if (s.today > 0 && s.reps === s.today) fresh++;
+  return fresh;
 }
 
 export interface SessionOptions {
@@ -103,15 +125,7 @@ export class StudySession<T extends StudyCard> {
     const byNote = new Map<string, T[]>();
     for (const c of cards) byNote.set(c.note_id, [...(byNote.get(c.note_id) ?? []), c]);
 
-    const answersToday = stats.answersTodayByCard ?? new Map<string, number>();
-    let freshDone = 0;
-    for (const noteId of stats.touchedNotes) {
-      const noteCards = byNote.get(noteId);
-      if (!noteCards) continue;
-      const reps = noteCards.reduce((s, c) => s + c.reps, 0);
-      const todayAnswers = noteCards.reduce((s, c) => s + (answersToday.get(c.id) ?? 0), 0);
-      if (todayAnswers > 0 && reps === todayAnswers) freshDone++;
-    }
+    const freshDone = stats.freshWordsToday ?? countFreshToday(cards, stats);
     this.freshWordsDoneToday = freshDone;
 
     const newOrder = (c: T) => (options.reverseFirst ? Math.floor(c.due / 2) * 2 + (1 - (c.due % 2)) : c.due);
