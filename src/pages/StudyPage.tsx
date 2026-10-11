@@ -6,6 +6,7 @@ import { addSentence, saveAnswer, type CardRow, type Note } from '../lib/db';
 import { deckPath, subtreeIds } from '../lib/decks';
 import { countFreshToday, StudySession, type Counts } from '../lib/scheduler/queue';
 import { answerCard, formatInterval, nextIntervals } from '../lib/scheduler/sm2';
+import { dayNumber } from '../lib/scheduler/day';
 import { CardType, Ease, Queue } from '../lib/scheduler/types';
 import { canSpeak, speak } from '../lib/speech';
 import { summarizeToday } from '../lib/stats';
@@ -181,6 +182,9 @@ function CountsBar({ counts, current }: { counts: Counts; current: CardRow | nul
   );
 }
 
+/** Students may take at most this many words a day above their limit (the admin has no cap). */
+const MAX_EXTRA_NEW_STUDENT = 10;
+
 export function StudyPage() {
   const { deckId = 'all' } = useParams();
   const { student, config, isAdmin, profile } = useAuth();
@@ -197,7 +201,25 @@ export function StudyPage() {
   const [saving, setSaving] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
   const [answered, setAnswered] = useState(0);
-  const [extraNew, setExtraNew] = useState(0);
+  // Extra new words taken today; kept per student and day so a reload does not reset the cap.
+  const extraKey = `extraNew:${student?.id ?? ''}:${dayNumber(Date.now(), config.timeZone, config.rolloverHour)}`;
+  const [extraNew, setExtraNewState] = useState(() => {
+    try {
+      return Number(localStorage.getItem(extraKey)) || 0;
+    } catch {
+      return 0;
+    }
+  });
+  const setExtraNew = (update: (n: number) => number) =>
+    setExtraNewState((n) => {
+      const next = update(n);
+      try {
+        localStorage.setItem(extraKey, String(next));
+      } catch {
+        // ignore
+      }
+      return next;
+    });
   const [moreNew, setMoreNew] = useState(0);
   const [typed, setTyped] = useState('');
   const [typedResult, setTypedResult] = useState<TypedResult | null>(null);
@@ -507,7 +529,7 @@ export function StudyPage() {
             {answered > 0 ? `${t('study.done_answers', { n: answered })} ` : ''}
             {t('study.done_next', { time: `${String(cfg.rolloverHour).padStart(2, '0')}:00` })}
           </p>
-          {moreNew > 0 && !readOnly && (
+          {moreNew > 0 && !readOnly && (isAdmin || extraNew < MAX_EXTRA_NEW_STUDENT) && (
             <button
               className="btn"
               onClick={() => {

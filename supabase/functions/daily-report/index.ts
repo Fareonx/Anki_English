@@ -66,7 +66,7 @@ async function buildSection(student: Row, day: number): Promise<Section> {
   const reviewsPerDay = Number(settings.reviewsPerDay) > 0 ? Number(settings.reviewsPerDay) : DEFAULT_REVIEWS;
   const dayEnd = new Date((day + 1) * DAY_MS).toISOString();
 
-  const [revlog, cards, notes, sentences] = await Promise.all([
+  const [revlog, cards, notes, sentences, beginnerRoot, topups] = await Promise.all([
     fetchAll('revlog', 'card_id, reviewed_at, ease, last_ivl, time_ms, rtype', (q) =>
       q.eq('student_id', student.id).lt('reviewed_at', dayEnd).order('id')),
     fetchAll('cards', 'id, note_id, queue, ctype, due, ivl, lapses, leech', (q) =>
@@ -78,7 +78,17 @@ async function buildSection(student: Row, day: number): Promise<Section> {
         .gte('created_at', new Date(day * DAY_MS).toISOString())
         .lt('created_at', dayEnd)
         .order('created_at')),
+    fetchAll('decks', 'id', (q) => q.eq('student_id', student.id).is('parent_id', null).eq('name', '1. Начало A1')),
+    // Automatic top-ups since the reported day began (they run at 04:05 Baku).
+    fetchAll('word_topups', 'words, first_day, last_day, courses, created_at', (q) =>
+      q.eq('student_id', student.id).gte('created_at', new Date(day * DAY_MS).toISOString()).order('created_at')),
   ]);
+  const isBeginner = beginnerRoot.length > 0;
+  let bankLeft: number | null = null;
+  if (isBeginner) {
+    const { data } = await sb.rpc('bank_remaining', { p_student: student.id });
+    bankLeft = typeof data === 'number' ? data : null;
+  }
 
   const wordOf = new Map(notes.map((n) => [n.id as string, n]));
   const noteOfCard = new Map(cards.map((c) => [c.id as string, c.note_id as string]));
@@ -142,12 +152,16 @@ async function buildSection(student: Row, day: number): Promise<Section> {
   if (notes.length === 0) alerts.push('Слов пока нет.');
   else if (!studied) alerts.push('В этот день занятий не было.');
   if (missed.length > 0 && notes.length > 0) alerts.push(`Пропущенные дни за неделю до этого: ${missed.map(fmtDay).join(', ')}.`);
-  if (notes.length > 0 && daysOfWords < 2) {
+  // Beginners get new words automatically; warn only when the word bank itself runs low.
+  if (!isBeginner && notes.length > 0 && daysOfWords < 2) {
     alerts.push(
       freshWords === 0
         ? '<b>Новые слова закончились.</b> Добавь новую категорию.'
         : `<b>Новых слов хватит меньше чем на 2 дня</b> (осталось слов: ${freshWords}). Добавь новую категорию.`,
     );
+  }
+  if (bankLeft !== null && bankLeft < 14 * newPerDay) {
+    alerts.push(`<b>Банк слов для автопополнения скоро закончится</b>: осталось ${bankLeft} слов (меньше чем на 14 дней). Попроси пополнить банк.`);
   }
   if (leeches.length > 0) alerts.push(`Трудные слова (забыты много раз): ${esc(leeches.slice(0, 8).join(', '))}.`);
 
@@ -162,6 +176,7 @@ async function buildSection(student: Row, day: number): Promise<Section> {
   </tr><tr>
     ${stat('ответов', String(t.answers))}${stat('не доделано', leftTotal === 0 ? '✓' : String(leftTotal))}${stat('дней подряд', String(streak))}${stat('выучено карточек', String(learned))}
   </tr></table>
+  ${topups.length ? `<div style="background:#eaeefe;color:#2846c4;border-radius:12px;padding:10px 12px;margin-top:10px;font-size:14px">${topups.map((u) => `➕ Автоматически добавлено ${u.words} слов: День ${u.first_day}–${u.last_day} (${esc(u.courses)})`).join('<br>')}</div>` : ''}
   ${forgotten.length ? `<div style="margin-top:10px;font-size:14px"><b>Забыл(а):</b> ${forgotten.slice(0, 10).map((n) => `${esc(n!.word)} (${esc(n!.translation_ru)})`).join(', ')}</div>` : ''}
   ${sentences.length ? `<div style="margin-top:10px;font-size:14px"><b>Предложения:</b>${sentences.map((s) => `<div style="margin-top:6px"><span style="color:#687089">${esc(wordOf.get(s.note_id)?.word ?? '')}:</span> ${esc(s.text)}</div>`).join('')}</div>` : ''}
   <div style="margin-top:10px;font-size:12px;color:#687089">Лимит: ${newPerDay} новых слов в день. Слов в запасе: ${freshWords} (около ${daysOfWords} дн.).</div>
@@ -170,6 +185,7 @@ async function buildSection(student: Row, day: number): Promise<Section> {
   const text = [
     `${student.name}: ${studied ? `${newWords} новых слов, ${t.reviews} повторений, ${t.answers} ответов, ${mins} мин, верных ${pct}` : 'занятий не было'}`,
     `  не доделано: ${leftTotal}, дней подряд: ${streak}, слов в запасе: ${freshWords} (около ${daysOfWords} дн.)`,
+    ...topups.map((u) => `  + добавлено автоматически: ${u.words} слов, День ${u.first_day}–${u.last_day} (${u.courses})`),
   ].join('\n');
 
   return { short: `${student.name} ${studied ? `${newWords} сл.` : '—'}`, html, text };
