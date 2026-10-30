@@ -1,11 +1,19 @@
--- Word bank tracks: the beginner course (A1 -> B1) and the IELTS course (B1+ -> B2 academic).
--- A student's track follows from their first course: "1. Начало A1" -> beginner,
--- "1. Основа B1" -> ielts. top_up_words() now takes words from the student's own track,
--- so the same word may exist in both tracks but never twice in one.
+-- Word bank tracks: the beginner course (public.word_bank, A1 -> B1) and the IELTS course
+-- (public.ielts_bank, B1+ -> B2 academic). A student's track follows from their first course:
+-- "1. Начало A1" -> beginner, "1. Основа B1" -> ielts. top_up_words() takes words from the
+-- student's own track only, so a word may exist in both banks but never twice in one.
 
-alter table public.word_bank add column if not exists track text not null default 'beginner';
-drop index if exists public.word_bank_word_idx;
-create unique index word_bank_track_word_idx on public.word_bank (track, lower(word));
+create table if not exists public.ielts_bank (like public.word_bank including defaults);
+alter table public.ielts_bank add primary key (position);
+create unique index if not exists ielts_bank_word_idx on public.ielts_bank (lower(word));
+alter table public.ielts_bank enable row level security;
+
+-- Both banks with their track, for the functions below.
+create or replace view public.word_bank_all with (security_invoker = true) as
+  select *, 'beginner'::text as track from public.word_bank
+  union all
+  select *, 'ielts'::text as track from public.ielts_bank;
+revoke all on public.word_bank_all from anon, authenticated;
 
 create or replace function public.student_track(p_student uuid)
 returns text
@@ -30,7 +38,7 @@ stable
 security definer
 set search_path = ''
 as $$
-  select count(*)::int from public.word_bank w
+  select count(*)::int from public.word_bank_all w
   where w.track = public.student_track(p_student)
     and not exists (select 1 from public.notes n where n.student_id = p_student and lower(n.word) = lower(w.word));
 $$;
@@ -84,7 +92,7 @@ begin
            (array_agg(course order by position))[1] as course
     from (
       select w.position, w.course, (row_number() over (order by w.position) - 1) / per_day as chunk_no
-      from public.word_bank w
+      from public.word_bank_all w
       where w.track = v_track
         and not exists (
           select 1 from public.notes nt where nt.student_id = p_student and lower(nt.word) = lower(w.word)
@@ -108,8 +116,8 @@ begin
 
     select string_agg(topic, ' / ' order by first_pos) into topics
     from (
-      select topic, min(position) as first_pos from public.word_bank
-      where word_bank.track = v_track and position between chunk.first_pos and chunk.last_pos
+      select topic, min(position) as first_pos from public.word_bank_all b
+      where b.track = v_track and position between chunk.first_pos and chunk.last_pos
       group by topic
     ) t;
 
@@ -119,7 +127,7 @@ begin
 
     insert into public.notes (deck_id, student_id, word, translation_ru, translation_az, example, ipa, pos, synonyms)
       select sub, p_student, w.word, w.translation_ru, w.translation_az, w.example, w.ipa, w.pos, w.synonyms
-      from public.word_bank w
+      from public.word_bank_all w
       where w.track = v_track
         and w.position between chunk.first_pos and chunk.last_pos
         and not exists (
