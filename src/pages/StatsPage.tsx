@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../auth';
 import { listSentences, type Sentence } from '../lib/db';
 import { buildDeckTree, flattenTree, subtreeIds } from '../lib/decks';
@@ -18,13 +19,35 @@ import { useI18n } from '../lib/i18n';
 
 const DAYS = 14;
 
-function Tile({ value, label, tone, sub }: { value: string | number; label: string; tone?: 'warn' | 'accent'; sub?: string }) {
-  return (
-    <div className={`tile ${tone ?? ''}`}>
+function Tile({
+  value,
+  label,
+  tone,
+  sub,
+  to,
+  title,
+}: {
+  value: string | number;
+  label: string;
+  tone?: 'warn' | 'accent';
+  sub?: string;
+  /** Makes the tile a link. */
+  to?: string;
+  title?: string;
+}) {
+  const body = (
+    <>
       <div className="big">{value}</div>
       <div className="muted small">{label}</div>
       {sub && <div className="muted tiny">{sub}</div>}
-    </div>
+    </>
+  );
+  return to ? (
+    <Link to={to} className={`tile link ${tone ?? ''}`} title={title}>
+      {body}
+    </Link>
+  ) : (
+    <div className={`tile ${tone ?? ''}`}>{body}</div>
   );
 }
 
@@ -110,6 +133,8 @@ export function StatsPage() {
           label={t('stats.learned_words')}
           tone="accent"
           sub={t('stats.learned_solid', { solid: s.words.solid, total: notes.length })}
+          to="/stats/words"
+          title={t('learned.open')}
         />
         <Tile value={s.today.newDone} label={t('stats.new_today')} />
         <Tile value={s.today.reviewsDone} label={t('stats.reviews_today')} />

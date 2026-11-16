@@ -1197,6 +1197,29 @@ tr.dim td {
   text-align: center;
 }
 
+a.tile.link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+a.tile.link::after {
+  content: '›';
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+a.tile.link:hover,
+a.tile.link:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
 .tile.warn .big {
   color: var(--hard);
 }
