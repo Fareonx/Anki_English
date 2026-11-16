@@ -120,7 +120,7 @@ export function countMaturity(cards: CardRow[]): Record<Maturity, number> {
  * Words the student has learned: both cards (typing the English word and recalling the
  * translation) have left the learning steps. `solid` words also have intervals of 21+ days.
  */
-export function countLearnedWords(cards: Pick<CardRow, 'note_id' | 'ctype' | 'ivl'>[]): { learned: number; solid: number } {
+export function learnedNotes(cards: Pick<CardRow, 'note_id' | 'ctype' | 'ivl'>[]): Map<string, { solid: boolean }> {
   const byNote = new Map<string, { learned: boolean; solid: boolean }>();
   for (const c of cards) {
     const s = byNote.get(c.note_id) ?? { learned: true, solid: true };
@@ -129,13 +129,17 @@ export function countLearnedWords(cards: Pick<CardRow, 'note_id' | 'ctype' | 'iv
     s.solid &&= learned && c.ivl >= MATURE_IVL;
     byNote.set(c.note_id, s);
   }
-  let learned = 0;
+  const out = new Map<string, { solid: boolean }>();
+  for (const [id, s] of byNote) if (s.learned) out.set(id, { solid: s.solid });
+  return out;
+}
+
+/** Words learned in both directions (see learnedNotes) and how many of them are solid. */
+export function countLearnedWords(cards: Pick<CardRow, 'note_id' | 'ctype' | 'ivl'>[]): { learned: number; solid: number } {
+  const learned = learnedNotes(cards);
   let solid = 0;
-  for (const s of byNote.values()) {
-    if (s.learned) learned++;
-    if (s.solid) solid++;
-  }
-  return { learned, solid };
+  for (const s of learned.values()) if (s.solid) solid++;
+  return { learned: learned.size, solid };
 }
 
 /** Number of review/interday cards due on each of the next `days` days (overdue counted today). */

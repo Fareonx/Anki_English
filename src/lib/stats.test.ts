@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { countLearnedWords } from './stats';
+import { countLearnedWords, learnedNotes } from './stats';
 
 describe('countLearnedWords', () => {
   it('counts words whose both cards left the learning steps', () => {
@@ -21,5 +21,22 @@ describe('countLearnedWords', () => {
       { note_id: 'e', ctype: 2 as const, ivl: 2 },
     ];
     expect(countLearnedWords(cards)).toEqual({ learned: 3, solid: 1 });
+  });
+});
+
+describe('learnedNotes', () => {
+  it('lists the learned words with their solid flag', () => {
+    const cards = [
+      { note_id: 'a', ctype: 2 as const, ivl: 30 },
+      { note_id: 'a', ctype: 2 as const, ivl: 22 },
+      { note_id: 'b', ctype: 3 as const, ivl: 1 },
+      { note_id: 'b', ctype: 2 as const, ivl: 9 },
+      { note_id: 'c', ctype: 2 as const, ivl: 3 },
+      { note_id: 'c', ctype: 0 as const, ivl: 0 },
+    ];
+    expect([...learnedNotes(cards)]).toEqual([
+      ['a', { solid: true }],
+      ['b', { solid: false }],
+    ]);
   });
 });

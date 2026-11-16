@@ -4,6 +4,7 @@ import { Layout } from './components/Layout';
 import { AddPage } from './pages/AddPage';
 import { BrowsePage } from './pages/BrowsePage';
 import { DecksPage } from './pages/DecksPage';
+import { LearnedWordsPage } from './pages/LearnedWordsPage';
 import { LoginPage } from './pages/LoginPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { StatsPage } from './pages/StatsPage';
@@ -36,6 +37,7 @@ export function App() {
             <Route path="/add" element={<AddPage />} />
             <Route path="/deck/:deckId" element={<BrowsePage />} />
             <Route path="/stats" element={<StatsPage />} />
+            <Route path="/stats/words" element={<LearnedWordsPage />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
