@@ -26,10 +26,10 @@ COURSES = [
     ('content/ielts-b2', '3. IELTS B2', 'ielts'),
     ('content/ielts-academic', '4. IELTS Academic', 'ielts'),
     # Everyday track: frequent words for everyday life, the most used first (see EVERYDAY_MIN_ZIPF).
-    ('content/a2-confident', '3. Каждый день A2', 'everyday'),
-    ('content/everyday', '4. Фразы на каждый день', 'everyday'),
-    ('content/towards-b1', '5. Каждый день B1', 'everyday'),
-    ('content/b1-level', '6. Каждый день B1+', 'everyday'),
+    ('content/everyday', '3. Фразы на каждый день', 'everyday'),
+    ('content/towards-b1', '4. Каждый день B1', 'everyday'),
+    ('content/b1-level', '5. Каждый день B1+', 'everyday'),
+    ('content/a2-confident', '6. Каждый день A2', 'everyday'),
 ]
 # Words an IELTS student already has from their first course.
 IELTS_START = 'content/b1-core'
@@ -39,6 +39,8 @@ FIRST_POSITION = {'beginner': 1, 'ielts': 10001, 'everyday': 20001}
 # most used English words; a phrase counts as its rarest word) are left out, as are the words
 # in EVERYDAY_SKIP and whole topics that are not everyday talk (science, economy, ecology...).
 EVERYDAY_MIN_ZIPF = 3.0
+# Single words this frequent (just, because, busy, famous...) a B1 student already knows.
+EVERYDAY_MAX_ZIPF = 5.0
 EVERYDAY_SKIP = {
     'either ... or', 'neither ... nor', 'operating system', 'interest rate', 'exchange rate', 'invoice',
     'mortgage', 'dormitory', 'kilo', "butcher's", "florist's", 'touchscreen', 'enrol', 'memorise',
@@ -67,7 +69,7 @@ def words_in(folder: str) -> set[str]:
 
 
 def everyday_order(topics, skipped: list[str]):
-    """Drops rare words and puts the most used first: topics by median frequency, then words."""
+    """Drops rare and too basic words and puts the most used first: topics by median frequency, then words."""
     from statistics import median
 
     from wordfreq import zipf_frequency
@@ -86,6 +88,9 @@ def everyday_order(topics, skipped: list[str]):
             word = fields[0]
             if word.lower() in EVERYDAY_SKIP or freq(word) < EVERYDAY_MIN_ZIPF:
                 skipped.append(f'rare:{word}')
+                continue
+            if ' ' not in word and freq(word) >= EVERYDAY_MAX_ZIPF:
+                skipped.append(f'known:{word}')
                 continue
             kept.append((freq(word), fields))
         if kept:
