@@ -136,7 +136,9 @@ ho mangiato, hai mangiato, ha mangiato, abbiamo mangiato, avete mangiato, hanno 
 
 Мнемоника: представьте **«дом жизни»**: в него **входят и выходят** (entrare, uscire), **поднимаются и спускаются** (salire, scendere), **приходят и уходят** (venire, andare, arrivare, partire, tornare), **остаются** (stare, restare, rimanere), **рождаются и умирают** (nascere, morire). Все жильцы дома — с essere.
 
-Но! Глаголы движения **без направления** — с avere: **ho camminato, ho viaggiato, ho corso, ho nuotato**.`,
+Но! Глаголы движения **без направления** — с avere: **ho camminato, ho viaggiato, ho corso, ho nuotato**.
+
+**cominciare, finire** — двойные: с дополнением **avere** (Ho finito **il libro**), без дополнения — **essere** (La lezione **è finita**).`,
         tables: [
           {
             title: 'andare (passato prossimo)',
@@ -297,7 +299,6 @@ ho mangiato, hai mangiato, ha mangiato, abbiamo mangiato, avete mangiato, hanno 
       { prompt: '(passato) essere · noi', answer: 'siamo stati', also: ['siamo state'], hint: 'essere → stato, с essere.' },
       { prompt: 'Anna ___ (rimanere) a casa.', answer: 'è rimasta', hint: 'rimanere → rimasto, с essere; Anna → -a.' },
       { prompt: 'Io ___ (nascere) a Baku.', answer: 'sono nato', also: ['sono nata'], hint: 'nascere → nato, с essere.' },
-      { prompt: 'Anna e Sara ___ (arrivare) ieri.', answer: 'sono arrivate', hint: 'Две девушки → -e.' },
       { prompt: 'Quanto ___ (tu, spendere) al mercato?', answer: 'hai speso', hint: 'spendere → speso.' },
       { prompt: 'Marco ___ (rispondere) subito.', answer: 'ha risposto', hint: 'rispondere → risposto.' },
       { prompt: 'Voi ___ (scegliere) il ristorante?', answer: 'avete scelto', hint: 'scegliere → scelto.' },
@@ -386,7 +387,7 @@ ho mangiato, hai mangiato, ha mangiato, abbiamo mangiato, avete mangiato, hanno 
 
 В разговорной речи итальянцы часто используют **avere** и с глаголами движения: **ho dovuto andare** — это тоже допустимо. Но форма с essere считается «образцовой».
 
-Если в конструкции есть **essere** само: Non **sono potuto essere** presente / **ho potuto** — проще сказать по-другому, это редкость.
+Если после модального стоит сам **essere**, берём **avere**: **Ho dovuto essere** paziente (Мне пришлось быть терпеливым).
 
 Мнемоника: модальный глагол — **«хамелеон»**, он берёт цвет (вспомогательный глагол) следующего глагола.`,
         tables: [
