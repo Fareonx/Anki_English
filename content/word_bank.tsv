@@ -3919,3 +3919,1132 @@
 21138	6. Каждый день A2	Дом и мебель	air conditioner	кондиционер	kondisioner	It's hot, turn on the air conditioner.	/ˈeə kəndɪʃənə/	noun		everyday
 21139	6. Каждый день A2	Дом и мебель	dishwasher	посудомоечная машина	qabyuyan maşın	Put the plates in the dishwasher.	/ˈdɪʃwɒʃə/	noun		everyday
 21140	6. Каждый день A2	Дом и мебель	armchair	кресло	kreslo	Grandpa is sleeping in the armchair.	/ˈɑːmtʃeə/	noun		everyday
+30001	Unità 0 · Benvenuti!	Приветствия и первые фразы	ciao	привет, пока	salam, sağ ol (vidalaşanda)	Ciao, Marco! Come va?	/ˈtʃa.o/	interjection		italian
+30002	Unità 0 · Benvenuti!	Приветствия и первые фразы	buongiorno	добрый день, доброе утро	sabahınız xeyir, salam	Buongiorno, professore!	/bwonˈdʒor.no/	interjection		italian
+30003	Unità 0 · Benvenuti!	Приветствия и первые фразы	buonasera	добрый вечер	axşamınız xeyir	Buonasera, signora Rossi.	/ˌbwɔ.naˈse.ra/	interjection		italian
+30004	Unità 0 · Benvenuti!	Приветствия и первые фразы	buonanotte	спокойной ночи	gecəniz xeyrə qalsın	Buonanotte, ci vediamo domani!	/ˌbwɔ.naˈnɔt.te/	interjection		italian
+30005	Unità 0 · Benvenuti!	Приветствия и первые фразы	arrivederci	до свидания	sağ olun, görüşənədək	Arrivederci e grazie!	/ar.ri.veˈder.tʃi/	interjection		italian
+30006	Unità 0 · Benvenuti!	Приветствия и первые фразы	salve	здравствуйте (нейтрально)	salam (neytral)	Salve, posso entrare?	/ˈsal.ve/	interjection		italian
+30007	Unità 0 · Benvenuti!	Приветствия и первые фразы	a dopo	до скорого, увидимся позже	sonra görüşərik	Vado a lezione, a dopo!	/a ˈdo.po/	phrase		italian
+30008	Unità 0 · Benvenuti!	Приветствия и первые фразы	a domani	до завтра	sabaha qədər, sabah görüşərik	Ciao Giulia, a domani!	/a doˈma.ni/	phrase		italian
+30009	Unità 0 · Benvenuti!	Приветствия и первые фразы	grazie	спасибо	sağ ol, təşəkkür edirəm	Grazie per l'aiuto!	/ˈɡrat.tsje/	interjection		italian
+30010	Unità 0 · Benvenuti!	Приветствия и первые фразы	prego	пожалуйста (в ответ), проходите	buyurun, dəyməz	Grazie! – Prego!	/ˈprɛ.ɡo/	interjection		italian
+30011	Unità 0 · Benvenuti!	Приветствия и первые фразы	per favore	пожалуйста (просьба)	zəhmət olmasa, xahiş edirəm	Parla piano, per favore.	/per faˈvo.re/	phrase		italian
+30012	Unità 0 · Benvenuti!	Приветствия и первые фразы	scusi	извините (на «Вы»)	bağışlayın	Scusi, dov'è la biblioteca?	/ˈsku.zi/	phrase		italian
+30013	Unità 0 · Benvenuti!	Приветствия и первые фразы	scusa	извини (на «ты»)	bağışla	Scusa, sono in ritardo!	/ˈsku.za/	phrase		italian
+30014	Unità 0 · Benvenuti!	Приветствия и первые фразы	come stai?	как дела? (на «ты»)	necəsən?	Ciao Anna, come stai?	/ˈko.me ˈstai/	phrase		italian
+30015	Unità 0 · Benvenuti!	Приветствия и первые фразы	come sta?	как поживаете? (на «Вы»)	necəsiniz?	Buongiorno, professore, come sta?	/ˈko.me ˈsta/	phrase		italian
+30016	Unità 0 · Benvenuti!	Приветствия и первые фразы	come va?	как дела?, как жизнь?	işlər necədir?	Ehi, come va all'università?	/ˈko.me ˈva/	phrase		italian
+30017	Unità 0 · Benvenuti!	Приветствия и первые фразы	bene	хорошо	yaxşı	Sto bene, grazie.	/ˈbɛ.ne/	adv		italian
+30018	Unità 0 · Benvenuti!	Приветствия и первые фразы	male	плохо	pis	Oggi sto male, non vado a lezione.	/ˈma.le/	adv		italian
+30019	Unità 0 · Benvenuti!	Приветствия и первые фразы	così così	так себе	elə də, pis deyil	Come stai? – Così così.	/koˈzi koˈzi/	phrase		italian
+30020	Unità 0 · Benvenuti!	Приветствия и первые фразы	mi chiamo…	меня зовут…	mənim adım…	Mi chiamo Elvin, sono di Baku.	/mi ˈkja.mo/	phrase		italian
+30021	Unità 0 · Benvenuti!	Приветствия и первые фразы	come ti chiami?	как тебя зовут?	adın nədir?	Ciao! Come ti chiami?	/ˈko.me ti ˈkja.mi/	phrase		italian
+30022	Unità 0 · Benvenuti!	Приветствия и первые фразы	piacere	очень приятно (при знакомстве)	tanış olmağıma şadam	Piacere, io sono Elvin.	/pjaˈtʃe.re/	phrase		italian
+30023	Unità 0 · Benvenuti!	Приветствия и первые фразы	di dove sei?	откуда ты?	haralısan?	Di dove sei? – Sono azero.	/di ˈdo.ve ˈsɛi/	phrase		italian
+30024	Unità 0 · Benvenuti!	Приветствия и первые фразы	sì	да	bəli, hə	Sei uno studente? – Sì.	/ˈsi/	adv		italian
+30025	Unità 0 · Benvenuti!	Приветствия и первые фразы	no	нет	yox, xeyr	Sei italiano? – No, sono azero.	/ˈnɔ/	adv		italian
+30026	Unità 0 · Benvenuti!	Приветствия и первые фразы	benvenuto	добро пожаловать	xoş gəlmisiniz	Benvenuto a Bologna!	/ben.veˈnu.to/	interjection, adj		italian
+30027	Unità 0 · Benvenuti!	Приветствия и первые фразы	ci vediamo!	увидимся!	görüşərik!	Ciao, ci vediamo in facoltà!	/tʃi veˈdja.mo/	phrase		italian
+30028	Unità 0 · Benvenuti!	Люди, страны и национальности	l'Italia	Италия	İtaliya	Studio in Italia, a Bologna.	/iˈta.lja/	noun f		italian
+30029	Unità 0 · Benvenuti!	Люди, страны и национальности	italiano	итальянский, итальянец	italyan, italyanca	Marco è italiano, di Bologna.	/i.taˈlja.no/	adj, noun		italian
+30030	Unità 0 · Benvenuti!	Люди, страны и национальности	l'Azerbaigian	Азербайджан	Azərbaycan	Vengo dall'Azerbaigian.	/a.dzer.baiˈdʒan/	noun m		italian
+30031	Unità 0 · Benvenuti!	Люди, страны и национальности	azero	азербайджанский, азербайджанец	azərbaycanlı, azərbaycan dili	Sono azero, di Baku.	/aˈdzɛ.ro/	adj, noun		italian
+30032	Unità 0 · Benvenuti!	Люди, страны и национальности	la Russia	Россия	Rusiya	Il mio amico vive in Russia.	/ˈrus.sja/	noun f		italian
+30033	Unità 0 · Benvenuti!	Люди, страны и национальности	russo	русский	rus, rus dili	Parlo russo e azero.	/ˈrus.so/	adj, noun		italian
+30034	Unità 0 · Benvenuti!	Люди, страны и национальности	la Turchia	Турция	Türkiyə	Ahmet viene dalla Turchia.	/turˈki.a/	noun f		italian
+30035	Unità 0 · Benvenuti!	Люди, страны и национальности	turco	турецкий, турок	türk, türk dili	Capisco bene il turco.	/ˈtur.ko/	adj, noun		italian
+30036	Unità 0 · Benvenuti!	Люди, страны и национальности	la Germania	Германия	Almaniya	Anna viene dalla Germania.	/dʒerˈma.nja/	noun f		italian
+30037	Unità 0 · Benvenuti!	Люди, страны и национальности	tedesco	немецкий, немец	alman, alman dili	Il mio coinquilino è tedesco.	/teˈdes.ko/	adj, noun		italian
+30038	Unità 0 · Benvenuti!	Люди, страны и национальности	la Francia	Франция	Fransa	Parigi è in Francia.	/ˈfran.tʃa/	noun f		italian
+30039	Unità 0 · Benvenuti!	Люди, страны и национальности	francese	французский, француз	fransız, fransız dili	Claire è francese, di Lione.	/franˈtʃe.ze/	adj, noun		italian
+30040	Unità 0 · Benvenuti!	Люди, страны и национальности	la Spagna	Испания	İspaniya	Lucia è in Erasmus dalla Spagna.	/ˈspaɲ.ɲa/	noun f		italian
+30041	Unità 0 · Benvenuti!	Люди, страны и национальности	spagnolo	испанский, испанец	ispan, ispan dili	Lo spagnolo è simile all'italiano.	/spaɲˈɲɔ.lo/	adj, noun		italian
+30042	Unità 0 · Benvenuti!	Люди, страны и национальности	l'Inghilterra	Англия	İngiltərə	Tom viene dall'Inghilterra.	/iŋ.ɡilˈtɛr.ra/	noun f		italian
+30043	Unità 0 · Benvenuti!	Люди, страны и национальности	inglese	английский, англичанин	ingilis, ingilis dili	Parli inglese?	/iŋˈɡle.ze/	adj, noun		italian
+30044	Unità 0 · Benvenuti!	Люди, страны и национальности	americano	американский, американец	amerikalı, Amerika	John è americano, di New York.	/a.me.riˈka.no/	adj, noun		italian
+30045	Unità 0 · Benvenuti!	Люди, страны и национальности	il mondo	мир (земной шар)	dünya	A Bologna ci sono studenti di tutto il mondo.	/ˈmon.do/	noun m		italian
+30046	Unità 0 · Benvenuti!	Люди, страны и национальности	la città	город	şəhər	Bologna è una città per studenti.	/tʃitˈta/	noun f, pl. invariable		italian
+30047	Unità 0 · Benvenuti!	Люди, страны и национальности	la nazionalità	национальность, гражданство	milliyyət, vətəndaşlıq	Di che nazionalità sei?	/nat.tsjo.na.liˈta/	noun f, pl. invariable		italian
+30048	Unità 0 · Benvenuti!	Люди, страны и национальности	straniero	иностранный, иностранец	xarici, əcnəbi	A Bologna ci sono tanti studenti stranieri.	/straˈnjɛ.ro/	adj, noun		italian
+30049	Unità 0 · Benvenuti!	Люди, страны и национальности	il ragazzo	парень, мальчик	oğlan	Il ragazzo di Sara è siciliano.	/raˈɡat.tso/	noun m		italian
+30050	Unità 0 · Benvenuti!	Люди, страны и национальности	la ragazza	девушка, девочка	qız	Quella ragazza è nella mia classe.	/raˈɡat.tsa/	noun f		italian
+30051	Unità 0 · Benvenuti!	Люди, страны и национальности	l'amico	друг	dost	Ho un amico italiano a Bologna.	/aˈmi.ko/	noun m, pl. amici		italian
+30052	Unità 0 · Benvenuti!	Люди, страны и национальности	la persona	человек (личность)	insan, şəxs	Marta è una persona molto simpatica.	/perˈso.na/	noun f		italian
+30053	Unità 0 · Benvenuti!	Люди, страны и национальности	l'uomo	мужчина, человек	kişi, insan	Chi è quell'uomo?	/ˈwɔ.mo/	noun m, pl. gli uomini		italian
+30054	Unità 0 · Benvenuti!	Люди, страны и национальности	la donna	женщина	qadın	La donna alla reception parla inglese.	/ˈdɔn.na/	noun f		italian
+30055	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	io	я	mən	Io sono Elvin.	/ˈi.o/	pronoun		italian
+30056	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	tu	ты	sən	Tu sei di Bologna?	/ˈtu/	pronoun		italian
+30057	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	lui	он	o (kişi)	Lui è il mio compagno di stanza.	/ˈlu.i/	pronoun		italian
+30058	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	lei	она (с большой буквы Lei – Вы)	o (qadın), Siz (Lei – nəzakətli)	Lei è Giulia, una mia amica.	/ˈlɛi/	pronoun		italian
+30059	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	noi	мы	biz	Noi siamo studenti stranieri.	/ˈnoi/	pronoun		italian
+30060	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	voi	вы (мн. ч.)	siz (cəm)	Voi siete italiani?	/ˈvoi/	pronoun		italian
+30061	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	loro	они	onlar	Loro sono in classe con me.	/ˈlo.ro/	pronoun		italian
+30062	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	essere	быть, являться	olmaq	Sono azero, sono di Baku.	/ˈɛs.se.re/	verb, irregular		italian
+30063	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	avere	иметь	malik olmaq, -ı var	Ho una lezione alle nove.	/aˈve.re/	verb, irregular		italian
+30064	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	c'è	есть, находится (ед. ч.)	var (tək)	C'è una farmacia qui vicino?	/ˈtʃɛ/	phrase		italian
+30065	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	ci sono	есть, находятся (мн. ч.)	var (cəm)	In classe ci sono venti studenti.	/tʃi ˈso.no/	phrase		italian
+30066	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	avere … anni	быть … лет (о возрасте)	… yaşında olmaq	Ho ventitré anni.	/aˈve.re … ˈan.ni/	phrase		italian
+30067	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	grande	большой	böyük	Bologna non è una città molto grande.	/ˈɡran.de/	adj		italian
+30068	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	piccolo	маленький	kiçik	La mia stanza è piccola ma bella.	/ˈpik.ko.lo/	adj		italian
+30069	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	bello	красивый	gözəl	Piazza Maggiore è molto bella!	/ˈbɛl.lo/	adj		italian
+30070	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	brutto	некрасивый, плохой	çirkin, pis	Oggi è una brutta giornata.	/ˈbrut.to/	adj		italian
+30071	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	nuovo	новый	yeni	Sono nuovo qui, sono arrivato ieri.	/ˈnwɔ.vo/	adj		italian
+30072	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	vecchio	старый	köhnə, qoca	Ho un telefono vecchio.	/ˈvɛk.kjo/	adj		italian
+30073	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	buono	хороший, вкусный	yaxşı, dadlı	Il gelato qui è molto buono.	/ˈbwɔ.no/	adj		italian
+30074	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	facile	лёгкий, простой	asan	L'italiano non è facile!	/ˈfa.tʃi.le/	adj		italian
+30075	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	difficile	трудный, сложный	çətin	L'esame è difficile.	/difˈfi.tʃi.le/	adj		italian
+30076	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	interessante	интересный	maraqlı	La lezione di oggi è interessante.	/in.te.resˈsan.te/	adj		italian
+30077	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	stanco	усталый	yorğun	Sono stanco, vado a casa.	/ˈstaŋ.ko/	adj		italian
+30078	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	contento	довольный, радостный	məmnun, şad	Sono contento di essere a Bologna.	/konˈtɛn.to/	adj		italian
+30079	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	molto	очень, много	çox	Sono molto contento.	/ˈmol.to/	adv, adj		italian
+30080	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	anche	тоже, также	də, həmçinin	Anch'io sono straniero.	/ˈaŋ.ke/	adv		italian
+30081	Unità 0 · Benvenuti!	Essere, avere, местоимения и прилагательные	ma	но	amma, lakin	Sono stanco, ma contento.	/ˈma/	conj		italian
+30082	Unità 0 · Benvenuti!	Числа 0–30	zero	ноль	sıfır	Il mio numero comincia con zero.	/ˈdzɛ.ro/	number		italian
+30083	Unità 0 · Benvenuti!	Числа 0–30	uno	один	bir	Ho solo un libro.	/ˈu.no/	number		italian
+30084	Unità 0 · Benvenuti!	Числа 0–30	due	два	iki	Ho due lezioni oggi.	/ˈdu.e/	number		italian
+30085	Unità 0 · Benvenuti!	Числа 0–30	tre	три	üç	Siamo in tre nella casa.	/ˈtre/	number		italian
+30086	Unità 0 · Benvenuti!	Числа 0–30	quattro	четыре	dörd	La lezione è alle quattro.	/ˈkwat.tro/	number		italian
+30087	Unità 0 · Benvenuti!	Числа 0–30	cinque	пять	beş	Abito qui da cinque giorni.	/ˈtʃiŋ.kwe/	number		italian
+30088	Unità 0 · Benvenuti!	Числа 0–30	sei	шесть	altı	Il corso dura sei mesi.	/ˈsɛi/	number		italian
+30089	Unità 0 · Benvenuti!	Числа 0–30	sette	семь	yeddi	Una settimana ha sette giorni.	/ˈsɛt.te/	number		italian
+30090	Unità 0 · Benvenuti!	Числа 0–30	otto	восемь	səkkiz	Ci vediamo alle otto?	/ˈɔt.to/	number		italian
+30091	Unità 0 · Benvenuti!	Числа 0–30	nove	девять	doqquz	La biblioteca apre alle nove.	/ˈnɔ.ve/	number		italian
+30092	Unità 0 · Benvenuti!	Числа 0–30	dieci	десять	on	Il biglietto costa dieci euro.	/ˈdjɛ.tʃi/	number		italian
+30093	Unità 0 · Benvenuti!	Числа 0–30	undici	одиннадцать	on bir	Ho lezione alle undici.	/ˈun.di.tʃi/	number		italian
+30094	Unità 0 · Benvenuti!	Числа 0–30	dodici	двенадцать	on iki	Un anno ha dodici mesi.	/ˈdo.di.tʃi/	number		italian
+30095	Unità 0 · Benvenuti!	Числа 0–30	tredici	тринадцать	on üç	Abito al numero tredici.	/ˈtre.di.tʃi/	number		italian
+30096	Unità 0 · Benvenuti!	Числа 0–30	quattordici	четырнадцать	on dörd	Siamo quattordici in classe.	/kwatˈtor.di.tʃi/	number		italian
+30097	Unità 0 · Benvenuti!	Числа 0–30	quindici	пятнадцать	on beş	La pausa è di quindici minuti.	/ˈkwin.di.tʃi/	number		italian
+30098	Unità 0 · Benvenuti!	Числа 0–30	sedici	шестнадцать	on altı	Prendo l'autobus numero sedici.	/ˈse.di.tʃi/	number		italian
+30099	Unità 0 · Benvenuti!	Числа 0–30	diciassette	семнадцать	on yeddi	L'esame è il diciassette.	/di.tʃasˈsɛt.te/	number		italian
+30100	Unità 0 · Benvenuti!	Числа 0–30	diciotto	восемнадцать	on səkkiz	Il voto minimo è diciotto.	/diˈtʃɔt.to/	number		italian
+30101	Unità 0 · Benvenuti!	Числа 0–30	diciannove	девятнадцать	on doqquz	Mia sorella ha diciannove anni.	/di.tʃanˈnɔ.ve/	number		italian
+30102	Unità 0 · Benvenuti!	Числа 0–30	venti	двадцать	iyirmi	Ci sono venti studenti nel corso.	/ˈven.ti/	number		italian
+30103	Unità 0 · Benvenuti!	Числа 0–30	ventuno	двадцать один	iyirmi bir	Abito in via Irnerio ventuno.	/venˈtu.no/	number		italian
+30104	Unità 0 · Benvenuti!	Числа 0–30	ventitré	двадцать три (21–29: venti + число)	iyirmi üç	Ho ventitré anni.	/ven.tiˈtre/	number		italian
+30105	Unità 0 · Benvenuti!	Числа 0–30	ventotto	двадцать восемь	iyirmi səkkiz	Febbraio ha ventotto giorni.	/venˈtɔt.to/	number		italian
+30106	Unità 0 · Benvenuti!	Числа 0–30	trenta	тридцать	otuz	Trenta e lode è il voto più alto!	/ˈtren.ta/	number		italian
+30107	Unità 0 · Benvenuti!	Числа 0–30	il numero	номер, число	nömrə, rəqəm	Qual è il tuo numero di telefono?	/ˈnu.me.ro/	noun m		italian
+30108	Unità 0 · Benvenuti!	Первые предметы и учёба	il libro	книга	kitab	Questo libro è per il corso d'italiano.	/ˈli.bro/	noun m		italian
+30109	Unità 0 · Benvenuti!	Первые предметы и учёба	la casa	дом, жильё	ev	Torno a casa dopo la lezione.	/ˈka.za/	noun f		italian
+30110	Unità 0 · Benvenuti!	Первые предметы и учёба	la chiave	ключ	açar	Dov'è la chiave di casa?	/ˈkja.ve/	noun f		italian
+30111	Unità 0 · Benvenuti!	Первые предметы и учёба	il giornale	газета	qəzet	Leggo il giornale online.	/dʒorˈna.le/	noun m		italian
+30112	Unità 0 · Benvenuti!	Первые предметы и учёба	il gelato	мороженое	dondurma	Un gelato al cioccolato, per favore!	/dʒeˈla.to/	noun m		italian
+30113	Unità 0 · Benvenuti!	Первые предметы и учёба	la borsa	сумка	çanta	La mia borsa è sulla sedia.	/ˈbor.sa/	noun f		italian
+30114	Unità 0 · Benvenuti!	Первые предметы и учёба	lo studente	студент	tələbə (oğlan)	Sono uno studente straniero.	/stuˈdɛn.te/	noun m		italian
+30115	Unità 0 · Benvenuti!	Первые предметы и учёба	la studentessa	студентка	tələbə (qız)	Anna è una studentessa di medicina.	/stu.denˈtes.sa/	noun f		italian
+30116	Unità 0 · Benvenuti!	Первые предметы и учёба	la classe	класс, группа	sinif, qrup	La mia classe è internazionale.	/ˈklas.se/	noun f		italian
+30117	Unità 0 · Benvenuti!	Первые предметы и учёба	l'insegnante	преподаватель, учитель	müəllim	L'insegnante d'italiano è molto brava.	/in.seɲˈɲan.te/	noun m/f		italian
+30118	Unità 0 · Benvenuti!	Первые предметы и учёба	il quaderno	тетрадь	dəftər	Scrivo le parole nuove nel quaderno.	/kwaˈdɛr.no/	noun m		italian
+30119	Unità 0 · Benvenuti!	Первые предметы и учёба	la penna	ручка	qələm	Hai una penna, per favore?	/ˈpen.na/	noun f		italian
+30120	Unità 0 · Benvenuti!	Первые предметы и учёба	la matita	карандаш	karandaş	Scrivo con la matita.	/maˈti.ta/	noun f		italian
+30121	Unità 0 · Benvenuti!	Первые предметы и учёба	il computer	компьютер, ноутбук	kompüter, noutbuk	Il mio computer è nuovo.	/komˈpju.ter/	noun m, pl. invariable		italian
+30122	Unità 0 · Benvenuti!	Первые предметы и учёба	il tavolo	стол	masa	Il libro è sul tavolo.	/ˈta.vo.lo/	noun m		italian
+30123	Unità 0 · Benvenuti!	Первые предметы и учёба	la sedia	стул	stul	Questa sedia è libera?	/ˈsɛ.dja/	noun f		italian
+30124	Unità 0 · Benvenuti!	Первые предметы и учёба	la porta	дверь	qapı	Puoi chiudere la porta?	/ˈpɔr.ta/	noun f		italian
+30125	Unità 0 · Benvenuti!	Первые предметы и учёба	la finestra	окно	pəncərə	Apro la finestra, fa caldo.	/fiˈnɛs.tra/	noun f		italian
+30126	Unità 0 · Benvenuti!	Первые предметы и учёба	il dizionario	словарь	lüğət	Uso il dizionario sul telefono.	/dit.tsjoˈna.rjo/	noun m		italian
+30127	Unità 0 · Benvenuti!	Первые предметы и учёба	la parola	слово	söz	Questa parola è nuova per me.	/paˈrɔ.la/	noun f		italian
+30128	Unità 0 · Benvenuti!	Первые предметы и учёба	la lingua	язык	dil	Parlo tre lingue.	/ˈliŋ.ɡwa/	noun f		italian
+30129	Unità 0 · Benvenuti!	Первые предметы и учёба	la domanda	вопрос	sual	Posso fare una domanda?	/doˈman.da/	noun f		italian
+30130	Unità 0 · Benvenuti!	Первые предметы и учёба	il nome	имя	ad	Il mio nome è Elvin.	/ˈno.me/	noun m		italian
+30131	Unità 0 · Benvenuti!	Первые предметы и учёба	il cognome	фамилия	soyad	Qual è il tuo cognome?	/koɲˈɲo.me/	noun m		italian
+30132	Unità 0 · Benvenuti!	Первые предметы и учёба	la foto	фото	şəkil, foto	Ti mando una foto di Bologna.	/ˈfɔ.to/	noun f, pl. invariable		italian
+30133	Unità 0 · Benvenuti!	Первые предметы и учёба	l'orologio	часы	saat (qol saatı, divar saatı)	Il mio orologio non funziona.	/o.roˈlɔ.dʒo/	noun m		italian
+30134	Unità 1 · Un nuovo inizio	Глаголы на -are	parlare	говорить, разговаривать	danışmaq	Parlo russo, azero e un po' d'italiano.	/parˈla.re/	verb		italian
+30135	Unità 1 · Un nuovo inizio	Глаголы на -are	lavorare	работать	işləmək	Lavoro in un bar il sabato.	/la.voˈra.re/	verb		italian
+30136	Unità 1 · Un nuovo inizio	Глаголы на -are	abitare	жить, проживать	yaşamaq (bir yerdə)	Abito in via Zamboni.	/a.biˈta.re/	verb		italian
+30137	Unità 1 · Un nuovo inizio	Глаголы на -are	studiare	учиться, изучать	oxumaq, öyrənmək	Studio ingegneria all'Università di Bologna.	/stuˈdja.re/	verb		italian
+30138	Unità 1 · Un nuovo inizio	Глаголы на -are	mangiare	есть, кушать	yemək	Mangio in mensa con i compagni.	/manˈdʒa.re/	verb		italian
+30139	Unità 1 · Un nuovo inizio	Глаголы на -are	imparare	учить, выучивать	öyrənmək	Imparo dieci parole nuove ogni giorno.	/im.paˈra.re/	verb		italian
+30140	Unità 1 · Un nuovo inizio	Глаголы на -are	insegnare	преподавать, учить (кого-то)	öyrətmək, dərs demək	Il professore insegna matematica.	/in.seɲˈɲa.re/	verb		italian
+30141	Unità 1 · Un nuovo inizio	Глаголы на -are	aspettare	ждать	gözləmək	Ti aspetto davanti alla biblioteca.	/as.petˈta.re/	verb		italian
+30142	Unità 1 · Un nuovo inizio	Глаголы на -are	arrivare	приезжать, прибывать	gəlmək, çatmaq	Arrivo all'università alle nove.	/ar.riˈva.re/	verb		italian
+30143	Unità 1 · Un nuovo inizio	Глаголы на -are	tornare	возвращаться	qayıtmaq	Torno a casa alle sei.	/torˈna.re/	verb		italian
+30144	Unità 1 · Un nuovo inizio	Глаголы на -are	entrare	входить	daxil olmaq, girmək	Posso entrare?	/enˈtra.re/	verb		italian
+30145	Unità 1 · Un nuovo inizio	Глаголы на -are	cercare	искать	axtarmaq	Cerco una stanza in centro.	/tʃerˈka.re/	verb		italian
+30146	Unità 1 · Un nuovo inizio	Глаголы на -are	trovare	находить	tapmaq	Non trovo le chiavi!	/troˈva.re/	verb		italian
+30147	Unità 1 · Un nuovo inizio	Глаголы на -are	pensare	думать	düşünmək	Penso di sì.	/penˈsa.re/	verb		italian
+30148	Unità 1 · Un nuovo inizio	Глаголы на -are	preparare	готовить, подготавливать	hazırlamaq	Preparo l'esame con un compagno.	/pre.paˈra.re/	verb		italian
+30149	Unità 1 · Un nuovo inizio	Глаголы на -are	cominciare	начинать(ся)	başlamaq	La lezione comincia alle dieci.	/ko.minˈtʃa.re/	verb		italian
+30150	Unità 1 · Un nuovo inizio	Глаголы на -are	usare	использовать	istifadə etmək	Uso il telefono per tradurre.	/uˈza.re/	verb		italian
+30151	Unità 1 · Un nuovo inizio	Глаголы на -are	incontrare	встречать	rastlaşmaq, görüşmək	Incontro i miei amici in piazza.	/in.konˈtra.re/	verb		italian
+30152	Unità 1 · Un nuovo inizio	Глаголы на -are	funzionare	работать (о технике), действовать	işləmək (cihaz haqqında)	Il wifi non funziona!	/fun.tsjoˈna.re/	verb		italian
+30153	Unità 1 · Un nuovo inizio	Глаголы на -are	portare	приносить, носить	gətirmək, aparmaq	Porto il computer a lezione.	/porˈta.re/	verb		italian
+30154	Unità 1 · Un nuovo inizio	Глаголы на -are	cambiare	менять(ся)	dəyişmək	Voglio cambiare corso.	/kamˈbja.re/	verb		italian
+30155	Unità 1 · Un nuovo inizio	Глаголы на -are	spiegare	объяснять	izah etmək	Il professore spiega bene.	/spjeˈɡa.re/	verb		italian
+30156	Unità 1 · Un nuovo inizio	Глаголы на -are	chiamarsi	называться, зваться	adlanmaq, adı … olmaq	Come si chiama il professore?	/kjaˈmar.si/	verb, reflexive		italian
+30157	Unità 1 · Un nuovo inizio	Глаголы на -are	amare	любить	sevmək	Amo Bologna!	/aˈma.re/	verb		italian
+30158	Unità 1 · Un nuovo inizio	Глаголы на -are	lasciare	оставлять	qoymaq, tərk etmək	Lascio la bici davanti a casa.	/laʃˈʃa.re/	verb		italian
+30159	Unità 1 · Un nuovo inizio	Глаголы на -are	telefonare	звонить по телефону	telefon etmək, zəng vurmaq	Telefono a mia madre ogni sera.	/te.le.foˈna.re/	verb		italian
+30160	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	prendere	брать, взять (транспорт, еду)	götürmək, almaq, minmək	Prendo l'autobus per andare all'università.	/ˈprɛn.de.re/	verb		italian
+30161	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	leggere	читать	oxumaq	Leggo un libro in italiano.	/ˈlɛd.dʒe.re/	verb		italian
+30162	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	scrivere	писать	yazmaq	Scrivo una mail al professore.	/ˈskri.ve.re/	verb		italian
+30163	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	vivere	жить	yaşamaq	Vivo a Bologna da un mese.	/ˈvi.ve.re/	verb		italian
+30164	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	vedere	видеть	görmək	Ci vediamo domani!	/veˈde.re/	verb		italian
+30165	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	credere	верить, считать	inanmaq, hesab etmək	Non ci credo!	/ˈkre.de.re/	verb		italian
+30166	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	chiedere	спрашивать, просить	soruşmaq, xahiş etmək	Chiedo informazioni in segreteria.	/ˈkjɛ.de.re/	verb		italian
+30167	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	chiudere	закрывать	bağlamaq	Chiudi la finestra, per favore.	/ˈkju.de.re/	verb		italian
+30168	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	mettere	класть, ставить, надевать	qoymaq, geyinmək	Metto i libri nello zaino.	/ˈmet.te.re/	verb		italian
+30169	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	perdere	терять, опаздывать (на транспорт)	itirmək, qaçırmaq	Corro, non voglio perdere l'autobus!	/ˈpɛr.de.re/	verb		italian
+30170	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	conoscere	знать (кого-то), знакомиться	tanımaq, tanış olmaq	Conosci un buon ristorante qui?	/koˈnoʃ.ʃe.re/	verb		italian
+30171	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	decidere	решать	qərar vermək	Non decido mai subito.	/deˈtʃi.de.re/	verb		italian
+30172	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	ripetere	повторять	təkrar etmək	Ripeto le parole nuove ogni sera.	/riˈpɛ.te.re/	verb		italian
+30173	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	correre	бегать, бежать	qaçmaq	Corro al parco la mattina.	/ˈkor.re.re/	verb		italian
+30174	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	succedere	случаться, происходить	baş vermək	Che cosa succede?	/sutˈtʃɛ.de.re/	verb		italian
+30175	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	dormire	спать	yatmaq	Dormo poco prima degli esami.	/dorˈmi.re/	verb		italian
+30176	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	partire	уезжать, отправляться	yola düşmək, getmək	Parto per Baku a luglio.	/parˈti.re/	verb		italian
+30177	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	sentire	слышать, чувствовать	eşitmək, hiss etmək	Scusi, non sento bene.	/senˈti.re/	verb		italian
+30178	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	aprire	открывать	açmaq	Il negozio apre alle nove.	/aˈpri.re/	verb		italian
+30179	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	rimanere	оставаться	qalmaq	Rimango a Bologna anche ad agosto.	/ri.maˈne.re/	verb, irregular		italian
+30180	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	seguire	следовать, посещать (курс)	izləmək, (kursa) getmək	Seguo un corso d'italiano.	/seˈɡwi.re/	verb		italian
+30181	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	servire	быть нужным, служить	lazım olmaq, xidmət etmək	Mi serve una penna.	/serˈvi.re/	verb		italian
+30182	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	capire	понимать	başa düşmək, anlamaq	Capisco un po' d'italiano.	/kaˈpi.re/	verb, -isc-		italian
+30183	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	finire	заканчивать(ся)	bitirmək, bitmək	La lezione finisce a mezzogiorno.	/fiˈni.re/	verb, -isc-		italian
+30184	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	preferire	предпочитать	üstünlük vermək	Preferisco studiare in biblioteca.	/pre.feˈri.re/	verb, -isc-		italian
+30185	Unità 1 · Un nuovo inizio	Глаголы на -ere и -ire	pulire	убирать, чистить	təmizləmək	Oggi pulisco la cucina.	/puˈli.re/	verb, -isc-		italian
+30186	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	il lavoro	работа	iş	Cerco un lavoro part-time.	/laˈvo.ro/	noun m		italian
+30187	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	che lavoro fai?	кем ты работаешь?	nə işləyirsən?	Che lavoro fai? – Sono studente.	/ke laˈvo.ro ˈfai/	phrase		italian
+30188	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	l'ufficio	офис, контора	ofis, idarə	L'ufficio è al secondo piano.	/ufˈfi.tʃo/	noun m		italian
+30189	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	l'infermiere	медбрат, медсестра (f. infermiera)	tibb qardaşı, tibb bacısı	Mia sorella fa l'infermiera.	/in.ferˈmjɛ.re/	noun m, f. infermiera		italian
+30190	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	l'architetto	архитектор	memar	Studio per diventare architetto.	/ar.kiˈtet.to/	noun m		italian
+30191	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	il programmatore	программист	proqramçı	Il mio amico fa il programmatore a Milano.	/pro.ɡram.maˈto.re/	noun m, f. programmatrice		italian
+30192	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	il poliziotto	полицейский	polis işçisi	Il poliziotto mi chiede i documenti.	/po.litˈtsjɔt.to/	noun m, f. poliziotta		italian
+30193	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	l'operaio	рабочий	fəhlə	Mio padre è operaio in una fabbrica.	/o.peˈra.jo/	noun m, pl. operai		italian
+30194	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	disoccupato	безработный	işsiz	Adesso sono disoccupato, cerco lavoro.	/di.zok.kuˈpa.to/	adj		italian
+30195	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	il cuoco	повар	aşpaz	Il cuoco della mensa è molto bravo.	/ˈkwɔ.ko/	noun m, pl. cuochi		italian
+30196	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	il progetto	проект, план	layihə, plan	Lavoro a un progetto con due compagni.	/proˈdʒɛt.to/	noun m		italian
+30197	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	l'inizio	начало	başlanğıc	All'inizio l'italiano è difficile.	/iˈnit.tsjo/	noun m		italian
+30198	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	la professione	профессия	peşə	Qual è la sua professione?	/pro.fesˈsjo.ne/	noun f		italian
+30199	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	il medico	врач	həkim	Ho bisogno di un medico.	/ˈmɛ.di.ko/	noun m, pl. medici		italian
+30200	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	l'ingegnere	инженер	mühəndis	Voglio diventare ingegnere.	/in.dʒeɲˈɲɛ.re/	noun m		italian
+30201	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	l'impiegato	служащий, офисный работник	işçi, məmur	L'impiegato della banca è gentile.	/im.pjeˈɡa.to/	noun m		italian
+30202	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	l'avvocato	адвокат, юрист	vəkil	Mio padre è avvocato.	/av.voˈka.to/	noun m		italian
+30203	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	il giornalista	журналист	jurnalist	Laura fa la giornalista.	/dʒor.naˈlis.ta/	noun m/f, pl. giornalisti		italian
+30204	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	il signore	господин, мужчина	cənab, kişi	Buongiorno, signore!	/siɲˈɲo.re/	noun m		italian
+30205	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	la signora	госпожа, женщина	xanım, qadın	La signora Bianchi è la mia padrona di casa.	/siɲˈɲo.ra/	noun f		italian
+30206	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	il dottore	доктор (врач или выпускник вуза)	doktor, həkim	Buongiorno, dottore.	/dotˈto.re/	noun m, f. dottoressa		italian
+30207	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	dare del Lei	обращаться на «Вы»	«Siz» deyə müraciət etmək	Al professore do del Lei.	/ˈda.re del ˈlɛi/	phrase		italian
+30208	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	dare del tu	обращаться на «ты»	«sən» deyə müraciət etmək	Possiamo darci del tu?	/ˈda.re del ˈtu/	phrase		italian
+30209	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	Le presento…	позвольте представить вам…	Sizə … təqdim edim	Professore, Le presento il mio amico Elvin.	/le preˈzɛn.to/	phrase		italian
+30210	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	permesso?	можно? (войти, пройти)	icazə varmı?, keçə bilərəm?	Permesso? Posso entrare?	/perˈmes.so/	phrase		italian
+30211	Unità 1 · Un nuovo inizio	Работа, новое начало и вежливость	ArrivederLa	до свидания (на «Вы», официально)	sağ olun (rəsmi)	Grazie, professore, ArrivederLa.	/ar.ri.veˈder.la/	phrase		italian
+30212	Unità 1 · Un nuovo inizio	Внешность и характер	alto	высокий	hündür, uca	Il mio coinquilino è molto alto.	/ˈal.to/	adj		italian
+30213	Unità 1 · Un nuovo inizio	Внешность и характер	basso	низкий, невысокий	alçaq, qısaboy	Sono un po' basso.	/ˈbas.so/	adj		italian
+30214	Unità 1 · Un nuovo inizio	Внешность и характер	magro	худой, стройный	arıq	Marco è alto e magro.	/ˈma.ɡro/	adj		italian
+30215	Unità 1 · Un nuovo inizio	Внешность и характер	grasso	толстый, жирный	kök, yağlı	Il mio gatto è un po' grasso.	/ˈɡras.so/	adj		italian
+30216	Unità 1 · Un nuovo inizio	Внешность и характер	biondo	светловолосый, блондин	sarışın	Anna ha i capelli biondi.	/ˈbjon.do/	adj		italian
+30217	Unità 1 · Un nuovo inizio	Внешность и характер	castano	каштановый (о волосах)	şabalıdı (saç)	Ho i capelli castani.	/kasˈta.no/	adj		italian
+30218	Unità 1 · Un nuovo inizio	Внешность и характер	giovane	молодой	gənc, cavan	Il professore è giovane.	/ˈdʒo.va.ne/	adj		italian
+30219	Unità 1 · Un nuovo inizio	Внешность и характер	anziano	пожилой	yaşlı	La mia vicina è una signora anziana.	/anˈtsja.no/	adj		italian
+30220	Unità 1 · Un nuovo inizio	Внешность и характер	carino	милый, симпатичный (о внешности)	şirin, yaraşıqlı	Che ragazza carina!	/kaˈri.no/	adj		italian
+30221	Unità 1 · Un nuovo inizio	Внешность и характер	riccio	кудрявый	qıvrım (saç)	Ho i capelli ricci.	/ˈrit.tʃo/	adj, pl. ricci		italian
+30222	Unità 1 · Un nuovo inizio	Внешность и характер	liscio	прямой, гладкий (о волосах)	düz (saç), hamar	Giulia ha i capelli lisci e lunghi.	/ˈliʃ.ʃo/	adj, pl. lisci		italian
+30223	Unità 1 · Un nuovo inizio	Внешность и характер	simpatico	симпатичный, приятный (в общении)	xoşagələn, mehriban	I miei compagni sono simpatici.	/simˈpa.ti.ko/	adj, pl. simpatici		italian
+30224	Unità 1 · Un nuovo inizio	Внешность и характер	antipatico	неприятный (человек)	xoşagəlməz, antipatik	Il mio vicino è un po' antipatico.	/an.tiˈpa.ti.ko/	adj, pl. antipatici		italian
+30225	Unità 1 · Un nuovo inizio	Внешность и характер	gentile	любезный, вежливый	nəzakətli, mehriban	Grazie, sei molto gentile!	/dʒenˈti.le/	adj		italian
+30226	Unità 1 · Un nuovo inizio	Внешность и характер	allegro	весёлый	şən	Sara è sempre allegra.	/alˈle.ɡro/	adj		italian
+30227	Unità 1 · Un nuovo inizio	Внешность и характер	serio	серьёзный	ciddi	Il professore sembra serio, ma è simpatico.	/ˈsɛ.rjo/	adj		italian
+30228	Unità 1 · Un nuovo inizio	Внешность и характер	intelligente	умный	ağıllı	Luca è molto intelligente.	/in.tel.liˈdʒɛn.te/	adj		italian
+30229	Unità 1 · Un nuovo inizio	Внешность и характер	pigro	ленивый	tənbəl	La domenica sono pigro.	/ˈpi.ɡro/	adj		italian
+30230	Unità 1 · Un nuovo inizio	Внешность и характер	il carattere	характер	xasiyyət	Ha un bel carattere.	/kaˈrat.te.re/	noun m		italian
+30231	Unità 1 · Un nuovo inizio	Внешность и характер	gli occhi	глаза	gözlər	Ha gli occhi scuri.	/ˈɔk.ki/	noun m pl, sing. l'occhio		italian
+30232	Unità 1 · Un nuovo inizio	Внешность и характер	i capelli	волосы	saç	Ho i capelli neri e corti.	/kaˈpel.li/	noun m pl, sing. il capello		italian
+30233	Unità 1 · Un nuovo inizio	Внешность и характер	il viso	лицо	üz, sifət	Ha un viso simpatico.	/ˈvi.zo/	noun m		italian
+30234	Unità 1 · Un nuovo inizio	Внешность и характер	il naso	нос	burun	Ho il naso freddo!	/ˈna.so/	noun m		italian
+30235	Unità 1 · Un nuovo inizio	Внешность и характер	la bocca	рот	ağız	Non parlare con la bocca piena!	/ˈbok.ka/	noun f		italian
+30236	Unità 1 · Un nuovo inizio	Внешность и характер	la testa	голова	baş	Ho mal di testa.	/ˈtɛs.ta/	noun f		italian
+30237	Unità 1 · Un nuovo inizio	Внешность и характер	la mano	рука (кисть)	əl	Alza la mano per parlare.	/ˈma.no/	noun f, pl. le mani		italian
+30238	Unità 1 · Un nuovo inizio	Внешность и характер	gli occhiali	очки	eynək	Porto gli occhiali per leggere.	/okˈkja.li/	noun m pl		italian
+30239	Unità 2 · Tempo libero	Свободное время и приглашения	andare	идти, ехать	getmək	Stasera vado in piazza con gli amici.	/anˈda.re/	verb, irregular		italian
+30240	Unità 2 · Tempo libero	Свободное время и приглашения	venire	приходить, приезжать	gəlmək	Vieni anche tu alla festa?	/veˈni.re/	verb, irregular		italian
+30241	Unità 2 · Tempo libero	Свободное время и приглашения	fare	делать	etmək, eləmək	Che cosa fai nel fine settimana?	/ˈfa.re/	verb, irregular		italian
+30242	Unità 2 · Tempo libero	Свободное время и приглашения	uscire	выходить, гулять (с друзьями)	çıxmaq, gəzməyə çıxmaq	Il sabato sera esco con i compagni.	/uʃˈʃi.re/	verb, irregular		italian
+30243	Unità 2 · Tempo libero	Свободное время и приглашения	stare	быть, находиться, оставаться	olmaq, qalmaq	Oggi sto a casa a studiare.	/ˈsta.re/	verb, irregular		italian
+30244	Unità 2 · Tempo libero	Свободное время и приглашения	dare	давать	vermək	Mi dai il tuo numero?	/ˈda.re/	verb, irregular		italian
+30245	Unità 2 · Tempo libero	Свободное время и приглашения	dire	говорить, сказать	demək	Come si dice «sağ ol» in italiano?	/ˈdi.re/	verb, irregular		italian
+30246	Unità 2 · Tempo libero	Свободное время и приглашения	bere	пить	içmək	Beviamo qualcosa insieme?	/ˈbe.re/	verb, irregular		italian
+30247	Unità 2 · Tempo libero	Свободное время и приглашения	sapere	знать, уметь	bilmək, bacarmaq	Sai nuotare?	/saˈpe.re/	verb, irregular		italian
+30248	Unità 2 · Tempo libero	Свободное время и приглашения	potere	мочь	bacarmaq, -a bilmək	Posso venire con te?	/poˈte.re/	verb, irregular		italian
+30249	Unità 2 · Tempo libero	Свободное время и приглашения	volere	хотеть	istəmək	Vuoi uscire stasera?	/voˈle.re/	verb, irregular		italian
+30250	Unità 2 · Tempo libero	Свободное время и приглашения	dovere	быть должным, надо	məcbur olmaq, lazımdır	Mi dispiace, devo studiare.	/doˈve.re/	verb, irregular		italian
+30251	Unità 2 · Tempo libero	Свободное время и приглашения	il tempo libero	свободное время	boş vaxt	Cosa fai nel tempo libero?	/ˈtɛm.po ˈli.be.ro/	noun m		italian
+30252	Unità 2 · Tempo libero	Свободное время и приглашения	il fine settimana	выходные	həftəsonu	Il fine settimana dormo tanto.	/ˈfi.ne set.tiˈma.na/	noun m		italian
+30253	Unità 2 · Tempo libero	Свободное время и приглашения	giocare	играть	oynamaq	Gioco a calcio con gli amici.	/dʒoˈka.re/	verb		italian
+30254	Unità 2 · Tempo libero	Свободное время и приглашения	lo sport	спорт	idman	Fai sport?	/ˈspɔrt/	noun m, pl. invariable		italian
+30255	Unità 2 · Tempo libero	Свободное время и приглашения	il calcio	футбол	futbol	Il calcio è lo sport più amato in Italia.	/ˈkal.tʃo/	noun m		italian
+30256	Unità 2 · Tempo libero	Свободное время и приглашения	la piscina	бассейн	hovuz	Il martedì vado in piscina.	/piʃˈʃi.na/	noun f		italian
+30257	Unità 2 · Tempo libero	Свободное время и приглашения	la festa	вечеринка, праздник	ziyafət, bayram, parti	Sabato c'è una festa a casa di Luca.	/ˈfɛs.ta/	noun f		italian
+30258	Unità 2 · Tempo libero	Свободное время и приглашения	invitare	приглашать	dəvət etmək	Ti invito alla mia festa.	/in.viˈta.re/	verb		italian
+30259	Unità 2 · Tempo libero	Свободное время и приглашения	ti va di…?	хочешь…?, как насчёт…?	… istəyirsən?	Ti va di prendere un gelato?	/ti ˈva di/	phrase		italian
+30260	Unità 2 · Tempo libero	Свободное время и приглашения	perché no?	почему бы и нет?	niyə də yox?	Usciamo stasera? – Perché no?	/perˈke ˈnɔ/	phrase		italian
+30261	Unità 2 · Tempo libero	Свободное время и приглашения	volentieri	охотно, с удовольствием	məmnuniyyətlə	Vieni con noi? – Volentieri!	/vo.lenˈtjɛ.ri/	adv		italian
+30262	Unità 2 · Tempo libero	Свободное время и приглашения	purtroppo	к сожалению	təəssüf ki	Purtroppo stasera non posso.	/purˈtrɔp.po/	adv		italian
+30263	Unità 2 · Tempo libero	Свободное время и приглашения	rilassarsi	расслабляться, отдыхать	dincəlmək, rahatlamaq	La domenica mi rilasso a casa.	/ri.lasˈsar.si/	verb, reflexive		italian
+30264	Unità 2 · Tempo libero	Свободное время и приглашения	nuotare	плавать	üzmək	Nuoto due volte alla settimana.	/nwoˈta.re/	verb		italian
+30265	Unità 2 · Tempo libero	Свободное время и приглашения	camminare	ходить пешком, гулять	yerimək, piyada gəzmək	A Bologna cammino tanto sotto i portici.	/kam.miˈna.re/	verb		italian
+30266	Unità 2 · Tempo libero	Дом и квартира	l'appartamento	квартира	mənzil	Il mio appartamento è vicino all'università.	/ap.par.taˈmen.to/	noun m		italian
+30267	Unità 2 · Tempo libero	Дом и квартира	la camera	комната, спальня	otaq, yataq otağı	La mia camera è piccola ma luminosa.	/ˈka.me.ra/	noun f		italian
+30268	Unità 2 · Tempo libero	Дом и квартира	la cucina	кухня (помещение и кухня страны)	mətbəx	Mangiamo insieme in cucina.	/kuˈtʃi.na/	noun f		italian
+30269	Unità 2 · Tempo libero	Дом и квартира	il bagno	ванная, туалет	hamam otağı, tualet	Il bagno è in fondo al corridoio.	/ˈbaɲ.ɲo/	noun m		italian
+30270	Unità 2 · Tempo libero	Дом и квартира	il soggiorno	гостиная	qonaq otağı	Guardiamo un film in soggiorno.	/sodˈdʒor.no/	noun m		italian
+30271	Unità 2 · Tempo libero	Дом и квартира	il piano	этаж	mərtəbə	Abito al terzo piano.	/ˈpja.no/	noun m		italian
+30272	Unità 2 · Tempo libero	Дом и квартира	le scale	лестница	pilləkən	Prendo le scale, non l'ascensore.	/ˈska.le/	noun f pl		italian
+30273	Unità 2 · Tempo libero	Дом и квартира	l'ascensore	лифт	lift	L'ascensore non funziona.	/a.ʃenˈso.re/	noun m		italian
+30274	Unità 2 · Tempo libero	Дом и квартира	il balcone	балкон	eyvan	Studio sul balcone quando fa bello.	/balˈko.ne/	noun m		italian
+30275	Unità 2 · Tempo libero	Дом и квартира	il corridoio	коридор	dəhliz	Le chiavi sono nel corridoio.	/kor.riˈdo.jo/	noun m		italian
+30276	Unità 2 · Tempo libero	Дом и квартира	il letto	кровать	çarpayı	Il letto è comodo.	/ˈlɛt.to/	noun m		italian
+30277	Unità 2 · Tempo libero	Дом и квартира	l'armadio	шкаф	şkaf, dolab	Ho un armadio grande in camera.	/arˈma.djo/	noun m		italian
+30278	Unità 2 · Tempo libero	Дом и квартира	la scrivania	письменный стол	yazı masası	Studio alla scrivania.	/skri.vaˈni.a/	noun f		italian
+30279	Unità 2 · Tempo libero	Дом и квартира	il divano	диван	divan	Dormo sul divano stanotte.	/diˈva.no/	noun m		italian
+30280	Unità 2 · Tempo libero	Дом и квартира	i mobili	мебель	mebel	La stanza ha mobili nuovi.	/ˈmɔ.bi.li/	noun m pl, sing. il mobile		italian
+30281	Unità 2 · Tempo libero	Дом и квартира	il frigorifero	холодильник	soyuducu	Il frigorifero è vuoto!	/fri.ɡoˈri.fe.ro/	noun m		italian
+30282	Unità 2 · Tempo libero	Дом и квартира	il forno	духовка	duxovka, soba	Il forno non funziona.	/ˈfor.no/	noun m		italian
+30283	Unità 2 · Tempo libero	Дом и квартира	la lavatrice	стиральная машина	paltaryuyan maşın	La lavatrice è in bagno.	/la.vaˈtri.tʃe/	noun f		italian
+30284	Unità 2 · Tempo libero	Дом и квартира	la doccia	душ	duş	Faccio la doccia la mattina.	/ˈdot.tʃa/	noun f		italian
+30285	Unità 2 · Tempo libero	Дом и квартира	lo specchio	зеркало	güzgü	C'è uno specchio in bagno.	/ˈspɛk.kjo/	noun m		italian
+30286	Unità 2 · Tempo libero	Дом и квартира	la lampada	лампа	lampa	Accendo la lampada sulla scrivania.	/ˈlam.pa.da/	noun f		italian
+30287	Unità 2 · Tempo libero	Дом и квартира	la luce	свет	işıq	Spegni la luce, per favore.	/ˈlu.tʃe/	noun f		italian
+30288	Unità 2 · Tempo libero	Дом и квартира	il riscaldamento	отопление	istilik sistemi	Il riscaldamento è incluso?	/ri.skal.daˈmen.to/	noun m		italian
+30289	Unità 2 · Tempo libero	Дом и квартира	il palazzo	многоквартирный дом, здание, дворец	bina, saray	Il mio palazzo è molto vecchio.	/paˈlat.tso/	noun m		italian
+30290	Unità 2 · Tempo libero	Дом и квартира	arredato	меблированный	mebelli	Cerco un appartamento arredato.	/ar.reˈda.to/	adj		italian
+30291	Unità 2 · Tempo libero	Дом и квартира	luminoso	светлый (о помещении)	işıqlı	La cucina è grande e luminosa.	/lu.miˈno.zo/	adj		italian
+30292	Unità 2 · Tempo libero	Дни недели и время	lunedì	понедельник	bazar ertəsi	Il lunedì ho lezione alle nove.	/lu.neˈdi/	noun m		italian
+30293	Unità 2 · Tempo libero	Дни недели и время	martedì	вторник	çərşənbə axşamı	Martedì ho l'esame di italiano.	/mar.teˈdi/	noun m		italian
+30294	Unità 2 · Tempo libero	Дни недели и время	mercoledì	среда	çərşənbə	Il mercoledì vado in palestra.	/mer.ko.leˈdi/	noun m		italian
+30295	Unità 2 · Tempo libero	Дни недели и время	giovedì	четверг	cümə axşamı	Giovedì sera c'è una festa.	/dʒo.veˈdi/	noun m		italian
+30296	Unità 2 · Tempo libero	Дни недели и время	venerdì	пятница	cümə	Venerdì pomeriggio non ho lezione.	/ve.nerˈdi/	noun m		italian
+30297	Unità 2 · Tempo libero	Дни недели и время	sabato	суббота	şənbə	Il sabato lavoro in un negozio.	/ˈsa.ba.to/	noun m		italian
+30298	Unità 2 · Tempo libero	Дни недели и время	domenica	воскресенье	bazar	La domenica dormo fino a tardi.	/doˈme.ni.ka/	noun f		italian
+30299	Unità 2 · Tempo libero	Дни недели и время	il giorno	день	gün	Studio italiano ogni giorno.	/ˈdʒor.no/	noun m		italian
+30300	Unità 2 · Tempo libero	Дни недели и время	la settimana	неделя	həftə	Ho tre lezioni alla settimana.	/set.tiˈma.na/	noun f		italian
+30301	Unità 2 · Tempo libero	Дни недели и время	oggi	сегодня	bu gün	Oggi non ho lezione.	/ˈɔd.dʒi/	adv		italian
+30302	Unità 2 · Tempo libero	Дни недели и время	domani	завтра	sabah	Domani mi alzo presto.	/doˈma.ni/	adv		italian
+30303	Unità 2 · Tempo libero	Дни недели и время	stasera	сегодня вечером	bu axşam	Stasera esco con i miei compagni.	/staˈse.ra/	adv		italian
+30304	Unità 2 · Tempo libero	Дни недели и время	la mattina	утро	səhər	La mattina vado all'università.	/matˈti.na/	noun f		italian
+30305	Unità 2 · Tempo libero	Дни недели и время	il pomeriggio	вторая половина дня	günorta, günortadan sonra	Il pomeriggio studio in biblioteca.	/po.meˈrid.dʒo/	noun m		italian
+30306	Unità 2 · Tempo libero	Дни недели и время	la sera	вечер	axşam	La sera esco con gli amici.	/ˈse.ra/	noun f		italian
+30307	Unità 2 · Tempo libero	Дни недели и время	la notte	ночь	gecə	Di notte Bologna è tranquilla.	/ˈnɔt.te/	noun f		italian
+30308	Unità 2 · Tempo libero	Дни недели и время	il mezzogiorno	полдень	günorta	La mensa apre a mezzogiorno.	/med.dzoˈdʒor.no/	noun m		italian
+30309	Unità 2 · Tempo libero	Дни недели и время	la mezzanotte	полночь	gecəyarısı	Torno a casa a mezzanotte.	/med.dzaˈnɔt.te/	noun f		italian
+30310	Unità 2 · Tempo libero	Дни недели и время	l'ora	час, время	saat	La lezione dura un'ora e mezza.	/ˈo.ra/	noun f		italian
+30311	Unità 2 · Tempo libero	Дни недели и время	il minuto	минута	dəqiqə	Arrivo tra cinque minuti!	/miˈnu.to/	noun m		italian
+30312	Unità 2 · Tempo libero	Дни недели и время	che ore sono?	который час?	saat neçədir?	Scusi, che ore sono? – Sono le tre.	/ke ˈo.re ˈso.no/	phrase		italian
+30313	Unità 2 · Tempo libero	Дни недели и время	e mezza	половина (о времени)	yarım	Sono le otto e mezza.	/e ˈmɛd.dza/	phrase		italian
+30314	Unità 2 · Tempo libero	Дни недели и время	e un quarto	с четвертью (… и 15)	on beş dəqiqə keçir	Sono le dieci e un quarto.	/e un ˈkwar.to/	phrase		italian
+30315	Unità 2 · Tempo libero	Дни недели и время	meno un quarto	без четверти	on beş dəqiqə qalır	È l'una meno un quarto.	/ˈme.no un ˈkwar.to/	phrase		italian
+30316	Unità 2 · Tempo libero	Дни недели и время	presto	рано, скоро	tez, erkən	Domani mi alzo presto.	/ˈprɛs.to/	adv		italian
+30317	Unità 2 · Tempo libero	Дни недели и время	tardi	поздно	gec	È tardi, vado a casa.	/ˈtar.di/	adv		italian
+30318	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	quaranta	сорок	qırx	L'aula ha quaranta posti.	/kwaˈran.ta/	number		italian
+30319	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	cinquanta	пятьдесят	əlli	L'abbonamento costa cinquanta euro?	/tʃiŋˈkwan.ta/	number		italian
+30320	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	sessanta	шестьдесят	altmış	Un'ora ha sessanta minuti.	/sesˈsan.ta/	number		italian
+30321	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	settanta	семьдесят	yetmiş	Il libro costa settanta euro, è caro!	/setˈtan.ta/	number		italian
+30322	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	ottanta	восемьдесят	səksən	Mia nonna ha ottanta anni.	/otˈtan.ta/	number		italian
+30323	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	novanta	девяносто	doxsan	Ci sono novanta studenti nel corso.	/noˈvan.ta/	number		italian
+30324	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	cento	сто	yüz	Il corso ha cento iscritti.	/ˈtʃɛn.to/	number		italian
+30325	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	duecento	двести	iki yüz	Pago duecento euro di bollette.	/du.eˈtʃɛn.to/	number		italian
+30326	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	trecento	триста	üç yüz	La stanza costa trecento euro al mese.	/treˈtʃɛn.to/	number		italian
+30327	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	cinquecento	пятьсот	beş yüz	Spendo cinquecento euro al mese.	/tʃiŋ.kweˈtʃɛn.to/	number		italian
+30328	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	mille	тысяча	min	L'università ha quasi mille anni.	/ˈmil.le/	number		italian
+30329	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	duemila	две тысячи	iki min	Il volo per Baku costa meno di duemila euro.	/du.eˈmi.la/	number		italian
+30330	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	primo	первый	birinci	È il mio primo anno a Bologna.	/ˈpri.mo/	adj, ordinal		italian
+30331	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	secondo	второй	ikinci	Abito al secondo piano.	/seˈkon.do/	adj, ordinal		italian
+30332	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	terzo	третий	üçüncü	Il terzo esame è il più difficile.	/ˈtɛr.tso/	adj, ordinal		italian
+30333	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	quarto	четвёртый	dördüncü	Sono al quarto piano.	/ˈkwar.to/	adj, ordinal		italian
+30334	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	quinto	пятый	beşinci	Siamo alla quinta lezione.	/ˈkwin.to/	adj, ordinal		italian
+30335	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	sesto	шестой	altıncı	Il sesto giorno della settimana è sabato.	/ˈsɛs.to/	adj, ordinal		italian
+30336	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	settimo	седьмой	yeddinci	Abito al settimo piano.	/ˈsɛt.ti.mo/	adj, ordinal		italian
+30337	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	ottavo	восьмой	səkkizinci	È l'ottavo giorno di corso.	/otˈta.vo/	adj, ordinal		italian
+30338	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	nono	девятый	doqquzuncu	Leggiamo il nono capitolo.	/ˈnɔ.no/	adj, ordinal		italian
+30339	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	decimo	десятый	onuncu	È la decima volta che lo ripeto!	/ˈdɛ.tʃi.mo/	adj, ordinal		italian
+30340	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	ultimo	последний	sonuncu	È l'ultimo autobus della sera.	/ˈul.ti.mo/	adj		italian
+30341	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	mezzo	половина, полу-	yarım	Studio da un anno e mezzo.	/ˈmɛd.dzo/	adj, noun m		italian
+30342	Unità 2 · Tempo libero	Числа 40–2000 и порядковые числа	la metà	половина	yarı	Pago la metà dell'affitto.	/meˈta/	noun f		italian
+30343	Unità 2 · Tempo libero	Городской транспорт	l'autobus	автобус	avtobus	Prendo l'autobus 32 per andare in centro.	/ˈau.to.bus/	noun m, pl. invariable		italian
+30344	Unità 2 · Tempo libero	Городской транспорт	il biglietto	билет	bilet	Dove compro il biglietto dell'autobus?	/biʎˈʎet.to/	noun m		italian
+30345	Unità 2 · Tempo libero	Городской транспорт	la fermata	остановка	dayanacaq	La fermata è davanti all'università.	/ferˈma.ta/	noun f		italian
+30346	Unità 2 · Tempo libero	Городской транспорт	il treno	поезд	qatar	Prendo il treno per Firenze.	/ˈtrɛ.no/	noun m		italian
+30347	Unità 2 · Tempo libero	Городской транспорт	la metropolitana	метро	metro	A Milano prendo la metropolitana.	/me.tro.po.liˈta.na/	noun f		italian
+30348	Unità 2 · Tempo libero	Городской транспорт	il taxi	такси	taksi	Di notte prendo un taxi.	/ˈtak.si/	noun m, pl. invariable		italian
+30349	Unità 2 · Tempo libero	Городской транспорт	la macchina	машина, автомобиль	maşın	Non ho la macchina, vado a piedi.	/ˈmak.ki.na/	noun f		italian
+30350	Unità 2 · Tempo libero	Городской транспорт	la moto	мотоцикл	motosiklet	Il mio amico ha una moto.	/ˈmɔ.to/	noun f, pl. invariable		italian
+30351	Unità 2 · Tempo libero	Городской транспорт	a piedi	пешком	piyada	Vado all'università a piedi.	/a ˈpjɛ.di/	phrase		italian
+30352	Unità 2 · Tempo libero	Городской транспорт	salire	садиться (в транспорт), подниматься	minmək, qalxmaq	Salgo sull'autobus in via Irnerio.	/saˈli.re/	verb, irregular		italian
+30353	Unità 2 · Tempo libero	Городской транспорт	scendere	выходить (из транспорта), спускаться	düşmək, enmək	Scendo alla prossima fermata.	/ˈʃen.de.re/	verb		italian
+30354	Unità 2 · Tempo libero	Городской транспорт	timbrare	компостировать (билет)	(bileti) vurdurmaq, təsdiqləmək	Devi timbrare il biglietto sull'autobus.	/timˈbra.re/	verb		italian
+30355	Unità 2 · Tempo libero	Городской транспорт	l'abbonamento	проездной, абонемент	abunə, aylıq bilet	Ho l'abbonamento mensile dell'autobus.	/ab.bo.naˈmen.to/	noun m		italian
+30356	Unità 2 · Tempo libero	Городской транспорт	la linea	линия, маршрут	xətt, marşrut	Quale linea va alla stazione?	/ˈli.ne.a/	noun f		italian
+30357	Unità 2 · Tempo libero	Городской транспорт	il capolinea	конечная остановка	son dayanacaq	Scendo al capolinea.	/ka.poˈli.ne.a/	noun m		italian
+30358	Unità 2 · Tempo libero	Городской транспорт	la corsa	рейс, поездка (одна)	reys, gediş	L'ultima corsa è a mezzanotte.	/ˈkor.sa/	noun f		italian
+30359	Unità 2 · Tempo libero	Городской транспорт	il controllore	контролёр	nəzarətçi	Il controllore chiede il biglietto.	/kon.trolˈlo.re/	noun m		italian
+30360	Unità 2 · Tempo libero	Городской транспорт	la multa	штраф	cərimə	Senza biglietto prendi la multa!	/ˈmul.ta/	noun f		italian
+30361	Unità 2 · Tempo libero	Городской транспорт	l'autista	водитель	sürücü	Chiedo all'autista dov'è la fermata.	/auˈtis.ta/	noun m/f		italian
+30362	Unità 2 · Tempo libero	Городской транспорт	in ritardo	с опозданием	gecikmə ilə, gec	L'autobus è in ritardo di dieci minuti.	/in riˈtar.do/	phrase		italian
+30363	Unità 2 · Tempo libero	Городской транспорт	in orario	вовремя, по расписанию	vaxtında	Il treno è in orario.	/in oˈra.rjo/	phrase		italian
+30364	Unità 2 · Tempo libero	Городской транспорт	il traffico	пробки, движение	tıxac, nəqliyyat hərəkəti	In centro c'è sempre traffico.	/ˈtraf.fi.ko/	noun m		italian
+30365	Unità 2 · Tempo libero	Городской транспорт	il parcheggio	парковка	dayanacaq (maşın üçün)	Non trovo parcheggio!	/parˈked.dʒo/	noun m		italian
+30366	Unità 2 · Tempo libero	Городской транспорт	guidare	водить (машину)	sürmək	Non so guidare.	/ɡwiˈda.re/	verb		italian
+30367	Unità 2 · Tempo libero	Городской транспорт	la patente	водительские права	sürücülük vəsiqəsi	Ho la patente azera.	/paˈtɛn.te/	noun f		italian
+30368	Unità 2 · Tempo libero	Городской транспорт	quanto ci vuole?	сколько времени нужно?	nə qədər vaxt lazımdır?	Quanto ci vuole a piedi fino al centro?	/ˈkwan.to tʃi ˈvwɔ.le/	phrase		italian
+30369	Unità 2 · Tempo libero	Университет	l'università	университет	universitet	L'Università di Bologna è la più antica d'Europa.	/u.ni.ver.siˈta/	noun f, pl. invariable		italian
+30370	Unità 2 · Tempo libero	Университет	la lezione	лекция, урок, занятие	dərs, mühazirə	La lezione comincia alle nove.	/letˈtsjo.ne/	noun f		italian
+30371	Unità 2 · Tempo libero	Университет	l'esame	экзамен	imtahan	Ho un esame a gennaio.	/eˈza.me/	noun m		italian
+30372	Unità 2 · Tempo libero	Университет	dare un esame	сдавать экзамен	imtahan vermək	Domani do l'esame di economia.	/ˈda.re un eˈza.me/	phrase		italian
+30373	Unità 2 · Tempo libero	Университет	l'appello	экзаменационная дата (сессии), перекличка	imtahan tarixi	Mi iscrivo al primo appello di giugno.	/apˈpɛl.lo/	noun m		italian
+30374	Unità 2 · Tempo libero	Университет	la sessione	экзаменационная сессия	sessiya	A febbraio c'è la sessione d'esami.	/sesˈsjo.ne/	noun f		italian
+30375	Unità 2 · Tempo libero	Университет	l'orale	устный экзамен	şifahi imtahan	L'esame ha uno scritto e un orale.	/oˈra.le/	noun m		italian
+30376	Unità 2 · Tempo libero	Университет	il voto	оценка	qiymət	Ho preso un bel voto!	/ˈvo.to/	noun m		italian
+30377	Unità 2 · Tempo libero	Университет	il corso	курс, предмет	kurs, fənn	Seguo un corso di statistica.	/ˈkor.so/	noun m		italian
+30378	Unità 2 · Tempo libero	Университет	il compagno di corso	однокурсник	kurs yoldaşı	Studio con un compagno di corso.	/komˈpaɲ.ɲo di ˈkor.so/	noun m		italian
+30379	Unità 2 · Tempo libero	Университет	il professore	преподаватель, профессор	müəllim, professor	Il professore spiega molto bene.	/pro.fesˈso.re/	noun m, f. professoressa		italian
+30380	Unità 2 · Tempo libero	Университет	la facoltà	факультет	fakültə	Studio alla facoltà di ingegneria.	/fa.kolˈta/	noun f, pl. invariable		italian
+30381	Unità 2 · Tempo libero	Университет	l'aula	аудитория	auditoriya, sinif otağı	La lezione è nell'aula tre.	/ˈau.la/	noun f		italian
+30382	Unità 2 · Tempo libero	Университет	la biblioteca	библиотека	kitabxana	Studio in biblioteca tutto il pomeriggio.	/bi.bljoˈtɛ.ka/	noun f		italian
+30383	Unità 2 · Tempo libero	Университет	la mensa	студенческая столовая	tələbə yeməkxanası	A pranzo mangio in mensa.	/ˈmen.sa/	noun f		italian
+30384	Unità 2 · Tempo libero	Университет	gli appunti	конспект, записи	konspekt, qeydlər	Mi presti gli appunti di ieri?	/apˈpun.ti/	noun m pl		italian
+30385	Unità 2 · Tempo libero	Университет	la tesi	дипломная работа	diplom işi, dissertasiya	Scrivo la tesi in inglese.	/ˈtɛ.zi/	noun f, pl. invariable		italian
+30386	Unità 2 · Tempo libero	Университет	la laurea	диплом, высшее образование	ali təhsil diplomu	Dopo la laurea voglio lavorare in Italia.	/ˈlau.re.a/	noun f		italian
+30387	Unità 2 · Tempo libero	Университет	laurearsi	окончить университет	universiteti bitirmək	Mi laureo l'anno prossimo.	/lau.reˈar.si/	verb, reflexive		italian
+30388	Unità 2 · Tempo libero	Университет	iscriversi	записываться, поступать	qeydiyyatdan keçmək, yazılmaq	Mi iscrivo all'esame online.	/isˈkri.ver.si/	verb, reflexive		italian
+30389	Unità 2 · Tempo libero	Университет	il semestre	семестр	semestr	Nel primo semestre ho cinque corsi.	/seˈmɛs.tre/	noun m		italian
+30390	Unità 2 · Tempo libero	Университет	i crediti	кредиты (зачётные единицы, CFU)	kreditlər	Questo esame vale sei crediti.	/ˈkre.di.ti/	noun m pl		italian
+30391	Unità 2 · Tempo libero	Университет	la borsa di studio	стипендия	təqaüd	Ho una borsa di studio per due anni.	/ˈbor.sa di ˈstu.djo/	noun f		italian
+30392	Unità 2 · Tempo libero	Университет	le tasse universitarie	плата за обучение	təhsil haqqı	Le tasse universitarie sono basse per me.	/ˈtas.se u.ni.ver.siˈta.rje/	noun f pl		italian
+30393	Unità 2 · Tempo libero	Университет	la segreteria	деканат, учебная канцелярия	dekanlıq, katiblik	Vado in segreteria per un certificato.	/se.ɡre.teˈri.a/	noun f		italian
+30394	Unità 2 · Tempo libero	Университет	il ricevimento	приёмные часы преподавателя	müəllimin qəbul saatları	Il ricevimento del professore è il martedì.	/ri.tʃe.viˈmen.to/	noun m		italian
+30395	Unità 2 · Tempo libero	Жильё и документы	l'affitto	аренда, квартплата	kirayə, kirayə haqqı	L'affitto è di quattrocento euro.	/afˈfit.to/	noun m		italian
+30396	Unità 2 · Tempo libero	Жильё и документы	affittare	сдавать, снимать (жильё)	kirayə vermək, kirayə götürmək	Affitto una stanza in via Mascarella.	/af.fitˈta.re/	verb		italian
+30397	Unità 2 · Tempo libero	Жильё и документы	il coinquilino	сосед по квартире	ev yoldaşı	Ho tre coinquilini italiani.	/ko.in.kwiˈli.no/	noun m		italian
+30398	Unità 2 · Tempo libero	Жильё и документы	la stanza singola	одноместная комната	təknəfərlik otaq	Cerco una stanza singola in centro.	/ˈstan.tsa ˈsiŋ.ɡo.la/	noun f		italian
+30399	Unità 2 · Tempo libero	Жильё и документы	la stanza doppia	двухместная комната	ikinəfərlik otaq	La stanza doppia costa meno.	/ˈstan.tsa ˈdop.pja/	noun f		italian
+30400	Unità 2 · Tempo libero	Жильё и документы	il padrone di casa	хозяин квартиры, арендодатель	ev sahibi	Il padrone di casa abita al primo piano.	/paˈdro.ne di ˈka.za/	noun m		italian
+30401	Unità 2 · Tempo libero	Жильё и документы	il monolocale	однокомнатная квартира-студия	kiçik birotaqlı mənzil, studiya	Un monolocale in centro costa tanto.	/mo.no.loˈka.le/	noun m		italian
+30402	Unità 2 · Tempo libero	Жильё и документы	spese incluse	коммунальные платежи включены	kommunal xərclər daxil	Sono trecento euro, spese incluse?	/ˈspe.ze inˈklu.ze/	phrase		italian
+30403	Unità 2 · Tempo libero	Жильё и документы	la caparra	залог, депозит	girov, depozit	La caparra è di due mesi.	/kaˈpar.ra/	noun f		italian
+30404	Unità 2 · Tempo libero	Жильё и документы	il contratto	договор, контракт	müqavilə	Il contratto è di un anno.	/konˈtrat.to/	noun m		italian
+30405	Unità 2 · Tempo libero	Жильё и документы	firmare	подписывать	imzalamaq	Devo firmare il contratto.	/firˈma.re/	verb		italian
+30406	Unità 2 · Tempo libero	Жильё и документы	la bolletta	счёт (за свет, газ, воду)	kommunal ödəniş qəbzi	Quest'inverno la bolletta del gas è alta.	/bolˈlet.ta/	noun f		italian
+30407	Unità 2 · Tempo libero	Жильё и документы	trasferirsi	переезжать	köçmək	Mi trasferisco a Bologna a settembre.	/tras.feˈrir.si/	verb, reflexive, -isc-		italian
+30408	Unità 2 · Tempo libero	Жильё и документы	il permesso di soggiorno	вид на жительство	yaşayış icazəsi	Devo rinnovare il permesso di soggiorno.	/perˈmes.so di sodˈdʒor.no/	noun m		italian
+30409	Unità 2 · Tempo libero	Жильё и документы	la questura	полицейское управление (миграционный отдел)	polis idarəsi (miqrasiya şöbəsi)	Domani vado in questura per le impronte.	/kwesˈtu.ra/	noun f		italian
+30410	Unità 2 · Tempo libero	Жильё и документы	il codice fiscale	налоговый код (ИНН)	vergi kodu	Per il contratto serve il codice fiscale.	/ˈkɔ.di.tʃe fisˈka.le/	noun m		italian
+30411	Unità 2 · Tempo libero	Жильё и документы	la tessera	карточка, проездной, членский билет	kart, vəsiqə	Con la tessera dello studente ho lo sconto.	/ˈtɛs.se.ra/	noun f		italian
+30412	Unità 2 · Tempo libero	Жильё и документы	il documento	документ	sənəd	Ha un documento, per favore?	/do.kuˈmen.to/	noun m		italian
+30413	Unità 2 · Tempo libero	Жильё и документы	la carta d'identità	удостоверение личности	şəxsiyyət vəsiqəsi	In comune faccio la carta d'identità.	/ˈkar.ta di.den.tiˈta/	noun f		italian
+30414	Unità 2 · Tempo libero	Жильё и документы	la residenza	регистрация по месту жительства	qeydiyyat, yaşayış yeri	Per il medico serve la residenza.	/re.siˈdɛn.tsa/	noun f		italian
+30415	Unità 2 · Tempo libero	Жильё и документы	il modulo	бланк, анкета	blank, anket	Devo compilare questo modulo.	/ˈmɔ.du.lo/	noun m		italian
+30416	Unità 2 · Tempo libero	Жильё и документы	compilare	заполнять (бланк)	doldurmaq (blank)	Come si compila il modulo?	/kom.piˈla.re/	verb		italian
+30417	Unità 2 · Tempo libero	Жильё и документы	lo sportello	окошко (в учреждении), стойка	xidmət pəncərəsi, kassa	Vada allo sportello numero tre.	/sporˈtɛl.lo/	noun m		italian
+30418	Unità 2 · Tempo libero	Жильё и документы	l'appuntamento	встреча, запись (на приём)	görüş, qəbula yazılma	Ho un appuntamento alle dieci.	/ap.pun.taˈmen.to/	noun m		italian
+30419	Unità 2 · Tempo libero	Жильё и документы	la banca	банк	bank	Vado in banca ad aprire un conto.	/ˈbaŋ.ka/	noun f		italian
+30420	Unità 2 · Tempo libero	Жильё и документы	il conto in banca	банковский счёт	bank hesabı	Per lo stipendio serve un conto in banca.	/ˈkon.to in ˈbaŋ.ka/	noun m		italian
+30421	Unità 2 · Tempo libero	Город и фразы для выживания	il portico	портик, крытая галерея	tağlı qalereya, portik	A Bologna cammino sempre sotto i portici.	/ˈpɔr.ti.ko/	noun m, pl. portici		italian
+30422	Unità 2 · Tempo libero	Город и фразы для выживания	la piazza	площадь	meydan	Ci vediamo in Piazza Maggiore.	/ˈpjat.tsa/	noun f		italian
+30423	Unità 2 · Tempo libero	Город и фразы для выживания	la bici	велосипед	velosiped	Vado a lezione in bici.	/ˈbi.tʃi/	noun f, pl. invariable		italian
+30424	Unità 2 · Tempo libero	Город и фразы для выживания	la torre	башня	qüllə	Le Due Torri sono il simbolo di Bologna.	/ˈtor.re/	noun f		italian
+30425	Unità 2 · Tempo libero	Город и фразы для выживания	il centro	центр	mərkəz	Abito in centro, vicino a Piazza Verdi.	/ˈtʃɛn.tro/	noun m		italian
+30426	Unità 2 · Tempo libero	Город и фразы для выживания	la via	улица	küçə	Abito in via San Vitale.	/ˈvi.a/	noun f		italian
+30427	Unità 2 · Tempo libero	Город и фразы для выживания	il quartiere	район, квартал	məhəllə, rayon	Il mio quartiere è tranquillo.	/kwarˈtjɛ.re/	noun m		italian
+30428	Unità 2 · Tempo libero	Город и фразы для выживания	la zona	район, зона	zona, ərazi	È una zona universitaria.	/ˈdzɔ.na/	noun f		italian
+30429	Unità 2 · Tempo libero	Город и фразы для выживания	il parco	парк	park	La domenica corro ai Giardini Margherita, il parco più grande.	/ˈpar.ko/	noun m		italian
+30430	Unità 2 · Tempo libero	Город и фразы для выживания	la chiesa	церковь	kilsə	San Petronio è una chiesa enorme.	/ˈkjɛ.za/	noun f		italian
+30431	Unità 2 · Tempo libero	Город и фразы для выживания	il comune	мэрия, муниципалитет	bələdiyyə	Vado in comune per la residenza.	/koˈmu.ne/	noun m		italian
+30432	Unità 2 · Tempo libero	Город и фразы для выживания	l'ospedale	больница	xəstəxana	L'ospedale Sant'Orsola è vicino.	/os.peˈda.le/	noun m		italian
+30433	Unità 2 · Tempo libero	Город и фразы для выживания	quanto costa?	сколько стоит?	neçəyədir?, qiyməti nədir?	Quanto costa la tessera dell'autobus?	/ˈkwan.to ˈkɔs.ta/	phrase		italian
+30434	Unità 2 · Tempo libero	Город и фразы для выживания	non ho capito	я не понял	başa düşmədim	Scusi, non ho capito.	/non ɔ kaˈpi.to/	phrase		italian
+30435	Unità 2 · Tempo libero	Город и фразы для выживания	può ripetere?	можете повторить?	təkrar edə bilərsiniz?	Può ripetere, per favore?	/ˈpwɔ riˈpɛ.te.re/	phrase		italian
+30436	Unità 2 · Tempo libero	Город и фразы для выживания	può parlare più piano?	можете говорить медленнее?	bir az yavaş danışa bilərsiniz?	Scusi, può parlare più piano?	/ˈpwɔ parˈla.re pju ˈpja.no/	phrase		italian
+30437	Unità 2 · Tempo libero	Город и фразы для выживания	dov'è…?	где находится…?	… haradadır?	Dov'è la fermata dell'autobus?	/doˈvɛ/	phrase		italian
+30438	Unità 2 · Tempo libero	Город и фразы для выживания	parla inglese?	Вы говорите по-английски?	ingiliscə danışırsınız?	Scusi, parla inglese?	/ˈpar.la iŋˈɡle.ze/	phrase		italian
+30439	Unità 2 · Tempo libero	Город и фразы для выживания	come si dice…?	как сказать…?	… necə deyilir?	Come si dice «kitabxana» in italiano?	/ˈko.me si ˈdi.tʃe/	phrase		italian
+30440	Unità 2 · Tempo libero	Город и фразы для выживания	che cosa significa…?	что значит…?	… nə deməkdir?	Che cosa significa «appello»?	/ke ˈkɔ.za siɲˈɲi.fi.ka/	phrase		italian
+30441	Unità 2 · Tempo libero	Город и фразы для выживания	ho bisogno di…	мне нужно…	mənə … lazımdır	Ho bisogno di aiuto.	/ɔ biˈzoɲ.ɲo di/	phrase		italian
+30442	Unità 2 · Tempo libero	Город и фразы для выживания	posso…?	можно…?, могу ли я…?	… bilərəm?	Posso pagare con la carta?	/ˈpɔs.so/	phrase		italian
+30443	Unità 2 · Tempo libero	Город и фразы для выживания	aiuto!	помогите!	kömək edin!	Aiuto! Ho perso il portafoglio!	/aˈju.to/	interjection		italian
+30444	Unità 2 · Tempo libero	Город и фразы для выживания	va bene	хорошо, ладно	yaxşı, oldu	Alle sei in piazza? – Va bene!	/va ˈbɛ.ne/	phrase		italian
+30445	Unità 2 · Tempo libero	Город и фразы для выживания	un momento	минутку, секунду	bir dəqiqə	Un momento, per favore.	/un moˈmen.to/	phrase		italian
+30446	Unità 2 · Tempo libero	Город и фразы для выживания	non c'è problema	без проблем	problem deyil	Puoi aspettare? – Non c'è problema.	/non ˈtʃɛ proˈblɛ.ma/	phrase		italian
+30447	Unità 3 · Scrivere e telefonare	Почта, телефон и email	la lettera	письмо, буква	məktub, hərf	Ho ricevuto una lettera dall'università.	/ˈlɛt.te.ra/	noun f		italian
+30448	Unità 3 · Scrivere e telefonare	Почта, телефон и email	la busta	конверт, пакет	zərf, paket	Metto la lettera nella busta.	/ˈbus.ta/	noun f		italian
+30449	Unità 3 · Scrivere e telefonare	Почта, телефон и email	il pacco	посылка	bağlama, poçt bağlaması	Mia madre mi manda un pacco da Baku.	/ˈpak.ko/	noun m		italian
+30450	Unità 3 · Scrivere e telefonare	Почта, телефон и email	l'ufficio postale	почтовое отделение	poçt şöbəsi	L'ufficio postale è in via Irnerio.	/ufˈfi.tʃo posˈta.le/	noun m		italian
+30451	Unità 3 · Scrivere e telefonare	Почта, телефон и email	il francobollo	почтовая марка	poçt markası	Un francobollo per l'Azerbaigian, per favore.	/fraŋ.koˈbol.lo/	noun m		italian
+30452	Unità 3 · Scrivere e telefonare	Почта, телефон и email	la cartolina	открытка	açıqca	Mando una cartolina di Bologna ai miei.	/kar.toˈli.na/	noun f		italian
+30453	Unità 3 · Scrivere e telefonare	Почта, телефон и email	il postino	почтальон	poçtalyon	Il postino arriva la mattina.	/posˈti.no/	noun m		italian
+30454	Unità 3 · Scrivere e telefonare	Почта, телефон и email	l'indirizzo	адрес	ünvan	Qual è il tuo indirizzo?	/in.diˈrit.tso/	noun m		italian
+30455	Unità 3 · Scrivere e telefonare	Почта, телефон и email	il CAP	почтовый индекс	poçt indeksi	Il CAP di Bologna comincia con 401.	/ˈkap/	noun m		italian
+30456	Unità 3 · Scrivere e telefonare	Почта, телефон и email	spedire	отправлять (по почте)	göndərmək (poçtla)	Devo spedire un pacco a Baku.	/speˈdi.re/	verb, -isc-		italian
+30457	Unità 3 · Scrivere e telefonare	Почта, телефон и email	ricevere	получать	almaq, qəbul etmək	Ricevo tante mail dall'università.	/riˈtʃe.ve.re/	verb		italian
+30458	Unità 3 · Scrivere e telefonare	Почта, телефон и email	mandare	посылать, отправлять	göndərmək	Ti mando un messaggio dopo.	/manˈda.re/	verb		italian
+30459	Unità 3 · Scrivere e telefonare	Почта, телефон и email	il cellulare	мобильный телефон	mobil telefon	Ho il cellulare scarico.	/tʃel.luˈla.re/	noun m		italian
+30460	Unità 3 · Scrivere e telefonare	Почта, телефон и email	il telefono	телефон	telefon	Posso usare il tuo telefono?	/teˈlɛ.fo.no/	noun m		italian
+30461	Unità 3 · Scrivere e telefonare	Почта, телефон и email	chiamare	звонить, звать	zəng etmək, çağırmaq	Ti chiamo stasera.	/kjaˈma.re/	verb		italian
+30462	Unità 3 · Scrivere e telefonare	Почта, телефон и email	richiamare	перезванивать	geri zəng etmək	Adesso non posso, ti richiamo dopo.	/ri.kjaˈma.re/	verb		italian
+30463	Unità 3 · Scrivere e telefonare	Почта, телефон и email	rispondere	отвечать	cavab vermək	Il professore non risponde alle mail.	/risˈpon.de.re/	verb		italian
+30464	Unità 3 · Scrivere e telefonare	Почта, телефон и email	pronto?	алло?	alo?	Pronto? Chi parla?	/ˈpron.to/	interjection		italian
+30465	Unità 3 · Scrivere e telefonare	Почта, телефон и email	la chiamata	звонок	zəng	Ho tre chiamate perse.	/kjaˈma.ta/	noun f		italian
+30466	Unità 3 · Scrivere e telefonare	Почта, телефон и email	il messaggio	сообщение	mesaj	Ho ricevuto il tuo messaggio.	/mesˈsad.dʒo/	noun m		italian
+30467	Unità 3 · Scrivere e telefonare	Почта, телефон и email	la mail	электронное письмо	elektron məktub, e-poçt	Scrivo una mail alla segreteria.	/ˈmɛil/	noun f, pl. invariable		italian
+30468	Unità 3 · Scrivere e telefonare	Почта, телефон и email	l'allegato	вложение (в письме)	əlavə (fayl)	Il modulo è in allegato.	/al.leˈɡa.to/	noun m		italian
+30469	Unità 3 · Scrivere e telefonare	Почта, телефон и email	la password	пароль	parol, şifrə	Ho dimenticato la password.	/ˈpas.sword/	noun f, pl. invariable		italian
+30470	Unità 3 · Scrivere e telefonare	Почта, телефон и email	scaricare	скачивать, разряжаться	yükləmək (endirmək)	Scarico l'app dell'autobus.	/ska.riˈka.re/	verb		italian
+30471	Unità 3 · Scrivere e telefonare	Почта, телефон и email	la batteria	батарея, аккумулятор	batareya	La batteria è quasi finita.	/bat.teˈri.a/	noun f		italian
+30472	Unità 3 · Scrivere e telefonare	Почта, телефон и email	il caricabatterie	зарядное устройство	adapter, şarj cihazı	Hai un caricabatterie?	/ka.ri.ka.batˈtɛ.rje/	noun m, pl. invariable		italian
+30473	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	aperto	открытый	açıq	La biblioteca è aperta fino a mezzanotte.	/aˈpɛr.to/	adj		italian
+30474	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	chiuso	закрытый	bağlı	Il lunedì il museo è chiuso.	/ˈkju.zo/	adj		italian
+30475	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	l'orario	расписание, часы работы	iş saatları, cədvəl	Qual è l'orario della segreteria?	/oˈra.rjo/	noun m		italian
+30476	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	la pausa pranzo	обеденный перерыв	nahar fasiləsi	L'ufficio chiude per la pausa pranzo.	/ˈpau.za ˈpran.dzo/	noun f		italian
+30477	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	tutti i giorni	каждый день	hər gün	La biblioteca è aperta tutti i giorni.	/ˈtut.ti i ˈdʒor.ni/	phrase		italian
+30478	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	dalle … alle …	с … до … (о времени)	… -dan … -a qədər	La posta è aperta dalle otto alle due.	/ˈdal.le … ˈal.le/	phrase		italian
+30479	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	fino a	до (о времени и месте)	… qədər	Studio fino alle sei.	/ˈfi.no a/	prep		italian
+30480	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	qui	здесь, сюда	burada, bura	Abito qui vicino.	/ˈkwi/	adv		italian
+30481	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	lì	там, туда	orada, ora	Il libro è lì, sul tavolo.	/ˈli/	adv		italian
+30482	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	dove	где, куда	harada, haraya	Dove abiti?	/ˈdo.ve/	adv		italian
+30483	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	sopra	над, наверху	üstündə, yuxarıda	Il mio coinquilino abita sopra.	/ˈso.pra/	prep, adv		italian
+30484	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	sotto	под, внизу	altında, aşağıda	La bici è sotto il portico.	/ˈsot.to/	prep, adv		italian
+30485	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	su	на, наверх	üstündə, yuxarı	Le chiavi sono sul tavolo.	/ˈsu/	prep		italian
+30486	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	giù	вниз, внизу	aşağı, aşağıda	Ti aspetto giù, davanti al portone.	/ˈdʒu/	adv		italian
+30487	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	davanti a	перед, напротив	qarşısında, önündə	Ci vediamo davanti alla biblioteca.	/daˈvan.ti a/	prep		italian
+30488	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	dietro	за, позади	arxasında, arxada	La mensa è dietro la facoltà.	/ˈdjɛ.tro/	prep, adv		italian
+30489	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	accanto a	рядом с	yanında	La farmacia è accanto al bar.	/akˈkan.to a/	prep		italian
+30490	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	vicino a	близко к, рядом с	yaxınlığında	Abito vicino alla stazione.	/viˈtʃi.no a/	prep		italian
+30491	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	lontano da	далеко от	… -dan uzaqda	Casa mia è lontano dal centro.	/lonˈta.no da/	prep		italian
+30492	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	di fronte a	напротив	qarşısında	La biblioteca è di fronte alla mensa.	/di ˈfron.te a/	prep		italian
+30493	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	intorno a	вокруг	ətrafında	Intorno alla piazza ci sono tanti portici.	/inˈtor.no a/	prep		italian
+30494	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	dentro	внутри	içində, içəri	Il libro è dentro lo zaino.	/ˈden.tro/	adv, prep		italian
+30495	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	fuori	снаружи, вне	çöldə, bayırda	Ti aspetto fuori.	/ˈfwɔ.ri/	adv		italian
+30496	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	in fondo a	в конце, в глубине	sonunda, dibində	Il bagno è in fondo al corridoio.	/in ˈfon.do a/	prep		italian
+30497	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	in mezzo a	посреди	ortasında	La fontana è in mezzo alla piazza.	/in ˈmɛd.dzo a/	prep		italian
+30498	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	a destra	направо, справа	sağda, sağa	L'aula è a destra.	/a ˈdɛs.tra/	phrase		italian
+30499	Unità 3 · Scrivere e telefonare	Часы работы и где что находится	a sinistra	налево, слева	solda, sola	Gira a sinistra dopo la torre.	/a siˈnis.tra/	phrase		italian
+30500	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	forse	может быть, возможно	bəlkə, ola bilsin	Forse vengo alla festa.	/ˈfor.se/	adv		italian
+30501	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	non lo so	не знаю	bilmirəm	Dov'è l'aula? – Non lo so.	/non lo ˈsɔ/	phrase		italian
+30502	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	non sono sicuro	я не уверен	əmin deyiləm	Non sono sicuro, chiedo al professore.	/non ˈso.no siˈku.ro/	phrase		italian
+30503	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	credo di sì	думаю, да	məncə, hə	L'esame è lunedì? – Credo di sì.	/ˈkre.do di ˈsi/	phrase		italian
+30504	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	boh	не знаю (разг.), кто его знает	bilmirəm (danışıq dili)	Che ore sono? – Boh!	/ˈbɔ/	interjection		italian
+30505	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	chissà	кто знает, неизвестно	kim bilir	Chissà se passo l'esame!	/kisˈsa/	adv		italian
+30506	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	probabilmente	вероятно	yəqin ki, ehtimal ki	Probabilmente arrivo tardi.	/pro.ba.bilˈmen.te/	adv		italian
+30507	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	grazie mille	большое спасибо	çox sağ ol	Grazie mille per gli appunti!	/ˈɡrat.tsje ˈmil.le/	phrase		italian
+30508	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	di niente	не за что	dəyməz	Grazie! – Di niente!	/di ˈnjɛn.te/	phrase		italian
+30509	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	figurati!	да не за что!, что ты!	heç sözü də olmaz!	Grazie per l'aiuto! – Figurati!	/fiˈɡu.ra.ti/	phrase		italian
+30510	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	non c'è di che	не за что (вежливо)	dəyməz, buyurun	Grazie, signora. – Non c'è di che.	/non ˈtʃɛ di ˈke/	phrase		italian
+30511	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	ringraziare	благодарить	təşəkkür etmək	Ti ringrazio tanto!	/riŋ.ɡratˈtsja.re/	verb		italian
+30512	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	i soldi	деньги	pul	Non ho soldi fino a venerdì.	/ˈsɔl.di/	noun m pl		italian
+30513	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	l'euro	евро	avro	La pizza costa otto euro.	/ˈɛu.ro/	noun m, pl. invariable		italian
+30514	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	il centesimo	цент	sent	Costa novanta centesimi.	/tʃenˈtɛ.zi.mo/	noun m		italian
+30515	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	il prezzo	цена	qiymət	Il prezzo è giusto.	/ˈprɛt.tso/	noun m		italian
+30516	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	costare	стоить	dəyərində olmaq, … -a olmaq	Quanto costa l'affitto qui?	/kosˈta.re/	verb		italian
+30517	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	quanto viene?	сколько с меня?, сколько выходит?	nə qədər olur?	Quanto viene in tutto?	/ˈkwan.to ˈvjɛ.ne/	phrase		italian
+30518	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	caro	дорогой	baha, əziz	Bologna è una città cara.	/ˈka.ro/	adj		italian
+30519	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	economico	дешёвый, экономный	ucuz, sərfəli	La mensa è economica.	/e.koˈnɔ.mi.ko/	adj, pl. economici		italian
+30520	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	gratis	бесплатно	pulsuz	Il museo è gratis per gli studenti.	/ˈɡra.tis/	adv, adj		italian
+30521	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	pagare	платить	ödəmək	Pago l'affitto ogni mese.	/paˈɡa.re/	verb		italian
+30522	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	spendere	тратить	xərcləmək	Spendo troppo per mangiare fuori.	/ˈspɛn.de.re/	verb		italian
+30523	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	in contanti	наличными	nağd	Posso pagare in contanti?	/in konˈtan.ti/	phrase		italian
+30524	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	la carta di credito	кредитная карта	kredit kartı	Accettate la carta di credito?	/ˈkar.ta di ˈkre.di.to/	noun f		italian
+30525	Unità 3 · Scrivere e telefonare	Неуверенность, благодарность и деньги	il bancomat	банкомат, дебетовая карта	bankomat, bank kartı	C'è un bancomat qui vicino?	/ˈbaŋ.ko.mat/	noun m, pl. invariable		italian
+30526	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	gennaio	январь	yanvar	A gennaio ho tre esami.	/dʒenˈna.jo/	noun m		italian
+30527	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	febbraio	февраль	fevral	A febbraio finisce la sessione.	/febˈbra.jo/	noun m		italian
+30528	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	marzo	март	mart	A marzo comincia il secondo semestre.	/ˈmar.tso/	noun m		italian
+30529	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	aprile	апрель	aprel	Ad aprile fa già caldo a Bologna.	/aˈpri.le/	noun m		italian
+30530	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	maggio	май	may	Il mio compleanno è a maggio.	/ˈmad.dʒo/	noun m		italian
+30531	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	giugno	июнь	iyun	A giugno ci sono gli appelli.	/ˈdʒuɲ.ɲo/	noun m		italian
+30532	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	luglio	июль	iyul	A luglio torno a Baku.	/ˈluʎ.ʎo/	noun m		italian
+30533	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	agosto	август	avqust	Ad agosto Bologna è vuota.	/aˈɡos.to/	noun m		italian
+30534	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	settembre	сентябрь	sentyabr	Le lezioni cominciano a settembre.	/setˈtɛm.bre/	noun m		italian
+30535	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	ottobre	октябрь	oktyabr	Sono arrivato in Italia a ottobre.	/otˈto.bre/	noun m		italian
+30536	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	novembre	ноябрь	noyabr	A novembre piove spesso.	/noˈvɛm.bre/	noun m		italian
+30537	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	dicembre	декабрь	dekabr	A dicembre la città è piena di luci.	/diˈtʃɛm.bre/	noun m		italian
+30538	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	il mese	месяц	ay	Pago l'affitto ogni mese.	/ˈme.ze/	noun m		italian
+30539	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	l'anno	год	il	Questo è il mio primo anno qui.	/ˈan.no/	noun m		italian
+30540	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	la stagione	время года, сезон	fəsil, mövsüm	Qual è la tua stagione preferita?	/staˈdʒo.ne/	noun f		italian
+30541	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	la primavera	весна	yaz	In primavera studio nei giardini.	/pri.maˈvɛ.ra/	noun f		italian
+30542	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	l'estate	лето	yay	D'estate torno in Azerbaigian.	/esˈta.te/	noun f		italian
+30543	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	l'autunno	осень	payız	L'autunno a Bologna è bellissimo.	/auˈtun.no/	noun m		italian
+30544	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	l'inverno	зима	qış	In inverno fa freddo e c'è nebbia.	/inˈvɛr.no/	noun m		italian
+30545	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	la data	дата	tarix	Qual è la data dell'esame?	/ˈda.ta/	noun f		italian
+30546	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	quanti ne abbiamo oggi?	какое сегодня число?	bu gün ayın neçəsidir?	Quanti ne abbiamo oggi? – Il dieci.	/ˈkwan.ti ne abˈbja.mo ˈɔd.dʒi/	phrase		italian
+30547	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	la data di nascita	дата рождения	doğum tarixi	Scriva qui la data di nascita.	/ˈda.ta di ˈna.ʃi.ta/	noun f		italian
+30548	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	prossimo	следующий	gələn, növbəti	La settimana prossima ho un esame.	/ˈprɔs.si.mo/	adj		italian
+30549	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	scorso	прошлый	keçən	Il mese scorso ho cambiato casa.	/ˈskor.so/	adj		italian
+30550	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	il calendario	календарь	təqvim	Scrivo gli esami sul calendario.	/ka.lenˈda.rjo/	noun m		italian
+30551	Unità 3 · Scrivere e telefonare	Месяцы, времена года и даты	durante	во время	ərzində, zamanı	Durante la sessione studio tutto il giorno.	/duˈran.te/	prep		italian
+30552	Unità 4 · Al bar	В баре	il bar	бар, кафе	bar, kafe	Ci vediamo al bar sotto i portici?	/bar/	noun m		italian
+30553	Unità 4 · Al bar	В баре	il caffè	кофе, эспрессо	qəhvə, espresso	Prendo un caffè prima della lezione.	/kafˈfɛ/	noun m		italian
+30554	Unità 4 · Al bar	В баре	il cappuccino	капучино	kapuçino	In Italia il cappuccino si beve solo a colazione.	/kap.putˈtʃi.no/	noun m		italian
+30555	Unità 4 · Al bar	В баре	il caffè macchiato	эспрессо с каплей молока	bir az südlü espresso	Per me un caffè macchiato, grazie.	/kafˈfɛ makˈkja.to/	noun m		italian
+30556	Unità 4 · Al bar	В баре	decaffeinato	без кофеина	kofeinsiz	La sera bevo solo caffè decaffeinato.	/de.kaf.fe.iˈna.to/	adj		italian
+30557	Unità 4 · Al bar	В баре	il cornetto	круассан	kruassan	Un cornetto alla crema, per favore.	/korˈnet.to/	noun m		italian
+30558	Unità 4 · Al bar	В баре	il bancone	барная стойка	bar piştaxtası	Gli italiani bevono il caffè in piedi al bancone.	/banˈko.ne/	noun m		italian
+30559	Unità 4 · Al bar	В баре	il tavolino	столик	kiçik masa	Ci sediamo a un tavolino fuori?	/ta.voˈli.no/	noun m		italian
+30560	Unità 4 · Al bar	В баре	lo scontrino	чек	çek, qəbz	Prima paghi alla cassa e poi dai lo scontrino al barista.	/skonˈtri.no/	noun m		italian
+30561	Unità 4 · Al bar	В баре	il barista	бариста, бармен	barista, barmen	Il barista sotto casa conosce già il mio caffè.	/baˈris.ta/	noun m		italian
+30562	Unità 4 · Al bar	В баре	ordinare	заказывать	sifariş vermək	Hai già ordinato?	/or.diˈna.re/	verb		italian
+30563	Unità 4 · Al bar	В баре	offrire	угощать, предлагать	qonaq etmək, təklif etmək	Oggi offro io il caffè!	/ofˈfri.re/	verb, irregular		italian
+30564	Unità 4 · Al bar	В баре	prendere un caffè	выпить кофе	qəhvə içmək	Andiamo a prendere un caffè dopo la lezione?	/ˈprɛn.de.re un kafˈfɛ/	phrase		italian
+30565	Unità 4 · Al bar	В баре	Che cosa prendi?	Что будешь (заказывать)?	Nə alırsan?, Nə içirsən?	Che cosa prendi? Io un cappuccino.	/ke ˈkɔ.sa ˈprɛn.di/	phrase		italian
+30566	Unità 4 · Al bar	В баре	Tocca a me	моя очередь	növbə məndədir	Questa volta tocca a me pagare.	/ˈtok.ka a ˈme/	phrase		italian
+30567	Unità 4 · Al bar	В баре	da portare via	с собой (навынос)	özünlə aparmaq üçün	Un panino da portare via, per favore.	/da porˈta.re ˈvi.a/	phrase		italian
+30568	Unità 4 · Al bar	В баре	il tè	чай	çay	Un tè caldo con il limone, grazie.	/tɛ/	noun m		italian
+30569	Unità 4 · Al bar	В баре	la spremuta	свежевыжатый сок	təzə sıxılmış şirə	Una spremuta d'arancia, per favore.	/spreˈmu.ta/	noun f		italian
+30570	Unità 4 · Al bar	В баре	il succo di frutta	фруктовый сок	meyvə şirəsi	Mia sorella prende sempre un succo di frutta.	/ˈsuk.ko di ˈfrut.ta/	noun m		italian
+30571	Unità 4 · Al bar	В баре	l'acqua frizzante	газированная вода	qazlı su	Una bottiglietta d'acqua frizzante, grazie.	/ˈak.kwa fridˈdzan.te/	noun f		italian
+30572	Unità 4 · Al bar	В баре	il panino	бутерброд, сэндвич	sendviç, buterbrod	A pranzo mangio un panino al bar.	/paˈni.no/	noun m		italian
+30573	Unità 4 · Al bar	В баре	il tramezzino	треугольный сэндвич	üçbucaq sendviç	Questo tramezzino al tonno è buonissimo.	/tra.medˈdzi.no/	noun m		italian
+30574	Unità 4 · Al bar	В баре	lo zucchero	сахар	şəkər	Il caffè lo prendo senza zucchero.	/ˈtsuk.ke.ro/	noun m		italian
+30575	Unità 4 · Al bar	В баре	la tazza	чашка	fincan	Il cappuccino arriva in una tazza grande.	/ˈtat.tsa/	noun f		italian
+30576	Unità 4 · Al bar	В баре	la birra	пиво	pivə	Prendiamo una birra in Piazza Verdi?	/ˈbir.ra/	noun f		italian
+30577	Unità 4 · Al bar	В баре	l'aperitivo	аперитив (напиток с закусками перед ужином)	aperitiv (şam yeməyindən əvvəl içki və qəlyanaltı)	Stasera facciamo l'aperitivo con i compagni di corso.	/a.pe.riˈti.vo/	noun m		italian
+30578	Unità 4 · Al bar	В баре	lo spritz	шприц (коктейль)	spritz (kokteyl)	Lo spritz è l'aperitivo più famoso in Italia.	/sprits/	noun m		italian
+30579	Unità 4 · Al bar	Прошлое и выходные	ieri	вчера	dünən	Ieri sono andato in biblioteca.	/ˈjɛ.ri/	adv		italian
+30580	Unità 4 · Al bar	Прошлое и выходные	l'altro ieri	позавчера	srağagün	L'altro ieri ho visto Marco in centro.	/ˈlal.tro ˈjɛ.ri/	adv		italian
+30581	Unità 4 · Al bar	Прошлое и выходные	ieri sera	вчера вечером	dünən axşam	Ieri sera siamo usciti tardi.	/ˈjɛ.ri ˈse.ra/	phrase		italian
+30582	Unità 4 · Al bar	Прошлое и выходные	stamattina	сегодня утром	bu səhər	Stamattina ho perso l'autobus.	/sta.matˈti.na/	adv		italian
+30583	Unità 4 · Al bar	Прошлое и выходные	la settimana scorsa	на прошлой неделе	keçən həftə	La settimana scorsa ho dato un esame.	/la set.tiˈma.na ˈskor.sa/	phrase		italian
+30584	Unità 4 · Al bar	Прошлое и выходные	l'anno scorso	в прошлом году	keçən il	L'anno scorso vivevo ancora a Baku.	/ˈlan.no ˈskor.so/	phrase		italian
+30585	Unità 4 · Al bar	Прошлое и выходные	fa	назад (о времени)	əvvəl	Sono arrivato a Bologna due mesi fa.	/fa/	adv		italian
+30586	Unità 4 · Al bar	Прошлое и выходные	già	уже	artıq	Hai già mangiato?	/dʒa/	adv		italian
+30587	Unità 4 · Al bar	Прошлое и выходные	ancora	ещё, снова	hələ, yenə	Sei ancora a casa?	/anˈko.ra/	adv		italian
+30588	Unità 4 · Al bar	Прошлое и выходные	non ancora	ещё не	hələ yox	Non ho ancora finito i compiti.	/non anˈko.ra/	phrase		italian
+30589	Unità 4 · Al bar	Прошлое и выходные	appena	только что, едва	indicə, təzəcə	Sono appena tornato dal supermercato.	/apˈpe.na/	adv		italian
+30590	Unità 4 · Al bar	Прошлое и выходные	mai	никогда, когда-либо	heç vaxt, nə vaxtsa	Non sono mai stato a Venezia.	/mai/	adv		italian
+30591	Unità 4 · Al bar	Прошлое и выходные	sempre	всегда	həmişə	La domenica dormo sempre fino a tardi.	/ˈsɛm.pre/	adv		italian
+30592	Unità 4 · Al bar	Прошлое и выходные	finalmente	наконец	nəhayət	Finalmente è arrivato il weekend!	/fi.nalˈmen.te/	adv		italian
+30593	Unità 4 · Al bar	Прошлое и выходные	prima	раньше, сначала	əvvəl, əvvəlcə	Prima studio, poi esco con gli amici.	/ˈpri.ma/	adv		italian
+30594	Unità 4 · Al bar	Прошлое и выходные	fare una passeggiata	гулять, прогуляться	gəzintiyə çıxmaq	Domenica abbiamo fatto una passeggiata a San Luca.	/ˈfa.re ˈu.na pas.sedˈdʒa.ta/	phrase		italian
+30595	Unità 4 · Al bar	Прошлое и выходные	fare una gita	съездить на экскурсию	səfərə çıxmaq, ekskursiyaya getmək	Sabato abbiamo fatto una gita a Ravenna.	/ˈfa.re ˈu.na ˈdʒi.ta/	phrase		italian
+30596	Unità 4 · Al bar	Прошлое и выходные	riposarsi	отдыхать	dincəlmək	Ieri non ho fatto niente, mi sono riposato.	/ri.poˈsar.si/	verb, reflexive		italian
+30597	Unità 4 · Al bar	Прошлое и выходные	il museo	музей	muzey	La prima domenica del mese il museo è gratis.	/muˈzɛ.o/	noun m		italian
+30598	Unità 4 · Al bar	Прошлое и выходные	ballare	танцевать	rəqs etmək	Alla festa abbiamo ballato tutta la notte.	/balˈla.re/	verb		italian
+30599	Unità 4 · Al bar	Прошлое и выходные	la discoteca	дискотека, клуб	diskoteka, klub	Venerdì siamo andati in discoteca.	/dis.koˈtɛ.ka/	noun f		italian
+30600	Unità 4 · Al bar	Прошлое и выходные	fare tardi	засиживаться допоздна, опаздывать	gecəyə qalmaq, gecikmək	Ieri ho fatto tardi e stamattina sono stanco.	/ˈfa.re ˈtar.di/	phrase		italian
+30601	Unità 4 · Al bar	Прошлое и выходные	passare	проводить (время), заходить	keçirmək, baş çəkmək	Come hai passato il fine settimana?	/pasˈsa.re/	verb		italian
+30602	Unità 4 · Al bar	Прошлое и выходные	la mostra	выставка	sərgi	Abbiamo visto una mostra bellissima al MAMbo.	/ˈmos.tra/	noun f		italian
+30603	Unità 4 · Al bar	Прошлое и выходные	la palestra	спортзал	idman zalı	Vado in palestra tre volte alla settimana.	/paˈlɛs.tra/	noun f		italian
+30604	Unità 4 · Al bar	Прошлое и выходные	la partita	матч, игра	matç, oyun	Domenica abbiamo guardato la partita del Bologna.	/parˈti.ta/	noun f		italian
+30605	Unità 4 · Al bar	Прошлое и выходные	fare le pulizie	убираться (дома)	ev təmizləmək	Sabato mattina ho fatto le pulizie.	/ˈfa.re le pu.litˈtsi.e/	phrase		italian
+30606	Unità 4 · Al bar	Работа и собеседование	l'offerta di lavoro	вакансия	vakansiya, iş təklifi	Ho trovato un'offerta di lavoro in un hotel.	/ofˈfɛr.ta di laˈvo.ro/	noun f		italian
+30607	Unità 4 · Al bar	Работа и собеседование	cercare lavoro	искать работу	iş axtarmaq	Molti studenti cercano lavoro nei bar del centro.	/tʃerˈka.re laˈvo.ro/	phrase		italian
+30608	Unità 4 · Al bar	Работа и собеседование	il colloquio	собеседование	müsahibə	Domani ho un colloquio di lavoro alle dieci.	/kolˈlɔ.kwjo/	noun m		italian
+30609	Unità 4 · Al bar	Работа и собеседование	l'annuncio	объявление	elan	Ho letto un annuncio interessante su internet.	/anˈnun.tʃo/	noun m		italian
+30610	Unità 4 · Al bar	Работа и собеседование	candidarsi	подавать кандидатуру, откликаться на вакансию	namizədliyini vermək, müraciət etmək	Mi sono candidato per un posto da cameriere.	/kan.diˈdar.si/	verb, reflexive		italian
+30611	Unità 4 · Al bar	Работа и собеседование	il curriculum	резюме	CV, tərcümeyi-hal	Ho mandato il curriculum a tre ristoranti.	/kurˈri.ku.lum/	noun m		italian
+30612	Unità 4 · Al bar	Работа и собеседование	la lettera di presentazione	сопроводительное письмо	müraciət məktubu	Devo scrivere una lettera di presentazione in italiano.	/ˈlɛt.te.ra di pre.zen.tatˈtsjo.ne/	noun f		italian
+30613	Unità 4 · Al bar	Работа и собеседование	l'esperienza	опыт	təcrübə	Hai esperienza come barista?	/es.peˈrjɛn.tsa/	noun f		italian
+30614	Unità 4 · Al bar	Работа и собеседование	le competenze	навыки, компетенции	bacarıqlar	Nel curriculum scrivi anche le tue competenze.	/kom.peˈtɛn.tse/	noun f		italian
+30615	Unità 4 · Al bar	Работа и собеседование	la lingua straniera	иностранный язык	xarici dil	Parlo tre lingue straniere: russo, inglese e italiano.	/ˈlin.ɡwa straˈnjɛ.ra/	noun f		italian
+30616	Unità 4 · Al bar	Работа и собеседование	l'azienda	компания, фирма	şirkət	Lavora in un'azienda vicino a Bologna.	/adˈdzjɛn.da/	noun f		italian
+30617	Unità 4 · Al bar	Работа и собеседование	il datore di lavoro	работодатель	işəgötürən	Il datore di lavoro mi ha offerto un contratto.	/daˈto.re di laˈvo.ro/	noun m		italian
+30618	Unità 4 · Al bar	Работа и собеседование	assumere	нанимать на работу	işə götürmək	Il ristorante assume due camerieri per l'estate.	/asˈsu.me.re/	verb, irregular		italian
+30619	Unità 4 · Al bar	Работа и собеседование	le ferie	отпуск (оплачиваемый)	məzuniyyət	Ad agosto ho due settimane di ferie.	/ˈfɛ.rje/	noun f		italian
+30620	Unità 4 · Al bar	Работа и собеседование	lo stipendio	зарплата	maaş	Lo stipendio arriva alla fine del mese.	/stiˈpɛn.djo/	noun m		italian
+30621	Unità 4 · Al bar	Работа и собеседование	il tirocinio	стажировка, практика	təcrübə proqramı	Quest'estate faccio un tirocinio in un'azienda.	/ti.roˈtʃi.njo/	noun m		italian
+30622	Unità 4 · Al bar	Работа и собеседование	part-time	неполный рабочий день	yarımştat	Lavoro part-time il sabato e la domenica.	/parˈtaim/	adj		italian
+30623	Unità 4 · Al bar	Работа и собеседование	a tempo pieno	на полный рабочий день	tam ştat	Dopo la laurea voglio lavorare a tempo pieno.	/a ˈtɛm.po ˈpjɛ.no/	phrase		italian
+30624	Unità 4 · Al bar	Работа и собеседование	il turno	смена	növbə	Questa settimana ho il turno di sera.	/ˈtur.no/	noun m		italian
+30625	Unità 4 · Al bar	Работа и собеседование	il capo	начальник	müdir, rəis	Il mio capo è molto gentile.	/ˈka.po/	noun m		italian
+30626	Unità 4 · Al bar	Работа и собеседование	il collega	коллега	həmkar	I miei colleghi sono tutti giovani.	/kolˈlɛ.ɡa/	noun m		italian
+30627	Unità 4 · Al bar	Работа и собеседование	il cliente	клиент	müştəri	Il barista saluta ogni cliente con un sorriso.	/kliˈɛn.te/	noun m		italian
+30628	Unità 4 · Al bar	Работа и собеседование	la riunione	собрание, совещание	iclas, yığıncaq	La riunione comincia alle nove.	/ri.uˈnjo.ne/	noun f		italian
+30629	Unità 4 · Al bar	Работа и собеседование	puntuale	пунктуальный	dəqiq, vaxtında gələn	Al colloquio bisogna essere puntuali.	/pun.tuˈa.le/	adj		italian
+30630	Unità 4 · Al bar	Работа и собеседование	affidabile	надёжный	etibarlı	Cerchiamo una persona seria e affidabile.	/af.fiˈda.bi.le/	adj		italian
+30631	Unità 4 · Al bar	Работа и собеседование	lavorare in squadra	работать в команде	komandada işləmək	Mi piace lavorare in squadra.	/la.voˈra.re in ˈskwad.dra/	phrase		italian
+30632	Unità 4 · Al bar	Работа и собеседование	la busta paga	расчётный лист (зарплатная ведомость)	maaş vərəqəsi	Controlla sempre la busta paga alla fine del mese.	/ˈbus.ta ˈpa.ɡa/	noun f		italian
+30633	Unità 5 · Feste e viaggi	Праздники	il Natale	Рождество	Milad bayramı	A Natale torno a casa dalla mia famiglia.	/naˈta.le/	noun m		italian
+30634	Unità 5 · Feste e viaggi	Праздники	Buone feste!	С праздниками!	Bayramınız mübarək!	Ciao prof, buone feste e a gennaio!	/ˈbwɔ.ne ˈfɛs.te/	phrase		italian
+30635	Unità 5 · Feste e viaggi	Праздники	il Capodanno	Новый год	Yeni il	Per Capodanno andiamo in Piazza Maggiore.	/ka.poˈdan.no/	noun m		italian
+30636	Unità 5 · Feste e viaggi	Праздники	la Pasqua	Пасха	Pasxa	A Pasqua l'università è chiusa per qualche giorno.	/ˈpas.kwa/	noun f		italian
+30637	Unità 5 · Feste e viaggi	Праздники	l'uovo di Pasqua	пасхальное шоколадное яйцо	Pasxa şokolad yumurtası	Dentro l'uovo di Pasqua c'è sempre una sorpresa.	/ˈlwɔ.vo di ˈpas.kwa/	noun m		italian
+30638	Unità 5 · Feste e viaggi	Праздники	il Ferragosto	Феррагосто (15 августа, разгар лета)	Ferraqosto (15 avqust bayramı)	A Ferragosto la città è vuota, tutti sono al mare.	/fer.raˈɡos.to/	noun m		italian
+30639	Unità 5 · Feste e viaggi	Праздники	la Befana	Бефана (6 января, Крещение)	Befana (6 yanvar bayramı)	Con la Befana finiscono le vacanze di Natale.	/beˈfa.na/	noun f		italian
+30640	Unità 5 · Feste e viaggi	Праздники	il Carnevale	карнавал	karnaval	A Carnevale i bambini si mettono la maschera.	/kar.neˈva.le/	noun m		italian
+30641	Unità 5 · Feste e viaggi	Праздники	la maschera	маска	maska	Che maschera hai comprato per la festa?	/ˈmas.ke.ra/	noun f		italian
+30642	Unità 5 · Feste e viaggi	Праздники	le vacanze	каникулы, отпуск	tətil	Dove vai in vacanza quest'estate?	/vaˈkan.tse/	noun f		italian
+30643	Unità 5 · Feste e viaggi	Праздники	festivo	праздничный, выходной	bayram, qeyri-iş (günü)	Domenica è un giorno festivo, i negozi sono chiusi.	/fesˈti.vo/	adj		italian
+30644	Unità 5 · Feste e viaggi	Праздники	fare il ponte	взять отгул между праздником и выходными	bayramla həftə sonu arasında da istirahət etmək	Giovedì è festa, quindi venerdì facciamo il ponte.	/ˈfa.re il ˈpon.te/	phrase		italian
+30645	Unità 5 · Feste e viaggi	Праздники	festeggiare	праздновать	qeyd etmək	Come festeggi il tuo compleanno?	/fes.tedˈdʒa.re/	verb		italian
+30646	Unità 5 · Feste e viaggi	Праздники	il compleanno	день рождения	ad günü	Sabato è il compleanno di Elena.	/kom.pleˈan.no/	noun m		italian
+30647	Unità 5 · Feste e viaggi	Праздники	Tanti auguri!	Поздравляю!, С днём рождения!	Təbrik edirəm!, Ad günün mübarək!	Tanti auguri, Marco! Ecco il tuo regalo.	/ˈtan.ti auˈɡu.ri/	phrase		italian
+30648	Unità 5 · Feste e viaggi	Праздники	il regalo	подарок	hədiyyə	Grazie, che bel regalo!	/reˈɡa.lo/	noun m		italian
+30649	Unità 5 · Feste e viaggi	Праздники	la sorpresa	сюрприз	sürpriz	Gli amici mi hanno fatto una festa a sorpresa.	/sorˈpre.sa/	noun f		italian
+30650	Unità 5 · Feste e viaggi	Праздники	la torta	торт	tort	La torta al cioccolato l'ha fatta mia madre.	/ˈtor.ta/	noun f		italian
+30651	Unità 5 · Feste e viaggi	Праздники	la vigilia	канун (сочельник)	ərəfə	La vigilia di Natale ceniamo tutti insieme.	/viˈdʒi.lja/	noun f		italian
+30652	Unità 5 · Feste e viaggi	Праздники	l'invito	приглашение	dəvət	Grazie per l'invito, vengo volentieri!	/inˈvi.to/	noun m		italian
+30653	Unità 5 · Feste e viaggi	Праздники	l'ospite	гость	qonaq	Stasera abbiamo ospiti a cena.	/ˈɔs.pi.te/	noun m		italian
+30654	Unità 5 · Feste e viaggi	Праздники	il panettone	панеттоне (рождественский кекс)	panettone (Milad keksi)	A Natale in ogni casa c'è un panettone.	/pa.netˈto.ne/	noun m		italian
+30655	Unità 5 · Feste e viaggi	Праздники	il cenone	праздничный ужин	bayram şam yeməyi	Il cenone di Capodanno dura fino a mezzanotte.	/tʃeˈno.ne/	noun m		italian
+30656	Unità 5 · Feste e viaggi	Праздники	il brindisi	тост	sağlıq, tost	Facciamo un brindisi a Luca!	/ˈbrin.di.zi/	noun m		italian
+30657	Unità 5 · Feste e viaggi	Праздники	i fuochi d'artificio	фейерверк	atəşfəşanlıq	A mezzanotte guardiamo i fuochi d'artificio.	/ˈfwɔ.ki dar.tiˈfi.tʃo/	noun m		italian
+30658	Unità 5 · Feste e viaggi	Праздники	la tradizione	традиция	ənənə	Mangiare le lenticchie a Capodanno è una tradizione italiana.	/tra.ditˈtsjo.ne/	noun f		italian
+30659	Unità 5 · Feste e viaggi	Поезд, горы и море	la stazione	вокзал, станция	vağzal, stansiya	Il treno per Firenze parte dalla stazione centrale.	/statˈtsjo.ne/	noun f		italian
+30660	Unità 5 · Feste e viaggi	Поезд, горы и море	la biglietteria	билетная касса	bilet kassası	La biglietteria è chiusa, uso la macchinetta.	/biʎ.ʎet.teˈri.a/	noun f		italian
+30661	Unità 5 · Feste e viaggi	Поезд, горы и море	andata e ritorno	туда и обратно	gediş-dönüş	Un biglietto di andata e ritorno per Milano, per favore.	/anˈda.ta e riˈtor.no/	phrase		italian
+30662	Unità 5 · Feste e viaggi	Поезд, горы и море	solo andata	в одну сторону	yalnız gediş	Per Roma prendo solo andata.	/ˈso.lo anˈda.ta/	phrase		italian
+30663	Unità 5 · Feste e viaggi	Поезд, горы и море	la prenotazione	бронирование	rezerv, sifariş	Ho la prenotazione per il treno delle otto.	/pre.no.tatˈtsjo.ne/	noun f		italian
+30664	Unità 5 · Feste e viaggi	Поезд, горы и море	il posto	место	yer	Scusi, questo posto è libero?	/ˈpɔs.to/	noun m		italian
+30665	Unità 5 · Feste e viaggi	Поезд, горы и море	il binario	путь (платформа)	yol (platforma)	Il treno per Venezia parte dal binario 5.	/biˈna.rjo/	noun m		italian
+30666	Unità 5 · Feste e viaggi	Поезд, горы и море	la partenza	отправление, отъезд	yola düşmə	La partenza è alle 9 e 15.	/parˈtɛn.tsa/	noun f		italian
+30667	Unità 5 · Feste e viaggi	Поезд, горы и море	l'arrivo	прибытие	gəliş	L'arrivo a Roma è previsto per mezzogiorno.	/arˈri.vo/	noun m		italian
+30668	Unità 5 · Feste e viaggi	Поезд, горы и море	il ritardo	опоздание, задержка	gecikmə	Il treno ha venti minuti di ritardo.	/riˈtar.do/	noun m		italian
+30669	Unità 5 · Feste e viaggi	Поезд, горы и море	la coincidenza	пересадка, стыковка	aktarma, birləşmə	A Firenze ho una coincidenza per Siena.	/ko.in.tʃiˈdɛn.tsa/	noun f		italian
+30670	Unità 5 · Feste e viaggi	Поезд, горы и море	convalidare	прокомпостировать, активировать (билет)	təsdiqləmək (bileti)	Prima di salire devi convalidare il biglietto.	/kon.va.liˈda.re/	verb		italian
+30671	Unità 5 · Feste e viaggi	Поезд, горы и море	perdere il treno	опоздать на поезд	qatardan qalmaq	Corri, o perdiamo il treno!	/ˈpɛr.de.re il ˈtrɛ.no/	phrase		italian
+30672	Unità 5 · Feste e viaggi	Поезд, горы и море	lo sciopero	забастовка	tətil (işi dayandırma)	Domani c'è sciopero dei treni.	/ˈʃɔ.pe.ro/	noun m		italian
+30673	Unità 5 · Feste e viaggi	Поезд, горы и море	la valigia	чемодан	çamadan	La mia valigia è troppo pesante.	/vaˈli.dʒa/	noun f		italian
+30674	Unità 5 · Feste e viaggi	Поезд, горы и море	lo zaino	рюкзак	bel çantası	Per il weekend porto solo lo zaino.	/ˈdzai.no/	noun m		italian
+30675	Unità 5 · Feste e viaggi	Поезд, горы и море	il bagaglio	багаж	baqaj	Il bagaglio a mano è gratis.	/baˈɡaʎ.ʎo/	noun m		italian
+30676	Unità 5 · Feste e viaggi	Поезд, горы и море	il mare	море	dəniz	D'estate andiamo al mare a Rimini.	/ˈma.re/	noun m		italian
+30677	Unità 5 · Feste e viaggi	Поезд, горы и море	la spiaggia	пляж	çimərlik	La spiaggia di Riccione è sempre piena.	/ˈspjad.dʒa/	noun f		italian
+30678	Unità 5 · Feste e viaggi	Поезд, горы и море	l'ombrellone	пляжный зонт	çimərlik çətiri	Abbiamo affittato un ombrellone per tutta la giornata.	/om.brelˈlo.ne/	noun m		italian
+30679	Unità 5 · Feste e viaggi	Поезд, горы и море	fare il bagno	купаться (в море)	çimmək (dənizdə)	L'acqua è fredda, ma voglio fare il bagno lo stesso.	/ˈfa.re il ˈbaɲ.ɲo/	phrase		italian
+30680	Unità 5 · Feste e viaggi	Поезд, горы и море	abbronzarsi	загорать	günəşdə qaralmaq	Mi piace stare al sole e abbronzarmi.	/ab.bronˈdzar.si/	verb, reflexive		italian
+30681	Unità 5 · Feste e viaggi	Поезд, горы и море	la montagna	горы	dağ	A dicembre andiamo in montagna sulle Dolomiti.	/monˈtaɲ.ɲa/	noun f		italian
+30682	Unità 5 · Feste e viaggi	Поезд, горы и море	sciare	кататься на лыжах	xizək sürmək	Non so sciare, ma voglio imparare.	/ʃiˈa.re/	verb		italian
+30683	Unità 5 · Feste e viaggi	Поезд, горы и море	il lago	озеро	göl	Il lago di Garda è bellissimo in primavera.	/ˈla.ɡo/	noun m		italian
+30684	Unità 5 · Feste e viaggi	Поезд, горы и море	la collina	холм	təpə	Dalla collina di San Luca si vede tutta Bologna.	/kolˈli.na/	noun f		italian
+30685	Unità 5 · Feste e viaggi	Погода и планы	il tempo	погода, время	hava, vaxt	Oggi il tempo è bruttissimo.	/ˈtɛm.po/	noun m		italian
+30686	Unità 5 · Feste e viaggi	Погода и планы	Che tempo fa?	Какая погода?	Hava necədir?	Che tempo fa a Baku adesso?	/ke ˈtɛm.po ˈfa/	phrase		italian
+30687	Unità 5 · Feste e viaggi	Погода и планы	fa bel tempo	хорошая погода	hava gözəldir	Se domani fa bel tempo, andiamo ai Giardini Margherita.	/fa bɛl ˈtɛm.po/	phrase		italian
+30688	Unità 5 · Feste e viaggi	Погода и планы	fa caldo	жарко	istidir	Ad agosto a Bologna fa molto caldo.	/fa ˈkal.do/	phrase		italian
+30689	Unità 5 · Feste e viaggi	Погода и планы	fa freddo	холодно	soyuqdur	Fa freddo, mettiti la giacca!	/fa ˈfred.do/	phrase		italian
+30690	Unità 5 · Feste e viaggi	Погода и планы	il sole	солнце	günəş	Oggi c'è il sole, usciamo!	/ˈso.le/	noun m		italian
+30691	Unità 5 · Feste e viaggi	Погода и планы	sereno	ясный, безоблачный	açıq, buludsuz	Il cielo è sereno, non c'è neanche una nuvola.	/seˈre.no/	adj		italian
+30692	Unità 5 · Feste e viaggi	Погода и планы	nuvoloso	облачный	buludlu	Oggi è nuvoloso ma non piove.	/nu.voˈlo.so/	adj		italian
+30693	Unità 5 · Feste e viaggi	Погода и планы	piovere	идти (о дожде)	yağış yağmaq	Piove da tre giorni!	/ˈpjɔ.ve.re/	verb, irregular		italian
+30694	Unità 5 · Feste e viaggi	Погода и планы	la pioggia	дождь	yağış	Con la pioggia per fortuna ci sono i portici.	/ˈpjɔd.dʒa/	noun f		italian
+30695	Unità 5 · Feste e viaggi	Погода и планы	l'ombrello	зонт	çətir	Prendi l'ombrello, sta per piovere.	/omˈbrɛl.lo/	noun m		italian
+30696	Unità 5 · Feste e viaggi	Погода и планы	nevicare	идти (о снеге)	qar yağmaq	A Bologna nevica poco.	/ne.viˈka.re/	verb		italian
+30697	Unità 5 · Feste e viaggi	Погода и планы	la neve	снег	qar	In montagna c'è già la neve.	/ˈne.ve/	noun f		italian
+30698	Unità 5 · Feste e viaggi	Погода и планы	il vento	ветер	külək	Oggi c'è un vento fortissimo.	/ˈvɛn.to/	noun m		italian
+30699	Unità 5 · Feste e viaggi	Погода и планы	la nebbia	туман	duman	D'inverno in pianura c'è spesso la nebbia.	/ˈneb.bja/	noun f		italian
+30700	Unità 5 · Feste e viaggi	Погода и планы	il temporale	гроза	tufan, şimşəkli yağış	Stanotte c'è stato un temporale fortissimo.	/tem.poˈra.le/	noun m		italian
+30701	Unità 5 · Feste e viaggi	Погода и планы	le previsioni del tempo	прогноз погоды	hava proqnozu	Secondo le previsioni del tempo domani nevica.	/pre.viˈzjo.ni del ˈtɛm.po/	noun f		italian
+30702	Unità 5 · Feste e viaggi	Погода и планы	fra poco	скоро, через немного времени	tezliklə, bir azdan	Fra poco comincia il film.	/fra ˈpɔ.ko/	phrase		italian
+30703	Unità 5 · Feste e viaggi	Погода и планы	dopodomani	послезавтра	birisigün	Dopodomani parto per Roma.	/do.po.doˈma.ni/	adv		italian
+30704	Unità 5 · Feste e viaggi	Погода и планы	la settimana prossima	на следующей неделе	gələn həftə	La settimana prossima comincia la sessione d'esami.	/la set.tiˈma.na ˈprɔs.si.ma/	phrase		italian
+30705	Unità 5 · Feste e viaggi	Погода и планы	l'anno prossimo	в следующем году	gələn il	L'anno prossimo voglio fare l'Erasmus.	/ˈlan.no ˈprɔs.si.mo/	phrase		italian
+30706	Unità 5 · Feste e viaggi	Погода и планы	tra	через (о времени)	sonra (müddət)	Tra due settimane torno a casa.	/tra/	prep		italian
+30707	Unità 5 · Feste e viaggi	Погода и планы	prima o poi	рано или поздно	gec-tez	Prima o poi imparerò bene l'italiano.	/ˈpri.ma o ˈpɔi/	phrase		italian
+30708	Unità 5 · Feste e viaggi	Погода и планы	pensare di	собираться (что-то сделать)	fikrində olmaq	Penso di andare a Firenze questo weekend.	/penˈsa.re di/	phrase		italian
+30709	Unità 5 · Feste e viaggi	Погода и планы	sperare	надеяться	ümid etmək	Spero di passare l'esame!	/speˈra.re/	verb		italian
+30710	Unità 5 · Feste e viaggi	Погода и планы	il futuro	будущее	gələcək	In futuro voglio lavorare in Italia.	/fuˈtu.ro/	noun m		italian
+30711	Unità 6 · A cena fuori	Семья и родственники	la famiglia	семья	ailə	La mia famiglia vive a Baku.	/faˈmiʎ.ʎa/	noun f		italian
+30712	Unità 6 · A cena fuori	Семья и родственники	i genitori	родители	valideynlər	I miei genitori vengono a trovarmi a Natale.	/dʒe.niˈto.ri/	noun m		italian
+30713	Unità 6 · A cena fuori	Семья и родственники	la madre	мать	ana	Mia madre fa l'insegnante.	/ˈma.dre/	noun f		italian
+30714	Unità 6 · A cena fuori	Семья и родственники	il padre	отец	ata	Mio padre lavora in banca.	/ˈpa.dre/	noun m		italian
+30715	Unità 6 · A cena fuori	Семья и родственники	la mamma	мама	ana, anam	Stasera chiamo la mamma su WhatsApp.	/ˈmam.ma/	noun f		italian
+30716	Unità 6 · A cena fuori	Семья и родственники	il papà	папа	ata, atam	Il mio papà cucina benissimo.	/paˈpa/	noun m		italian
+30717	Unità 6 · A cena fuori	Семья и родственники	il fratello	брат	qardaş	Ho un fratello più piccolo.	/fraˈtɛl.lo/	noun m		italian
+30718	Unità 6 · A cena fuori	Семья и родственники	la sorella	сестра	bacı	Mia sorella studia medicina.	/soˈrɛl.la/	noun f		italian
+30719	Unità 6 · A cena fuori	Семья и родственники	il figlio	сын	oğul	Il figlio dei vicini ha tre anni.	/ˈfiʎ.ʎo/	noun m		italian
+30720	Unità 6 · A cena fuori	Семья и родственники	la figlia	дочь	qız (övlad)	La loro figlia studia a Bologna con me.	/ˈfiʎ.ʎa/	noun f		italian
+30721	Unità 6 · A cena fuori	Семья и родственники	il figlio unico	единственный ребёнок	tək övlad	Non ho fratelli, sono figlio unico.	/ˈfiʎ.ʎo uˈni.ko/	noun m		italian
+30722	Unità 6 · A cena fuori	Семья и родственники	il bambino	ребёнок, мальчик	uşaq, oğlan uşağı	Il bambino gioca nel parco.	/bamˈbi.no/	noun m		italian
+30723	Unità 6 · A cena fuori	Семья и родственники	il marito	муж	ər	Il marito di mia zia è italiano.	/maˈri.to/	noun m		italian
+30724	Unità 6 · A cena fuori	Семья и родственники	la moglie	жена	arvad, həyat yoldaşı	Il professore è venuto con sua moglie.	/ˈmoʎ.ʎe/	noun f		italian
+30725	Unità 6 · A cena fuori	Семья и родственники	il nonno	дедушка	baba	Mio nonno ha ottant'anni.	/ˈnɔn.no/	noun m		italian
+30726	Unità 6 · A cena fuori	Семья и родственники	la nonna	бабушка	nənə	La nonna di Giulia fa le tagliatelle a mano.	/ˈnɔn.na/	noun f		italian
+30727	Unità 6 · A cena fuori	Семья и родственники	lo zio	дядя	əmi, dayı	Mio zio abita a Mosca.	/ˈtsi.o/	noun m		italian
+30728	Unità 6 · A cena fuori	Семья и родственники	la zia	тётя	bibi, xala	Mia zia mi manda sempre dei dolci.	/ˈtsi.a/	noun f		italian
+30729	Unità 6 · A cena fuori	Семья и родственники	il cugino	двоюродный брат	əmioğlu, xalaoğlu	Mio cugino viene a Bologna in estate.	/kuˈdʒi.no/	noun m		italian
+30730	Unità 6 · A cena fuori	Семья и родственники	la cugina	двоюродная сестра	əmiqızı, xalaqızı	Mia cugina si sposa a giugno.	/kuˈdʒi.na/	noun f		italian
+30731	Unità 6 · A cena fuori	Семья и родственники	il nipote	внук, племянник	nəvə, qardaşoğlu	Il nonno gioca a carte con il nipote.	/niˈpo.te/	noun m		italian
+30732	Unità 6 · A cena fuori	Семья и родственники	i parenti	родственники	qohumlar	A Natale vengono tutti i parenti.	/paˈrɛn.ti/	noun m		italian
+30733	Unità 6 · A cena fuori	Семья и родственники	il fidanzato	парень, жених	sevgili (oğlan), nişanlı	Il fidanzato di Anna è di Napoli.	/fi.danˈtsa.to/	noun m		italian
+30734	Unità 6 · A cena fuori	Семья и родственники	la fidanzata	девушка, невеста	sevgili (qız), nişanlı	La mia fidanzata studia a Padova.	/fi.danˈtsa.ta/	noun f		italian
+30735	Unità 6 · A cena fuori	Семья и родственники	sposato	женатый, замужем	evli	Mio fratello è sposato e ha due figli.	/spoˈza.to/	adj		italian
+30736	Unità 6 · A cena fuori	Семья и родственники	single	одинокий, не в отношениях	subay	Sei single o fidanzato?	/ˈsin.ɡol/	adj		italian
+30737	Unità 6 · A cena fuori	Семья и родственники	assomigliare	быть похожим	oxşamaq	Assomigli molto a tua madre!	/as.so.miʎˈʎa.re/	verb		italian
+30738	Unità 6 · A cena fuori	В ресторане	il ristorante	ресторан	restoran	Stasera andiamo al ristorante per il compleanno di Sara.	/ris.toˈran.te/	noun m		italian
+30739	Unità 6 · A cena fuori	В ресторане	la trattoria	траттория (простой ресторан)	trattoria (sadə ailə restoranı)	In questa trattoria si mangia bene e si spende poco.	/trat.toˈri.a/	noun f		italian
+30740	Unità 6 · A cena fuori	В ресторане	la pizzeria	пиццерия	pizzeriya	Conosco una pizzeria buonissima in via del Pratello.	/pit.tseˈri.a/	noun f		italian
+30741	Unità 6 · A cena fuori	В ресторане	prenotare	бронировать	rezerv etmək	Ho prenotato un tavolo per le otto.	/pre.noˈta.re/	verb		italian
+30742	Unità 6 · A cena fuori	В ресторане	Un tavolo per due	Столик на двоих	İki nəfərlik masa	Buonasera, un tavolo per due, per favore.	/un ˈta.vo.lo per ˈdu.e/	phrase		italian
+30743	Unità 6 · A cena fuori	В ресторане	il cameriere	официант	ofisiant	Il cameriere ci porta subito il menù.	/ka.meˈrjɛ.re/	noun m		italian
+30744	Unità 6 · A cena fuori	В ресторане	il menù	меню	menyu	Scusi, possiamo avere il menù in inglese?	/meˈnu/	noun m		italian
+30745	Unità 6 · A cena fuori	В ресторане	Cosa mi consiglia?	Что вы посоветуете?	Nə məsləhət görürsünüz?	È la prima volta qui, cosa mi consiglia?	/ˈkɔ.sa mi konˈsiʎ.ʎa/	phrase		italian
+30746	Unità 6 · A cena fuori	В ресторане	la specialità	фирменное блюдо	xüsusi yemək	La specialità della casa sono i tortellini.	/spe.tʃa.liˈta/	noun f		italian
+30747	Unità 6 · A cena fuori	В ресторане	il piatto del giorno	блюдо дня	günün yeməyi	Oggi il piatto del giorno è la lasagna.	/ˈpjat.to del ˈdʒor.no/	noun m		italian
+30748	Unità 6 · A cena fuori	В ресторане	per me	мне (при заказе)	mənə (sifariş zamanı)	Per me una pizza margherita.	/per ˈme/	phrase		italian
+30749	Unità 6 · A cena fuori	В ресторане	l'antipasto	закуска	qəlyanaltı	Come antipasto prendiamo un tagliere di salumi.	/an.tiˈpas.to/	noun m		italian
+30750	Unità 6 · A cena fuori	В ресторане	il primo piatto	первое блюдо (паста, ризотто, суп)	birinci yemək (makaron, rizotto)	Come primo piatto prendo le tagliatelle al ragù.	/ˈpri.mo ˈpjat.to/	noun m		italian
+30751	Unità 6 · A cena fuori	В ресторане	il secondo piatto	второе блюдо (мясо или рыба)	ikinci yemək (ət və ya balıq)	Come secondo piatto c'è pollo o pesce.	/seˈkon.do ˈpjat.to/	noun m		italian
+30752	Unità 6 · A cena fuori	В ресторане	il contorno	гарнир	qarnir	Come contorno vorrei le patate al forno.	/konˈtor.no/	noun m		italian
+30753	Unità 6 · A cena fuori	В ресторане	il dolce	десерт	desert, şirniyyat	Avete qualche dolce fatto in casa?	/ˈdol.tʃe/	noun m		italian
+30754	Unità 6 · A cena fuori	В ресторане	la porzione	порция	porsiya	Le porzioni qui sono enormi!	/porˈtsjo.ne/	noun f		italian
+30755	Unità 6 · A cena fuori	В ресторане	il vino	вино	şərab	Un bicchiere di vino rosso, per favore.	/ˈvi.no/	noun m		italian
+30756	Unità 6 · A cena fuori	В ресторане	vegetariano	вегетарианский	vegetarian	Avete un piatto vegetariano?	/ve.dʒe.taˈrja.no/	adj		italian
+30757	Unità 6 · A cena fuori	В ресторане	piccante	острый	acılı	Attenzione, questo sugo è piccante!	/pikˈkan.te/	adj		italian
+30758	Unità 6 · A cena fuori	В ресторане	salato	солёный	duzlu	La pasta è un po' troppo salata.	/saˈla.to/	adj		italian
+30759	Unità 6 · A cena fuori	В ресторане	buonissimo	очень вкусный	çox dadlı	Questo risotto è buonissimo!	/bwoˈnis.si.mo/	adj		italian
+30760	Unità 6 · A cena fuori	В ресторане	Buon appetito!	Приятного аппетита!	Nuş olsun!	Ecco i piatti. Buon appetito!	/bwɔn ap.peˈti.to/	phrase		italian
+30761	Unità 6 · A cena fuori	В ресторане	pieno	сытый, полный	tox, dolu	Basta così, sono pieno!	/ˈpjɛ.no/	adj		italian
+30762	Unità 6 · A cena fuori	В ресторане	il conto	счёт	hesab	Scusi, ci porta il conto?	/ˈkon.to/	noun m		italian
+30763	Unità 6 · A cena fuori	В ресторане	il coperto	плата за обслуживание столика	masa haqqı	Nel conto c'è anche il coperto di due euro.	/koˈpɛr.to/	noun m		italian
+30764	Unità 6 · A cena fuori	В ресторане	la mancia	чаевые	bəxşiş, çaypulu	In Italia la mancia non è obbligatoria.	/ˈman.tʃa/	noun f		italian
+30765	Unità 6 · A cena fuori	Итальянская еда	la colazione	завтрак	səhər yeməyi	A colazione prendo un caffè e un cornetto.	/ko.latˈtsjo.ne/	noun f		italian
+30766	Unità 6 · A cena fuori	Итальянская еда	il pranzo	обед	nahar	Il pranzo in mensa costa poco.	/ˈpran.dzo/	noun m		italian
+30767	Unità 6 · A cena fuori	Итальянская еда	la cena	ужин	şam yeməyi	La cena in Italia è verso le otto.	/ˈtʃe.na/	noun f		italian
+30768	Unità 6 · A cena fuori	Итальянская еда	cenare	ужинать	şam etmək	Stasera ceniamo da Marco.	/tʃeˈna.re/	verb		italian
+30769	Unità 6 · A cena fuori	Итальянская еда	lo spuntino	перекус	yüngül qəlyanaltı	Tra una lezione e l'altra faccio uno spuntino.	/spunˈti.no/	noun m		italian
+30770	Unità 6 · A cena fuori	Итальянская еда	la pasta	паста, макароны	makaron	Gli italiani mangiano la pasta quasi ogni giorno.	/ˈpas.ta/	noun f		italian
+30771	Unità 6 · A cena fuori	Итальянская еда	il sugo	соус (для пасты)	sous (makaron üçün)	Il sugo di pomodoro è facile da fare.	/ˈsu.ɡo/	noun m		italian
+30772	Unità 6 · A cena fuori	Итальянская еда	il ragù	рагу (болонский мясной соус)	raqu (Bolonya ət sousu)	A Bologna il ragù si mangia con le tagliatelle, non con gli spaghetti.	/raˈɡu/	noun m		italian
+30773	Unità 6 · A cena fuori	Итальянская еда	le tagliatelle	тальятелле (длинная плоская паста)	tagliatelle (uzun yastı makaron)	Le tagliatelle al ragù sono il piatto tipico di Bologna.	/taʎ.ʎaˈtɛl.le/	noun f		italian
+30774	Unità 6 · A cena fuori	Итальянская еда	i tortellini	тортеллини	tortellini (Bolonya düşbərəsi)	A Natale i bolognesi mangiano i tortellini in brodo.	/tor.telˈli.ni/	noun m		italian
+30775	Unità 6 · A cena fuori	Итальянская еда	le lasagne	лазанья	lazanya	Mia nonna fa le lasagne ogni domenica.	/laˈzaɲ.ɲe/	noun f		italian
+30776	Unità 6 · A cena fuori	Итальянская еда	il risotto	ризотто	rizotto	Il risotto ai funghi è il mio preferito.	/riˈzɔt.to/	noun m		italian
+30777	Unità 6 · A cena fuori	Итальянская еда	la pizza	пицца	pizza	Stasera ordiniamo una pizza?	/ˈpit.tsa/	noun f		italian
+30778	Unità 6 · A cena fuori	Итальянская еда	la piadina	пьядина (лепёшка из Романьи)	piadina (Romanya yayması)	Per pranzo mangio una piadina con prosciutto e formaggio.	/pjaˈdi.na/	noun f		italian
+30779	Unità 6 · A cena fuori	Итальянская еда	la minestra	суп	şorba	Quando sono malato mangio una minestra calda.	/miˈnɛs.tra/	noun f		italian
+30780	Unità 6 · A cena fuori	Итальянская еда	l'insalata	салат	salat	Prendo un'insalata mista come contorno.	/in.saˈla.ta/	noun f		italian
+30781	Unità 6 · A cena fuori	Итальянская еда	le patatine fritte	картошка фри	kartof fri	Un hamburger con patatine fritte, grazie.	/pa.taˈti.ne ˈfrit.te/	noun f		italian
+30782	Unità 6 · A cena fuori	Итальянская еда	il prosciutto	ветчина, прошутто	vetçina (adətən donuz ətindən)	Il prosciutto di Parma è famoso in tutto il mondo.	/proʃˈʃut.to/	noun m		italian
+30783	Unità 6 · A cena fuori	Итальянская еда	la mortadella	мортаделла (болонская колбаса)	mortadella (Bolonya kolbasası)	La mortadella è nata a Bologna.	/mor.taˈdɛl.la/	noun f		italian
+30784	Unità 6 · A cena fuori	Итальянская еда	il parmigiano	пармезан	parmezan pendiri	Sulla pasta metto sempre il parmigiano.	/par.miˈdʒa.no/	noun m		italian
+30785	Unità 6 · A cena fuori	Итальянская еда	l'olio d'oliva	оливковое масло	zeytun yağı	Condisco l'insalata con olio d'oliva e sale.	/ˈlɔ.ljo doˈli.va/	noun m		italian
+30786	Unità 6 · A cena fuori	Итальянская еда	il sale	соль	duz	Mi passi il sale, per favore?	/ˈsa.le/	noun m		italian
+30787	Unità 6 · A cena fuori	Итальянская еда	l'aglio	чеснок	sarımsaq	In questo sugo c'è troppo aglio.	/ˈaʎ.ʎo/	noun m		italian
+30788	Unità 6 · A cena fuori	Итальянская еда	il basilico	базилик	reyhan	Sulla pizza margherita c'è il basilico fresco.	/baˈzi.li.ko/	noun m		italian
+30789	Unità 6 · A cena fuori	Итальянская еда	il tiramisù	тирамису	tiramisu (italyan deserti)	Il tiramisù di mia nonna è il migliore.	/ti.ra.miˈsu/	noun m		italian
+30790	Unità 6 · A cena fuori	Итальянская еда	fatto in casa	домашний (сделанный дома)	evdə hazırlanmış	Qui la pasta è fatta in casa.	/ˈfat.to in ˈka.sa/	phrase		italian
+30791	Unità 6 · A cena fuori	Готовка и вкусы	cucinare	готовить (еду)	yemək bişirmək	Stasera cucino io per tutti!	/ku.tʃiˈna.re/	verb		italian
+30792	Unità 6 · A cena fuori	Готовка и вкусы	la ricetta	рецепт	resept	Mi dai la ricetta del tiramisù?	/riˈtʃɛt.ta/	noun f		italian
+30793	Unità 6 · A cena fuori	Готовка и вкусы	tagliare	резать	kəsmək	Taglia le cipolle a pezzetti.	/taʎˈʎa.re/	verb		italian
+30794	Unità 6 · A cena fuori	Готовка и вкусы	bollire	кипеть, кипятить	qaynamaq, qaynatmaq	Quando l'acqua bolle, butta la pasta.	/bolˈli.re/	verb		italian
+30795	Unità 6 · A cena fuori	Готовка и вкусы	cuocere	варить, готовить (на огне)	bişirmək	La pasta deve cuocere dieci minuti.	/ˈkwɔ.tʃe.re/	verb, irregular		italian
+30796	Unità 6 · A cena fuori	Готовка и вкусы	friggere	жарить (во фритюре)	qızartmaq	Mia madre frigge le patate nell'olio.	/ˈfrid.dʒe.re/	verb, irregular		italian
+30797	Unità 6 · A cena fuori	Готовка и вкусы	mescolare	мешать, перемешивать	qarışdırmaq	Mescola il sugo ogni tanto.	/mes.koˈla.re/	verb		italian
+30798	Unità 6 · A cena fuori	Готовка и вкусы	aggiungere	добавлять	əlavə etmək	Aggiungi un po' di sale.	/adˈdʒun.dʒe.re/	verb, irregular		italian
+30799	Unità 6 · A cena fuori	Готовка и вкусы	assaggiare	пробовать (на вкус)	dadına baxmaq	Assaggia questo ragù, è della nonna!	/as.sadˈdʒa.re/	verb		italian
+30800	Unità 6 · A cena fuori	Готовка и вкусы	la pentola	кастрюля	qazan	Metti l'acqua nella pentola grande.	/ˈpen.to.la/	noun f		italian
+30801	Unità 6 · A cena fuori	Готовка и вкусы	la padella	сковорода	tava	Scalda l'olio in padella.	/paˈdɛl.la/	noun f		italian
+30802	Unità 6 · A cena fuori	Готовка и вкусы	il piatto	тарелка, блюдо	boşqab, yemək	Lavo i piatti dopo cena.	/ˈpjat.to/	noun m		italian
+30803	Unità 6 · A cena fuori	Готовка и вкусы	il bicchiere	стакан, бокал	stəkan, qədəh	Mi dai un bicchiere d'acqua?	/bikˈkjɛ.re/	noun m		italian
+30804	Unità 6 · A cena fuori	Готовка и вкусы	la forchetta	вилка	çəngəl	Mi manca la forchetta.	/forˈket.ta/	noun f		italian
+30805	Unità 6 · A cena fuori	Готовка и вкусы	il coltello	нож	bıçaq	Questo coltello non taglia bene.	/kolˈtɛl.lo/	noun m		italian
+30806	Unità 6 · A cena fuori	Готовка и вкусы	il cucchiaio	ложка	qaşıq	La minestra si mangia con il cucchiaio.	/kukˈkja.jo/	noun m		italian
+30807	Unità 6 · A cena fuori	Готовка и вкусы	il cucchiaino	чайная ложка	çay qaşığı	Un cucchiaino di zucchero, per favore.	/kuk.kjaˈi.no/	noun m		italian
+30808	Unità 6 · A cena fuori	Готовка и вкусы	il tovagliolo	салфетка	salfet	Sul tavolo mancano i tovaglioli.	/to.vaʎˈʎɔ.lo/	noun m		italian
+30809	Unità 6 · A cena fuori	Готовка и вкусы	apparecchiare la tavola	накрывать на стол	süfrə açmaq	Mentre cucino tu apparecchi la tavola?	/ap.pa.rekˈkja.re la ˈta.vo.la/	phrase		italian
+30810	Unità 6 · A cena fuori	Готовка и вкусы	mi piace	мне нравится	xoşuma gəlir	Mi piace molto la cucina italiana.	/mi ˈpja.tʃe/	phrase		italian
+30811	Unità 6 · A cena fuori	Готовка и вкусы	mi piacciono	мне нравятся (мн. ч.)	xoşuma gəlir (cəm)	Mi piacciono i tortellini in brodo.	/mi ˈpjat.tʃo.no/	phrase		italian
+30812	Unità 6 · A cena fuori	Готовка и вкусы	preferito	любимый	sevimli, ən çox bəyənilən	Qual è il tuo piatto preferito?	/pre.feˈri.to/	adj		italian
+30813	Unità 6 · A cena fuori	Готовка и вкусы	adorare	обожать	çox sevmək	Adoro il gelato al pistacchio!	/a.doˈra.re/	verb		italian
+30814	Unità 6 · A cena fuori	Готовка и вкусы	odiare	ненавидеть	nifrət etmək	Odio cucinare quando sono stanco.	/oˈdja.re/	verb		italian
+30815	Unità 6 · A cena fuori	Готовка и вкусы	andare matto per	быть без ума от	dəli olmaq (bir şey üçün)	Vado matto per la mortadella!	/anˈda.re ˈmat.to per/	phrase		italian
+30816	Unità 6 · A cena fuori	Готовка и вкусы	il gusto	вкус	dad, zövq	Che gusto prendi? Cioccolato o fragola?	/ˈɡus.to/	noun m		italian
+30817	Unità 7 · Al cinema	Кино и фильмы	il cinema	кино, кинотеатр	kino, kinoteatr	Andiamo al cinema stasera?	/ˈtʃi.ne.ma/	noun m		italian
+30818	Unità 7 · Al cinema	Кино и фильмы	il film	фильм	film	Hai visto l'ultimo film di Sorrentino?	/film/	noun m		italian
+30819	Unità 7 · Al cinema	Кино и фильмы	il personaggio	персонаж	personaj, obraz	Il mio personaggio preferito è la nonna.	/per.soˈnad.dʒo/	noun m		italian
+30820	Unità 7 · Al cinema	Кино и фильмы	lo spettacolo	сеанс, спектакль	seans, tamaşa	Prendiamo i biglietti per lo spettacolo delle nove.	/spet.taˈkɔ.lo/	noun m		italian
+30821	Unità 7 · Al cinema	Кино и фильмы	la sala	зал	zal	La sala era piena di studenti.	/ˈsa.la/	noun f		italian
+30822	Unità 7 · Al cinema	Кино и фильмы	la fila	ряд, очередь	sıra, növbə	Ci sediamo in ultima fila?	/ˈfi.la/	noun f		italian
+30823	Unità 7 · Al cinema	Кино и фильмы	l'attore	актёр	aktyor	Chi è l'attore principale?	/atˈto.re/	noun m		italian
+30824	Unità 7 · Al cinema	Кино и фильмы	l'attrice	актриса	aktrisa	Sophia Loren è un'attrice famosissima.	/atˈtri.tʃe/	noun f		italian
+30825	Unità 7 · Al cinema	Кино и фильмы	il regista	режиссёр	rejissor	Fellini è il regista più famoso di Rimini.	/reˈdʒis.ta/	noun m		italian
+30826	Unità 7 · Al cinema	Кино и фильмы	il protagonista	главный герой	baş qəhrəman	Il protagonista è uno studente di Bologna.	/pro.ta.ɡoˈnis.ta/	noun m		italian
+30827	Unità 7 · Al cinema	Кино и фильмы	la trama	сюжет	süjet	La trama è un po' complicata.	/ˈtra.ma/	noun f		italian
+30828	Unità 7 · Al cinema	Кино и фильмы	la storia	история	hekayə, tarix	È la storia di due amici che viaggiano in Italia.	/ˈstɔ.rja/	noun f		italian
+30829	Unità 7 · Al cinema	Кино и фильмы	la scena	сцена	səhnə	La scena finale mi ha fatto piangere.	/ˈʃɛ.na/	noun f		italian
+30830	Unità 7 · Al cinema	Кино и фильмы	la fine	конец	son	Non raccontarmi la fine!	/ˈfi.ne/	noun f		italian
+30831	Unità 7 · Al cinema	Кино и фильмы	il genere	жанр	janr	Che genere di film ti piace?	/ˈdʒɛ.ne.re/	noun m		italian
+30832	Unità 7 · Al cinema	Кино и фильмы	la commedia	комедия	komediya	Stasera ho voglia di una commedia leggera.	/komˈmɛ.dja/	noun f		italian
+30833	Unità 7 · Al cinema	Кино и фильмы	il film d'azione	боевик	döyüş filmi	Il mio coinquilino guarda solo film d'azione.	/film datˈtsjo.ne/	noun m		italian
+30834	Unità 7 · Al cinema	Кино и фильмы	il thriller	триллер	triller	Questo thriller è pieno di suspense.	/ˈtril.ler/	noun m		italian
+30835	Unità 7 · Al cinema	Кино и фильмы	il cartone animato	мультфильм	cizgi film	Da piccolo guardavo i cartoni animati ogni mattina.	/karˈto.ne a.niˈma.to/	noun m		italian
+30836	Unità 7 · Al cinema	Кино и фильмы	i sottotitoli	субтитры	altyazı	Guardo i film italiani con i sottotitoli.	/sot.toˈti.to.li/	noun m		italian
+30837	Unità 7 · Al cinema	Кино и фильмы	in lingua originale	на языке оригинала	orijinal dildə	Al Lumière danno film in lingua originale.	/in ˈlin.ɡwa o.ri.dʒiˈna.le/	phrase		italian
+30838	Unità 7 · Al cinema	Кино и фильмы	la recensione	рецензия, отзыв	rəy, resenziya	Ho letto una recensione molto positiva.	/re.tʃenˈsjo.ne/	noun f		italian
+30839	Unità 7 · Al cinema	Кино и фильмы	divertente	смешной, весёлый	əyləncəli, gülməli	È un film divertentissimo!	/di.verˈtɛn.te/	adj		italian
+30840	Unità 7 · Al cinema	Кино и фильмы	emozionante	захватывающий, трогательный	həyəcanlı, təsirli	Il finale è stato molto emozionante.	/e.mot.tsjoˈnan.te/	adj		italian
+30841	Unità 7 · Al cinema	Кино и фильмы	noioso	скучный	darıxdırıcı	Il film era così noioso che mi sono addormentato.	/noˈjo.so/	adj		italian
+30842	Unità 7 · Al cinema	Кино и фильмы	il teatro	театр	teatr	Il Teatro Comunale di Bologna è bellissimo.	/teˈa.tro/	noun m		italian
+30843	Unità 7 · Al cinema	Детство и мнения	da bambino	в детстве (когда был ребёнком)	uşaq olanda	Da bambino giocavo a calcio ogni giorno.	/da bamˈbi.no/	phrase		italian
+30844	Unità 7 · Al cinema	Детство и мнения	l'infanzia	детство	uşaqlıq	Ho passato l'infanzia in un piccolo paese.	/inˈfan.tsja/	noun f		italian
+30845	Unità 7 · Al cinema	Детство и мнения	ricordare	помнить, вспоминать	xatırlamaq	Ricordi il nome della nostra maestra?	/ri.korˈda.re/	verb		italian
+30846	Unità 7 · Al cinema	Детство и мнения	il ricordo	воспоминание	xatirə	Ho tanti bei ricordi di quell'estate.	/riˈkɔr.do/	noun m		italian
+30847	Unità 7 · Al cinema	Детство и мнения	la nostalgia	тоска, ностальгия	həsrət, nostalji	A volte ho nostalgia di casa.	/nos.talˈdʒi.a/	noun f		italian
+30848	Unità 7 · Al cinema	Детство и мнения	di solito	обычно	adətən	Di solito d'estate andavamo dai nonni.	/di ˈsɔ.li.to/	phrase		italian
+30849	Unità 7 · Al cinema	Детство и мнения	spesso	часто	tez-tez	Da piccolo andavo spesso al mare.	/ˈspes.so/	adv		italian
+30850	Unità 7 · Al cinema	Детство и мнения	ogni tanto	время от времени, иногда	arabir, hərdən	Ogni tanto sento i miei amici d'infanzia.	/ˈoɲ.ɲi ˈtan.to/	phrase		italian
+30851	Unità 7 · Al cinema	Детство и мнения	una volta	однажды, когда-то, раньше	bir dəfə, vaxtilə	Una volta la vita costava meno.	/ˈu.na ˈvɔl.ta/	phrase		italian
+30852	Unità 7 · Al cinema	Детство и мнения	crescere	расти, вырасти	böyümək	Sono cresciuto a Baku.	/ˈkreʃ.ʃe.re/	verb, irregular		italian
+30853	Unità 7 · Al cinema	Детство и мнения	il giocattolo	игрушка	oyuncaq	Qual era il tuo giocattolo preferito?	/dʒoˈkat.to.lo/	noun m		italian
+30854	Unità 7 · Al cinema	Детство и мнения	il paese	деревня, городок, страна	kənd, qəsəbə, ölkə	Mio nonno è nato in un paese di montagna.	/paˈe.ze/	noun m		italian
+30855	Unità 7 · Al cinema	Детство и мнения	il compagno di classe	одноклассник	sinif yoldaşı	Ho ritrovato un compagno di classe su Instagram.	/komˈpaɲ.ɲo di ˈklas.se/	noun m		italian
+30856	Unità 7 · Al cinema	Детство и мнения	d'accordo	согласен, договорились	razıyam, oldu	Ci vediamo alle otto? D'accordo!	/dakˈkɔr.do/	phrase		italian
+30857	Unità 7 · Al cinema	Детство и мнения	secondo me	по-моему	məncə	Secondo me il libro è meglio del film.	/seˈkon.do ˈme/	phrase		italian
+30858	Unità 7 · Al cinema	Детство и мнения	hai ragione	ты прав	haqlısan	Hai ragione, è troppo tardi per uscire.	/ai raˈdʒo.ne/	phrase		italian
+30859	Unità 7 · Al cinema	Детство и мнения	hai torto	ты неправ	haqsızsan	Scusa, ma questa volta hai torto.	/ai ˈtɔr.to/	phrase		italian
+30860	Unità 7 · Al cinema	Детство и мнения	è vero	это правда	doğrudur	È vero, Bologna è più piccola di Milano.	/ɛ ˈve.ro/	phrase		italian
+30861	Unità 7 · Al cinema	Детство и мнения	penso di sì	думаю, да	məncə, hə	Viene anche Luca? Penso di sì.	/ˈpɛn.so di ˈsi/	phrase		italian
+30862	Unità 7 · Al cinema	Детство и мнения	penso di no	думаю, нет	məncə, yox	Piove domani? Penso di no.	/ˈpɛn.so di ˈnɔ/	phrase		italian
+30863	Unità 7 · Al cinema	Детство и мнения	infatti	действительно, и правда	həqiqətən, elədir	Era stanco, infatti è andato a letto presto.	/inˈfat.ti/	adv		italian
+30864	Unità 7 · Al cinema	Детство и мнения	esatto	точно, именно	dəqiq, məhz	Quindi la lezione è domani? Esatto!	/eˈzat.to/	adj		italian
+30865	Unità 7 · Al cinema	Детство и мнения	certo	конечно	əlbəttə	Mi aiuti? Certo!	/ˈtʃɛr.to/	adv		italian
+30866	Unità 7 · Al cinema	Детство и мнения	dipende	зависит	asılıdır	Vieni con noi? Dipende dall'orario.	/diˈpɛn.de/	phrase		italian
+30867	Unità 7 · Al cinema	Детство и мнения	per niente	совсем нет, нисколько	heç də yox	Ti è piaciuto il film? Per niente!	/per ˈnjɛn.te/	phrase		italian
+30868	Unità 7 · Al cinema	Детство и мнения	macché	да что ты, вовсе нет	nə danışırsan, heç də yox	Sei stanco? Macché, possiamo continuare!	/makˈke/	phrase		italian
+30869	Unità 8 · Fare la spesa	В супермаркете	fare la spesa	покупать продукты	ərzaq almaq, bazarlıq etmək	Il sabato faccio la spesa al supermercato.	/ˈfa.re la ˈspe.za/	phrase		italian
+30870	Unità 8 · Fare la spesa	В супермаркете	il supermercato	супермаркет	supermarket	C'è un supermercato aperto anche la domenica?	/su.per.merˈka.to/	noun m		italian
+30871	Unità 8 · Fare la spesa	В супермаркете	il carrello	тележка	araba (alış-veriş arabası)	Prendo il carrello o il cestino?	/karˈrɛl.lo/	noun m		italian
+30872	Unità 8 · Fare la spesa	В супермаркете	il reparto	отдел	şöbə	Il latte è nel reparto frigo.	/reˈpar.to/	noun m		italian
+30873	Unità 8 · Fare la spesa	В супермаркете	la cassa	касса	kassa	C'è sempre la fila alla cassa.	/ˈkas.sa/	noun f		italian
+30874	Unità 8 · Fare la spesa	В супермаркете	il cestino	корзинка	səbət	Mi bastano poche cose, prendo il cestino.	/tʃesˈti.no/	noun m		italian
+30875	Unità 8 · Fare la spesa	В супермаркете	lo sconto	скидка	endirim	Con la tessera hai il dieci per cento di sconto.	/ˈskon.to/	noun m		italian
+30876	Unità 8 · Fare la spesa	В супермаркете	in offerta	по акции, со скидкой	aksiyada, endirimdə	Questa settimana la pasta è in offerta.	/in ofˈfɛr.ta/	phrase		italian
+30877	Unità 8 · Fare la spesa	В супермаркете	fresco	свежий	təzə	Il pane è fresco di stamattina.	/ˈfres.ko/	adj		italian
+30878	Unità 8 · Fare la spesa	В супермаркете	la frutta	фрукты	meyvə	Mangio frutta tutti i giorni.	/ˈfrut.ta/	noun f		italian
+30879	Unità 8 · Fare la spesa	В супермаркете	la verdura	овощи	tərəvəz	Al mercato la verdura costa meno.	/verˈdu.ra/	noun f		italian
+30880	Unità 8 · Fare la spesa	В супермаркете	la mela	яблоко	alma	Un chilo di mele, per favore.	/ˈme.la/	noun f		italian
+30881	Unità 8 · Fare la spesa	В супермаркете	l'arancia	апельсин	portağal	D'inverno le arance siciliane sono buonissime.	/aˈran.tʃa/	noun f		italian
+30882	Unità 8 · Fare la spesa	В супермаркете	il pomodoro	помидор	pomidor	Compro i pomodori per il sugo.	/po.moˈdɔ.ro/	noun m		italian
+30883	Unità 8 · Fare la spesa	В супермаркете	la patata	картофель	kartof	Stasera faccio patate al forno.	/paˈta.ta/	noun f		italian
+30884	Unità 8 · Fare la spesa	В супермаркете	il pane	хлеб	çörək	Il pane qui è senza sale.	/ˈpa.ne/	noun m		italian
+30885	Unità 8 · Fare la spesa	В супермаркете	il latte	молоко	süd	Il latte è finito, devo comprarlo.	/ˈlat.te/	noun m		italian
+30886	Unità 8 · Fare la spesa	В супермаркете	il burro	сливочное масло	kərə yağı	Per la torta servono burro e zucchero.	/ˈbur.ro/	noun m		italian
+30887	Unità 8 · Fare la spesa	В супермаркете	il formaggio	сыр	pendir	Mi dà due etti di questo formaggio?	/forˈmad.dʒo/	noun m		italian
+30888	Unità 8 · Fare la spesa	В супермаркете	le uova	яйца	yumurta	Compro sei uova per la frittata.	/ˈwɔ.va/	noun f		italian
+30889	Unità 8 · Fare la spesa	В супермаркете	il riso	рис	düyü	Il riso per il risotto è diverso.	/ˈri.zo/	noun m		italian
+30890	Unità 8 · Fare la spesa	В супермаркете	la carne	мясо	ət	Non mangio molta carne.	/ˈkar.ne/	noun f		italian
+30891	Unità 8 · Fare la spesa	В супермаркете	il pollo	курица	toyuq	Il pollo è in offerta oggi.	/ˈpol.lo/	noun m		italian
+30892	Unità 8 · Fare la spesa	В супермаркете	il manzo	говядина	mal əti	Per il ragù uso carne di manzo.	/ˈman.dzo/	noun m		italian
+30893	Unità 8 · Fare la spesa	В супермаркете	il maiale	свинина, свинья	donuz əti, donuz	Scusi, in questa salsiccia c'è maiale?	/maˈja.le/	noun m		italian
+30894	Unità 8 · Fare la spesa	В супермаркете	il pesce	рыба	balıq	Il venerdì molti italiani mangiano pesce.	/ˈpeʃ.ʃe/	noun m		italian
+30895	Unità 8 · Fare la spesa	Количество и упаковка	l'etto	сто граммов	yüz qram	Mi dà un etto di prosciutto crudo?	/ˈɛt.to/	noun m		italian
+30896	Unità 8 · Fare la spesa	Количество и упаковка	il chilo	килограмм	kiloqram	Le mele costano due euro al chilo.	/ˈki.lo/	noun m		italian
+30897	Unità 8 · Fare la spesa	Количество и упаковка	mezzo chilo	полкило	yarım kilo	Mezzo chilo di pane, per favore.	/ˈmɛd.dzo ˈki.lo/	phrase		italian
+30898	Unità 8 · Fare la spesa	Количество и упаковка	il grammo	грамм	qram	Un pacco di pasta pesa cinquecento grammi.	/ˈɡram.mo/	noun m		italian
+30899	Unità 8 · Fare la spesa	Количество и упаковка	il litro	литр	litr	Una bottiglia da un litro e mezzo d'acqua.	/ˈli.tro/	noun m		italian
+30900	Unità 8 · Fare la spesa	Количество и упаковка	la bottiglia	бутылка	butulka, şüşə	Compriamo una bottiglia di vino per la cena.	/botˈtiʎ.ʎa/	noun f		italian
+30901	Unità 8 · Fare la spesa	Количество и упаковка	la lattina	жестяная банка	dəmir banka	Una lattina di Coca-Cola costa un euro.	/latˈti.na/	noun f		italian
+30902	Unità 8 · Fare la spesa	Количество и упаковка	il vasetto	баночка	kiçik banka	Prendo un vasetto di yogurt.	/vaˈzet.to/	noun m		italian
+30903	Unità 8 · Fare la spesa	Количество и упаковка	la scatola	коробка	qutu	Una scatola di biscotti per la colazione.	/ˈska.to.la/	noun f		italian
+30904	Unità 8 · Fare la spesa	Количество и упаковка	il pacchetto	пачка, пакетик	paçka, bağlama	Un pacchetto di caramelle, per favore.	/pakˈket.to/	noun m		italian
+30905	Unità 8 · Fare la spesa	Количество и упаковка	la confezione	упаковка	qablaşdırma	Questa confezione ha sei bottiglie.	/kon.fetˈtsjo.ne/	noun f		italian
+30906	Unità 8 · Fare la spesa	Количество и упаковка	il sacchetto	пакетик, мешочек	kisə, paket	Metti le mele nel sacchetto.	/sakˈket.to/	noun m		italian
+30907	Unità 8 · Fare la spesa	Количество и упаковка	la fetta	ломтик, кусок	dilim	Mi dà una fetta di torta?	/ˈfet.ta/	noun f		italian
+30908	Unità 8 · Fare la spesa	Количество и упаковка	il pezzo	кусок, штука	tikə, parça	Vorrei un pezzo di parmigiano.	/ˈpɛt.tso/	noun m		italian
+30909	Unità 8 · Fare la spesa	Количество и упаковка	la dozzina	дюжина	düjün (on iki ədəd)	Una dozzina di uova costa poco al mercato.	/dodˈdzi.na/	noun f		italian
+30910	Unità 8 · Fare la spesa	Количество и упаковка	un po' di	немного	bir az	Metti un po' di sale nell'acqua.	/um ˈpɔ di/	phrase		italian
+30911	Unità 8 · Fare la spesa	Количество и упаковка	qualche	несколько, какой-нибудь	bir neçə, bəzi	Compro qualche mela per la settimana.	/ˈkwal.ke/	adj		italian
+30912	Unità 8 · Fare la spesa	Количество и упаковка	alcuni	несколько, некоторые	bəzi, bir neçə	Ho comprato alcuni pomodori.	/alˈku.ni/	adj		italian
+30913	Unità 8 · Fare la spesa	Количество и упаковка	poco	мало, немного	az	Ho pochi soldi questo mese.	/ˈpɔ.ko/	adj		italian
+30914	Unità 8 · Fare la spesa	Количество и упаковка	tanto	много, так много	çox	Hai comprato tanta frutta!	/ˈtan.to/	adj		italian
+30915	Unità 8 · Fare la spesa	Количество и упаковка	troppo	слишком, слишком много	həddən çox	Questo formaggio costa troppo.	/ˈtrɔp.po/	adv		italian
+30916	Unità 8 · Fare la spesa	Количество и упаковка	abbastanza	достаточно, довольно	kifayət qədər, olduqca	Abbiamo abbastanza pane per stasera?	/ab.basˈtan.tsa/	adv		italian
+30917	Unità 8 · Fare la spesa	Количество и упаковка	pesare	взвешивать, весить	çəkmək (tərəzidə)	Le pesa anche le banane?	/peˈsa.re/	verb		italian
+30918	Unità 8 · Fare la spesa	Количество и упаковка	Altro?	Что-нибудь ещё?	Başqa nə?	Due etti di mortadella. Altro?	/ˈal.tro/	phrase		italian
+30919	Unità 8 · Fare la spesa	Количество и упаковка	nient'altro	больше ничего	başqa heç nə	No, grazie, nient'altro.	/njenˈtal.tro/	phrase		italian
+30920	Unità 8 · Fare la spesa	Количество и упаковка	basta così	достаточно, хватит	bəsdir, kifayətdir	Basta così, grazie.	/ˈbas.ta koˈzi/	phrase		italian
+30921	Unità 8 · Fare la spesa	Магазины и помощь	il negozio	магазин	mağaza	Questo negozio chiude alle otto.	/neˈɡɔt.tsjo/	noun m		italian
+30922	Unità 8 · Fare la spesa	Магазины и помощь	il mercato	рынок	bazar	Il sabato vado al mercato delle Erbe.	/merˈka.to/	noun m		italian
+30923	Unità 8 · Fare la spesa	Магазины и помощь	il centro commerciale	торговый центр	ticarət mərkəzi	Andiamo al centro commerciale con l'autobus?	/ˈtʃɛn.tro kom.merˈtʃa.le/	noun m		italian
+30924	Unità 8 · Fare la spesa	Магазины и помощь	l'alimentari	продуктовый магазин	ərzaq mağazası	Sotto casa c'è un piccolo alimentari.	/a.li.menˈta.ri/	noun m		italian
+30925	Unità 8 · Fare la spesa	Магазины и помощь	il panificio	пекарня	çörəkxana	Compro il pane al panificio vicino all'università.	/pa.niˈfi.tʃo/	noun m		italian
+30926	Unità 8 · Fare la spesa	Магазины и помощь	la pasticceria	кондитерская	şirniyyat mağazası	In questa pasticceria fanno dolci buonissimi.	/pas.tit.tʃeˈri.a/	noun f		italian
+30927	Unità 8 · Fare la spesa	Магазины и помощь	la macelleria	мясная лавка	qəssab dükanı	Nella macelleria halal vicino alla stazione c'è carne di manzo.	/ma.tʃel.leˈri.a/	noun f		italian
+30928	Unità 8 · Fare la spesa	Магазины и помощь	la salumeria	мясная гастрономия (колбасы, сыры)	kolbasa və pendir dükanı	In salumeria compro mortadella e parmigiano.	/sa.lu.meˈri.a/	noun f		italian
+30929	Unità 8 · Fare la spesa	Магазины и помощь	la pescheria	рыбный магазин	balıq dükanı	Il pesce della pescheria è freschissimo.	/pes.keˈri.a/	noun f		italian
+30930	Unità 8 · Fare la spesa	Магазины и помощь	il fruttivendolo	зеленщик, овощной магазин	meyvə-tərəvəz satıcısı	Il fruttivendolo sotto casa ha prezzi bassi.	/frut.tiˈven.do.lo/	noun m		italian
+30931	Unità 8 · Fare la spesa	Магазины и помощь	la farmacia	аптека	aptek	La farmacia è aperta anche la notte.	/far.maˈtʃi.a/	noun f		italian
+30932	Unità 8 · Fare la spesa	Магазины и помощь	la gelateria	кафе-мороженое	dondurma kafesi	Andiamo in gelateria dopo cena?	/dʒe.la.teˈri.a/	noun f		italian
+30933	Unità 8 · Fare la spesa	Магазины и помощь	la libreria	книжный магазин	kitab mağazası	Ho comprato il libro di grammatica in libreria.	/li.breˈri.a/	noun f		italian
+30934	Unità 8 · Fare la spesa	Магазины и помощь	la tabaccheria	табачный киоск (билеты, марки)	tütün köşkü (bilet, marka satılır)	Il biglietto dell'autobus si compra in tabaccheria.	/ta.bak.keˈri.a/	noun f		italian
+30935	Unità 8 · Fare la spesa	Магазины и помощь	l'edicola	газетный киоск	qəzet köşkü	All'edicola vendono anche gli abbonamenti.	/eˈdi.ko.la/	noun f		italian
+30936	Unità 8 · Fare la spesa	Магазины и помощь	la cartoleria	канцелярский магазин	dəftərxana mağazası	Compro quaderni e penne in cartoleria.	/kar.to.leˈri.a/	noun f		italian
+30937	Unità 8 · Fare la spesa	Магазины и помощь	Serve aiuto?	Нужна помощь?	Kömək lazımdır?	Quella valigia sembra pesante, serve aiuto?	/ˈsɛr.ve aˈju.to/	phrase		italian
+30938	Unità 8 · Fare la spesa	Магазины и помощь	l'orario di apertura	часы работы	iş saatları	Qual è l'orario di apertura della farmacia?	/oˈra.rjo di a.perˈtu.ra/	noun m		italian
+30939	Unità 8 · Fare la spesa	Магазины и помощь	Posso aiutarla?	Могу я вам помочь?	Sizə kömək edə bilərəmmi?	Buongiorno, posso aiutarla?	/ˈpɔs.so a.juˈtar.la/	phrase		italian
+30940	Unità 8 · Fare la spesa	Магазины и помощь	Desidera?	Что желаете?	Nə istəyirsiniz?	Buongiorno, desidera?	/deˈzi.de.ra/	phrase		italian
+30941	Unità 8 · Fare la spesa	Магазины и помощь	Mi dica	Слушаю вас	Buyurun, eşidirəm	Mi dica, signore.	/mi ˈdi.ka/	phrase		italian
+30942	Unità 8 · Fare la spesa	Магазины и помощь	Ha bisogno di qualcosa?	Вам что-нибудь нужно?	Sizə nəsə lazımdır?	Ha bisogno di qualcosa? Sono qui.	/a biˈzoɲ.ɲo di kwalˈkɔ.sa/	phrase		italian
+30943	Unità 8 · Fare la spesa	Магазины и помощь	Faccio da solo	Я сам справлюсь	Özüm edərəm	Grazie, ma faccio da solo.	/ˈfat.tʃo da ˈso.lo/	phrase		italian
+30944	Unità 8 · Fare la spesa	Магазины и помощь	Molto gentile!	Очень любезно!	Çox naziksiniz!	Le porto io la borsa. Grazie, molto gentile!	/ˈmol.to dʒenˈti.le/	phrase		italian
+30945	Unità 8 · Fare la spesa	Магазины и помощь	Non si preoccupi	Не беспокойтесь	Narahat olmayın	Non si preoccupi, faccio da solo.	/non si preˈɔk.ku.pi/	phrase		italian
+30946	Unità 8 · Fare la spesa	Магазины и помощь	Grazie lo stesso	Всё равно спасибо	Yenə də sağ olun	Non abbiamo questo formaggio. Ah, grazie lo stesso!	/ˈɡrat.tsje lo ˈstes.so/	phrase		italian
+30947	Unità 9 · In giro per i negozi	Одежда и цвета	l'abbigliamento	одежда (отдел одежды)	geyim	Il reparto abbigliamento è al primo piano.	/ab.biʎ.ʎaˈmen.to/	noun m		italian
+30948	Unità 9 · In giro per i negozi	Одежда и цвета	il vestito	платье, костюм	don, kostyum	Per la laurea di Sara mi serve un vestito elegante.	/vesˈti.to/	noun m		italian
+30949	Unità 9 · In giro per i negozi	Одежда и цвета	la camicia	рубашка	köynək	Domani al colloquio metto la camicia bianca.	/kaˈmi.tʃa/	noun f		italian
+30950	Unità 9 · In giro per i negozi	Одежда и цвета	la maglietta	футболка	futbolka	D'estate porto solo magliette.	/maʎˈʎet.ta/	noun f		italian
+30951	Unità 9 · In giro per i negozi	Одежда и цвета	il maglione	свитер	sviter	Fa freddo, mettiti il maglione.	/maʎˈʎo.ne/	noun m		italian
+30952	Unità 9 · In giro per i negozi	Одежда и цвета	i pantaloni	брюки	şalvar	Questi pantaloni sono troppo lunghi.	/pan.taˈlo.ni/	noun m		italian
+30953	Unità 9 · In giro per i negozi	Одежда и цвета	i jeans	джинсы	cins	Vado a lezione in jeans e maglietta.	/dʒins/	noun m		italian
+30954	Unità 9 · In giro per i negozi	Одежда и цвета	la gonna	юбка	ətək	Giulia porta una gonna lunga.	/ˈɡon.na/	noun f		italian
+30955	Unità 9 · In giro per i negozi	Одежда и цвета	la giacca	пиджак, куртка	pencək, gödəkçə	Questa giacca è perfetta per il colloquio.	/ˈdʒak.ka/	noun f		italian
+30956	Unità 9 · In giro per i negozi	Одежда и цвета	il giubbotto	куртка	gödəkçə	Mi serve un giubbotto per l'inverno.	/dʒubˈbɔt.to/	noun m		italian
+30957	Unità 9 · In giro per i negozi	Одежда и цвета	il cappotto	пальто	palto	Con questo freddo ci vuole il cappotto.	/kapˈpɔt.to/	noun m		italian
+30958	Unità 9 · In giro per i negozi	Одежда и цвета	le scarpe	обувь, туфли	ayaqqabı	Ho comprato scarpe nuove per camminare in città.	/ˈskar.pe/	noun f		italian
+30959	Unità 9 · In giro per i negozi	Одежда и цвета	gli stivali	сапоги	çəkmələr	Con la neve metto gli stivali.	/stiˈva.li/	noun m		italian
+30960	Unità 9 · In giro per i negozi	Одежда и цвета	i calzini	носки	corab	Ho perso un calzino in lavatrice!	/kalˈtsi.ni/	noun m		italian
+30961	Unità 9 · In giro per i negozi	Одежда и цвета	la sciarpa	шарф	şərf	Mia nonna mi ha fatto una sciarpa di lana.	/ˈʃar.pa/	noun f		italian
+30962	Unità 9 · In giro per i negozi	Одежда и цвета	il cappello	шляпа, шапка	papaq, şlyapa	Al mare porto sempre il cappello.	/kapˈpɛl.lo/	noun m		italian
+30963	Unità 9 · In giro per i negozi	Одежда и цвета	la cintura	ремень, пояс	kəmər	Questi pantaloni sono larghi, mi serve una cintura.	/tʃinˈtu.ra/	noun f		italian
+30964	Unità 9 · In giro per i negozi	Одежда и цвета	rosso	красный	qırmızı	Bologna è chiamata la Rossa per i suoi tetti rossi.	/ˈros.so/	adj		italian
+30965	Unità 9 · In giro per i negozi	Одежда и цвета	blu	синий	göy, tünd mavi	Hai una penna blu?	/blu/	adj		italian
+30966	Unità 9 · In giro per i negozi	Одежда и цвета	azzurro	голубой	mavi	Il cielo oggi è azzurro.	/adˈdzur.ro/	adj		italian
+30967	Unità 9 · In giro per i negozi	Одежда и цвета	verde	зелёный	yaşıl	Il semaforo è verde, passiamo.	/ˈver.de/	adj		italian
+30968	Unità 9 · In giro per i negozi	Одежда и цвета	giallo	жёлтый	sarı	In autunno le foglie diventano gialle.	/ˈdʒal.lo/	adj		italian
+30969	Unità 9 · In giro per i negozi	Одежда и цвета	nero	чёрный	qara	Mi piacciono i vestiti neri.	/ˈne.ro/	adj		italian
+30970	Unità 9 · In giro per i negozi	Одежда и цвета	bianco	белый	ağ	Una camicia bianca va bene con tutto.	/ˈbjan.ko/	adj		italian
+30971	Unità 9 · In giro per i negozi	Одежда и цвета	grigio	серый	boz	D'inverno il cielo è sempre grigio.	/ˈɡri.dʒo/	adj		italian
+30972	Unità 9 · In giro per i negozi	Одежда и цвета	marrone	коричневый	qəhvəyi	Ho gli occhi marroni.	/marˈro.ne/	adj		italian
+30973	Unità 9 · In giro per i negozi	Одежда и цвета	rosa	розовый	çəhrayı	Questa maglietta rosa ti sta benissimo.	/ˈrɔ.za/	adj		italian
+30974	Unità 9 · In giro per i negozi	Размеры и оплата	il colore	цвет	rəng	Che colore preferisci?	/koˈlo.re/	noun m		italian
+30975	Unità 9 · In giro per i negozi	Размеры и оплата	chiaro	светлый, ясный	açıq (rəng), aydın	Mi piace di più il blu chiaro.	/ˈkja.ro/	adj		italian
+30976	Unità 9 · In giro per i negozi	Размеры и оплата	scuro	тёмный	tünd	Avete questa giacca in un colore più scuro?	/ˈsku.ro/	adj		italian
+30977	Unità 9 · In giro per i negozi	Размеры и оплата	il commesso	продавец (в магазине)	satıcı	Il commesso mi ha aiutato a trovare la taglia.	/komˈmes.so/	noun m		italian
+30978	Unità 9 · In giro per i negozi	Размеры и оплата	Sto solo guardando	Я просто смотрю	Sadəcə baxıram	Grazie, sto solo guardando.	/stɔ ˈso.lo ɡwarˈdan.do/	phrase		italian
+30979	Unità 9 · In giro per i negozi	Размеры и оплата	la vetrina	витрина	vitrin	Posso vedere la giacca in vetrina?	/veˈtri.na/	noun f		italian
+30980	Unità 9 · In giro per i negozi	Размеры и оплата	la taglia	размер (одежды)	ölçü (paltar)	Che taglia porta? La media.	/ˈtaʎ.ʎa/	noun f		italian
+30981	Unità 9 · In giro per i negozi	Размеры и оплата	il numero di scarpe	размер обуви	ayaqqabı ölçüsü	Che numero di scarpe porti? Il 43.	/ˈnu.me.ro di ˈskar.pe/	noun m		italian
+30982	Unità 9 · In giro per i negozi	Размеры и оплата	provare	примерять, пробовать	geyinib baxmaq, sınamaq	Posso provare questi pantaloni?	/proˈva.re/	verb		italian
+30983	Unità 9 · In giro per i negozi	Размеры и оплата	il camerino	примерочная	geyinmə otağı	I camerini sono in fondo a destra.	/ka.meˈri.no/	noun m		italian
+30984	Unità 9 · In giro per i negozi	Размеры и оплата	ti sta bene	тебе идёт	sənə yaraşır	Questa camicia ti sta proprio bene!	/ti sta ˈbɛ.ne/	phrase		italian
+30985	Unità 9 · In giro per i negozi	Размеры и оплата	largo	широкий, свободный	geniş, böyük	La giacca è un po' larga.	/ˈlar.ɡo/	adj		italian
+30986	Unità 9 · In giro per i negozi	Размеры и оплата	stretto	узкий, тесный	dar	Queste scarpe sono troppo strette.	/ˈstret.to/	adj		italian
+30987	Unità 9 · In giro per i negozi	Размеры и оплата	corto	короткий	qısa	Questa gonna è troppo corta per l'ufficio.	/ˈkor.to/	adj		italian
+30988	Unità 9 · In giro per i negozi	Размеры и оплата	lungo	длинный	uzun	Mi serve un cappotto lungo.	/ˈlun.ɡo/	adj		italian
+30989	Unità 9 · In giro per i negozi	Размеры и оплата	comodo	удобный	rahat	Queste scarpe sono comodissime.	/ˈkɔ.mo.do/	adj		italian
+30990	Unità 9 · In giro per i negozi	Размеры и оплата	elegante	элегантный	zərif, şık	Stasera mi vesto elegante.	/e.leˈɡan.te/	adj		italian
+30991	Unità 9 · In giro per i negozi	Размеры и оплата	alla moda	модный	dəbli	Gli italiani sono sempre vestiti alla moda.	/ˈal.la ˈmɔ.da/	phrase		italian
+30992	Unità 9 · In giro per i negozi	Размеры и оплата	di cotone	хлопковый	pambıq	Cerco una maglietta di cotone.	/di koˈto.ne/	phrase		italian
+30993	Unità 9 · In giro per i negozi	Размеры и оплата	il modello	модель, фасон	model, fason	Questo modello c'è anche in nero?	/moˈdɛl.lo/	noun m		italian
+30994	Unità 9 · In giro per i negozi	Размеры и оплата	i saldi	распродажа	endirim mövsümü	A gennaio ci sono i saldi.	/ˈsal.di/	noun m		italian
+30995	Unità 9 · In giro per i negozi	Размеры и оплата	di lana	шерстяной	yun	D'inverno porto maglioni di lana.	/di ˈla.na/	phrase		italian
+30996	Unità 9 · In giro per i negozi	Размеры и оплата	di pelle	кожаный	dəri	Mi piace questa giacca di pelle.	/di ˈpɛl.le/	phrase		italian
+30997	Unità 9 · In giro per i negozi	Размеры и оплата	il reso	возврат (товара)	malın qaytarılması	Il reso è gratuito entro trenta giorni.	/ˈre.so/	noun m		italian
+30998	Unità 9 · In giro per i negozi	Размеры и оплата	Che ne pensi?	Что ты думаешь об этом?	Bu barədə nə düşünürsən?	Ho comprato questa giacca. Che ne pensi?	/ke ne ˈpɛn.si/	phrase		italian
+30999	Unità 9 · In giro per i negozi	Размеры и оплата	mi sembra	мне кажется	mənə elə gəlir	Mi sembra un po' cara.	/mi ˈsem.bra/	phrase		italian
+31000	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	svegliarsi	просыпаться	oyanmaq	Mi sveglio alle sette ogni mattina.	/zveʎˈʎar.si/	verb, reflexive		italian
+31001	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	alzarsi	вставать	durmaq, yataqdan qalxmaq	Il sabato mi alzo tardi.	/alˈtsar.si/	verb, reflexive		italian
+31002	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	lavarsi	умываться, мыться	yuyunmaq	Mi lavo e faccio colazione.	/laˈvar.si/	verb, reflexive		italian
+31003	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	farsi la doccia	принимать душ	duş qəbul etmək	Mi faccio la doccia la sera.	/ˈfar.si la ˈdot.tʃa/	phrase		italian
+31004	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	farsi la barba	бриться	üz qırxmaq	Mio padre si fa la barba ogni giorno.	/ˈfar.si la ˈbar.ba/	phrase		italian
+31005	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	pettinarsi	причёсываться	saçını daramaq	Mi pettino e esco.	/pet.tiˈnar.si/	verb, reflexive		italian
+31006	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	truccarsi	краситься (макияж)	makiyaj etmək	Giulia si trucca in cinque minuti.	/trukˈkar.si/	verb, reflexive		italian
+31007	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	vestirsi	одеваться	geyinmək	Mi vesto in fretta perché sono in ritardo.	/vesˈtir.si/	verb, reflexive		italian
+31008	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	prepararsi	собираться, готовиться	hazırlaşmaq	Mi preparo per l'esame di storia.	/pre.paˈrar.si/	verb, reflexive		italian
+31009	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	sbrigarsi	торопиться	tələsmək	Sbrigati, il treno parte tra dieci minuti!	/zbriˈɡar.si/	verb, reflexive		italian
+31010	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	fermarsi	останавливаться	dayanmaq	Mi fermo al bar a prendere un caffè.	/ferˈmar.si/	verb, reflexive		italian
+31011	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	divertirsi	веселиться, развлекаться	əylənmək	Alla festa ci siamo divertiti un sacco.	/di.verˈtir.si/	verb, reflexive		italian
+31012	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	annoiarsi	скучать	darıxmaq	A lezione a volte mi annoio.	/an.noˈjar.si/	verb, reflexive		italian
+31013	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	sentirsi	чувствовать себя	özünü hiss etmək	Oggi non mi sento bene.	/senˈtir.si/	verb, reflexive		italian
+31014	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	trovarsi bene	хорошо себя чувствовать (где-то), нравиться (место)	rahat olmaq, xoşu gəlmək (yer)	Mi trovo bene a Bologna.	/troˈvar.si ˈbɛ.ne/	phrase		italian
+31015	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	arrabbiarsi	злиться	hirslənmək	Il mio coinquilino si arrabbia se non lavo i piatti.	/ar.rabˈbjar.si/	verb, reflexive		italian
+31016	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	innamorarsi	влюбляться	aşiq olmaq	Mi sono innamorato di questa città.	/in.na.moˈrar.si/	verb, reflexive		italian
+31017	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	addormentarsi	засыпать	yuxuya getmək	La sera mi addormento subito.	/ad.dor.menˈtar.si/	verb, reflexive		italian
+31018	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	bisogna	нужно, надо	lazımdır	Per l'esame bisogna studiare molto.	/biˈzoɲ.ɲa/	phrase		italian
+31019	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	si dice	говорят, принято говорить	deyirlər, belə deyilir	In Italia si dice «buon appetito» prima di mangiare.	/si ˈdi.tʃe/	phrase		italian
+31020	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	si può	можно	olar	Si può pagare con la carta?	/si ˈpwɔ/	phrase		italian
+31021	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	è vietato	запрещено	qadağandır	È vietato fumare in biblioteca.	/ɛ vjeˈta.to/	phrase		italian
+31022	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	è meglio	лучше	daha yaxşıdır	È meglio partire presto.	/ɛ ˈmɛʎ.ʎo/	phrase		italian
+31023	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	è importante	важно	vacibdir	È importante arrivare puntuali.	/ɛ im.porˈtan.te/	phrase		italian
+31024	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	è necessario	необходимо	zəruridir	È necessario portare un documento.	/ɛ ne.tʃesˈsa.rjo/	phrase		italian
+31025	Unità 9 · In giro per i negozi	Распорядок дня и безличные выражения	conviene	выгодно, лучше (стоит)	sərfəlidir, yaxşı olar	Conviene comprare l'abbonamento mensile.	/konˈvjɛ.ne/	phrase		italian
+31026	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	la televisione	телевидение, телевизор	televiziya, televizor	La sera guardo poco la televisione.	/te.le.viˈzjo.ne/	noun f		italian
+31027	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	il programma	программа, передача	proqram, veriliş	Che programma c'è stasera?	/proˈɡram.ma/	noun m		italian
+31028	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	il canale	канал	kanal	Puoi cambiare canale?	/kaˈna.le/	noun m		italian
+31029	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	il telegiornale	новости (выпуск на ТВ)	xəbərlər (televiziyada)	A casa dei miei nonni si guarda sempre il telegiornale.	/te.le.dʒorˈna.le/	noun m		italian
+31030	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	le notizie	новости	xəbərlər	Leggo le notizie sul telefono.	/noˈtit.tsje/	noun f		italian
+31031	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	la serie	сериал	serial	Sto guardando una serie italiana per imparare la lingua.	/ˈsɛ.rje/	noun f		italian
+31032	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	la puntata	серия, выпуск	seriya, bölüm	Stasera esce la nuova puntata!	/punˈta.ta/	noun f		italian
+31033	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	il documentario	документальный фильм	sənədli film	Ho visto un documentario sulla storia di Bologna.	/do.ku.menˈta.rjo/	noun m		italian
+31034	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	in diretta	в прямом эфире	canlı yayımda	La partita è in diretta su Sky.	/in diˈrɛt.ta/	phrase		italian
+31035	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	il presentatore	ведущий	aparıcı	Il presentatore di questo programma è molto simpatico.	/pre.zen.taˈto.re/	noun m		italian
+31036	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	lo spettatore	зритель	tamaşaçı	Il programma ha milioni di spettatori.	/spet.taˈto.re/	noun m		italian
+31037	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	la pubblicità	реклама	reklam	Che noia, ancora pubblicità!	/pub.bli.tʃiˈta/	noun f		italian
+31038	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	il telecomando	пульт	pult	Dov'è il telecomando?	/te.le.koˈman.do/	noun m		italian
+31039	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	accendere	включать	yandırmaq, açmaq	Accendi la TV, c'è la partita!	/atˈtʃɛn.de.re/	verb, irregular		italian
+31040	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	spegnere	выключать	söndürmək, bağlamaq	Spegni la luce quando esci.	/ˈspɛɲ.ɲe.re/	verb, irregular		italian
+31041	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	lo schermo	экран	ekran	Lo schermo del portatile è troppo piccolo per i film.	/ˈskɛr.mo/	noun m		italian
+31042	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	la rivista	журнал	jurnal	In sala d'attesa c'erano solo vecchie riviste.	/riˈvis.ta/	noun f		italian
+31043	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	aiutare	помогать	kömək etmək	Mi aiuti con i compiti d'italiano?	/a.juˈta.re/	verb		italian
+31044	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	dare una mano	помочь	kömək etmək, əl tutmaq	Domani trasloco, mi dai una mano?	/ˈda.re ˈu.na ˈma.no/	phrase		italian
+31045	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	Mi fai un favore?	Сделаешь мне одолжение?	Mənə bir yaxşılıq edərsən?	Mi fai un favore? Compra il pane quando torni.	/mi ˈfai un faˈvo.re/	phrase		italian
+31046	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	prestare	одалживать (давать)	borc vermək	Mi presti il tuo caricabatterie?	/presˈta.re/	verb		italian
+31047	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	restituire	возвращать (вещь)	qaytarmaq	Ti restituisco il libro domani.	/res.ti.tuˈi.re/	verb		italian
+31048	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	Ti dispiace se...?	Ты не против, если...?	Etiraz etməzsən ki...?	Ti dispiace se apro la finestra?	/ti disˈpja.tʃe se/	phrase		italian
+31049	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	contare su	рассчитывать на	güvənmək, arxalanmaq	Puoi sempre contare su di me.	/konˈta.re su/	phrase		italian
+31050	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	Ti devo un favore	Я твой должник	Sənə borcluyam	Grazie per l'aiuto, ti devo un favore!	/ti ˈde.vo un faˈvo.re/	phrase		italian
+31051	Unità 10 · Cosa c'è in TV?	Телевидение и одолжения	Ci mancherebbe!	Да что ты, само собой!	Bu nə sözdür!, Əlbəttə!	Grazie di tutto! Ci mancherebbe!	/tʃi man.keˈrɛb.be/	phrase		italian
+31052	Unità 10 · Cosa c'è in TV?	Как пройти?	Scusi, sa dov'è...?	Извините, не знаете, где...?	Bağışlayın, bilirsiniz ... haradadır?	Scusi, sa dov'è la Biblioteca Salaborsa?	/ˈsku.zi sa doˈvɛ/	phrase		italian
+31053	Unità 10 · Cosa c'è in TV?	Как пройти?	Come arrivo a...?	Как добраться до...?	... necə gedə bilərəm?	Come arrivo a Piazza Maggiore?	/ˈko.me arˈri.vo a/	phrase		italian
+31054	Unità 10 · Cosa c'è in TV?	Как пройти?	la strada	улица, дорога	küçə, yol	Questa strada porta in centro.	/ˈstra.da/	noun f		italian
+31055	Unità 10 · Cosa c'è in TV?	Как пройти?	il numero civico	номер дома	ev nömrəsi	Qual è il numero civico? Il 12.	/ˈnu.me.ro ˈtʃi.vi.ko/	noun m		italian
+31056	Unità 10 · Cosa c'è in TV?	Как пройти?	l'uscita	выход, съезд	çıxış	Alla rotonda prenda la seconda uscita.	/uʃˈʃi.ta/	noun f		italian
+31057	Unità 10 · Cosa c'è in TV?	Как пройти?	il sottopassaggio	подземный переход	yeraltı keçid	Per andare ai binari usa il sottopassaggio.	/sot.to.pasˈsad.dʒo/	noun m		italian
+31058	Unità 10 · Cosa c'è in TV?	Как пройти?	la periferia	окраина	şəhər kənarı	Abito in periferia, ma con l'autobus arrivo in centro in venti minuti.	/pe.ri.feˈri.a/	noun f		italian
+31059	Unità 10 · Cosa c'è in TV?	Как пройти?	andare dritto	идти прямо	düz getmək	Vada sempre dritto fino alla piazza.	/anˈda.re ˈdrit.to/	phrase		italian
+31060	Unità 10 · Cosa c'è in TV?	Как пройти?	girare	поворачивать	dönmək	Al semaforo giri a sinistra.	/dʒiˈra.re/	verb		italian
+31061	Unità 10 · Cosa c'è in TV?	Как пройти?	l'incrocio	перекрёсток	yolayrıcı, kəsişmə	Al primo incrocio giri a destra.	/inˈkro.tʃo/	noun m		italian
+31062	Unità 10 · Cosa c'è in TV?	Как пройти?	il semaforo	светофор	svetofor	Si fermi al semaforo rosso.	/seˈma.fo.ro/	noun m		italian
+31063	Unità 10 · Cosa c'è in TV?	Как пройти?	il vicolo	переулок	dalan, dar küçə	Il ristorante è in un piccolo vicolo dietro la piazza.	/ˈvi.ko.lo/	noun m		italian
+31064	Unità 10 · Cosa c'è in TV?	Как пройти?	l'angolo	угол	künc, tin	La farmacia è all'angolo.	/ˈan.ɡo.lo/	noun m		italian
+31065	Unità 10 · Cosa c'è in TV?	Как пройти?	la traversa	поперечная улица	yan küçə	È la seconda traversa a sinistra.	/traˈvɛr.sa/	noun f		italian
+31066	Unità 10 · Cosa c'è in TV?	Как пройти?	attraversare	переходить	keçmək (küçəni)	Attraversa la strada sulle strisce.	/at.tra.verˈsa.re/	verb		italian
+31067	Unità 10 · Cosa c'è in TV?	Как пройти?	le strisce pedonali	пешеходный переход	piyada keçidi	Le strisce pedonali sono davanti alla scuola.	/ˈstriʃ.ʃe pe.doˈna.li/	noun f		italian
+31068	Unità 10 · Cosa c'è in TV?	Как пройти?	il marciapiede	тротуар	səki	Cammina sul marciapiede, non in strada!	/mar.tʃaˈpjɛ.de/	noun m		italian
+31069	Unità 10 · Cosa c'è in TV?	Как пройти?	dall'altra parte	на другой стороне	o biri tərəfdə	La fermata è dall'altra parte della strada.	/dalˈlal.tra ˈpar.te/	phrase		italian
+31070	Unità 10 · Cosa c'è in TV?	Как пройти?	il viale	проспект, бульвар	prospekt, bulvar	Prendi i viali per arrivare all'ospedale.	/viˈa.le/	noun m		italian
+31071	Unità 10 · Cosa c'è in TV?	Как пройти?	verso	к, в сторону	tərəfə, doğru	Cammina verso la stazione.	/ˈvɛr.so/	prep		italian
+31072	Unità 10 · Cosa c'è in TV?	Как пройти?	proseguire	продолжать (путь)	davam etmək (yola)	Prosegua per cento metri.	/pro.seˈɡwi.re/	verb		italian
+31073	Unità 10 · Cosa c'è in TV?	Как пройти?	tornare indietro	вернуться назад	geri qayıtmaq	Abbiamo sbagliato strada, torniamo indietro.	/torˈna.re inˈdjɛ.tro/	phrase		italian
+31074	Unità 10 · Cosa c'è in TV?	Как пройти?	indicare	указывать, показывать	göstərmək	Mi può indicare la strada per la stazione?	/in.diˈka.re/	verb		italian
+31075	Unità 10 · Cosa c'è in TV?	Как пройти?	il cartello	указатель, табличка	lövhə, nişan	Segui il cartello «centro».	/karˈtɛl.lo/	noun m		italian
+31076	Unità 10 · Cosa c'è in TV?	Как пройти?	la mappa	карта (города)	xəritə	Guardo la mappa sul telefono.	/ˈmap.pa/	noun f		italian
+31077	Unità 10 · Cosa c'è in TV?	Как пройти?	perdersi	заблудиться	azmaq	Il primo giorno a Bologna mi sono perso.	/ˈpɛr.der.si/	verb, reflexive		italian
+31078	Unità 11 · Un concerto	Музыка и концерты	la musica	музыка	musiqi	Che musica ascolti?	/ˈmu.zi.ka/	noun f		italian
+31079	Unità 11 · Un concerto	Музыка и концерты	la canzone	песня	mahnı	Questa canzone di Lucio Dalla parla di Bologna.	/kanˈtso.ne/	noun f		italian
+31080	Unità 11 · Un concerto	Музыка и концерты	il testo	текст (песни)	mətn, sözlər	Leggo il testo per capire le parole.	/ˈtɛs.to/	noun m		italian
+31081	Unità 11 · Un concerto	Музыка и концерты	il cantante	певец	müğənni	Il mio cantante preferito è Vasco Rossi.	/kanˈtan.te/	noun m		italian
+31082	Unità 11 · Un concerto	Музыка и концерты	il cantautore	автор-исполнитель	bəstəkar-ifaçı	Lucio Dalla era un grande cantautore bolognese.	/kan.tauˈto.re/	noun m		italian
+31083	Unità 11 · Un concerto	Музыка и концерты	il gruppo	группа	qrup	I Måneskin sono un gruppo italiano famoso.	/ˈɡrup.po/	noun m		italian
+31084	Unità 11 · Un concerto	Музыка и концерты	cantare	петь	oxumaq	Al karaoke tutti cantano insieme.	/kanˈta.re/	verb		italian
+31085	Unità 11 · Un concerto	Музыка и концерты	suonare	играть (на инструменте), звонить	çalmaq	Suoni qualche strumento?	/swoˈna.re/	verb		italian
+31086	Unità 11 · Un concerto	Музыка и концерты	lo strumento	инструмент	alət	Il pianoforte è uno strumento difficile.	/struˈmen.to/	noun m		italian
+31087	Unità 11 · Un concerto	Музыка и концерты	la chitarra	гитара	gitara	Il mio coinquilino suona la chitarra ogni sera.	/kiˈtar.ra/	noun f		italian
+31088	Unità 11 · Un concerto	Музыка и концерты	il pianoforte	фортепиано	piano	Ho studiato pianoforte da bambino.	/pja.noˈfɔr.te/	noun m		italian
+31089	Unità 11 · Un concerto	Музыка и концерты	il batterista	барабанщик	nağaraçalan	Il batterista del gruppo è bravissimo.	/bat.teˈris.ta/	noun m		italian
+31090	Unità 11 · Un concerto	Музыка и концерты	il violino	скрипка	skripka	Mia sorella suona il violino.	/vjoˈli.no/	noun m		italian
+31091	Unità 11 · Un concerto	Музыка и концерты	la voce	голос	səs	Che bella voce ha questa cantante!	/ˈvo.tʃe/	noun f		italian
+31092	Unità 11 · Un concerto	Музыка и концерты	il ritmo	ритм	ritm	Questa canzone ha un ritmo fantastico.	/ˈrit.mo/	noun m		italian
+31093	Unità 11 · Un concerto	Музыка и концерты	l'album	альбом	albom	Il nuovo album esce venerdì.	/ˈal.bum/	noun m		italian
+31094	Unità 11 · Un concerto	Музыка и концерты	il successo	хит, успех	hit, uğur	Questa canzone è stata un grande successo.	/sutˈtʃɛs.so/	noun m		italian
+31095	Unità 11 · Un concerto	Музыка и концерты	il concerto	концерт	konsert	Sabato andiamo al concerto all'Unipol Arena.	/konˈtʃɛr.to/	noun m		italian
+31096	Unità 11 · Un concerto	Музыка и концерты	dal vivo	вживую	canlı	Sentire la musica dal vivo è un'altra cosa.	/dal ˈvi.vo/	phrase		italian
+31097	Unità 11 · Un concerto	Музыка и концерты	il palco	сцена	səhnə	Il cantante è salito sul palco alle nove.	/ˈpal.ko/	noun m		italian
+31098	Unità 11 · Un concerto	Музыка и концерты	il pubblico	публика, зрители	tamaşaçılar, publika	Il pubblico cantava tutte le canzoni.	/ˈpub.bli.ko/	noun m		italian
+31099	Unità 11 · Un concerto	Музыка и концерты	la tournée	гастроли, тур	qastrol, tur	La band è in tournée in tutta Italia.	/turˈne/	noun f		italian
+31100	Unità 11 · Un concerto	Музыка и концерты	il festival	фестиваль	festival	Il Festival di Sanremo è a febbraio.	/ˈfɛs.ti.val/	noun m		italian
+31101	Unità 11 · Un concerto	Музыка и концерты	famoso	известный	məşhur	È un cantante famoso in tutto il mondo.	/faˈmo.so/	adj		italian
+31102	Unità 11 · Un concerto	Музыка и концерты	la radio	радио	radio	In macchina ascolto sempre la radio.	/ˈra.djo/	noun f		italian
+31103	Unità 11 · Un concerto	Музыка и концерты	le cuffie	наушники	qulaqlıq	In biblioteca ascolto la musica con le cuffie.	/ˈkuf.fje/	noun f		italian
+31104	Unità 11 · Un concerto	Желания, просьбы и советы	vorrei	я бы хотел	istərdim	Vorrei due biglietti per il concerto.	/vorˈrɛi/	phrase		italian
+31105	Unità 11 · Un concerto	Желания, просьбы и советы	potrei	я мог бы, можно мне	edə bilərdim	Potrei usare il tuo computer?	/poˈtrɛi/	phrase		italian
+31106	Unità 11 · Un concerto	Желания, просьбы и советы	potresti	не мог бы ты	edə bilərsənmi	Potresti abbassare la musica?	/poˈtres.ti/	phrase		italian
+31107	Unità 11 · Un concerto	Желания, просьбы и советы	Le dispiacerebbe...?	Вы не могли бы...?, Вас не затруднит...?	Zəhmət olmasa...?	Le dispiacerebbe ripetere più lentamente?	/le dis.pja.tʃeˈrɛb.be/	phrase		italian
+31108	Unità 11 · Un concerto	Желания, просьбы и советы	mi piacerebbe	мне бы хотелось	istərdim, xoşuma gələrdi	Mi piacerebbe vivere in Italia dopo la laurea.	/mi pja.tʃeˈrɛb.be/	phrase		italian
+31109	Unità 11 · Un concerto	Желания, просьбы и советы	avere voglia di	хотеться	həvəsi olmaq, istəmək	Ho voglia di una pizza.	/aˈve.re ˈvɔʎ.ʎa di/	phrase		italian
+31110	Unità 11 · Un concerto	Желания, просьбы и советы	sarebbe bello	было бы здорово	yaxşı olardı	Sarebbe bello andare insieme al concerto!	/saˈrɛb.be ˈbɛl.lo/	phrase		italian
+31111	Unità 11 · Un concerto	Желания, просьбы и советы	magari	хорошо бы, может быть	kaş ki, bəlkə	Vieni anche tu? Magari!	/maˈɡa.ri/	adv		italian
+31112	Unità 11 · Un concerto	Желания, просьбы и советы	il desiderio	желание	arzu	Esprimi un desiderio!	/de.ziˈdɛ.rjo/	noun m		italian
+31113	Unità 11 · Un concerto	Желания, просьбы и советы	il sogno	мечта, сон	arzu, yuxu	Il mio sogno è lavorare in Italia.	/ˈsoɲ.ɲo/	noun m		italian
+31114	Unità 11 · Un concerto	Желания, просьбы и советы	sognare	мечтать, видеть во сне	xəyal qurmaq, yuxu görmək	Sogno di viaggiare in tutto il mondo.	/soɲˈɲa.re/	verb		italian
+31115	Unità 11 · Un concerto	Желания, просьбы и советы	Non vedo l'ora!	Не могу дождаться!	Səbirsizliklə gözləyirəm!	Il concerto è domani, non vedo l'ora!	/non ˈve.do ˈlo.ra/	phrase		italian
+31116	Unità 11 · Un concerto	Желания, просьбы и советы	il consiglio	совет	məsləhət	Ti do un consiglio: studia un po' ogni giorno.	/konˈsiʎ.ʎo/	noun m		italian
+31117	Unità 11 · Un concerto	Желания, просьбы и советы	consigliare	советовать	məsləhət görmək	Mi consigli un buon ristorante?	/kon.siʎˈʎa.re/	verb		italian
+31118	Unità 11 · Un concerto	Желания, просьбы и советы	dovresti	тебе следовало бы	etməlisən (məsləhət)	Dovresti dormire di più.	/doˈvres.ti/	phrase		italian
+31119	Unità 11 · Un concerto	Желания, просьбы и советы	al posto tuo	на твоём месте	sənin yerində	Al posto tuo andrei dal medico.	/al ˈpos.to ˈtu.o/	phrase		italian
+31120	Unità 11 · Un concerto	Желания, просьбы и советы	Perché non...?	Почему бы не...?	Niyə ... etməyək?	Perché non vieni con noi stasera?	/perˈke non/	phrase		italian
+31121	Unità 11 · Un concerto	Желания, просьбы и советы	Che ne dici di...?	Как насчёт...?	... necədir?, ... barədə nə deyirsən?	Che ne dici di andare al mare sabato?	/ke ne ˈdi.tʃi di/	phrase		italian
+31122	Unità 11 · Un concerto	Желания, просьбы и советы	Buona idea!	Хорошая идея!	Yaxşı fikirdir!	Andiamo in bici? Buona idea!	/ˈbwɔ.na iˈdɛ.a/	phrase		italian
+31123	Unità 11 · Un concerto	Желания, просьбы и советы	proporre	предлагать	təklif etmək	Ti propongo di studiare insieme.	/proˈpor.re/	verb, irregular		italian
+31124	Unità 11 · Un concerto	Желания, просьбы и советы	la proposta	предложение	təklif	Che bella proposta, accetto!	/proˈpos.ta/	noun f		italian
+31125	Unità 11 · Un concerto	Желания, просьбы и советы	l'opinione	мнение	fikir, rəy	Qual è la tua opinione?	/o.piˈnjo.ne/	noun f		italian
+31126	Unità 11 · Un concerto	Желания, просьбы и советы	a mio parere	по моему мнению	mənim fikrimcə	A mio parere questo concerto è troppo caro.	/a ˈmi.o paˈre.re/	phrase		italian
+31127	Unità 11 · Un concerto	Желания, просьбы и советы	sicuro	уверенный, безопасный	əmin, təhlükəsiz	Sei sicuro? Il concerto è domani?	/siˈku.ro/	adj		italian
+31128	Unità 11 · Un concerto	Желания, просьбы и советы	Meglio di no	Лучше не надо	Yaxşısı budur ki, yox	Usciamo con questa pioggia? Meglio di no.	/ˈmɛʎ.ʎo di ˈnɔ/	phrase		italian
+31129	Unità 11 · Un concerto	Желания, просьбы и советы	Mi raccomando!	Смотри не забудь!, Прошу тебя!	Xahiş edirəm, unutma!	Chiamami quando arrivi, mi raccomando!	/mi rak.koˈman.do/	phrase		italian

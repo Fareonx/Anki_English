@@ -8,6 +8,8 @@ export interface DiffChar {
 
 export interface TypedResult {
   correct: boolean;
+  /** Correct, but typed without some accent or apostrophe (only with `lenient`). */
+  inexact?: boolean;
   /** What was typed; wrong or extra letters have ok = false. */
   typed: DiffChar[];
   /** The correct answer; letters that were missed or misspelt have ok = false. */
@@ -24,11 +26,26 @@ export function normalizeAnswer(s: string): string {
     .toLowerCase();
 }
 
-export function checkTypedAnswer(typedRaw: string, expectedRaw: string): TypedResult {
+/** One letter without its accent: "à" -> "a". */
+function foldChar(ch: string): string {
+  return ch.normalize('NFD').replace(/\p{M}/gu, '');
+}
+
+/** Without accents and apostrophes: "l'università" -> "luniversita". */
+export function foldAnswer(s: string): string {
+  return foldChar(normalizeAnswer(s)).replace(/'/g, '');
+}
+
+/**
+ * `lenient` (Italian): letters with accents and apostrophes are not required, so
+ * "citta" is right for "città"; such an answer is marked `inexact` to show the spelling.
+ */
+export function checkTypedAnswer(typedRaw: string, expectedRaw: string, lenient = false): TypedResult {
   const typed = typedRaw.replace(/\s+/g, ' ').trim();
   const expected = expectedRaw.replace(/\s+/g, ' ').trim();
   const a = normalizeAnswer(typed);
   const b = normalizeAnswer(expected);
+  const same = lenient ? (x: string, y: string) => foldChar(x) === foldChar(y) : (x: string, y: string) => x === y;
 
   // Longest common subsequence decides which letters line up.
   const n = a.length;
@@ -36,7 +53,7 @@ export function checkTypedAnswer(typedRaw: string, expectedRaw: string): TypedRe
   const dp: number[][] = Array.from({ length: n + 1 }, () => new Array<number>(m + 1).fill(0));
   for (let i = n - 1; i >= 0; i--) {
     for (let j = m - 1; j >= 0; j--) {
-      dp[i][j] = a[i] === b[j] ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
+      dp[i][j] = same(a[i], b[j]) ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
     }
   }
   const okTyped = new Array<boolean>(n).fill(false);
@@ -44,7 +61,7 @@ export function checkTypedAnswer(typedRaw: string, expectedRaw: string): TypedRe
   let i = 0;
   let j = 0;
   while (i < n && j < m) {
-    if (a[i] === b[j]) {
+    if (same(a[i], b[j])) {
       okTyped[i++] = true;
       okExpected[j++] = true;
     } else if (dp[i + 1][j] >= dp[i][j + 1]) {
@@ -57,8 +74,11 @@ export function checkTypedAnswer(typedRaw: string, expectedRaw: string): TypedRe
   // Normalisation keeps the length, so indices map back to the original text.
   const sameLength = typed.length === n && expected.length === m;
   const show = (raw: string, norm: string) => (sameLength ? raw : norm);
+  const exact = a === b && a.length > 0;
+  const correct = exact || (lenient && a.length > 0 && foldAnswer(a) === foldAnswer(b));
   return {
-    correct: a === b && a.length > 0,
+    correct,
+    ...(correct && !exact ? { inexact: true } : {}),
     typed: [...show(typed, a)].map((ch, k) => ({ ch, ok: okTyped[k] })),
     expected: [...show(expected, b)].map((ch, k) => ({ ch, ok: okExpected[k] })),
   };

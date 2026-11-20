@@ -259,3 +259,32 @@ export async function listSentences(studentId: string, limit = 50): Promise<Sent
       .limit(limit),
   );
 }
+
+export interface LessonProgress {
+  lesson_id: string;
+  best: number;
+  total: number;
+  done_at: string;
+}
+
+export async function listLessonProgress(studentId: string): Promise<LessonProgress[]> {
+  return check(
+    await supabase.from('lesson_progress').select('lesson_id, best, total, done_at').eq('student_id', studentId),
+  );
+}
+
+/** Saves a finished lesson drill, keeping the best score. */
+export async function saveLessonResult(studentId: string, lessonId: string, score: number, total: number) {
+  const { data } = await supabase
+    .from('lesson_progress')
+    .select('best')
+    .eq('student_id', studentId)
+    .eq('lesson_id', lessonId)
+    .maybeSingle();
+  const best = Math.max(score, (data as { best: number } | null)?.best ?? 0);
+  check(
+    await supabase
+      .from('lesson_progress')
+      .upsert({ student_id: studentId, lesson_id: lessonId, best, total, done_at: new Date().toISOString() }),
+  );
+}

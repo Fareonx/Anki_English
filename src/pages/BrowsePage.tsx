@@ -1,9 +1,11 @@
 import { useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { useAuth } from '../auth';
 import { NoteForm } from '../components/NoteForm';
 import { deleteNote, setSuspended, updateNote, type CardRow, type Note, type NoteFields } from '../lib/db';
 import { buildDeckTree, deckPath, flattenTree, subtreeIds } from '../lib/decks';
 import { maturity } from '../lib/stats';
+import { DIRECTION_LABELS } from '../lib/studyLang';
 import { useStudentData } from '../lib/useStudentData';
 import { useI18n, type Key } from '../lib/i18n';
 
@@ -32,6 +34,7 @@ export function BrowsePage() {
   const { deckId = '' } = useParams();
   const { decks, cards, notes, loading, error, reload } = useStudentData({ notes: true, revlogDays: 0 });
   const { t } = useI18n();
+  const { studyLang } = useAuth();
   const [query, setQuery] = useState('');
   const [editing, setEditing] = useState<string | null>(null);
   const [draft, setDraft] = useState<NoteFields & { deck_id: string }>({} as NoteFields & { deck_id: string });
@@ -122,8 +125,8 @@ export function BrowsePage() {
                     {n.translation_az && <span className="muted"> · {n.translation_az}</span>}
                   </div>
                   <div className="statuses">
-                    <CardStatus card={forward} label="EN→RU" />
-                    <CardStatus card={reverse} label="RU→EN" />
+                    <CardStatus card={forward} label={DIRECTION_LABELS[studyLang][0]} />
+                    <CardStatus card={reverse} label={DIRECTION_LABELS[studyLang][1]} />
                   </div>
                 </div>
                 <div className="word-actions">

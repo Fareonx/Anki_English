@@ -72,3 +72,9 @@ export const PenIcon = () => (
     <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
   </svg>
 );
+
+export const LessonsIcon = () => (
+  <svg {...base}>
+    <path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2zM22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z" />
+  </svg>
+);

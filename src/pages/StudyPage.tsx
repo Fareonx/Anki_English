@@ -27,9 +27,10 @@ const BUTTONS: { ease: Ease; label: Key; cls: string }[] = [
 
 function SpeakButton({ text }: { text: string }) {
   const { t } = useI18n();
+  const { studyLang } = useAuth();
   if (!canSpeak()) return null;
   return (
-    <button type="button" className="icon-btn speak" onClick={() => speak(text)} aria-label={t('study.speak')}>
+    <button type="button" className="icon-btn speak" onClick={() => speak(text, studyLang)} aria-label={t('study.speak')}>
       <SpeakerIcon />
     </button>
   );
@@ -136,7 +137,19 @@ function Letters({ chars, kind }: { chars: DiffChar[]; kind: 'typed' | 'expected
 /** Letter-by-letter comparison of the typed word with the correct one. */
 function TypedFeedback({ result, alternative, word }: { result: TypedResult; alternative: boolean; word: string }) {
   const { t } = useI18n();
-  if (result.correct) return <div className="typed-result ok-result">{t('study.correct')}</div>;
+  if (result.correct) {
+    return (
+      <div className="typed-result ok-result">
+        {t('study.correct')}
+        {/* Right without an accent or apostrophe: show how it is spelt. */}
+        {result.inexact && (
+          <div className="small">
+            {t('study.spelling')} <b>{word}</b>
+          </div>
+        )}
+      </div>
+    );
+  }
   // Another correct word (hi for hello): not a mistake, shown in blue with the main variant.
   if (alternative) {
     return (
@@ -187,7 +200,7 @@ const MAX_EXTRA_NEW_STUDENT = 10;
 
 export function StudyPage() {
   const { deckId = 'all' } = useParams();
-  const { student, config, isAdmin, profile } = useAuth();
+  const { student, config, isAdmin, profile, studyLang } = useAuth();
   const { t, units } = useI18n();
   const { decks, cards, notes, revlog, loading, error, reload } = useStudentData({ notes: true, revlogDays: 1 });
 
@@ -230,7 +243,7 @@ export function StudyPage() {
   const notesById = useMemo(() => new Map(notes.map((n) => [n.id, n])), [notes]);
   const cfg = useMemo(() => ({ ...config, newPerDay: config.newPerDay + extraNew }), [config, extraNew]);
   const title = deckId === 'all' ? t('study.all_words') : deckPath(decks, deckId);
-  // Typing the English word is on unless switched off in Settings.
+  // Typing the word is on unless switched off in Settings.
   const typeAnswers = student?.settings?.typeAnswer !== false;
   const readOnly = isAdmin && student?.id !== profile?.id;
 
@@ -252,9 +265,9 @@ export function StudyPage() {
     setWaitUntil(!next && !s.isFinished() ? s.nextLearningDue() : null);
     if (next && next.template === 0) {
       const note = notesById.get(next.note_id);
-      if (note) speak(note.word);
+      if (note) speak(note.word, studyLang);
     }
-  }, [notesById]);
+  }, [notesById, studyLang]);
 
   // (Re)build today's queue whenever fresh data arrives.
   useEffect(() => {
@@ -325,9 +338,9 @@ export function StudyPage() {
     setRevealed(true);
     if (current.template === 1) {
       const note = notesById.get(current.note_id);
-      if (note) speak(note.word);
+      if (note) speak(note.word, studyLang);
     }
-  }, [current, notesById]);
+  }, [current, notesById, studyLang]);
 
   const typing = !!current && current.template === 1 && typeAnswers;
 
@@ -338,18 +351,18 @@ export function StudyPage() {
     if (!current || revealed || checking) return;
     const note = notesById.get(current.note_id);
     if (!note) return;
-    const result = checkTypedAnswer(typed, note.word);
+    const result = checkTypedAnswer(typed, note.word, studyLang === 'it');
     // Hide the phone keyboard so the result and buttons are visible.
     (document.activeElement as HTMLElement | null)?.blur();
     if (!result.correct && typed.trim()) {
       setChecking(true);
-      const ok = await isAcceptedAlternative(typed, note, lookup).catch(() => false);
+      const ok = await isAcceptedAlternative(typed, note, (w, l) => lookup(w, l, studyLang)).catch(() => false);
       setChecking(false);
       setAltAccepted(ok);
     }
     setTypedResult(result);
     reveal();
-  }, [current, revealed, checking, notesById, typed, reveal]);
+  }, [current, revealed, checking, notesById, typed, reveal, studyLang]);
 
   // "I don't know": show the answer; like a mistake, only "Again" is offered.
   const giveUp = useCallback(() => {
@@ -421,7 +434,9 @@ export function StudyPage() {
             ) : (
               <div className="front">
                 <div className="prompt muted small">
-                  {typing ? t('study.recall_word') : t('study.recall_word_self')}
+                  {studyLang === 'it'
+                    ? t(typing ? 'study.recall_word_it' : 'study.recall_word_self_it')
+                    : t(typing ? 'study.recall_word' : 'study.recall_word_self')}
                 </div>
                 <div className="translation">{note.translation_ru || '—'}</div>
                 {note.translation_az && <div className="translation az">{note.translation_az}</div>}
@@ -445,7 +460,7 @@ export function StudyPage() {
                       autoCapitalize="none"
                       spellCheck={false}
                       enterKeyHint="done"
-                      aria-label={t('study.recall_word')}
+                      aria-label={t(studyLang === 'it' ? 'study.recall_word_it' : 'study.recall_word')}
                     />
                   </form>
                 )}
