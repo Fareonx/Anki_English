@@ -6,14 +6,14 @@ import { addSentence, saveAnswer, type CardRow, type Note } from '../lib/db';
 import { deckPath, subtreeIds } from '../lib/decks';
 import { countFreshToday, StudySession, type Counts } from '../lib/scheduler/queue';
 import { answerCard, formatInterval, nextIntervals } from '../lib/scheduler/sm2';
-import { dayNumber } from '../lib/scheduler/day';
 import { CardType, Ease, Queue } from '../lib/scheduler/types';
-import { canSpeak, speak } from '../lib/speech';
+import { speak, useSpeech } from '../lib/speech';
 import { summarizeToday } from '../lib/stats';
 import { useStudentData } from '../lib/useStudentData';
 import { useI18n, type Key } from '../lib/i18n';
 import { checkTypedAnswer, isAcceptedAlternative, type DiffChar, type TypedResult } from '../lib/typeAnswer';
 import { lookup } from '../lib/translate';
+import { EXTRA_STEP, extraNewCap, useExtraNew } from '../lib/extraNew';
 
 /** Anki stops counting answer time after 60 seconds. */
 const MAX_ANSWER_MS = 60_000;
@@ -28,7 +28,8 @@ const BUTTONS: { ease: Ease; label: Key; cls: string }[] = [
 function SpeakButton({ text }: { text: string }) {
   const { t } = useI18n();
   const { studyLang } = useAuth();
-  if (!canSpeak()) return null;
+  const voice = useSpeech(studyLang);
+  if (!voice.available || !voice.enabled) return null;
   return (
     <button type="button" className="icon-btn speak" onClick={() => speak(text, studyLang)} aria-label={t('study.speak')}>
       <SpeakerIcon />
@@ -176,6 +177,26 @@ function TypedFeedback({ result, alternative, word }: { result: TypedResult; alt
   );
 }
 
+/** Switches the voice on and off on this device; hidden when the device has no voice for the language. */
+function VoiceToggle() {
+  const { t } = useI18n();
+  const { studyLang } = useAuth();
+  const voice = useSpeech(studyLang);
+  if (!voice.available) return null;
+  return (
+    <button
+      type="button"
+      className={`icon-btn voice-toggle ${voice.enabled ? '' : 'off'}`}
+      onClick={() => voice.setEnabled(!voice.enabled)}
+      aria-pressed={voice.enabled}
+      aria-label={voice.enabled ? t('voice.turn_off') : t('voice.turn_on')}
+      title={voice.enabled ? t('voice.turn_off') : t('voice.turn_on')}
+    >
+      {voice.enabled ? '🔊' : '🔇'}
+    </button>
+  );
+}
+
 function CountsBar({ counts, current }: { counts: Counts; current: CardRow | null }) {
   const kind = !current
     ? null
@@ -195,9 +216,6 @@ function CountsBar({ counts, current }: { counts: Counts; current: CardRow | nul
   );
 }
 
-/** Students may take at most this many words a day above their limit (the admin has no cap). */
-const MAX_EXTRA_NEW_STUDENT = 10;
-
 export function StudyPage() {
   const { deckId = 'all' } = useParams();
   const { student, config, isAdmin, profile, studyLang } = useAuth();
@@ -214,25 +232,9 @@ export function StudyPage() {
   const [saving, setSaving] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
   const [answered, setAnswered] = useState(0);
-  // Extra new words taken today; kept per student and day so a reload does not reset the cap.
-  const extraKey = `extraNew:${student?.id ?? ''}:${dayNumber(Date.now(), config.timeZone, config.rolloverHour)}`;
-  const [extraNew, setExtraNewState] = useState(() => {
-    try {
-      return Number(localStorage.getItem(extraKey)) || 0;
-    } catch {
-      return 0;
-    }
-  });
-  const setExtraNew = (update: (n: number) => number) =>
-    setExtraNewState((n) => {
-      const next = update(n);
-      try {
-        localStorage.setItem(extraKey, String(next));
-      } catch {
-        // ignore
-      }
-      return next;
-    });
+  // Extra new words taken today above the limit.
+  const [extraNew, addExtraNew] = useExtraNew(student?.id, config);
+  const extraCap = extraNewCap(student?.settings, isAdmin);
   const [moreNew, setMoreNew] = useState(0);
   const [typed, setTyped] = useState('');
   const [typedResult, setTypedResult] = useState<TypedResult | null>(null);
@@ -412,6 +414,7 @@ export function StudyPage() {
           <BackIcon />
         </Link>
         <span className="study-title">{title}</span>
+        <VoiceToggle />
         <CountsBar counts={counts} current={current} />
       </div>
 
@@ -544,15 +547,15 @@ export function StudyPage() {
             {answered > 0 ? `${t('study.done_answers', { n: answered })} ` : ''}
             {t('study.done_next', { time: `${String(cfg.rolloverHour).padStart(2, '0')}:00` })}
           </p>
-          {moreNew > 0 && !readOnly && (isAdmin || extraNew < MAX_EXTRA_NEW_STUDENT) && (
+          {moreNew > 0 && !readOnly && extraNew < extraCap && (
             <button
-              className="btn"
+              className="btn primary"
               onClick={() => {
-                setExtraNew((n) => n + 5);
+                addExtraNew(Math.min(EXTRA_STEP, extraCap - extraNew));
                 void reload();
               }}
             >
-              {t('study.more_new')}
+              {t('study.more_new', { n: Math.min(EXTRA_STEP, extraCap - extraNew, moreNew) })}
             </button>
           )}
           <p>

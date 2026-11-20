@@ -11,6 +11,7 @@ import { LoginPage } from './pages/LoginPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { StatsPage } from './pages/StatsPage';
 import { StudyPage } from './pages/StudyPage';
+import { VerbsPage } from './pages/VerbsPage';
 import { useI18n } from './lib/i18n';
 
 export function App() {
@@ -42,6 +43,7 @@ export function App() {
             <Route path="/stats/words" element={<LearnedWordsPage />} />
             <Route path="/settings" element={<SettingsPage />} />
             {studyLang === 'it' && <Route path="/lessons" element={<LessonsPage />} />}
+            {studyLang === 'it' && <Route path="/lessons/verbs" element={<VerbsPage />} />}
             {studyLang === 'it' && <Route path="/lessons/:lessonId" element={<LessonPage />} />}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

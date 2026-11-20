@@ -25,6 +25,12 @@ export function LessonsPage() {
     <div className="stack">
       <h2>{t('lessons.title')}</h2>
       <p className="muted small">{t('lessons.intro')}</p>
+      <Link to="/lessons/verbs" className="card lesson-item verbs-entry">
+        <div className="grow">
+          <b>🔁 {t('verbs.title')}</b>
+          <div className="muted small">{t('verbs.entry')}</div>
+        </div>
+      </Link>
       {UNITS.map((u) => {
         const lessons = LESSONS.filter((l) => l.unit === u.unit);
         if (lessons.length === 0) return null;
