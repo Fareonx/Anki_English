@@ -212,15 +212,12 @@ fare → **face**vo, dire → **dice**vo, bere → **beve**vo, tradurre → **tr
     goal: 'Говорить о том, что случилось ещё раньше другого прошлого события.',
     sections: [
       {
-        title: 'Образование и смысл',
+        title: 'Образование',
         text: `Trapassato prossimo = **imperfetto от essere/avere + participio passato**: avevo visto, ero partito.
 
 Правила те же, что в passato prossimo: тот же выбор вспомогательного глагола и то же согласование с essere (Anna **era** già **uscita**).
 
-Смысл: **«прошлое в прошлом»**. Если на шкале времени есть точка в прошлом (passato prossimo или imperfetto), то то, что было **ещё раньше**, — trapassato.
-«Quando sono arrivato al cinema, il film **era** già **cominciato**». Сначала начался фильм, потом я пришёл.
-
-Слова-помощники: **già** (уже), **prima** (раньше), **non… mai** (никогда до этого), **perché** (объяснение причины).`,
+Подсказка: возьмите passato prossimo и поставьте вспомогательный глагол в imperfetto: ho visto → **avevo** visto, sono partito → **ero** partito.`,
         tables: [
           {
             title: 'vedere (avere) · partire (essere)',
@@ -235,6 +232,15 @@ fare → **face**vo, dire → **dice**vo, bere → **beve**vo, tradurre → **tr
             ],
           },
         ],
+      },
+      {
+        title: 'Когда употреблять',
+        text: `Смысл: **«прошлое в прошлом»**. Если на шкале времени есть точка в прошлом (passato prossimo или imperfetto), то то, что было **ещё раньше**, — trapassato.
+«Quando sono arrivato al cinema, il film **era** già **cominciato**». Сначала начался фильм, потом я пришёл.
+
+Слова-помощники: **già** (уже), **prima** (раньше), **non… mai** (никогда до этого), **perché** (объяснение причины).
+
+Ошибка русскоязычных: в русском нет отдельного «давнопрошедшего», поэтому хочется сказать «Quando sono arrivato, il treno è partito». Но это значит «когда я пришёл, поезд (тогда) ушёл» — порядок событий теряется. Нужно: «il treno **era partito**».`,
         examples: [
           {
             it: 'Non sono andato al cinema perché avevo già visto quel film.',
