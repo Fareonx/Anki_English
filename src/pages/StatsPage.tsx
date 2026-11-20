@@ -14,6 +14,7 @@ import {
   streak,
   summarizeToday,
 } from '../lib/stats';
+import { DIRECTION_LABELS } from '../lib/studyLang';
 import { useStudentData } from '../lib/useStudentData';
 import { useI18n } from '../lib/i18n';
 
@@ -52,7 +53,7 @@ function Tile({
 }
 
 export function StatsPage() {
-  const { student, config } = useAuth();
+  const { student, config, studyLang } = useAuth();
   const { t, units, locale } = useI18n();
   const { dayFmt, weekdayFmt, dateTimeFmt } = useMemo(
     () => ({
@@ -263,7 +264,7 @@ export function StatsPage() {
                   <b>{n?.word}</b> — {n?.translation_ru}
                   {n?.translation_az ? ` · ${n.translation_az}` : ''}{' '}
                   <span className="muted small">
-                    ({c.template === 0 ? 'EN→RU' : 'RU→EN'}, {t('stats.lapses', { n: c.lapses })})
+                    ({DIRECTION_LABELS[studyLang][c.template === 0 ? 0 : 1]}, {t('stats.lapses', { n: c.lapses })})
                   </span>
                 </li>
               );

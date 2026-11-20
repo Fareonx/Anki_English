@@ -1390,7 +1390,8 @@ a.tile.link:focus-visible {
 
   .bottom-nav {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
     position: fixed;
     left: 0;
     right: 0;
@@ -1733,4 +1734,104 @@ a.tile.link:focus-visible {
   background: var(--new-soft);
   border-color: var(--new);
   color: var(--new-ink);
+}
+
+/* Grammar lessons ("Уроки"). */
+.lesson-unit h3 {
+  margin: 8px 0;
+}
+
+.lesson-list {
+  display: grid;
+  gap: 8px;
+}
+
+a.lesson-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  color: inherit;
+  text-decoration: none;
+}
+
+a.lesson-item.next {
+  outline: 2px solid var(--primary);
+}
+
+.lesson-score {
+  flex: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--surface-3);
+  color: var(--muted);
+}
+
+.lesson-score.full {
+  background: var(--due-soft);
+  color: var(--due-ink);
+}
+
+.lesson-score.next {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.lesson-section p {
+  line-height: 1.55;
+}
+
+.table-title {
+  font-weight: 700;
+  margin: 10px 0 4px;
+}
+
+table.forms th[scope],
+table.forms tbody th {
+  color: var(--muted);
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.examples li {
+  padding: 8px 0;
+  border-top: 1px solid var(--surface-3);
+}
+
+.tiny-speak {
+  font-size: 0.9rem;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.drill-prompt {
+  font-size: 1.15rem;
+  font-weight: 650;
+  margin: 8px 0 12px;
+}
+
+.drill-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.drill-form input {
+  flex: 1;
+  min-width: 0;
+}
+
+.drill-form input.ok {
+  border-color: var(--ok);
+}
+
+.drill-form input.bad {
+  border-color: var(--again);
+}
+
+.practice .typed-result {
+  margin: 12px 0 0;
 }

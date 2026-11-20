@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { autofill } from '../lib/autofill';
 import type { NoteFields } from '../lib/db';
 import { useI18n, type Key } from '../lib/i18n';
+import { useAuth } from '../auth';
 
 const FIELDS: { key: keyof NoteFields; label: Key; multiline?: boolean; placeholder?: string }[] = [
   { key: 'word', label: 'form.word', placeholder: 'sustainable' },
@@ -23,13 +24,14 @@ export function NoteForm({
 }) {
   const [filling, setFilling] = useState(false);
   const { t } = useI18n();
+  const { studyLang } = useAuth();
   const [fillError, setFillError] = useState<string | null>(null);
 
   async function fill() {
     setFilling(true);
     setFillError(null);
     try {
-      const next = await autofill(value);
+      const next = await autofill(value, studyLang);
       onChange(next);
       if (JSON.stringify(next) === JSON.stringify(value)) setFillError(t('form.nothing_found'));
     } catch {

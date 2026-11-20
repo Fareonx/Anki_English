@@ -38,7 +38,7 @@ async function inParallel<T>(items: T[], limit: number, fn: (item: T) => Promise
 }
 
 export function AddPage() {
-  const { student, config } = useAuth();
+  const { student, config, studyLang } = useAuth();
   const { t } = useI18n();
   const [params] = useSearchParams();
   const [decks, setDecks] = useState<Deck[]>([]);
@@ -115,7 +115,7 @@ export function AddPage() {
         toSave = [];
         for (const [i, n] of toAdd.entries()) {
           setProgress(t('add.filling', { i: i + 1, n: toAdd.length }));
-          toSave.push(await autofill(n).catch(() => n));
+          toSave.push(await autofill(n, studyLang).catch(() => n));
         }
       }
       setProgress(t('add.saving'));
@@ -161,7 +161,7 @@ export function AddPage() {
   /** Transcription, part of speech and example arrive later; they never block adding. */
   function loadDetails(key: number, word: string) {
     patchQuick(key, { details: true });
-    void lookupDictionary(word)
+    void lookupDictionary(word, studyLang)
       .catch(() => ({}) as Partial<NoteFields>)
       .then((dict) => {
         setQuick((prev) =>
@@ -180,12 +180,12 @@ export function AddPage() {
   /** Translates one word; an unknown word gets spelling suggestions instead. */
   async function processQuick(key: number, word: string) {
     const [ru, az] = await Promise.all([
-      lookup(word, 'ru').catch(() => null as Lookup | null),
-      lookup(word, 'az').catch(() => null as Lookup | null),
+      lookup(word, 'ru', studyLang).catch(() => null as Lookup | null),
+      lookup(word, 'az', studyLang).catch(() => null as Lookup | null),
     ]);
     const translations = {
-      translation_ru: ru ? formatMeanings(word, ru) : await translate(word, 'ru'),
-      translation_az: az ? formatMeanings(word, az) : await translate(word, 'az'),
+      translation_ru: ru ? formatMeanings(word, ru) : await translate(word, 'ru', studyLang),
+      translation_az: az ? formatMeanings(word, az) : await translate(word, 'az', studyLang),
     };
     const unknown = ru !== null && (!ru.known || !!ru.suggestion);
     if (!unknown) {
@@ -195,7 +195,7 @@ export function AddPage() {
       loadDetails(key, word);
       return;
     }
-    const similar = await similarWords(word).catch(() => [] as string[]);
+    const similar = studyLang === 'en' ? await similarWords(word).catch(() => [] as string[]) : [];
     const suggestions = [...new Set([ru?.suggestion, ...similar].filter((w): w is string => !!w))]
       .filter((w) => w.toLowerCase() !== word.toLowerCase())
       .slice(0, 4);
@@ -211,7 +211,7 @@ export function AddPage() {
     if (!quickText.trim()) return;
     setMessage(null);
     setSplitting(true);
-    const words = await splitQuickWords(quickText, async (chunk) => (await lookup(chunk, 'ru')).known).finally(() =>
+    const words = await splitQuickWords(quickText, async (chunk) => (await lookup(chunk, 'ru', studyLang)).known).finally(() =>
       setSplitting(false),
     );
     const fresh = words.filter((w) => !quick.some((q) => q.note.word.toLowerCase() === w.toLowerCase()));

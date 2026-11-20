@@ -1,13 +1,21 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../auth';
 import { learnedNotes } from '../lib/stats';
+import type { StudyLang } from '../lib/studyLang';
 import { useStudentData } from '../lib/useStudentData';
 import { useI18n } from '../lib/i18n';
+
+/** Italian nouns come with their article ("il libro"): sort them by the noun. */
+function sortKey(word: string, lang: StudyLang): string {
+  return lang === 'it' ? word.replace(/^(il|lo|la|i|gli|le)\s+|^l['’]/i, '') : word;
+}
 
 /** Every word the student has learned (the "Изучено слов" tile on the stats page). */
 export function LearnedWordsPage() {
   const { cards, notes, loading, error } = useStudentData({ notes: true, revlogDays: 0 });
   const { t, locale } = useI18n();
+  const { studyLang } = useAuth();
   const [query, setQuery] = useState('');
   const [solidOnly, setSolidOnly] = useState(false);
 
@@ -16,8 +24,12 @@ export function LearnedWordsPage() {
     return notes
       .filter((n) => byNote.has(n.id))
       .map((n) => ({ note: n, solid: byNote.get(n.id)!.solid }))
-      .sort((a, b) => a.note.word.localeCompare(b.note.word, 'en', { sensitivity: 'base' }));
-  }, [cards, notes]);
+      .sort((a, b) =>
+        sortKey(a.note.word, studyLang).localeCompare(sortKey(b.note.word, studyLang), studyLang, {
+          sensitivity: 'base',
+        }),
+      );
+  }, [cards, notes, studyLang]);
 
   if (loading) return <p className="muted">{t('loading')}</p>;
   if (error) return <p className="error">{error}</p>;

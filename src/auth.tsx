@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, t
 import { getProfile, listStudents, type Profile } from './lib/db';
 import { resolveConfig } from './lib/scheduler/config';
 import type { SchedConfig } from './lib/scheduler/types';
+import { studyLangOf, type StudyLang } from './lib/studyLang';
 import { supabase } from './lib/supabase';
 
 interface AuthState {
@@ -14,6 +15,8 @@ interface AuthState {
   /** Whose words and progress are on screen. */
   student: Profile | null;
   config: SchedConfig;
+  /** The language the student on screen learns. */
+  studyLang: StudyLang;
   selectStudent: (id: string) => void;
   reload: () => Promise<void>;
   signOut: () => Promise<void>;
@@ -82,6 +85,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       students,
       student,
       config: resolveConfig(student?.settings),
+      studyLang: studyLangOf(student?.settings),
       selectStudent: (id) => {
         setStudentId(id);
         try {

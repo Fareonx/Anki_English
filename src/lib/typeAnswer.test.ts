@@ -74,3 +74,28 @@ describe('isAcceptedAlternative', () => {
     expect(meaningsOf('дом (родной), домой', 'Привет!')).toEqual(['дом', 'домой', 'привет']);
   });
 });
+
+describe('checkTypedAnswer (lenient, Italian)', () => {
+  it('accepts missing accents and apostrophes but marks them', () => {
+    expect(checkTypedAnswer('la citta', 'la città', true)).toMatchObject({ correct: true, inexact: true });
+    expect(checkTypedAnswer("l'universita", "l'università", true).correct).toBe(true);
+    expect(checkTypedAnswer('luniversita', "l'università", true).correct).toBe(true);
+    expect(checkTypedAnswer('perche', 'perché', true).correct).toBe(true);
+    expect(checkTypedAnswer('la città', 'la città', true)).toEqual(
+      expect.objectContaining({ correct: true }),
+    );
+    expect(checkTypedAnswer('la città', 'la città', true).inexact).toBeUndefined();
+  });
+
+  it('still rejects wrong letters and keeps accents strict without lenient', () => {
+    expect(checkTypedAnswer('la cita', 'la città', true).correct).toBe(false);
+    expect(checkTypedAnswer('il citta', 'la città', true).correct).toBe(false);
+    expect(checkTypedAnswer('citta', 'città').correct).toBe(false);
+  });
+
+  it('lines up accented letters in the diff', () => {
+    const r = checkTypedAnswer('caffe', 'caffè', true);
+    expect(r.expected.every((c) => c.ok)).toBe(true);
+    expect(r.expected.map((c) => c.ch).join('')).toBe('caffè');
+  });
+});

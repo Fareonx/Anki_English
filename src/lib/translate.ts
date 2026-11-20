@@ -4,6 +4,8 @@
 //  - data[1]     dictionary entries by part of speech; null for words Google does not know
 //  - data[7]     "did you mean" correction, e.g. mothr -> mother
 
+import type { StudyLang } from './studyLang';
+
 export type Lang = 'ru' | 'az';
 
 export interface Lookup {
@@ -50,13 +52,13 @@ export function parseGtx(word: string, data: GtxResponse): Lookup {
   return { main, alternatives, known: alternatives.length > 0, suggestion };
 }
 
-/** Translation of an English word or phrase, cached for the session. */
-export function lookup(word: string, lang: Lang): Promise<Lookup> {
-  const key = `${lang}:${word.trim().toLowerCase()}`;
+/** Translation of a word or phrase in the studied language (English by default), cached for the session. */
+export function lookup(word: string, lang: Lang, from: StudyLang = 'en'): Promise<Lookup> {
+  const key = `${from}>${lang}:${word.trim().toLowerCase()}`;
   let hit = cache.get(key);
   if (!hit) {
     hit = fetchWithTimeout(
-      `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${lang}&dt=t&dt=bd&dt=qca&q=${encodeURIComponent(word.trim())}`,
+      `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${from}&tl=${lang}&dt=t&dt=bd&dt=qca&q=${encodeURIComponent(word.trim())}`,
     )
       .then(async (res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -86,9 +88,9 @@ export function formatMeanings(word: string, l: Lookup): string {
   return meanings.join(', ');
 }
 
-async function translateMyMemory(word: string, lang: Lang): Promise<string> {
+async function translateMyMemory(word: string, lang: Lang, from: StudyLang): Promise<string> {
   const res = await fetchWithTimeout(
-    `https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=en|${lang}`,
+    `https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=${from}|${lang}`,
   );
   if (!res.ok) return '';
   const data = (await res.json()) as { responseStatus?: number; responseData?: { translatedText?: string } };
@@ -100,14 +102,14 @@ async function translateMyMemory(word: string, lang: Lang): Promise<string> {
 }
 
 /** Ready-to-save translation, with MyMemory as a fallback. */
-export async function translate(word: string, lang: Lang): Promise<string> {
-  const google = await lookup(word, lang)
+export async function translate(word: string, lang: Lang, from: StudyLang = 'en'): Promise<string> {
+  const google = await lookup(word, lang, from)
     .then((l) => formatMeanings(word, l))
     .catch(() => '');
-  return google || translateMyMemory(word, lang).catch(() => '');
+  return google || translateMyMemory(word, lang, from).catch(() => '');
 }
 
-/** Words spelled like `word` (Datamuse), for "did you mean" hints. */
+/** English words spelled like `word` (Datamuse), for "did you mean" hints. */
 export async function similarWords(word: string, max = 4): Promise<string[]> {
   const res = await fetchWithTimeout(
     `https://api.datamuse.com/words?sp=${encodeURIComponent(word.trim().toLowerCase())}&max=${max + 2}`,

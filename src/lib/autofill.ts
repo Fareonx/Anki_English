@@ -6,6 +6,7 @@
 
 import type { NoteFields } from './db';
 import { fetchWithTimeout, translate } from './translate';
+import type { StudyLang } from './studyLang';
 
 interface DictEntry {
   phonetic?: string;
@@ -17,8 +18,9 @@ interface DictEntry {
   }[];
 }
 
-/** Transcription, part of speech, definition, example and synonyms from dictionaryapi.dev. */
-export async function lookupDictionary(word: string): Promise<Partial<NoteFields>> {
+/** Transcription, part of speech, definition, example and synonyms from dictionaryapi.dev (English only). */
+export async function lookupDictionary(word: string, from: StudyLang = 'en'): Promise<Partial<NoteFields>> {
+  if (from !== 'en') return {};
   const res = await fetchWithTimeout(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`);
   if (!res.ok) return {};
   const entries = (await res.json()) as DictEntry[];
@@ -43,13 +45,13 @@ export async function lookupDictionary(word: string): Promise<Partial<NoteFields
 }
 
 /** Returns a copy of `note` with empty fields filled in where a service had an answer. */
-export async function autofill(note: NoteFields): Promise<NoteFields> {
+export async function autofill(note: NoteFields, from: StudyLang = 'en'): Promise<NoteFields> {
   const word = note.word.trim();
   if (!word) return note;
   const [dict, ru, az] = await Promise.all([
-    lookupDictionary(word).catch(() => ({}) as Partial<NoteFields>),
-    note.translation_ru ? Promise.resolve('') : translate(word, 'ru').catch(() => ''),
-    note.translation_az ? Promise.resolve('') : translate(word, 'az').catch(() => ''),
+    lookupDictionary(word, from).catch(() => ({}) as Partial<NoteFields>),
+    note.translation_ru ? Promise.resolve('') : translate(word, 'ru', from).catch(() => ''),
+    note.translation_az ? Promise.resolve('') : translate(word, 'az', from).catch(() => ''),
   ]);
   const out = { ...note };
   for (const [key, value] of Object.entries(dict) as [keyof NoteFields, string][]) {

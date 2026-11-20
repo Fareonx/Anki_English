@@ -5,6 +5,8 @@ import { AddPage } from './pages/AddPage';
 import { BrowsePage } from './pages/BrowsePage';
 import { DecksPage } from './pages/DecksPage';
 import { LearnedWordsPage } from './pages/LearnedWordsPage';
+import { LessonPage } from './pages/LessonPage';
+import { LessonsPage } from './pages/LessonsPage';
 import { LoginPage } from './pages/LoginPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { StatsPage } from './pages/StatsPage';
@@ -12,7 +14,7 @@ import { StudyPage } from './pages/StudyPage';
 import { useI18n } from './lib/i18n';
 
 export function App() {
-  const { loading, userId, profile, student, isAdmin } = useAuth();
+  const { loading, userId, profile, student, isAdmin, studyLang } = useAuth();
   const { t } = useI18n();
 
   if (loading) return <div className="center muted">{t('loading')}</div>;
@@ -39,6 +41,8 @@ export function App() {
             <Route path="/stats" element={<StatsPage />} />
             <Route path="/stats/words" element={<LearnedWordsPage />} />
             <Route path="/settings" element={<SettingsPage />} />
+            {studyLang === 'it' && <Route path="/lessons" element={<LessonsPage />} />}
+            {studyLang === 'it' && <Route path="/lessons/:lessonId" element={<LessonPage />} />}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         )}

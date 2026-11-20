@@ -66,7 +66,7 @@ async function buildSection(student: Row, day: number): Promise<Section> {
   const reviewsPerDay = Number(settings.reviewsPerDay) > 0 ? Number(settings.reviewsPerDay) : DEFAULT_REVIEWS;
   const dayEnd = new Date((day + 1) * DAY_MS).toISOString();
 
-  const [revlog, cards, notes, sentences, trackRoots, topups] = await Promise.all([
+  const [revlog, cards, notes, sentences, track, topups] = await Promise.all([
     fetchAll('revlog', 'card_id, reviewed_at, ease, last_ivl, time_ms, rtype', (q) =>
       q.eq('student_id', student.id).lt('reviewed_at', dayEnd).order('id')),
     fetchAll('cards', 'id, note_id, queue, ctype, due, ivl, lapses, leech', (q) =>
@@ -78,14 +78,13 @@ async function buildSection(student: Row, day: number): Promise<Section> {
         .gte('created_at', new Date(day * DAY_MS).toISOString())
         .lt('created_at', dayEnd)
         .order('created_at')),
-    // Students on a track (beginner: "1. Начало A1", IELTS: "1. Основа B1") get words automatically.
-    fetchAll('decks', 'id', (q) =>
-      q.eq('student_id', student.id).is('parent_id', null).in('name', ['1. Начало A1', '1. Основа B1'])),
+    // Students on a word track (beginner, IELTS, everyday, Italian) get words automatically.
+    sb.rpc('student_track', { p_student: student.id }).then(({ data }) => (data as string | null) ?? null),
     // Automatic top-ups since the reported day began (they run at 04:05 Baku).
     fetchAll('word_topups', 'words, first_day, last_day, courses, created_at', (q) =>
       q.eq('student_id', student.id).gte('created_at', new Date(day * DAY_MS).toISOString()).order('created_at')),
   ]);
-  const autoTopUp = trackRoots.length > 0;
+  const autoTopUp = track !== null;
   let bankLeft: number | null = null;
   if (autoTopUp) {
     const { data } = await sb.rpc('bank_remaining', { p_student: student.id });
