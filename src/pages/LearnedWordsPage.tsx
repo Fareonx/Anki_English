@@ -11,19 +11,30 @@ function sortKey(word: string, lang: StudyLang): string {
   return lang === 'it' ? word.replace(/^(il|lo|la|i|gli|le)\s+|^l['’]/i, '') : word;
 }
 
-/** Every word the student has learned (the "Изучено слов" tile on the stats page). */
+type Status = 'solid' | 'learned' | 'learning';
+type Filter = 'learned' | 'learning' | 'all';
+
+/**
+ * "My words": the words the student has learned (both cards out of the learning steps,
+ * as the "Изучено слов" tile counts them) and the words started but not learned yet.
+ */
 export function LearnedWordsPage() {
   const { cards, notes, loading, error } = useStudentData({ notes: true, revlogDays: 0 });
   const { t, locale } = useI18n();
   const { studyLang } = useAuth();
   const [query, setQuery] = useState('');
-  const [solidOnly, setSolidOnly] = useState(false);
+  const [filter, setFilter] = useState<Filter>('learned');
 
-  const learned = useMemo(() => {
-    const byNote = learnedNotes(cards);
+  const words = useMemo(() => {
+    const learned = learnedNotes(cards);
+    const started = new Set(cards.filter((c) => c.ctype !== 0).map((c) => c.note_id));
     return notes
-      .filter((n) => byNote.has(n.id))
-      .map((n) => ({ note: n, solid: byNote.get(n.id)!.solid }))
+      .filter((n) => started.has(n.id))
+      .map((n) => {
+        const l = learned.get(n.id);
+        const status: Status = l ? (l.solid ? 'solid' : 'learned') : 'learning';
+        return { note: n, status };
+      })
       .sort((a, b) =>
         sortKey(a.note.word, studyLang).localeCompare(sortKey(b.note.word, studyLang), studyLang, {
           sensitivity: 'base',
@@ -34,13 +45,19 @@ export function LearnedWordsPage() {
   if (loading) return <p className="muted">{t('loading')}</p>;
   if (error) return <p className="error">{error}</p>;
 
+  const learnedCount = words.filter((w) => w.status !== 'learning').length;
+  const learningCount = words.length - learnedCount;
   const q = query.trim().toLowerCase();
-  const visible = learned.filter(
-    ({ note: n, solid }) =>
-      (!solidOnly || solid) &&
+  const visible = words.filter(
+    ({ note: n, status }) =>
+      (filter === 'all' || (filter === 'learning') === (status === 'learning')) &&
       (!q || [n.word, n.translation_ru, n.translation_az].some((f) => f.toLowerCase().includes(q))),
   );
-  const solidCount = learned.filter((x) => x.solid).length;
+  const FILTERS: [Filter, string][] = [
+    ['learned', `${t('learned.learned')} · ${learnedCount.toLocaleString(locale)}`],
+    ['learning', `${t('learned.learning')} · ${learningCount.toLocaleString(locale)}`],
+    ['all', `${t('learned.all')} · ${words.length.toLocaleString(locale)}`],
+  ];
 
   return (
     <div className="stack">
@@ -48,21 +65,20 @@ export function LearnedWordsPage() {
         <Link to="/stats" className="muted">
           ← {t('nav.stats')}
         </Link>
-        <h2 className="grow">{t('learned.title', { n: learned.length.toLocaleString(locale) })}</h2>
+        <h2 className="grow">{t('learned.my_title')}</h2>
       </div>
       <p className="muted small">{t('learned.hint')}</p>
 
-      {learned.length === 0 ? (
+      {words.length === 0 ? (
         <p className="muted">{t('learned.empty')}</p>
       ) : (
         <>
           <div className="segmented">
-            <button className={solidOnly ? '' : 'active'} onClick={() => setSolidOnly(false)}>
-              {t('learned.all')} · {learned.length}
-            </button>
-            <button className={solidOnly ? 'active' : ''} onClick={() => setSolidOnly(true)}>
-              {t('learned.solid')} · {solidCount}
-            </button>
+            {FILTERS.map(([f, label]) => (
+              <button key={f} className={filter === f ? 'active' : ''} onClick={() => setFilter(f)}>
+                {label}
+              </button>
+            ))}
           </div>
           <input
             type="search"
@@ -70,9 +86,11 @@ export function LearnedWordsPage() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          {visible.length === 0 && <p className="muted">{t('browse.empty')}</p>}
+          {visible.length === 0 && (
+            <p className="muted">{filter === 'learned' ? t('learned.none_yet') : t('browse.empty')}</p>
+          )}
           <div className="word-list">
-            {visible.map(({ note: n, solid }) => (
+            {visible.map(({ note: n, status }) => (
               <div key={n.id} className="card word-item">
                 <div className="word-line">
                   <div className="grow">
@@ -82,7 +100,9 @@ export function LearnedWordsPage() {
                       {n.translation_az && <span className="muted"> · {n.translation_az}</span>}
                     </div>
                   </div>
-                  {solid && <span className="status mature">{t('learned.solid_badge')}</span>}
+                  <span className={`status ${status === 'learning' ? 'learning' : status === 'solid' ? 'mature' : 'young'}`}>
+                    {t(`learned.status_${status}`)}
+                  </span>
                 </div>
               </div>
             ))}

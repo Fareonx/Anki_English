@@ -99,3 +99,13 @@ describe('checkTypedAnswer (lenient, Italian)', () => {
     expect(r.expected.map((c) => c.ch).join('')).toBe('caffè');
   });
 });
+
+describe('checkTypedAnswer (lenient) ignores punctuation', () => {
+  it('accepts answers without ?, … and with other capitals', () => {
+    expect(checkTypedAnswer('come stai', 'come stai?', true).correct).toBe(true);
+    expect(checkTypedAnswer('mi chiamo', 'mi chiamo…', true).correct).toBe(true);
+    expect(checkTypedAnswer('Mi chiamo...', 'mi chiamo…', true).correct).toBe(true);
+    expect(checkTypedAnswer('cosi cosi', 'così così', true).correct).toBe(true);
+    expect(checkTypedAnswer('come stai', 'come stai?').correct).toBe(false);
+  });
+});

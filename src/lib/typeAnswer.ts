@@ -31,14 +31,19 @@ function foldChar(ch: string): string {
   return ch.normalize('NFD').replace(/\p{M}/gu, '');
 }
 
-/** Without accents and apostrophes: "l'università" -> "luniversita". */
+/** Without accents, apostrophes and punctuation: "l'università" -> "luniversita", "Come stai?" -> "come stai". */
 export function foldAnswer(s: string): string {
-  return foldChar(normalizeAnswer(s)).replace(/'/g, '');
+  return foldChar(normalizeAnswer(s))
+    .replace(/'/g, '')
+    .replace(/[?!.,;:…¿¡"«»“”()-]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 /**
- * `lenient` (Italian): letters with accents and apostrophes are not required, so
- * "citta" is right for "città"; such an answer is marked `inexact` to show the spelling.
+ * `lenient` (Italian): letters with accents, apostrophes and punctuation are not required,
+ * so "citta" is right for "città" and "come stai" for "Come stai?"; such an answer is marked
+ * `inexact` to show the spelling.
  */
 export function checkTypedAnswer(typedRaw: string, expectedRaw: string, lenient = false): TypedResult {
   const typed = typedRaw.replace(/\s+/g, ' ').trim();

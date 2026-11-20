@@ -5,7 +5,7 @@ import { LESSONS } from '../lessons/it';
 import type { Drill, Lesson } from '../lessons/types';
 import { saveLessonResult } from '../lib/db';
 import { useI18n } from '../lib/i18n';
-import { canSpeak, speak } from '../lib/speech';
+import { speak, useSpeech } from '../lib/speech';
 import { checkTypedAnswer } from '../lib/typeAnswer';
 
 /** "**bold**" in lesson texts. */
@@ -34,6 +34,7 @@ function shuffled<T>(items: T[]): T[] {
 }
 
 function Theory({ lesson }: { lesson: Lesson }) {
+  const voice = useSpeech('it');
   return (
     <>
       {lesson.sections.map((s, i) => (
@@ -68,7 +69,7 @@ function Theory({ lesson }: { lesson: Lesson }) {
               {s.examples.map((e, k) => (
                 <li key={k}>
                   <b>{e.it}</b>
-                  {canSpeak() && (
+                  {voice.available && voice.enabled && (
                     <button type="button" className="icon-btn tiny-speak" onClick={() => speak(e.it, 'it')} aria-label="🔊">
                       🔊
                     </button>

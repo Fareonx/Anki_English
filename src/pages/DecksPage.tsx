@@ -7,6 +7,7 @@ import { buildDeckTree, flattenTree, isFinishedLeaf, subtreeIds, type DeckNode }
 import { countFreshToday, StudySession, type Counts } from '../lib/scheduler/queue';
 import { formatDuration, streak, summarizeToday, todayStartIso } from '../lib/stats';
 import { useStudentData } from '../lib/useStudentData';
+import { EXTRA_STEP, extraNewCap, useExtraNew } from '../lib/extraNew';
 import { useI18n } from '../lib/i18n';
 
 function CountCells({ counts }: { counts: Counts }) {
@@ -22,7 +23,14 @@ function CountCells({ counts }: { counts: Counts }) {
 const SHOW_DONE_KEY = 'showFinishedDecks';
 
 export function DecksPage() {
-  const { student, config, isAdmin, profile } = useAuth();
+  const { student, config: baseConfig, isAdmin, profile } = useAuth();
+  // Extra words taken today count like the daily limit, here as on the study screen.
+  const [extraNew, addExtraNew] = useExtraNew(student?.id, baseConfig);
+  const extraCap = extraNewCap(student?.settings, isAdmin);
+  const config = useMemo(
+    () => ({ ...baseConfig, newPerDay: baseConfig.newPerDay + extraNew }),
+    [baseConfig, extraNew],
+  );
   const { t, units } = useI18n();
   const { decks, cards, revlog, loading, error, reload } = useStudentData({ revlogDays: 60 });
   const navigate = useNavigate();
@@ -55,7 +63,7 @@ export function DecksPage() {
   const tree = useMemo(() => buildDeckTree(decks), [decks]);
   const flat = useMemo(() => flattenTree(tree), [tree]);
 
-  const { summary, countsByDeck, total, finished } = useMemo(() => {
+  const { summary, countsByDeck, total, finished, freshLeft } = useMemo(() => {
     const cardNote = new Map(cards.map((c) => [c.id, c.note_id]));
     const summaryRaw = summarizeToday(revlog, cardNote, config, now);
     // The daily limit counts words started today in all decks, not only the opened one.
@@ -71,7 +79,12 @@ export function DecksPage() {
       if (isFinishedLeaf(node, subset, todayStart)) finished.add(node.deck.id);
     }
     const total = new StudySession(cards, summary, config, now).counts();
-    return { summary, countsByDeck, total, finished };
+    // Words not started yet that today's limit leaves for later.
+    const started = new Set(cards.filter((c) => c.ctype !== 0).map((c) => c.note_id));
+    const freshLeft = new Set(
+      cards.filter((c) => !started.has(c.note_id) && !summary.touchedNotes.has(c.note_id)).map((c) => c.note_id),
+    ).size;
+    return { summary, countsByDeck, total, finished, freshLeft };
     // `now` is intentionally sampled per render.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cards, revlog, decks, flat, config]);
@@ -197,6 +210,20 @@ export function DecksPage() {
             <PlayIcon /> {t('decks.study')}
           </button>
         )}
+        {!loading && dueToday === 0 && freshLeft > 0 && !viewingOther && extraNew < extraCap && (
+          <button
+            className="btn wide big-btn"
+            onClick={() => {
+              addExtraNew(Math.min(EXTRA_STEP, extraCap - extraNew));
+              navigate('/study/all');
+            }}
+          >
+            {t('study.more_new', { n: Math.min(EXTRA_STEP, extraCap - extraNew, freshLeft) })}
+          </button>
+        )}
+        <Link to="/stats/words" className="muted small my-words-link">
+          {t('decks.my_words')} →
+        </Link>
         <div className="hero-stats">
           <span className="muted">{t('decks.done')}</span>
           <span>

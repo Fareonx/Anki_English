@@ -5,6 +5,7 @@ import { DEFAULT_CONFIG } from '../lib/scheduler/config';
 import type { SchedConfig } from '../lib/scheduler/types';
 import { getTheme, setTheme, type Theme } from '../lib/theme';
 import { LANGS, useI18n, type Key } from '../lib/i18n';
+import { useSpeech } from '../lib/speech';
 
 type NumberKey = {
   [K in keyof SchedConfig]: SchedConfig[K] extends number ? K : never;
@@ -26,8 +27,9 @@ const parseSteps = (text: string) =>
     .filter((n) => Number.isFinite(n) && n > 0);
 
 export function SettingsPage() {
-  const { student, config, isAdmin, profile, reload, signOut } = useAuth();
-  const { t, lang, setLang } = useI18n();
+  const { student, config, isAdmin, profile, reload, signOut, studyLang } = useAuth();
+  const voice = useSpeech(studyLang);
+  const { t, lang, setLang, locale } = useI18n();
   const [form, setForm] = useState<SchedConfig>(config);
   const [learnSteps, setLearnSteps] = useState(config.learnSteps.join(' '));
   const [relearnSteps, setRelearnSteps] = useState(config.relearnSteps.join(' '));
@@ -111,6 +113,22 @@ export function SettingsPage() {
             </button>
           ))}
         </div>
+        <div className="segmented" role="radiogroup" aria-label={t('voice.title')}>
+          {[true, false].map((on) => (
+            <button
+              key={String(on)}
+              type="button"
+              role="radio"
+              aria-checked={voice.enabled === on}
+              className={voice.enabled === on ? 'active' : ''}
+              disabled={!voice.available}
+              onClick={() => voice.setEnabled(on)}
+            >
+              {on ? t('voice.on') : t('voice.off')}
+            </button>
+          ))}
+        </div>
+        {!voice.available && <p className="muted small">{t(studyLang === 'it' ? 'voice.none_it' : 'voice.none')}</p>}
         <p className="muted small">{t('settings.device_note')}</p>
       </section>
 
@@ -194,6 +212,9 @@ export function SettingsPage() {
           ))}
         </ul>
       </section>
+      <p className="muted tiny" style={{ textAlign: 'center' }}>
+        {t('settings.version', { date: new Date(__BUILD_TIME__).toLocaleString(locale) })}
+      </p>
     </div>
   );
 }
