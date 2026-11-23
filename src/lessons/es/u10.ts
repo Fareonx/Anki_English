@@ -298,7 +298,7 @@ export const lessons: Lesson[] = [
       { prompt: 'El año pasado ___ (nosotros, viajar) a Italia.', answer: 'viajamos', hint: 'nosotros -ar → -amos.' },
       { prompt: 'Anoche ellos ___ (salir) muy tarde.', answer: 'salieron', hint: '-ir · ellos → -ieron.' },
       { prompt: 'Hace dos años ella ___ (aprender) a nadar.', answer: 'aprendió', hint: '-er · ella → -ió.' },
-      { prompt: 'Esta mañana ___ (yo, desayunar) poco.', answer: 'he desayunado', hint: '«Сегодня утром» — период открыт → perfecto.' },
+      { prompt: 'Esta mañana ___ (yo, desayunar) poco.', answer: 'he desayunado', also: ['desayuné'], hint: '«Сегодня утром» — период открыт → perfecto.' },
     ],
   },
 ];
