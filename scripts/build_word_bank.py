@@ -163,8 +163,9 @@ def main() -> None:
                     # "il libro" and "libro" are the same word.
                     key = re.sub(r"^(il|lo|la|i|gli|le)\s+|^l'", '', key)
                 elif track == 'spanish':
-                    # "el libro" and "libro" are the same word, "¡hola!" and "hola" too.
-                    key = re.sub(r'^(el|la|los|las)\s+', '', key).strip('¡!¿?. ')
+                    # "¡hola!" and "hola" are the same word; the article stays, because
+                    # "mañana" (tomorrow) and "la mañana" (morning) are two words.
+                    key = key.strip('¡!¿?. ')
                 if key in seen[track]:
                     skipped.append(f'{os.path.basename(folder)}/{os.path.basename(path)}:{word}')
                     continue
