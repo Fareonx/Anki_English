@@ -420,7 +420,7 @@ export const lessons: Lesson[] = [
     drills: [
       { prompt: 'Ayer ___ (yo, ir) al médico.', answer: 'fui', hint: 'ayer, одно событие → indefinido.' },
       { prompt: 'Cuando era pequeño, ___ (yo, ir) al parque todos los días.', answer: 'iba', hint: 'Привычка → imperfecto.' },
-      { prompt: 'Mientras yo ___ (ducharse), sonó el teléfono.', answer: 'me duchaba', hint: 'Процесс, который прервали → imperfecto.' },
+      { prompt: 'Mientras yo ___ (ducharse), sonó el teléfono.', answer: 'me duchaba', also: ['me estaba duchando', 'estaba duchándome'], hint: 'Процесс, который прервали → imperfecto.' },
       { prompt: 'Yo leía cuando ___ (llegar) mi hermano.', answer: 'llegó', hint: 'Прерывающее событие → indefinido.' },
       { prompt: '___ (hacer) sol y la gente paseaba por la playa.', answer: 'hacía', hint: 'Погода, фон → imperfecto.' },
       { prompt: 'De repente ___ (empezar) a llover.', answer: 'empezó', hint: 'de repente → indefinido.' },

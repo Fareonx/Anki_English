@@ -86,6 +86,13 @@ export function checkTypedAnswer(
   const sameLength = typed.length === n && expected.length === m;
   const show = (raw: string, norm: string) => (sameLength ? raw : norm);
   const exact = a === b && a.length > 0;
+  // "este / esta": either form is enough.
+  if (lenient && expected.includes(' / ') && !typed.includes('/')) {
+    for (const variant of expected.split(' / ')) {
+      const r = checkTypedAnswer(typedRaw, variant, lenient, optionalArticle);
+      if (r.correct) return { ...r, inexact: true, expected: [...expected].map((ch) => ({ ch, ok: true })) };
+    }
+  }
   const withoutArticle = optionalArticle ? b.replace(optionalArticle, '') : null;
   const correct =
     exact ||

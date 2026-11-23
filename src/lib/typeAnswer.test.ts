@@ -121,3 +121,11 @@ describe('checkTypedAnswer with an optional article (Spanish)', () => {
     expect(checkTypedAnswer('agua', 'el agua', true).correct).toBe(false);
   });
 });
+
+describe('checkTypedAnswer with two forms', () => {
+  it('accepts either form of "este / esta"', () => {
+    expect(checkTypedAnswer('esta', 'este / esta', true).correct).toBe(true);
+    expect(checkTypedAnswer('este', 'este / esta', true).correct).toBe(true);
+    expect(checkTypedAnswer('ese', 'este / esta', true).correct).toBe(false);
+  });
+});
