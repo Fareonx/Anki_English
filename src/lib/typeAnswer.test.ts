@@ -109,3 +109,15 @@ describe('checkTypedAnswer (lenient) ignores punctuation', () => {
     expect(checkTypedAnswer('come stai', 'come stai?').correct).toBe(false);
   });
 });
+
+describe('checkTypedAnswer with an optional article (Spanish)', () => {
+  const ES = /^(el|la|los|las)\s+/i;
+  it('accepts the noun without its article, but not a wrong article', () => {
+    expect(checkTypedAnswer('agua', 'el agua', true, ES)).toMatchObject({ correct: true, inexact: true });
+    expect(checkTypedAnswer('el agua', 'el agua', true, ES).correct).toBe(true);
+    expect(checkTypedAnswer('cancion', 'la canción', true, ES).correct).toBe(true);
+    expect(checkTypedAnswer('la agua', 'el agua', true, ES).correct).toBe(false);
+    expect(checkTypedAnswer('Buenos dias.', '¡buenos días!', true, ES).correct).toBe(true);
+    expect(checkTypedAnswer('agua', 'el agua', true).correct).toBe(false);
+  });
+});

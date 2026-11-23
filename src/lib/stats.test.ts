@@ -40,3 +40,15 @@ describe('learnedNotes', () => {
     ]);
   });
 });
+
+describe('learnedNotes with typing-only words', () => {
+  it('ignores the suspended recall card', () => {
+    const cards = [
+      { note_id: 'a', ctype: 0 as const, ivl: 0, queue: -1 },
+      { note_id: 'a', ctype: 2 as const, ivl: 3, queue: 2 },
+      { note_id: 'b', ctype: 0 as const, ivl: 0, queue: -1 },
+      { note_id: 'b', ctype: 1 as const, ivl: 0, queue: 1 },
+    ];
+    expect([...learnedNotes(cards)]).toEqual([['a', { solid: false }]]);
+  });
+});

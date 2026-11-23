@@ -4,6 +4,8 @@ import { useAuth } from '../auth';
 import { AddIcon, DecksIcon, LessonsIcon, SettingsIcon, StatsIcon } from './Icons';
 import { useI18n, type Key } from '../lib/i18n';
 import { LanguageSelect } from './LanguageSelect';
+import { courseFor } from '../lessons';
+import { APP_TITLE } from '../lib/studyLang';
 
 type Tab = { to: string; label: Key; icon: JSX.Element; end: boolean };
 
@@ -14,14 +16,14 @@ const TABS: Tab[] = [
   { to: '/settings', label: 'nav.settings', icon: <SettingsIcon />, end: false },
 ];
 
-// Grammar lessons exist for Italian only; the tab goes before Settings.
+// Grammar lessons exist for Italian and Spanish; the tab goes before Settings.
 const LESSONS_TAB: Tab = { to: '/lessons', label: 'nav.lessons', icon: <LessonsIcon />, end: false };
-const TABS_IT: Tab[] = [...TABS.slice(0, 3), LESSONS_TAB, TABS[3]];
+const TABS_LESSONS: Tab[] = [...TABS.slice(0, 3), LESSONS_TAB, TABS[3]];
 
 export function Layout({ children }: { children: ReactNode }) {
   const { isAdmin, students, student, selectStudent, studyLang } = useAuth();
   const { t } = useI18n();
-  const tabs = studyLang === 'it' ? TABS_IT : TABS;
+  const tabs = courseFor(studyLang) ? TABS_LESSONS : TABS;
   // The study screen is a focus mode: no header and no tab bar.
   const focus = useLocation().pathname.startsWith('/study/');
 
@@ -32,7 +34,7 @@ export function Layout({ children }: { children: ReactNode }) {
           <div className="topbar-inner">
             <NavLink to="/" className="brand">
               <img src="./icon.svg" alt="" width={30} height={30} />
-              <span>{studyLang === 'it' ? 'Italiano' : 'IELTS Words'}</span>
+              <span>{APP_TITLE[studyLang]}</span>
             </NavLink>
             <div className="topbar-actions">
             {isAdmin && students.length > 0 && (

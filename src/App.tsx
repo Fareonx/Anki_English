@@ -12,11 +12,13 @@ import { SettingsPage } from './pages/SettingsPage';
 import { StatsPage } from './pages/StatsPage';
 import { StudyPage } from './pages/StudyPage';
 import { VerbsPage } from './pages/VerbsPage';
+import { courseFor } from './lessons';
 import { useI18n } from './lib/i18n';
 
 export function App() {
   const { loading, userId, profile, student, isAdmin, studyLang } = useAuth();
   const { t } = useI18n();
+  const hasLessons = courseFor(studyLang) !== null;
 
   if (loading) return <div className="center muted">{t('loading')}</div>;
   if (!userId || !profile) return <LoginPage />;
@@ -42,9 +44,9 @@ export function App() {
             <Route path="/stats" element={<StatsPage />} />
             <Route path="/stats/words" element={<LearnedWordsPage />} />
             <Route path="/settings" element={<SettingsPage />} />
-            {studyLang === 'it' && <Route path="/lessons" element={<LessonsPage />} />}
-            {studyLang === 'it' && <Route path="/lessons/verbs" element={<VerbsPage />} />}
-            {studyLang === 'it' && <Route path="/lessons/:lessonId" element={<LessonPage />} />}
+            {hasLessons && <Route path="/lessons" element={<LessonsPage />} />}
+            {hasLessons && <Route path="/lessons/verbs" element={<VerbsPage />} />}
+            {hasLessons && <Route path="/lessons/:lessonId" element={<LessonPage />} />}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         )}

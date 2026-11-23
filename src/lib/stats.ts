@@ -120,9 +120,13 @@ export function countMaturity(cards: CardRow[]): Record<Maturity, number> {
  * Words the student has learned: both cards (typing the English word and recalling the
  * translation) have left the learning steps. `solid` words also have intervals of 21+ days.
  */
-export function learnedNotes(cards: Pick<CardRow, 'note_id' | 'ctype' | 'ivl'>[]): Map<string, { solid: boolean }> {
+export function learnedNotes(
+  cards: (Pick<CardRow, 'note_id' | 'ctype' | 'ivl'> & { queue?: number })[],
+): Map<string, { solid: boolean }> {
   const byNote = new Map<string, { learned: boolean; solid: boolean }>();
   for (const c of cards) {
+    // A suspended card is not studied (typing-only students have only the typing card).
+    if (c.queue === Queue.Suspended) continue;
     const s = byNote.get(c.note_id) ?? { learned: true, solid: true };
     const learned = c.ctype === CardType.Review || c.ctype === CardType.Relearn;
     s.learned &&= learned;
@@ -135,7 +139,9 @@ export function learnedNotes(cards: Pick<CardRow, 'note_id' | 'ctype' | 'ivl'>[]
 }
 
 /** Words learned in both directions (see learnedNotes) and how many of them are solid. */
-export function countLearnedWords(cards: Pick<CardRow, 'note_id' | 'ctype' | 'ivl'>[]): { learned: number; solid: number } {
+export function countLearnedWords(
+  cards: (Pick<CardRow, 'note_id' | 'ctype' | 'ivl'> & { queue?: number })[],
+): { learned: number; solid: number } {
   const learned = learnedNotes(cards);
   let solid = 0;
   for (const s of learned.values()) if (s.solid) solid++;

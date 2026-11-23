@@ -128,7 +128,7 @@ export function SettingsPage() {
             </button>
           ))}
         </div>
-        {!voice.available && <p className="muted small">{t(studyLang === 'it' ? 'voice.none_it' : 'voice.none')}</p>}
+        {!voice.available && <p className="muted small">{t(studyLang === 'it' ? 'voice.none_it' : studyLang === 'es' ? 'voice.none_es' : 'voice.none')}</p>}
         <p className="muted small">{t('settings.device_note')}</p>
       </section>
 

@@ -1,20 +1,18 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
-import type { TenseId, Verb, VerbGroup } from '../lessons/it/verbTypes';
-import { TENSE_UNIT, VERBS } from '../lessons/it/verbs';
-import { useI18n, type Key } from '../lib/i18n';
+import { useAuth } from '../auth';
+import { courseFor } from '../lessons';
+import type { Course, Verb } from '../lessons/types';
+import { useI18n } from '../lib/i18n';
 import { speak, useSpeech } from '../lib/speech';
+import type { StudyLang } from '../lib/studyLang';
 import { checkTypedAnswer } from '../lib/typeAnswer';
 
-const PERSONS = ['io', 'tu', 'lui / lei', 'noi', 'voi', 'loro'];
-const TENSES: TenseId[] = ['presente', 'passato', 'futuro', 'imperfetto', 'condizionale', 'imperativo'];
-const GROUPS: (VerbGroup | 'all')[] = ['all', 'are', 'ere', 'ire', 'isc', 'irregular', 'modal', 'reflexive'];
 const QUESTIONS = 20;
-const TENSES_KEY = 'verbTenses';
 
 export interface VerbQuestion {
   verb: Verb;
-  tense: TenseId;
+  tense: string;
   person: number;
 }
 
@@ -28,7 +26,7 @@ export function verbVerdict(q: VerbQuestion, typed: string): { correct: boolean;
 }
 
 /** `count` random questions over the chosen verbs and tenses, no question twice in a row. */
-export function makeQuestions(verbs: Verb[], tenses: TenseId[], count: number, random = Math.random): VerbQuestion[] {
+export function makeQuestions(verbs: Verb[], tenses: string[], count: number, random = Math.random): VerbQuestion[] {
   const pool: VerbQuestion[] = [];
   for (const verb of verbs) {
     for (const tense of tenses) {
@@ -44,29 +42,33 @@ export function makeQuestions(verbs: Verb[], tenses: TenseId[], count: number, r
   return pool.slice(0, count);
 }
 
-function readTenses(): TenseId[] {
+/** The chosen tenses are remembered per language. */
+const tensesKey = (lang: StudyLang) => `verbTenses:${lang}`;
+
+function readTenses(lang: StudyLang, course: Course): string[] {
   try {
-    const stored = JSON.parse(localStorage.getItem(TENSES_KEY) ?? '[]') as TenseId[];
-    const valid = stored.filter((t) => TENSES.includes(t));
+    const stored = JSON.parse(localStorage.getItem(tensesKey(lang)) ?? '[]') as string[];
+    const valid = stored.filter((t) => course.tenses.some((x) => x.id === t));
     return valid.length ? valid : ['presente'];
   } catch {
     return ['presente'];
   }
 }
 
-function FormsTable({ verb, tense, person }: { verb: Verb; tense: TenseId; person?: number }) {
-  const { t } = useI18n();
+const tenseLabel = (course: Course, id: string) => course.tenses.find((x) => x.id === id)?.label ?? id;
+
+function FormsTable({ course, verb, tense, person }: { course: Course; verb: Verb; tense: string; person?: number }) {
   return (
     <div className="table-wrap">
       <div className="table-title">
-        {verb.inf} · {t(`verbs.tense_${tense}` as Key)}
+        {verb.inf} · {tenseLabel(course, tense)}
       </div>
       <table className="forms">
         <tbody>
           {verb.forms[tense].map((cell, p) =>
             cell.length === 0 ? null : (
               <tr key={p} className={p === person ? 'highlight' : ''}>
-                <th>{PERSONS[p]}</th>
+                <th>{course.persons[p]}</th>
                 <td>{cell.join(' / ')}</td>
               </tr>
             ),
@@ -77,9 +79,19 @@ function FormsTable({ verb, tense, person }: { verb: Verb; tense: TenseId; perso
   );
 }
 
-function Drill({ questions, onExit }: { questions: VerbQuestion[]; onExit: () => void }) {
+function Drill({
+  course,
+  lang,
+  questions,
+  onExit,
+}: {
+  course: Course;
+  lang: StudyLang;
+  questions: VerbQuestion[];
+  onExit: () => void;
+}) {
   const { t } = useI18n();
-  const voice = useSpeech('it');
+  const voice = useSpeech(lang);
   const [queue, setQueue] = useState(questions);
   const [index, setIndex] = useState(0);
   const [typed, setTyped] = useState('');
@@ -106,7 +118,7 @@ function Drill({ questions, onExit }: { questions: VerbQuestion[]; onExit: () =>
     setVerdict(v);
     if (v.correct) {
       setRight((n) => n + 1);
-      if (voice.enabled) speak(q.verb.forms[q.tense][q.person][0], 'it');
+      if (voice.enabled) speak(q.verb.forms[q.tense][q.person][0], lang);
     } else {
       setMistakes((m) => [...m, q]);
       // A mistake comes back once at the end.
@@ -123,7 +135,7 @@ function Drill({ questions, onExit }: { questions: VerbQuestion[]; onExit: () =>
           <ul className="plain small">
             {unique.map((m, i) => (
               <li key={i}>
-                {m.verb.inf} · {t(`verbs.tense_${m.tense}` as Key)} · {PERSONS[m.person]} →{' '}
+                {m.verb.inf} · {tenseLabel(course, m.tense)} · {course.persons[m.person]} →{' '}
                 <b>{m.verb.forms[m.tense][m.person].join(' / ')}</b>
               </li>
             ))}
@@ -163,7 +175,7 @@ function Drill({ questions, onExit }: { questions: VerbQuestion[]; onExit: () =>
       <div className="drill-prompt">
         {q.verb.inf} <span className="muted small">({q.verb.ru})</span>
         <div className="small">
-          {t(`verbs.tense_${q.tense}` as Key)} · <b>{PERSONS[q.person]}</b>
+          {tenseLabel(course, q.tense)} · <b>{course.persons[q.person]}</b>
         </div>
       </div>
       <form onSubmit={submit} className="drill-form">
@@ -201,29 +213,36 @@ function Drill({ questions, onExit }: { questions: VerbQuestion[]; onExit: () =>
               </div>
             )}
           </div>
-          <FormsTable verb={q.verb} tense={q.tense} person={q.person} />
+          <FormsTable course={course} verb={q.verb} tense={q.tense} person={q.person} />
         </>
       )}
     </section>
   );
 }
 
-/** Verb trainer: conjugate the main verbs of the textbook in the chosen tenses. */
+/** Verb trainer: conjugate the main verbs of the course in the chosen tenses. */
 export function VerbsPage() {
+  const { studyLang } = useAuth();
+  const course = courseFor(studyLang);
+  return course ? <VerbTrainer key={studyLang} lang={studyLang} course={course} /> : null;
+}
+
+function VerbTrainer({ lang, course }: { lang: StudyLang; course: Course }) {
   const { t } = useI18n();
-  const [tenses, setTenses] = useState<TenseId[]>(readTenses);
-  const [group, setGroup] = useState<VerbGroup | 'all'>('all');
+  const [tenses, setTenses] = useState<string[]>(() => readTenses(lang, course));
+  const [group, setGroup] = useState<string>('all');
   const [questions, setQuestions] = useState<VerbQuestion[] | null>(null);
   const [open, setOpen] = useState<string | null>(null);
 
-  const verbs = useMemo(() => VERBS.filter((v) => group === 'all' || v.group === group), [group]);
+  const verbs = useMemo(() => course.verbs.filter((v) => group === 'all' || v.group === group), [course, group]);
+  const groups = [{ id: 'all', label: t('verbs.group_all') }, ...course.groups];
 
-  function toggleTense(tense: TenseId) {
+  function toggleTense(tense: string) {
     setTenses((prev) => {
       const next = prev.includes(tense) ? prev.filter((x) => x !== tense) : [...prev, tense];
-      const ordered = TENSES.filter((x) => next.includes(x));
+      const ordered = course.tenses.map((x) => x.id).filter((x) => next.includes(x));
       try {
-        localStorage.setItem(TENSES_KEY, JSON.stringify(ordered));
+        localStorage.setItem(tensesKey(lang), JSON.stringify(ordered));
       } catch {
         // The choice just won't be remembered.
       }
@@ -238,37 +257,37 @@ export function VerbsPage() {
       </Link>
       <h2>{t('verbs.title')}</h2>
       {questions ? (
-        <Drill questions={questions} onExit={() => setQuestions(null)} />
+        <Drill course={course} lang={lang} questions={questions} onExit={() => setQuestions(null)} />
       ) : (
         <>
           <p className="muted small">{t('verbs.intro')}</p>
           <section className="card pad">
             <h3>{t('verbs.tenses')}</h3>
             <div className="chips">
-              {TENSES.map((tense) => (
+              {course.tenses.map((tense) => (
                 <button
-                  key={tense}
+                  key={tense.id}
                   type="button"
-                  className={`chip ${tenses.includes(tense) ? 'active' : ''}`}
-                  aria-pressed={tenses.includes(tense)}
-                  onClick={() => toggleTense(tense)}
+                  className={`chip ${tenses.includes(tense.id) ? 'active' : ''}`}
+                  aria-pressed={tenses.includes(tense.id)}
+                  onClick={() => toggleTense(tense.id)}
                 >
-                  {t(`verbs.tense_${tense}` as Key)}
-                  <span className="muted tiny"> · {t('lessons.unit', { n: TENSE_UNIT[tense] })}</span>
+                  {tense.label}
+                  <span className="muted tiny"> · {t('lessons.unit', { n: tense.unit })}</span>
                 </button>
               ))}
             </div>
             <h3>{t('verbs.verbs')}</h3>
             <div className="chips">
-              {GROUPS.map((g) => (
+              {groups.map((g) => (
                 <button
-                  key={g}
+                  key={g.id}
                   type="button"
-                  className={`chip ${group === g ? 'active' : ''}`}
-                  aria-pressed={group === g}
-                  onClick={() => setGroup(g)}
+                  className={`chip ${group === g.id ? 'active' : ''}`}
+                  aria-pressed={group === g.id}
+                  onClick={() => setGroup(g.id)}
                 >
-                  {t(`verbs.group_${g}` as Key)}
+                  {g.label}
                 </button>
               ))}
             </div>
@@ -291,8 +310,8 @@ export function VerbsPage() {
                   </button>
                   {open === v.inf && (
                     <div className="verb-tables">
-                      {TENSES.filter((x) => tenses.includes(x)).map((tense) => (
-                        <FormsTable key={tense} verb={v} tense={tense} />
+                      {tenses.map((tense) => (
+                        <FormsTable key={tense} course={course} verb={v} tense={tense} />
                       ))}
                     </div>
                   )}

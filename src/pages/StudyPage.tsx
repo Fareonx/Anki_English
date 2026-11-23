@@ -14,6 +14,7 @@ import { useI18n, type Key } from '../lib/i18n';
 import { checkTypedAnswer, isAcceptedAlternative, type DiffChar, type TypedResult } from '../lib/typeAnswer';
 import { lookup } from '../lib/translate';
 import { EXTRA_STEP, extraNewCap, useExtraNew } from '../lib/extraNew';
+import { ARTICLE, answerRules, type StudyLang } from '../lib/studyLang';
 
 /** Anki stops counting answer time after 60 seconds. */
 const MAX_ANSWER_MS = 60_000;
@@ -24,6 +25,13 @@ const BUTTONS: { ease: Ease; label: Key; cls: string }[] = [
   { ease: Ease.Good, label: 'study.good', cls: 'good' },
   { ease: Ease.Easy, label: 'study.easy', cls: 'easy' },
 ];
+
+/** "Type the word in English / Italian / Spanish" and "Recall the word in ...". */
+const RECALL_KEYS: Record<StudyLang, [Key, Key]> = {
+  en: ['study.recall_word', 'study.recall_word_self'],
+  it: ['study.recall_word_it', 'study.recall_word_self_it'],
+  es: ['study.recall_word_es', 'study.recall_word_self_es'],
+};
 
 function SpeakButton({ text }: { text: string }) {
   const { t } = useI18n();
@@ -353,7 +361,8 @@ export function StudyPage() {
     if (!current || revealed || checking) return;
     const note = notesById.get(current.note_id);
     if (!note) return;
-    const result = checkTypedAnswer(typed, note.word, studyLang === 'it');
+    const rules = answerRules(studyLang);
+    const result = checkTypedAnswer(typed, note.word, rules.lenient, rules.optionalArticle ? ARTICLE[studyLang] : null);
     // Hide the phone keyboard so the result and buttons are visible.
     (document.activeElement as HTMLElement | null)?.blur();
     if (!result.correct && typed.trim()) {
@@ -437,9 +446,7 @@ export function StudyPage() {
             ) : (
               <div className="front">
                 <div className="prompt muted small">
-                  {studyLang === 'it'
-                    ? t(typing ? 'study.recall_word_it' : 'study.recall_word_self_it')
-                    : t(typing ? 'study.recall_word' : 'study.recall_word_self')}
+                  {t(RECALL_KEYS[studyLang][typing ? 0 : 1])}
                 </div>
                 <div className="translation">{note.translation_ru || '—'}</div>
                 {note.translation_az && <div className="translation az">{note.translation_az}</div>}
@@ -463,7 +470,7 @@ export function StudyPage() {
                       autoCapitalize="none"
                       spellCheck={false}
                       enterKeyHint="done"
-                      aria-label={t(studyLang === 'it' ? 'study.recall_word_it' : 'study.recall_word')}
+                      aria-label={t(RECALL_KEYS[studyLang][0])}
                     />
                   </form>
                 )}
