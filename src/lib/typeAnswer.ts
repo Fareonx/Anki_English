@@ -45,7 +45,13 @@ export function foldAnswer(s: string): string {
  * so "citta" is right for "città" and "come stai" for "Come stai?"; such an answer is marked
  * `inexact` to show the spelling.
  */
-export function checkTypedAnswer(typedRaw: string, expectedRaw: string, lenient = false): TypedResult {
+export function checkTypedAnswer(
+  typedRaw: string,
+  expectedRaw: string,
+  lenient = false,
+  /** When given, the answer may leave out this leading article: "agua" for "el agua". */
+  optionalArticle: RegExp | null = null,
+): TypedResult {
   const typed = typedRaw.replace(/\s+/g, ' ').trim();
   const expected = expectedRaw.replace(/\s+/g, ' ').trim();
   const a = normalizeAnswer(typed);
@@ -80,7 +86,19 @@ export function checkTypedAnswer(typedRaw: string, expectedRaw: string, lenient 
   const sameLength = typed.length === n && expected.length === m;
   const show = (raw: string, norm: string) => (sameLength ? raw : norm);
   const exact = a === b && a.length > 0;
-  const correct = exact || (lenient && a.length > 0 && foldAnswer(a) === foldAnswer(b));
+  // "este / esta": either form is enough.
+  if (lenient && expected.includes(' / ') && !typed.includes('/')) {
+    for (const variant of expected.split(' / ')) {
+      const r = checkTypedAnswer(typedRaw, variant, lenient, optionalArticle);
+      if (r.correct) return { ...r, inexact: true, expected: [...expected].map((ch) => ({ ch, ok: true })) };
+    }
+  }
+  const withoutArticle = optionalArticle ? b.replace(optionalArticle, '') : null;
+  const correct =
+    exact ||
+    (lenient && a.length > 0 && foldAnswer(a) === foldAnswer(b)) ||
+    (withoutArticle !== null && withoutArticle !== b && a.length > 0 &&
+      (lenient ? foldAnswer(a) === foldAnswer(withoutArticle) : a === withoutArticle));
   return {
     correct,
     ...(correct && !exact ? { inexact: true } : {}),

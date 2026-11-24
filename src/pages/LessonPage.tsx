@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useAuth } from '../auth';
-import { LESSONS } from '../lessons/it';
+import { courseFor } from '../lessons';
 import type { Drill, Lesson } from '../lessons/types';
 import { saveLessonResult } from '../lib/db';
 import { useI18n } from '../lib/i18n';
@@ -34,7 +34,8 @@ function shuffled<T>(items: T[]): T[] {
 }
 
 function Theory({ lesson }: { lesson: Lesson }) {
-  const voice = useSpeech('it');
+  const { studyLang } = useAuth();
+  const voice = useSpeech(studyLang);
   return (
     <>
       {lesson.sections.map((s, i) => (
@@ -70,7 +71,7 @@ function Theory({ lesson }: { lesson: Lesson }) {
                 <li key={k}>
                   <b>{e.it}</b>
                   {voice.available && voice.enabled && (
-                    <button type="button" className="icon-btn tiny-speak" onClick={() => speak(e.it, 'it')} aria-label="🔊">
+                    <button type="button" className="icon-btn tiny-speak" onClick={() => speak(e.it, studyLang)} aria-label="🔊">
                       🔊
                     </button>
                   )}
@@ -216,7 +217,8 @@ function Practice({ lesson, onDone }: { lesson: Lesson; onDone: (score: number, 
 
 export function LessonPage() {
   const { lessonId = '' } = useParams();
-  const { student, profile, isAdmin } = useAuth();
+  const { student, profile, isAdmin, studyLang } = useAuth();
+  const LESSONS = courseFor(studyLang)?.lessons ?? [];
   const { t } = useI18n();
   const index = LESSONS.findIndex((l) => l.id === lessonId);
   const lesson = LESSONS[index];

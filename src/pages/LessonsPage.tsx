@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../auth';
-import { LESSONS, UNITS } from '../lessons/it';
+import { courseFor } from '../lessons';
 import { listLessonProgress, type LessonProgress } from '../lib/db';
 import { useI18n } from '../lib/i18n';
 
 /** Grammar lessons by unit of the textbook, with the best result of each. */
 export function LessonsPage() {
-  const { student } = useAuth();
+  const { student, studyLang } = useAuth();
+  const course = courseFor(studyLang);
+  const LESSONS = course?.lessons ?? [];
+  const UNITS = course?.units ?? [];
   const { t } = useI18n();
   const [progress, setProgress] = useState<Map<string, LessonProgress>>(new Map());
 
@@ -24,7 +27,7 @@ export function LessonsPage() {
   return (
     <div className="stack">
       <h2>{t('lessons.title')}</h2>
-      <p className="muted small">{t('lessons.intro')}</p>
+      <p className="muted small">{t(studyLang === 'it' ? 'lessons.intro' : 'lessons.intro_es')}</p>
       <Link to="/lessons/verbs" className="card lesson-item verbs-entry">
         <div className="grow">
           <b>🔁 {t('verbs.title')}</b>

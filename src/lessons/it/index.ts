@@ -1,5 +1,5 @@
 // Italian grammar lessons in the order of the textbook "Nuovo Progetto italiano 1".
-import type { Lesson, Unit } from '../types';
+import type { Course, Lesson, Unit } from '../types';
 import { lessons as u00 } from './u00';
 import { lessons as u01 } from './u01';
 import { lessons as u02 } from './u02';
@@ -12,6 +12,7 @@ import { lessons as u08 } from './u08';
 import { lessons as u09 } from './u09';
 import { lessons as u10 } from './u10';
 import { lessons as u11 } from './u11';
+import { VERBS } from './verbs';
 
 export const UNITS: Unit[] = [
   { unit: 0, title: 'Benvenuti!', ru: 'Добро пожаловать' },
@@ -29,3 +30,27 @@ export const UNITS: Unit[] = [
 ];
 
 export const LESSONS: Lesson[] = [...u00, ...u01, ...u02, ...u03, ...u04, ...u05, ...u06, ...u07, ...u08, ...u09, ...u10, ...u11];
+
+export const COURSE_IT: Course = {
+  units: UNITS,
+  lessons: LESSONS,
+  verbs: VERBS,
+  tenses: [
+    { id: 'presente', label: 'Presente — настоящее', unit: 1 },
+    { id: 'passato', label: 'Passato prossimo — прошедшее', unit: 4 },
+    { id: 'futuro', label: 'Futuro — будущее', unit: 5 },
+    { id: 'imperfetto', label: 'Imperfetto — прошедшее длительное', unit: 7 },
+    { id: 'condizionale', label: 'Condizionale — «бы»', unit: 11 },
+    { id: 'imperativo', label: 'Imperativo — повелительное', unit: 10 },
+  ],
+  persons: ['io', 'tu', 'lui / lei', 'noi', 'voi', 'loro'],
+  groups: [
+    { id: 'are', label: '-are' },
+    { id: 'ere', label: '-ere' },
+    { id: 'ire', label: '-ire' },
+    { id: 'isc', label: '-isc-' },
+    { id: 'irregular', label: 'неправильные' },
+    { id: 'modal', label: 'модальные' },
+    { id: 'reflexive', label: 'возвратные' },
+  ],
+};

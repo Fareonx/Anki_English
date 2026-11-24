@@ -2,13 +2,14 @@ import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../auth';
 import { learnedNotes } from '../lib/stats';
-import type { StudyLang } from '../lib/studyLang';
+import { ARTICLE, type StudyLang } from '../lib/studyLang';
 import { useStudentData } from '../lib/useStudentData';
 import { useI18n } from '../lib/i18n';
 
-/** Italian nouns come with their article ("il libro"): sort them by the noun. */
+/** Italian and Spanish nouns come with their article ("il libro", "el agua"): sort them by the noun. */
 function sortKey(word: string, lang: StudyLang): string {
-  return lang === 'it' ? word.replace(/^(il|lo|la|i|gli|le)\s+|^l['’]/i, '') : word;
+  const article = ARTICLE[lang];
+  return article ? word.replace(article, '') : word;
 }
 
 type Status = 'solid' | 'learned' | 'learning';
